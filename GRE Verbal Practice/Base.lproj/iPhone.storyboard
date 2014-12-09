@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ESg-o7-JSB">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="eBA-6l-vPb">
+            <objects>
+                <navigationController id="ESg-o7-JSB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QNm-OA-MU2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="N8Q-wu-9Ro" kind="relationship" relationship="rootViewController" id="toT-eN-A2P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBE-hj-WJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1436" y="-1404"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="exv-JW-Gar">
+            <objects>
+                <viewController id="N8Q-wu-9Ro" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v5Q-hf-npm"/>
+                        <viewControllerLayoutGuide type="bottom" id="JAg-1N-bI7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MvK-iP-dne">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhK-Oo-rZk">
+                                <rect key="frame" x="224" y="256" width="152" height="30"/>
+                                <state key="normal" title="Sentence Equivalance">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYc-XG-FIb">
+                                <rect key="frame" x="244" y="322" width="112" height="30"/>
+                                <state key="normal" title="Text Completion">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0V-Cg-ZWz">
+                                <rect key="frame" x="250.5" y="388" width="99" height="30"/>
+                                <state key="normal" title="Exam Practice">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e69-Kg-Xkf">
+                                <rect key="frame" x="256" y="124" width="88" height="30"/>
+                                <state key="normal" title="Vocabularies">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9F-Db-V3P">
+                                <rect key="frame" x="215" y="190" width="170" height="30"/>
+                                <state key="normal" title="Reading Comprehension">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EYc-XG-FIb" firstAttribute="top" secondItem="xhK-Oo-rZk" secondAttribute="bottom" constant="36" id="7aa-0y-ayh"/>
+                            <constraint firstAttribute="centerX" secondItem="c0V-Cg-ZWz" secondAttribute="centerX" id="A0R-C6-lW4"/>
+                            <constraint firstAttribute="centerX" secondItem="e69-Kg-Xkf" secondAttribute="centerX" id="ExD-l0-0nN"/>
+                            <constraint firstItem="e69-Kg-Xkf" firstAttribute="top" secondItem="v5Q-hf-npm" secondAttribute="bottom" constant="60" id="IeS-FC-ieL"/>
+                            <constraint firstAttribute="centerX" secondItem="EYc-XG-FIb" secondAttribute="centerX" id="KK9-Km-yFk"/>
+                            <constraint firstAttribute="centerX" secondItem="xhK-Oo-rZk" secondAttribute="centerX" id="Lf0-lw-nyZ"/>
+                            <constraint firstItem="c9F-Db-V3P" firstAttribute="top" secondItem="e69-Kg-Xkf" secondAttribute="bottom" constant="36" id="VNz-Ip-2Yu"/>
+                            <constraint firstItem="EYc-XG-FIb" firstAttribute="centerX" secondItem="c0V-Cg-ZWz" secondAttribute="centerX" id="f1x-iM-eyX"/>
+                            <constraint firstItem="c9F-Db-V3P" firstAttribute="centerX" secondItem="xhK-Oo-rZk" secondAttribute="centerX" id="h81-ky-nsv"/>
+                            <constraint firstAttribute="centerX" secondItem="c9F-Db-V3P" secondAttribute="centerX" id="ilG-RK-uZi"/>
+                            <constraint firstItem="e69-Kg-Xkf" firstAttribute="centerX" secondItem="c9F-Db-V3P" secondAttribute="centerX" id="lI1-WU-6BC"/>
+                            <constraint firstItem="EYc-XG-FIb" firstAttribute="centerX" secondItem="MvK-iP-dne" secondAttribute="centerX" id="ooP-GH-9nh"/>
+                            <constraint firstItem="xhK-Oo-rZk" firstAttribute="centerX" secondItem="EYc-XG-FIb" secondAttribute="centerX" id="qrA-vn-UoN"/>
+                            <constraint firstItem="xhK-Oo-rZk" firstAttribute="top" secondItem="c9F-Db-V3P" secondAttribute="bottom" constant="36" id="ruE-KP-A93"/>
+                            <constraint firstItem="c0V-Cg-ZWz" firstAttribute="top" secondItem="EYc-XG-FIb" secondAttribute="bottom" constant="36" id="sPv-e0-9G2"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lI1-WU-6BC"/>
+                                <exclude reference="h81-ky-nsv"/>
+                                <exclude reference="qrA-vn-UoN"/>
+                                <exclude reference="f1x-iM-eyX"/>
+                                <exclude reference="ooP-GH-9nh"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="aLE-o5-Vk6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l7o-aI-1ud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1436" y="-579"/>
+        </scene>
+    </scenes>
+</document>

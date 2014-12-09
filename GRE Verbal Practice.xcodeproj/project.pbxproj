@@ -10,12 +10,20 @@
 		A6A692161A3766E300414E73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692151A3766E300414E73 /* main.m */; };
 		A6A692191A3766E300414E73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692181A3766E300414E73 /* AppDelegate.m */; };
 		A6A6921C1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6A6921A1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld */; };
-		A6A6921F1A3766E300414E73 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A6921E1A3766E300414E73 /* MasterViewController.m */; };
-		A6A692221A3766E300414E73 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692211A3766E300414E73 /* DetailViewController.m */; };
-		A6A692251A3766E300414E73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A692231A3766E300414E73 /* Main.storyboard */; };
+		A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A692231A3766E300414E73 /* iPhone.storyboard */; };
 		A6A692271A3766E300414E73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A692261A3766E300414E73 /* Images.xcassets */; };
 		A6A6922A1A3766E300414E73 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A692281A3766E300414E73 /* LaunchScreen.xib */; };
 		A6A692361A3766E300414E73 /* GRE_Verbal_PracticeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692351A3766E300414E73 /* GRE_Verbal_PracticeTests.m */; };
+		A6A692421A376BAE00414E73 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692411A376BAE00414E73 /* Question.m */; };
+		A6A692451A376C3E00414E73 /* RCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692441A376C3E00414E73 /* RCQuestion.m */; };
+		A6A692481A376C8700414E73 /* TCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692471A376C8700414E73 /* TCQuestion.m */; };
+		A6A6924B1A376CA400414E73 /* SEQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A6924A1A376CA400414E73 /* SEQuestion.m */; };
+		A6A6924F1A376F2A00414E73 /* RCMSQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A6924E1A376F2A00414E73 /* RCMSQuestion.m */; };
+		A6A692521A376FC500414E73 /* RCCSQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692511A376FC400414E73 /* RCCSQuestion.m */; };
+		A6A692551A37705B00414E73 /* RCText.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692541A37705B00414E73 /* RCText.m */; };
+		A6A692581A3770DA00414E73 /* QuestionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692571A3770DA00414E73 /* QuestionSet.m */; };
+		A6A6925B1A37759F00414E73 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A6925A1A37759F00414E73 /* MainViewController.m */; };
+		A6A6925D1A37804100414E73 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A6925C1A37804100414E73 /* iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,16 +43,31 @@
 		A6A692171A3766E300414E73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A6A692181A3766E300414E73 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A6A6921B1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GRE_Verbal_Practice.xcdatamodel; sourceTree = "<group>"; };
-		A6A6921D1A3766E300414E73 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		A6A6921E1A3766E300414E73 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		A6A692201A3766E300414E73 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		A6A692211A3766E300414E73 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		A6A692241A3766E300414E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A6A692241A3766E300414E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		A6A692261A3766E300414E73 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A6A692291A3766E300414E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A6A6922F1A3766E300414E73 /* GRE Verbal PracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GRE Verbal PracticeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A692341A3766E300414E73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6A692351A3766E300414E73 /* GRE_Verbal_PracticeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRE_Verbal_PracticeTests.m; sourceTree = "<group>"; };
+		A6A692401A376BAE00414E73 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		A6A692411A376BAE00414E73 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		A6A692431A376C3E00414E73 /* RCQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQuestion.h; sourceTree = "<group>"; };
+		A6A692441A376C3E00414E73 /* RCQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCQuestion.m; sourceTree = "<group>"; };
+		A6A692461A376C8700414E73 /* TCQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCQuestion.h; sourceTree = "<group>"; };
+		A6A692471A376C8700414E73 /* TCQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCQuestion.m; sourceTree = "<group>"; };
+		A6A692491A376CA400414E73 /* SEQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEQuestion.h; sourceTree = "<group>"; };
+		A6A6924A1A376CA400414E73 /* SEQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEQuestion.m; sourceTree = "<group>"; };
+		A6A6924D1A376F2A00414E73 /* RCMSQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCMSQuestion.h; sourceTree = "<group>"; };
+		A6A6924E1A376F2A00414E73 /* RCMSQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCMSQuestion.m; sourceTree = "<group>"; };
+		A6A692501A376FC400414E73 /* RCCSQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCCSQuestion.h; sourceTree = "<group>"; };
+		A6A692511A376FC400414E73 /* RCCSQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCCSQuestion.m; sourceTree = "<group>"; };
+		A6A692531A37705B00414E73 /* RCText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCText.h; sourceTree = "<group>"; };
+		A6A692541A37705B00414E73 /* RCText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCText.m; sourceTree = "<group>"; };
+		A6A692561A3770DA00414E73 /* QuestionSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSet.h; sourceTree = "<group>"; };
+		A6A692571A3770DA00414E73 /* QuestionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSet.m; sourceTree = "<group>"; };
+		A6A692591A37759F00414E73 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A6A6925A1A37759F00414E73 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		A6A6925C1A37804100414E73 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = ../iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +109,14 @@
 		A6A692121A3766E300414E73 /* GRE Verbal Practice */ = {
 			isa = PBXGroup;
 			children = (
+				A6A6924C1A376CB400414E73 /* view */,
+				A6A6923F1A376B2200414E73 /* model */,
 				A6A692171A3766E300414E73 /* AppDelegate.h */,
 				A6A692181A3766E300414E73 /* AppDelegate.m */,
-				A6A6921D1A3766E300414E73 /* MasterViewController.h */,
-				A6A6921E1A3766E300414E73 /* MasterViewController.m */,
-				A6A692201A3766E300414E73 /* DetailViewController.h */,
-				A6A692211A3766E300414E73 /* DetailViewController.m */,
-				A6A692231A3766E300414E73 /* Main.storyboard */,
+				A6A692591A37759F00414E73 /* MainViewController.h */,
+				A6A6925A1A37759F00414E73 /* MainViewController.m */,
+				A6A6925C1A37804100414E73 /* iPad.storyboard */,
+				A6A692231A3766E300414E73 /* iPhone.storyboard */,
 				A6A692261A3766E300414E73 /* Images.xcassets */,
 				A6A692281A3766E300414E73 /* LaunchScreen.xib */,
 				A6A6921A1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld */,
@@ -125,6 +149,36 @@
 				A6A692341A3766E300414E73 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6A6923F1A376B2200414E73 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A6A692401A376BAE00414E73 /* Question.h */,
+				A6A692411A376BAE00414E73 /* Question.m */,
+				A6A692431A376C3E00414E73 /* RCQuestion.h */,
+				A6A692441A376C3E00414E73 /* RCQuestion.m */,
+				A6A692461A376C8700414E73 /* TCQuestion.h */,
+				A6A692471A376C8700414E73 /* TCQuestion.m */,
+				A6A692491A376CA400414E73 /* SEQuestion.h */,
+				A6A6924A1A376CA400414E73 /* SEQuestion.m */,
+				A6A6924D1A376F2A00414E73 /* RCMSQuestion.h */,
+				A6A6924E1A376F2A00414E73 /* RCMSQuestion.m */,
+				A6A692501A376FC400414E73 /* RCCSQuestion.h */,
+				A6A692511A376FC400414E73 /* RCCSQuestion.m */,
+				A6A692531A37705B00414E73 /* RCText.h */,
+				A6A692541A37705B00414E73 /* RCText.m */,
+				A6A692561A3770DA00414E73 /* QuestionSet.h */,
+				A6A692571A3770DA00414E73 /* QuestionSet.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		A6A6924C1A376CB400414E73 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +261,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6A692251A3766E300414E73 /* Main.storyboard in Resources */,
+				A6A6925D1A37804100414E73 /* iPad.storyboard in Resources */,
+				A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */,
 				A6A6922A1A3766E300414E73 /* LaunchScreen.xib in Resources */,
 				A6A692271A3766E300414E73 /* Images.xcassets in Resources */,
 			);
@@ -227,10 +282,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6A692221A3766E300414E73 /* DetailViewController.m in Sources */,
-				A6A6921F1A3766E300414E73 /* MasterViewController.m in Sources */,
+				A6A6924F1A376F2A00414E73 /* RCMSQuestion.m in Sources */,
+				A6A692451A376C3E00414E73 /* RCQuestion.m in Sources */,
+				A6A692521A376FC500414E73 /* RCCSQuestion.m in Sources */,
 				A6A692191A3766E300414E73 /* AppDelegate.m in Sources */,
+				A6A692421A376BAE00414E73 /* Question.m in Sources */,
+				A6A6924B1A376CA400414E73 /* SEQuestion.m in Sources */,
 				A6A692161A3766E300414E73 /* main.m in Sources */,
+				A6A6925B1A37759F00414E73 /* MainViewController.m in Sources */,
+				A6A692551A37705B00414E73 /* RCText.m in Sources */,
+				A6A692481A376C8700414E73 /* TCQuestion.m in Sources */,
+				A6A692581A3770DA00414E73 /* QuestionSet.m in Sources */,
 				A6A6921C1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,12 +316,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A6A692231A3766E300414E73 /* Main.storyboard */ = {
+		A6A692231A3766E300414E73 /* iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A6A692241A3766E300414E73 /* Base */,
 			);
-			name = Main.storyboard;
+			name = iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		A6A692281A3766E300414E73 /* LaunchScreen.xib */ = {
@@ -345,6 +407,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -355,9 +418,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "GRE Verbal Practice/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -365,9 +431,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "GRE Verbal Practice/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -386,6 +455,7 @@
 				INFOPLIST_FILE = "GRE Verbal PracticeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GRE Verbal Practice.app/GRE Verbal Practice";
 			};
 			name = Debug;
@@ -401,6 +471,7 @@
 				INFOPLIST_FILE = "GRE Verbal PracticeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GRE Verbal Practice.app/GRE Verbal Practice";
 			};
 			name = Release;
@@ -424,6 +495,7 @@
 				A6A6923B1A3766E300414E73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A6A6923C1A3766E300414E73 /* Build configuration list for PBXNativeTarget "GRE Verbal PracticeTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +504,7 @@
 				A6A6923E1A3766E300414E73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
