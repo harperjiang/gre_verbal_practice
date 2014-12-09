@@ -23,7 +23,10 @@
 		A6A692551A37705B00414E73 /* RCText.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692541A37705B00414E73 /* RCText.m */; };
 		A6A692581A3770DA00414E73 /* QuestionSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692571A3770DA00414E73 /* QuestionSet.m */; };
 		A6A6925B1A37759F00414E73 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A6925A1A37759F00414E73 /* MainViewController.m */; };
-		A6A6925D1A37804100414E73 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A6925C1A37804100414E73 /* iPad.storyboard */; };
+		A6A692631A37856000414E73 /* TCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692621A37856000414E73 /* TCViewController.m */; };
+		A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692661A3788A700414E73 /* GRERadioButton.m */; };
+		A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692691A3788B800414E73 /* GREChoiceBox.m */; };
+		A6A8B87C1A37C1E60096BCAB /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +70,13 @@
 		A6A692571A3770DA00414E73 /* QuestionSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSet.m; sourceTree = "<group>"; };
 		A6A692591A37759F00414E73 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A6A6925A1A37759F00414E73 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		A6A6925C1A37804100414E73 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = ../iPad.storyboard; sourceTree = "<group>"; };
+		A6A692611A37856000414E73 /* TCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCViewController.h; sourceTree = "<group>"; };
+		A6A692621A37856000414E73 /* TCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCViewController.m; sourceTree = "<group>"; };
+		A6A692651A3788A700414E73 /* GRERadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRERadioButton.h; sourceTree = "<group>"; };
+		A6A692661A3788A700414E73 /* GRERadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRERadioButton.m; sourceTree = "<group>"; };
+		A6A692681A3788B800414E73 /* GREChoiceBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GREChoiceBox.h; sourceTree = "<group>"; };
+		A6A692691A3788B800414E73 /* GREChoiceBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GREChoiceBox.m; sourceTree = "<group>"; };
+		A6A8B87B1A37C1E60096BCAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "GRE Verbal Practice/Base.lproj/iPad.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,13 +118,14 @@
 		A6A692121A3766E300414E73 /* GRE Verbal Practice */ = {
 			isa = PBXGroup;
 			children = (
+				A6A692641A37888900414E73 /* ui */,
 				A6A6924C1A376CB400414E73 /* view */,
 				A6A6923F1A376B2200414E73 /* model */,
 				A6A692171A3766E300414E73 /* AppDelegate.h */,
 				A6A692181A3766E300414E73 /* AppDelegate.m */,
 				A6A692591A37759F00414E73 /* MainViewController.h */,
 				A6A6925A1A37759F00414E73 /* MainViewController.m */,
-				A6A6925C1A37804100414E73 /* iPad.storyboard */,
+				A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */,
 				A6A692231A3766E300414E73 /* iPhone.storyboard */,
 				A6A692261A3766E300414E73 /* Images.xcassets */,
 				A6A692281A3766E300414E73 /* LaunchScreen.xib */,
@@ -177,8 +187,21 @@
 		A6A6924C1A376CB400414E73 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A6A692611A37856000414E73 /* TCViewController.h */,
+				A6A692621A37856000414E73 /* TCViewController.m */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		A6A692641A37888900414E73 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				A6A692651A3788A700414E73 /* GRERadioButton.h */,
+				A6A692661A3788A700414E73 /* GRERadioButton.m */,
+				A6A692681A3788B800414E73 /* GREChoiceBox.h */,
+				A6A692691A3788B800414E73 /* GREChoiceBox.m */,
+			);
+			name = ui;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +284,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6A6925D1A37804100414E73 /* iPad.storyboard in Resources */,
 				A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */,
 				A6A6922A1A3766E300414E73 /* LaunchScreen.xib in Resources */,
+				A6A8B87C1A37C1E60096BCAB /* iPad.storyboard in Resources */,
 				A6A692271A3766E300414E73 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,7 +308,9 @@
 				A6A6924F1A376F2A00414E73 /* RCMSQuestion.m in Sources */,
 				A6A692451A376C3E00414E73 /* RCQuestion.m in Sources */,
 				A6A692521A376FC500414E73 /* RCCSQuestion.m in Sources */,
+				A6A692631A37856000414E73 /* TCViewController.m in Sources */,
 				A6A692191A3766E300414E73 /* AppDelegate.m in Sources */,
+				A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */,
 				A6A692421A376BAE00414E73 /* Question.m in Sources */,
 				A6A6924B1A376CA400414E73 /* SEQuestion.m in Sources */,
 				A6A692161A3766E300414E73 /* main.m in Sources */,
@@ -293,6 +318,7 @@
 				A6A692551A37705B00414E73 /* RCText.m in Sources */,
 				A6A692481A376C8700414E73 /* TCQuestion.m in Sources */,
 				A6A692581A3770DA00414E73 /* QuestionSet.m in Sources */,
+				A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */,
 				A6A6921C1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +356,15 @@
 				A6A692291A3766E300414E73 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6A8B87B1A37C1E60096BCAB /* Base */,
+			);
+			name = iPad.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
