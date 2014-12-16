@@ -36,7 +36,6 @@
     NSInteger BOX_SIZE = 20;
     
     NSInteger maxX = 0;
-    UILabel* estimator = [[UILabel alloc] init];
     
     group = [[GREButtonGroup alloc] init];
     

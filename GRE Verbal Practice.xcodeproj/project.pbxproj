@@ -14,14 +14,27 @@
 		A66FDBDE1A3F33EE00DAAE13 /* GREButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A66FDBDD1A3F33EE00DAAE13 /* GREButtonGroup.m */; };
 		A66FDBE11A3F47B700DAAE13 /* SEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A66FDBE01A3F47B700DAAE13 /* SEViewController.m */; };
 		A66FDBE41A3F47E800DAAE13 /* SEAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A66FDBE31A3F47E800DAAE13 /* SEAnswerView.m */; };
+		A678714C1A40909800AEE184 /* Article.png in Resources */ = {isa = PBXBuildFile; fileRef = A678714A1A40909800AEE184 /* Article.png */; };
+		A678714D1A40909800AEE184 /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = A678714B1A40909800AEE184 /* Question.png */; };
+		A67871501A4090C000AEE184 /* Article@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A678714E1A4090C000AEE184 /* Article@2x.png */; };
+		A67871511A4090C000AEE184 /* Question@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A678714F1A4090C000AEE184 /* Question@2x.png */; };
+		A67871541A4090EA00AEE184 /* Article@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871521A4090EA00AEE184 /* Article@3x.png */; };
+		A67871551A4090EA00AEE184 /* Question@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871531A4090EA00AEE184 /* Question@3x.png */; };
+		A67871581A40954100AEE184 /* Vocabulary.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871571A40954100AEE184 /* Vocabulary.m */; };
+		A678715B1A40961200AEE184 /* VocabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A678715A1A40961200AEE184 /* VocabViewController.m */; };
+		A678715E1A40BA6400AEE184 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A678715D1A40BA6400AEE184 /* NavViewController.m */; };
+		A67871621A40C2BD00AEE184 /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871601A40C2BD00AEE184 /* Next.png */; };
+		A67871631A40C2BD00AEE184 /* Previous.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871611A40C2BD00AEE184 /* Previous.png */; };
+		A67871661A40C2DC00AEE184 /* Next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871641A40C2DC00AEE184 /* Next@2x.png */; };
+		A67871671A40C2DC00AEE184 /* Previous@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871651A40C2DC00AEE184 /* Previous@2x.png */; };
+		A678716E1A40C4AA00AEE184 /* ExamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A678716D1A40C4AA00AEE184 /* ExamViewController.m */; };
+		A67871701A40E24D00AEE184 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A678716F1A40E24D00AEE184 /* iAd.framework */; };
+		A67871741A40E54A00AEE184 /* Mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871731A40E54A00AEE184 /* Mark.png */; };
+		A67871761A40E56100AEE184 /* Mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871751A40E56100AEE184 /* Mark@2x.png */; };
 		A6A06F191A3F8D8C00D5F8D2 /* RCQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */; };
 		A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F1B1A3F8DA000D5F8D2 /* RCAnswerView.m */; };
 		A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */; };
 		A6A06F251A3FA17D00D5F8D2 /* RCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F241A3FA17D00D5F8D2 /* RCViewController.m */; };
-		A6A06F311A408A4500D5F8D2 /* Article.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A06F2F1A408A4500D5F8D2 /* Article.png */; };
-		A6A06F321A408A4500D5F8D2 /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A06F301A408A4500D5F8D2 /* Question.png */; };
-		A6A06F351A408A7A00D5F8D2 /* Article_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A06F331A408A7A00D5F8D2 /* Article_selected.png */; };
-		A6A06F361A408A7A00D5F8D2 /* Question_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A06F341A408A7A00D5F8D2 /* Question_selected.png */; };
 		A6A692161A3766E300414E73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692151A3766E300414E73 /* main.m */; };
 		A6A692191A3766E300414E73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692181A3766E300414E73 /* AppDelegate.m */; };
 		A6A6921C1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6A6921A1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld */; };
@@ -69,6 +82,27 @@
 		A66FDBE01A3F47B700DAAE13 /* SEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEViewController.m; sourceTree = "<group>"; };
 		A66FDBE21A3F47E800DAAE13 /* SEAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAnswerView.h; sourceTree = "<group>"; };
 		A66FDBE31A3F47E800DAAE13 /* SEAnswerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAnswerView.m; sourceTree = "<group>"; };
+		A678714A1A40909800AEE184 /* Article.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Article.png; sourceTree = "<group>"; };
+		A678714B1A40909800AEE184 /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
+		A678714E1A4090C000AEE184 /* Article@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Article@2x.png"; sourceTree = "<group>"; };
+		A678714F1A4090C000AEE184 /* Question@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Question@2x.png"; sourceTree = "<group>"; };
+		A67871521A4090EA00AEE184 /* Article@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Article@3x.png"; sourceTree = "<group>"; };
+		A67871531A4090EA00AEE184 /* Question@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Question@3x.png"; sourceTree = "<group>"; };
+		A67871561A40954100AEE184 /* Vocabulary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vocabulary.h; sourceTree = "<group>"; };
+		A67871571A40954100AEE184 /* Vocabulary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vocabulary.m; sourceTree = "<group>"; };
+		A67871591A40961200AEE184 /* VocabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabViewController.h; sourceTree = "<group>"; };
+		A678715A1A40961200AEE184 /* VocabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabViewController.m; sourceTree = "<group>"; };
+		A678715C1A40BA6400AEE184 /* NavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
+		A678715D1A40BA6400AEE184 /* NavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavViewController.m; sourceTree = "<group>"; };
+		A67871601A40C2BD00AEE184 /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
+		A67871611A40C2BD00AEE184 /* Previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous.png; sourceTree = "<group>"; };
+		A67871641A40C2DC00AEE184 /* Next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Next@2x.png"; sourceTree = "<group>"; };
+		A67871651A40C2DC00AEE184 /* Previous@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Previous@2x.png"; sourceTree = "<group>"; };
+		A678716C1A40C4AA00AEE184 /* ExamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamViewController.h; sourceTree = "<group>"; };
+		A678716D1A40C4AA00AEE184 /* ExamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamViewController.m; sourceTree = "<group>"; };
+		A678716F1A40E24D00AEE184 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A67871731A40E54A00AEE184 /* Mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mark.png; path = ../../../Downloads/iOS7_icons_free/PNG/32/Very_Basic/Mark.png; sourceTree = "<group>"; };
+		A67871751A40E56100AEE184 /* Mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mark@2x.png"; path = "../../../Downloads/iOS7_icons_free/PNG/50/Very_Basic/Mark@2x.png"; sourceTree = "<group>"; };
 		A6A06F171A3F8D8C00D5F8D2 /* RCQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQViewController.h; sourceTree = "<group>"; };
 		A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCQViewController.m; sourceTree = "<group>"; };
 		A6A06F1A1A3F8DA000D5F8D2 /* RCAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnswerView.h; sourceTree = "<group>"; };
@@ -77,10 +111,6 @@
 		A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAViewController.m; sourceTree = "<group>"; };
 		A6A06F231A3FA17D00D5F8D2 /* RCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCViewController.h; sourceTree = "<group>"; };
 		A6A06F241A3FA17D00D5F8D2 /* RCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCViewController.m; sourceTree = "<group>"; };
-		A6A06F2F1A408A4500D5F8D2 /* Article.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Article.png; sourceTree = "<group>"; };
-		A6A06F301A408A4500D5F8D2 /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
-		A6A06F331A408A7A00D5F8D2 /* Article_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Article_selected.png; sourceTree = "<group>"; };
-		A6A06F341A408A7A00D5F8D2 /* Question_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question_selected.png; sourceTree = "<group>"; };
 		A6A692101A3766E300414E73 /* GRE Verbal Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GRE Verbal Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A692141A3766E300414E73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6A692151A3766E300414E73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67871701A40E24D00AEE184 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +172,18 @@
 		A6A06F261A40853800D5F8D2 /* res */ = {
 			isa = PBXGroup;
 			children = (
-				A6A06F331A408A7A00D5F8D2 /* Article_selected.png */,
-				A6A06F341A408A7A00D5F8D2 /* Question_selected.png */,
-				A6A06F2F1A408A4500D5F8D2 /* Article.png */,
-				A6A06F301A408A4500D5F8D2 /* Question.png */,
+				A67871751A40E56100AEE184 /* Mark@2x.png */,
+				A67871731A40E54A00AEE184 /* Mark.png */,
+				A67871641A40C2DC00AEE184 /* Next@2x.png */,
+				A67871651A40C2DC00AEE184 /* Previous@2x.png */,
+				A67871601A40C2BD00AEE184 /* Next.png */,
+				A67871611A40C2BD00AEE184 /* Previous.png */,
+				A67871521A4090EA00AEE184 /* Article@3x.png */,
+				A67871531A4090EA00AEE184 /* Question@3x.png */,
+				A678714E1A4090C000AEE184 /* Article@2x.png */,
+				A678714F1A4090C000AEE184 /* Question@2x.png */,
+				A678714A1A40909800AEE184 /* Article.png */,
+				A678714B1A40909800AEE184 /* Question.png */,
 			);
 			name = res;
 			sourceTree = "<group>";
@@ -152,6 +191,7 @@
 		A6A692071A3766E300414E73 = {
 			isa = PBXGroup;
 			children = (
+				A678716F1A40E24D00AEE184 /* iAd.framework */,
 				A6A692121A3766E300414E73 /* GRE Verbal Practice */,
 				A6A692321A3766E300414E73 /* GRE Verbal PracticeTests */,
 				A6A692111A3766E300414E73 /* Products */,
@@ -176,8 +216,6 @@
 				A6A6923F1A376B2200414E73 /* model */,
 				A6A692171A3766E300414E73 /* AppDelegate.h */,
 				A6A692181A3766E300414E73 /* AppDelegate.m */,
-				A6A692591A37759F00414E73 /* MainViewController.h */,
-				A6A6925A1A37759F00414E73 /* MainViewController.m */,
 				A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */,
 				A6A692231A3766E300414E73 /* iPhone.storyboard */,
 				A6A692261A3766E300414E73 /* Images.xcassets */,
@@ -233,6 +271,8 @@
 				A6A692541A37705B00414E73 /* RCText.m */,
 				A6A692561A3770DA00414E73 /* QuestionSet.h */,
 				A6A692571A3770DA00414E73 /* QuestionSet.m */,
+				A67871561A40954100AEE184 /* Vocabulary.h */,
+				A67871571A40954100AEE184 /* Vocabulary.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -240,6 +280,12 @@
 		A6A6924C1A376CB400414E73 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A6A692591A37759F00414E73 /* MainViewController.h */,
+				A6A6925A1A37759F00414E73 /* MainViewController.m */,
+				A678715C1A40BA6400AEE184 /* NavViewController.h */,
+				A678715D1A40BA6400AEE184 /* NavViewController.m */,
+				A678716C1A40C4AA00AEE184 /* ExamViewController.h */,
+				A678716D1A40C4AA00AEE184 /* ExamViewController.m */,
 				A6A692611A37856000414E73 /* TCViewController.h */,
 				A6A692621A37856000414E73 /* TCViewController.m */,
 				A66FDBD01A3E20E200DAAE13 /* TCAnswerView.h */,
@@ -256,6 +302,8 @@
 				A6A06F1B1A3F8DA000D5F8D2 /* RCAnswerView.m */,
 				A6A06F201A3FA13D00D5F8D2 /* RCAViewController.h */,
 				A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */,
+				A67871591A40961200AEE184 /* VocabViewController.h */,
+				A678715A1A40961200AEE184 /* VocabViewController.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -359,13 +407,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6A06F311A408A4500D5F8D2 /* Article.png in Resources */,
+				A67871551A4090EA00AEE184 /* Question@3x.png in Resources */,
+				A67871671A40C2DC00AEE184 /* Previous@2x.png in Resources */,
+				A678714C1A40909800AEE184 /* Article.png in Resources */,
 				A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */,
-				A6A06F321A408A4500D5F8D2 /* Question.png in Resources */,
+				A67871541A4090EA00AEE184 /* Article@3x.png in Resources */,
+				A67871631A40C2BD00AEE184 /* Previous.png in Resources */,
+				A678714D1A40909800AEE184 /* Question.png in Resources */,
+				A67871621A40C2BD00AEE184 /* Next.png in Resources */,
 				A6A6922A1A3766E300414E73 /* LaunchScreen.xib in Resources */,
-				A6A06F351A408A7A00D5F8D2 /* Article_selected.png in Resources */,
+				A67871661A40C2DC00AEE184 /* Next@2x.png in Resources */,
+				A67871501A4090C000AEE184 /* Article@2x.png in Resources */,
 				A6A8B87C1A37C1E60096BCAB /* iPad.storyboard in Resources */,
-				A6A06F361A408A7A00D5F8D2 /* Question_selected.png in Resources */,
+				A67871761A40E56100AEE184 /* Mark@2x.png in Resources */,
+				A67871511A4090C000AEE184 /* Question@2x.png in Resources */,
+				A67871741A40E54A00AEE184 /* Mark.png in Resources */,
 				A6A692271A3766E300414E73 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +444,8 @@
 				A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */,
 				A6A692451A376C3E00414E73 /* RCQuestion.m in Sources */,
 				A6A06F251A3FA17D00D5F8D2 /* RCViewController.m in Sources */,
+				A67871581A40954100AEE184 /* Vocabulary.m in Sources */,
+				A678716E1A40C4AA00AEE184 /* ExamViewController.m in Sources */,
 				A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */,
 				A66FDBDE1A3F33EE00DAAE13 /* GREButtonGroup.m in Sources */,
 				A6A692521A376FC500414E73 /* RCCSQuestion.m in Sources */,
@@ -406,9 +464,11 @@
 				A6A692551A37705B00414E73 /* RCText.m in Sources */,
 				A6A692481A376C8700414E73 /* TCQuestion.m in Sources */,
 				A6A692581A3770DA00414E73 /* QuestionSet.m in Sources */,
+				A678715E1A40BA6400AEE184 /* NavViewController.m in Sources */,
 				A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */,
 				A66FDBD21A3E20E200DAAE13 /* TCAnswerView.m in Sources */,
 				A66FDBE11A3F47B700DAAE13 /* SEViewController.m in Sources */,
+				A678715B1A40961200AEE184 /* VocabViewController.m in Sources */,
 				A6A6921C1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
