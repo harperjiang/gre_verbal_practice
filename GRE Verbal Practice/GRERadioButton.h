@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "GREButton.h"
 
-@interface GRERadioButton : UIButton
+@interface GRERadioButton : GREButton
+
 
 @end

@@ -20,4 +20,6 @@
 
 @property(nonatomic, readwrite, retain) NSArray* paragraphs;
 
+-(NSString*) toString;
+
 @end

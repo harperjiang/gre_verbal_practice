@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GREButton.h"
 
-@interface GREChoiceBox : UIButton
+@interface GREChoiceBox : GREButton
 
 @end
