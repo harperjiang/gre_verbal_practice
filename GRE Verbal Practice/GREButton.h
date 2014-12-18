@@ -11,5 +11,6 @@
 @interface GREButton : UIButton
 
 @property(nonatomic,readwrite) BOOL chosen;
+@property(nonatomic,readwrite) BOOL rightAnswer;
 
 @end

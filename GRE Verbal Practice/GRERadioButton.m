@@ -15,14 +15,22 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     
     CGRect range = CGRectMake(1, rect.size.height / 6, rect.size.width-2, rect.size.height * 2 / 3);
     
     CGContextStrokeEllipseInRect(context, range);
     if(self.chosen) {
+        CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+        CGContextFillEllipseInRect(context, range);
+    } else if(self.rightAnswer) {
+        CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
         CGContextFillEllipseInRect(context, range);
     }
+    
+    CGContextRestoreGState(context);
 }
 
 

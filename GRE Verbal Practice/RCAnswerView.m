@@ -92,4 +92,11 @@
 
 }
 
+- (void)showAnswers:(NSArray *)answers {
+    for(int i = 0 ; i < answers.count ; i++) {
+        NSInteger index = [(NSNumber*)[answers objectAtIndex:i] integerValue];
+        [(GREButton*)[self->group.buttons objectAtIndex:index] setRightAnswer:YES];
+    }
+}
+
 @end

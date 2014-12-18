@@ -7,6 +7,9 @@
 //
 
 #import "MainViewController.h"
+#import "QuestionViewController.h"
+#import "ExamViewController.h"
+#import "VocabViewController.h"
 
 @interface MainViewController ()
 
@@ -24,14 +27,41 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([[segue destinationViewController] isKindOfClass:[QuestionViewController class]]) {
+        // Determine the question type
+        UIButton* btn = (UIButton*)sender;
+        QuestionType qt = READING_COMP;
+        if ([@"Reading Comprehension" isEqualToString: btn.titleLabel.text]) {
+            qt = READING_COMP;
+        }
+        if ([@"Sentence Equivalance" isEqualToString: btn.titleLabel.text]) {
+            qt = SENTENCE_EQUIV;
+        }
+        if ([@"Text Completion" isEqualToString: btn.titleLabel.text]) {
+            qt = TEXT_COMPLETION;
+        }
+        QuestionViewController* qvc = (QuestionViewController*) [segue destinationViewController];
+        [qvc setQuestionType: qt];
+        
+        // Load Question List
+        
+    }
+    if([[segue destinationViewController] isKindOfClass:[ExamViewController class]]) {
+        // Load Exam Question List
+        
+    }
+    if([[segue destinationViewController] isKindOfClass:[VocabViewController class]]) {
+        // Load Vocabulary List
+        
+    }
 }
-*/
+
 
 @end

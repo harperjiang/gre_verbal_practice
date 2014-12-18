@@ -17,4 +17,6 @@
 
 @property(nonatomic, readwrite, retain) RCQuestion* questionData;
 
+- (void)showAnswers:(NSArray*) answers;
+
 @end

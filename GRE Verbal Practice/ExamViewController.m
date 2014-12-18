@@ -22,10 +22,34 @@
     sevc = (SEViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"SEViewController"];
     tcvc = (TCViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"TCViewController"];
     rcvc = (RCViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"RCViewController"];
+    ervc = (ExamResultViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ExamResultViewController"];
 }
 
-- (void)viewDidLayoutSubviews {
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
+    // Initialize Timer
+    timer = [[ExamTimer alloc] initWithMinutes:30 target:self interval: @selector(timerInterval:) done: @selector(showResultView)];
+
+}
+
+- (void)timerInterval:(NSNumber*) r {
+    long remain = [r longValue];
+    long hour = remain / 3600;
+    remain = remain % 3600;
+    long minute = remain / 60;
+    long second = remain % 60;
+    [self.timeLabel setText:[NSString stringWithFormat:@"%02ld:%02ld:%02ld", hour, minute, second]];
+}
+
+- (void)showResultView {
+    // Send Result Information to Result view
+    // TODO
+    // Show result view and disable toolbar
+    [self switchController:ervc];
+    [self.toolbar setHidden:YES];
+    [self.timeLabel setHidden:YES];
+    [self->timer stop];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,11 +92,23 @@
 }
 
 - (void)prevQuestion:(id)button {
-    
+    if(currentVC == nil) {
+        [self switchController: rcvc];
+    } else if(currentVC == rcvc) {
+        [self switchController: tcvc];
+    } else if(currentVC == tcvc) {
+        [self switchController: sevc];
+    } else if(currentVC == sevc) {
+        [self switchController: rcvc];
+    }
 }
 
 - (void)markQuestion:(id)button {
     
+}
+
+- (void)showResult:(id)button {
+    [self showResultView];
 }
 
 /*

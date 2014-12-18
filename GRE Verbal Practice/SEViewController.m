@@ -31,6 +31,12 @@
     [options addObject:@"Option 7 is very very very very very very long"];
     [question setOptions:options];
     
+    NSMutableArray* answers = [[NSMutableArray alloc] init];
+    [answers addObject: [[NSNumber alloc] initWithInteger:0]];
+    [answers addObject: [[NSNumber alloc] initWithInteger:1]];
+    
+    [question setAnswers:answers];
+    
     [self setQuestionData:question];
     
 }
@@ -47,6 +53,9 @@
     [self.answerView setOptions: questionData.options];
 }
 
+- (void)showAnswer {
+    [self.answerView showAnswer: self.questionData.answers];
+}
 /*
 #pragma mark - Navigation
 

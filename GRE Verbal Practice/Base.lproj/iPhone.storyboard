@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ESg-o7-JSB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -9,17 +10,21 @@
         <scene sceneID="eBA-6l-vPb">
             <objects>
                 <navigationController id="ESg-o7-JSB" customClass="NavViewController" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QNm-OA-MU2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="f9S-Tx-VYb">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="N8Q-wu-9Ro" kind="relationship" relationship="rootViewController" id="toT-eN-A2P"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBE-hj-WJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2066" y="-1264"/>
+            <point key="canvasLocation" x="-3500" y="-2048"/>
         </scene>
         <!--Question-->
         <scene sceneID="bfK-WG-2rf">
@@ -80,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1Q-zZ-Bcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-144" y="-736"/>
+            <point key="canvasLocation" x="1912" y="-989"/>
         </scene>
         <!--Article-->
         <scene sceneID="3Lm-7B-bUj">
@@ -131,7 +136,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTj-Eb-2qn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-144" y="-1449"/>
+            <point key="canvasLocation" x="968" y="-989"/>
         </scene>
         <!--Vocabulary-->
         <scene sceneID="KLp-RG-QNh">
@@ -273,7 +278,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFN-8A-uMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1129" y="-1977"/>
+            <point key="canvasLocation" x="-2558" y="-1045"/>
         </scene>
         <!--Reading Comprehension-->
         <scene sceneID="etJ-1W-Icm">
@@ -292,7 +297,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRe-Xt-puD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1121" y="-1096"/>
+            <point key="canvasLocation" x="1431" y="-2048"/>
         </scene>
         <!--Sentence Equivalance-->
         <scene sceneID="jai-0x-Z9t">
@@ -366,7 +371,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDG-gc-M4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1121" y="-283"/>
+            <point key="canvasLocation" x="538" y="-2048"/>
         </scene>
         <!--Text Completion-->
         <scene sceneID="whR-sr-jvC">
@@ -426,12 +431,12 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8t-75-tdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1129" y="569"/>
+            <point key="canvasLocation" x="2355" y="-2048"/>
         </scene>
-        <!--Exam View Controller-->
+        <!--Exam Practice-->
         <scene sceneID="osU-0p-RsU">
             <objects>
-                <viewController id="QG5-uM-2h0" customClass="ExamViewController" sceneMemberID="viewController">
+                <viewController title="Exam Practice" id="QG5-uM-2h0" customClass="ExamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uiS-3o-2Ze"/>
                         <viewControllerLayoutGuide type="bottom" id="ETW-ui-vNl"/>
@@ -443,25 +448,30 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XkH-9h-TlS">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem image="Previous" width="40" id="3By-zq-G18">
+                                    <barButtonItem image="Previous" width="20" id="3By-zq-G18">
                                         <connections>
                                             <action selector="prevQuestion:" destination="QG5-uM-2h0" id="Zep-kq-Wgp"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem tag="1" image="Mark" width="40" id="YlF-8f-dyl">
+                                    <barButtonItem tag="1" image="Mark" width="20" id="YlF-8f-dyl">
                                         <connections>
                                             <action selector="markQuestion:" destination="QG5-uM-2h0" id="T25-C8-8bc"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem tag="2" image="Next" width="40" id="3jA-iC-sFX">
+                                    <barButtonItem tag="2" image="Next" width="30" id="3jA-iC-sFX">
                                         <connections>
                                             <action selector="nextQuestion:" destination="QG5-uM-2h0" id="tGw-zf-YZP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="Result" id="Dbi-bf-p0d">
+                                        <connections>
+                                            <action selector="showResult:" destination="QG5-uM-2h0" id="ooO-Rq-e9V"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLO-3l-P7N">
-                                <rect key="frame" x="504" y="567.5" width="80" height="20.5"/>
+                                <rect key="frame" x="504" y="567" width="80" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="nn9-iT-HP4"/>
                                 </constraints>
@@ -498,11 +508,189 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <connections>
                         <outlet property="containerView" destination="d3z-Nw-uv4" id="2hx-m1-uem"/>
                         <outlet property="timeLabel" destination="pLO-3l-P7N" id="vE7-EN-wqu"/>
+                        <outlet property="toolbar" destination="XkH-9h-TlS" id="3hK-mx-45B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8E-XP-YRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1129" y="1338"/>
+            <point key="canvasLocation" x="-1808" y="-1045"/>
+        </scene>
+        <!--Questions-->
+        <scene sceneID="CUs-rY-XWm">
+            <objects>
+                <viewController title="Questions" id="NkK-0d-pNo" customClass="QuestionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G6n-1Q-cru"/>
+                        <viewControllerLayoutGuide type="bottom" id="7mW-Di-x7X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="anN-QY-ral">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZ1-Ox-GXL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfl-77-PxQ">
+                                <rect key="frame" x="337" y="495" width="200" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-Sz-PF4">
+                                        <rect key="frame" x="18" y="10" width="94" height="30"/>
+                                        <state key="normal" title="Show Answer">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showAnswer:" destination="NkK-0d-pNo" eventType="touchUpInside" id="hXs-br-1Ol"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o95-aa-B4z">
+                                        <rect key="frame" x="140" y="10" width="40" height="30"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextQuestion:" destination="NkK-0d-pNo" eventType="touchUpInside" id="gb0-oe-HqO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EE1-S4-wPj"/>
+                                    <constraint firstAttribute="width" constant="200" id="g2A-S8-DpN"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUd-Hr-Awc">
+                                <rect key="frame" x="552" y="505" width="32" height="30"/>
+                                <state key="normal" title="Hide">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleToolbar:" destination="NkK-0d-pNo" eventType="touchUpInside" id="oCO-fX-qPc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7mW-Di-x7X" firstAttribute="top" secondItem="dfl-77-PxQ" secondAttribute="bottom" constant="55" id="17q-h9-S6s"/>
+                            <constraint firstAttribute="trailing" secondItem="cZ1-Ox-GXL" secondAttribute="trailing" id="26f-CK-lWL"/>
+                            <constraint firstItem="dfl-77-PxQ" firstAttribute="leading" secondItem="anN-QY-ral" secondAttribute="leading" constant="334" id="8cy-aa-YZd"/>
+                            <constraint firstItem="dfl-77-PxQ" firstAttribute="leading" secondItem="anN-QY-ral" secondAttribute="leading" constant="337" id="ARZ-1T-lt1"/>
+                            <constraint firstItem="dfl-77-PxQ" firstAttribute="top" secondItem="G6n-1Q-cru" secondAttribute="bottom" constant="471" id="DK1-LB-b2f"/>
+                            <constraint firstItem="DUd-Hr-Awc" firstAttribute="trailing" secondItem="anN-QY-ral" secondAttribute="trailingMargin" id="Mxm-w8-Mu0"/>
+                            <constraint firstItem="dfl-77-PxQ" firstAttribute="top" secondItem="G6n-1Q-cru" secondAttribute="bottom" constant="476" id="Ntt-tb-LLA"/>
+                            <constraint firstItem="cZ1-Ox-GXL" firstAttribute="top" secondItem="anN-QY-ral" secondAttribute="top" id="ahD-si-JEK"/>
+                            <constraint firstItem="dfl-77-PxQ" firstAttribute="centerY" secondItem="DUd-Hr-Awc" secondAttribute="centerY" id="dH9-r9-FRv"/>
+                            <constraint firstItem="cZ1-Ox-GXL" firstAttribute="bottom" secondItem="7mW-Di-x7X" secondAttribute="top" id="dmW-fu-YZ3"/>
+                            <constraint firstItem="cZ1-Ox-GXL" firstAttribute="leading" secondItem="anN-QY-ral" secondAttribute="leading" id="prL-hB-axV"/>
+                            <constraint firstItem="DUd-Hr-Awc" firstAttribute="leading" secondItem="dfl-77-PxQ" secondAttribute="trailing" constant="15" id="urR-s7-Cdy"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8cy-aa-YZd"/>
+                                <exclude reference="ARZ-1T-lt1"/>
+                                <exclude reference="DK1-LB-b2f"/>
+                                <exclude reference="Ntt-tb-LLA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="cZ1-Ox-GXL" id="3iF-k4-YK9"/>
+                        <outlet property="toolbarView" destination="dfl-77-PxQ" id="i1m-WK-szF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jsV-9D-za9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1042" y="-1045"/>
+        </scene>
+        <!--Exam Result-->
+        <scene sceneID="5x6-Wz-Gcq">
+            <objects>
+                <viewController storyboardIdentifier="ExamResultViewController" title="Exam Result" id="Ked-Lv-s8U" customClass="ExamResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GLO-ju-3OA"/>
+                        <viewControllerLayoutGuide type="bottom" id="FY7-de-aqP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ujT-2N-JC7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Exam Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYq-MJ-TXh">
+                                <rect key="frame" x="47" y="88" width="220" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="6l5-xf-M1H"/>
+                                    <constraint firstAttribute="height" constant="35" id="Ifp-ho-pGc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time used: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdP-fr-Zs4">
+                                <rect key="frame" x="47" y="173" width="93" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="xjR-ng-D6s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QG-Wu-yZx">
+                                <rect key="frame" x="166" y="173" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPK-ZZ-jgX">
+                                <rect key="frame" x="47" y="236" width="54" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="trD-ej-8tP"/>
+                                    <constraint firstAttribute="height" constant="25" id="zsd-eX-ViM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16/17" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXH-0Z-rIL">
+                                <rect key="frame" x="166" y="236" width="44" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pdP-fr-Zs4" firstAttribute="baseline" secondItem="5QG-Wu-yZx" secondAttribute="baseline" id="1Bc-0X-nT7"/>
+                            <constraint firstItem="EXH-0Z-rIL" firstAttribute="firstBaseline" secondItem="ZPK-ZZ-jgX" secondAttribute="firstBaseline" id="9z1-zi-elJ"/>
+                            <constraint firstItem="EXH-0Z-rIL" firstAttribute="leading" secondItem="ZPK-ZZ-jgX" secondAttribute="trailing" constant="65" id="FlM-mK-cKQ"/>
+                            <constraint firstItem="5QG-Wu-yZx" firstAttribute="leading" secondItem="pdP-fr-Zs4" secondAttribute="trailing" constant="26" id="HkO-Tr-DkA"/>
+                            <constraint firstItem="pdP-fr-Zs4" firstAttribute="firstBaseline" secondItem="5QG-Wu-yZx" secondAttribute="firstBaseline" id="JJW-w7-tNH"/>
+                            <constraint firstItem="ZPK-ZZ-jgX" firstAttribute="leading" secondItem="pdP-fr-Zs4" secondAttribute="leading" id="Q5s-d1-4Et"/>
+                            <constraint firstItem="pdP-fr-Zs4" firstAttribute="leading" secondItem="LYq-MJ-TXh" secondAttribute="leading" id="Qu1-Vo-FtG"/>
+                            <constraint firstItem="ZPK-ZZ-jgX" firstAttribute="top" secondItem="pdP-fr-Zs4" secondAttribute="bottom" constant="42" id="Yar-VZ-2l2"/>
+                            <constraint firstItem="LYq-MJ-TXh" firstAttribute="leading" secondItem="ujT-2N-JC7" secondAttribute="leadingMargin" constant="31" id="dkg-df-1xC"/>
+                            <constraint firstItem="LYq-MJ-TXh" firstAttribute="top" secondItem="GLO-ju-3OA" secondAttribute="bottom" constant="76" id="lLp-L0-5T8"/>
+                            <constraint firstItem="pdP-fr-Zs4" firstAttribute="top" secondItem="LYq-MJ-TXh" secondAttribute="bottom" constant="50" id="pcK-gP-xLd"/>
+                            <constraint firstItem="LYq-MJ-TXh" firstAttribute="top" secondItem="GLO-ju-3OA" secondAttribute="bottom" constant="68" id="qvh-dM-n48"/>
+                            <constraint firstItem="pdP-fr-Zs4" firstAttribute="top" secondItem="LYq-MJ-TXh" secondAttribute="bottom" constant="37" id="uzO-2a-fzs"/>
+                            <constraint firstItem="EXH-0Z-rIL" firstAttribute="leading" secondItem="5QG-Wu-yZx" secondAttribute="leading" id="vVd-6S-vme"/>
+                            <constraint firstItem="pdP-fr-Zs4" firstAttribute="top" secondItem="LYq-MJ-TXh" secondAttribute="bottom" constant="37" id="wcS-JL-VMd"/>
+                            <constraint firstItem="EXH-0Z-rIL" firstAttribute="baseline" secondItem="ZPK-ZZ-jgX" secondAttribute="baseline" id="yk9-sx-3s2"/>
+                            <constraint firstItem="FY7-de-aqP" firstAttribute="top" secondItem="ZPK-ZZ-jgX" secondAttribute="bottom" constant="349" id="zhk-uE-Bfe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lLp-L0-5T8"/>
+                                <exclude reference="uzO-2a-fzs"/>
+                                <exclude reference="wcS-JL-VMd"/>
+                                <exclude reference="zhk-uE-Bfe"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="EXH-0Z-rIL" id="0PX-rn-Yt4"/>
+                        <outlet property="timeLabel" destination="5QG-Wu-yZx" id="Gr1-K7-gZp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ey3-EW-Lgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1665" y="-166"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="exv-JW-Gar">
@@ -522,7 +710,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="teX-zY-i1o" kind="show" id="B1d-oX-XcL"/>
+                                    <segue destination="NkK-0d-pNo" kind="show" id="q8H-Yy-Zxm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYc-XG-FIb">
@@ -531,7 +719,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ffn-wf-ujf" kind="show" id="8Ka-4U-8o0"/>
+                                    <segue destination="NkK-0d-pNo" kind="show" id="zDV-2R-p7t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0V-Cg-ZWz">
@@ -558,12 +746,9 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TOQ-QO-aeR" kind="show" id="y5v-75-f83"/>
+                                    <segue destination="NkK-0d-pNo" kind="show" id="2Wk-Ei-fXp"/>
                                 </connections>
                             </button>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6D-kw-Mi4">
-                                <rect key="frame" x="0.0" y="568" width="600" height="32"/>
-                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -571,11 +756,9 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             <constraint firstAttribute="centerX" secondItem="c0V-Cg-ZWz" secondAttribute="centerX" id="A0R-C6-lW4"/>
                             <constraint firstAttribute="centerX" secondItem="e69-Kg-Xkf" secondAttribute="centerX" id="ExD-l0-0nN"/>
                             <constraint firstItem="e69-Kg-Xkf" firstAttribute="top" secondItem="v5Q-hf-npm" secondAttribute="bottom" constant="60" id="IeS-FC-ieL"/>
-                            <constraint firstItem="s6D-kw-Mi4" firstAttribute="bottom" secondItem="JAg-1N-bI7" secondAttribute="top" id="J0A-bm-9Is"/>
                             <constraint firstAttribute="centerX" secondItem="EYc-XG-FIb" secondAttribute="centerX" id="KK9-Km-yFk"/>
                             <constraint firstAttribute="centerX" secondItem="xhK-Oo-rZk" secondAttribute="centerX" id="Lf0-lw-nyZ"/>
                             <constraint firstItem="c9F-Db-V3P" firstAttribute="top" secondItem="e69-Kg-Xkf" secondAttribute="bottom" constant="36" id="VNz-Ip-2Yu"/>
-                            <constraint firstItem="s6D-kw-Mi4" firstAttribute="leading" secondItem="MvK-iP-dne" secondAttribute="leading" id="XKw-Bd-YW3"/>
                             <constraint firstItem="EYc-XG-FIb" firstAttribute="centerX" secondItem="c0V-Cg-ZWz" secondAttribute="centerX" id="f1x-iM-eyX"/>
                             <constraint firstItem="c9F-Db-V3P" firstAttribute="centerX" secondItem="xhK-Oo-rZk" secondAttribute="centerX" id="h81-ky-nsv"/>
                             <constraint firstAttribute="centerX" secondItem="c9F-Db-V3P" secondAttribute="centerX" id="ilG-RK-uZi"/>
@@ -599,14 +782,18 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l7o-aI-1ud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2066" y="-501"/>
+            <point key="canvasLocation" x="-2558" y="-2048"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Mark" width="25" height="25"/>
+        <image name="Mark" width="32" height="32"/>
         <image name="Next" width="11" height="20"/>
         <image name="Previous" width="11" height="20"/>
+        <image name="Result" width="32" height="32"/>
         <image name="TabBar_Article" width="30" height="30"/>
         <image name="TabBar_Question" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zDV-2R-p7t"/>
+    </inferredMetricsTieBreakers>
 </document>

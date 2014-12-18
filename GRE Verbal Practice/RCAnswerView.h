@@ -15,4 +15,6 @@
 
 @property(nonatomic,readwrite,retain) NSArray* options;
 
+- (void)showAnswers:(NSArray*)answers;
+
 @end

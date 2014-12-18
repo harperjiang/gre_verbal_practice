@@ -84,12 +84,19 @@
     [self setNeedsDisplay];
 }
 
+- (void)showAnswer:(NSArray*)answers {
+    for(int i = 0 ; i < answers.count;i++) {
+        NSInteger answer = [(NSNumber*)[answers objectAtIndex:i] integerValue];
+        GREButton* button = [[(GREButtonGroup*)[self->_groups objectAtIndex:i] buttons] objectAtIndex:answer];
+        [button setRightAnswer:true];
+    }
+}
 
--(void) setup {
+- (void)setup {
     _groups = [[NSMutableArray alloc] init];
 }
 
--(id) initWithFrame: (CGRect) frame {
+- (id)initWithFrame: (CGRect) frame {
     self = [super initWithFrame:frame];
     if(self) {
         [self setup];
@@ -98,7 +105,7 @@
 }
 
 
--(id) initWithCoder: (NSCoder*) decoder {
+- (id)initWithCoder: (NSCoder*) decoder {
     self = [super initWithCoder:decoder];
     if(self) {
         [self setup];

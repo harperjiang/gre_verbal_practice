@@ -31,6 +31,14 @@
 		A67871701A40E24D00AEE184 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A678716F1A40E24D00AEE184 /* iAd.framework */; };
 		A67871741A40E54A00AEE184 /* Mark.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871731A40E54A00AEE184 /* Mark.png */; };
 		A67871761A40E56100AEE184 /* Mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871751A40E56100AEE184 /* Mark@2x.png */; };
+		A678717A1A40EE2A00AEE184 /* ExamTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871791A40EE2A00AEE184 /* ExamTimer.m */; };
+		A678717E1A41173000AEE184 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A678717D1A41173000AEE184 /* DataManager.m */; };
+		A678718B1A411FD000AEE184 /* VocabPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A678718A1A411FD000AEE184 /* VocabPlan.m */; };
+		A678718E1A4122D200AEE184 /* ExamSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = A678718D1A4122D200AEE184 /* ExamSuite.m */; };
+		A67871911A42180700AEE184 /* ExamResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871901A42180700AEE184 /* ExamResultViewController.m */; };
+		A67871931A421E6700AEE184 /* Result.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871921A421E6700AEE184 /* Result.png */; };
+		A67871951A421E7D00AEE184 /* Result@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871941A421E7D00AEE184 /* Result@2x.png */; };
+		A678719A1A424B4E00AEE184 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871991A424B4E00AEE184 /* QuestionViewController.m */; };
 		A6A06F191A3F8D8C00D5F8D2 /* RCQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */; };
 		A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F1B1A3F8DA000D5F8D2 /* RCAnswerView.m */; };
 		A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */; };
@@ -103,6 +111,21 @@
 		A678716F1A40E24D00AEE184 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A67871731A40E54A00AEE184 /* Mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mark.png; path = ../../../Downloads/iOS7_icons_free/PNG/32/Very_Basic/Mark.png; sourceTree = "<group>"; };
 		A67871751A40E56100AEE184 /* Mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mark@2x.png"; path = "../../../Downloads/iOS7_icons_free/PNG/50/Very_Basic/Mark@2x.png"; sourceTree = "<group>"; };
+		A67871781A40EE2A00AEE184 /* ExamTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamTimer.h; sourceTree = "<group>"; };
+		A67871791A40EE2A00AEE184 /* ExamTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamTimer.m; sourceTree = "<group>"; };
+		A678717C1A41173000AEE184 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		A678717D1A41173000AEE184 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		A67871891A411FD000AEE184 /* VocabPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabPlan.h; sourceTree = "<group>"; };
+		A678718A1A411FD000AEE184 /* VocabPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabPlan.m; sourceTree = "<group>"; };
+		A678718C1A4122D200AEE184 /* ExamSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamSuite.h; sourceTree = "<group>"; };
+		A678718D1A4122D200AEE184 /* ExamSuite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamSuite.m; sourceTree = "<group>"; };
+		A678718F1A42180700AEE184 /* ExamResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamResultViewController.h; sourceTree = "<group>"; };
+		A67871901A42180700AEE184 /* ExamResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamResultViewController.m; sourceTree = "<group>"; };
+		A67871921A421E6700AEE184 /* Result.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Result.png; path = ../../../Downloads/iOS7_icons_free/PNG/32/User_Interface/Result.png; sourceTree = "<group>"; };
+		A67871941A421E7D00AEE184 /* Result@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Result@2x.png"; path = "../../../Downloads/iOS7_icons_free/PNG/50/User_Interface/Result@2x.png"; sourceTree = "<group>"; };
+		A67871981A424B4E00AEE184 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		A67871991A424B4E00AEE184 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		A678719D1A42617100AEE184 /* QViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QViewController.h; sourceTree = "<group>"; };
 		A6A06F171A3F8D8C00D5F8D2 /* RCQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQViewController.h; sourceTree = "<group>"; };
 		A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCQViewController.m; sourceTree = "<group>"; };
 		A6A06F1A1A3F8DA000D5F8D2 /* RCAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnswerView.h; sourceTree = "<group>"; };
@@ -169,9 +192,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A67871771A40EB4F00AEE184 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				A67871781A40EE2A00AEE184 /* ExamTimer.h */,
+				A67871791A40EE2A00AEE184 /* ExamTimer.m */,
+			);
+			name = tool;
+			sourceTree = "<group>";
+		};
+		A678717B1A4116A600AEE184 /* persist */ = {
+			isa = PBXGroup;
+			children = (
+				A678717C1A41173000AEE184 /* DataManager.h */,
+				A678717D1A41173000AEE184 /* DataManager.m */,
+			);
+			name = persist;
+			sourceTree = "<group>";
+		};
+		A678717F1A4118C800AEE184 /* studyplan */ = {
+			isa = PBXGroup;
+			children = (
+				A6A692561A3770DA00414E73 /* QuestionSet.h */,
+				A6A692571A3770DA00414E73 /* QuestionSet.m */,
+				A67871891A411FD000AEE184 /* VocabPlan.h */,
+				A678718A1A411FD000AEE184 /* VocabPlan.m */,
+				A678718C1A4122D200AEE184 /* ExamSuite.h */,
+				A678718D1A4122D200AEE184 /* ExamSuite.m */,
+			);
+			name = studyplan;
+			sourceTree = "<group>";
+		};
+		A67871801A4118DD00AEE184 /* control */ = {
+			isa = PBXGroup;
+			children = (
+				A66FDBD61A3E2DAC00DAAE13 /* GREButton.h */,
+				A66FDBD71A3E2DAC00DAAE13 /* GREButton.m */,
+				A66FDBDC1A3F33EE00DAAE13 /* GREButtonGroup.h */,
+				A66FDBDD1A3F33EE00DAAE13 /* GREButtonGroup.m */,
+				A6A692651A3788A700414E73 /* GRERadioButton.h */,
+				A6A692661A3788A700414E73 /* GRERadioButton.m */,
+				A6A692681A3788B800414E73 /* GREChoiceBox.h */,
+				A6A692691A3788B800414E73 /* GREChoiceBox.m */,
+				A66FDBD31A3E2D2B00DAAE13 /* GRETextButton.h */,
+				A66FDBD41A3E2D2B00DAAE13 /* GRETextButton.m */,
+				A66FDBD91A3E715800DAAE13 /* UIUtils.h */,
+				A66FDBDA1A3E715800DAAE13 /* UIUtils.m */,
+			);
+			name = control;
+			sourceTree = "<group>";
+		};
+		A67871811A41190D00AEE184 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				A678717B1A4116A600AEE184 /* persist */,
+				A678717F1A4118C800AEE184 /* studyplan */,
+				A6A6923F1A376B2200414E73 /* model */,
+			);
+			name = domain;
+			sourceTree = "<group>";
+		};
+		A678719B1A4258D000AEE184 /* question */ = {
+			isa = PBXGroup;
+			children = (
+				A6A692611A37856000414E73 /* TCViewController.h */,
+				A6A692621A37856000414E73 /* TCViewController.m */,
+				A66FDBD01A3E20E200DAAE13 /* TCAnswerView.h */,
+				A66FDBD11A3E20E200DAAE13 /* TCAnswerView.m */,
+				A66FDBDF1A3F47B700DAAE13 /* SEViewController.h */,
+				A66FDBE01A3F47B700DAAE13 /* SEViewController.m */,
+				A66FDBE21A3F47E800DAAE13 /* SEAnswerView.h */,
+				A66FDBE31A3F47E800DAAE13 /* SEAnswerView.m */,
+				A6A06F231A3FA17D00D5F8D2 /* RCViewController.h */,
+				A6A06F241A3FA17D00D5F8D2 /* RCViewController.m */,
+				A6A06F171A3F8D8C00D5F8D2 /* RCQViewController.h */,
+				A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */,
+				A6A06F1A1A3F8DA000D5F8D2 /* RCAnswerView.h */,
+				A6A06F1B1A3F8DA000D5F8D2 /* RCAnswerView.m */,
+				A6A06F201A3FA13D00D5F8D2 /* RCAViewController.h */,
+				A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */,
+				A678719D1A42617100AEE184 /* QViewController.h */,
+			);
+			name = question;
+			sourceTree = "<group>";
+		};
 		A6A06F261A40853800D5F8D2 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				A67871941A421E7D00AEE184 /* Result@2x.png */,
+				A67871921A421E6700AEE184 /* Result.png */,
 				A67871751A40E56100AEE184 /* Mark@2x.png */,
 				A67871731A40E54A00AEE184 /* Mark.png */,
 				A67871641A40C2DC00AEE184 /* Next@2x.png */,
@@ -211,9 +320,9 @@
 			isa = PBXGroup;
 			children = (
 				A6A06F261A40853800D5F8D2 /* res */,
+				A67871771A40EB4F00AEE184 /* tool */,
 				A6A692641A37888900414E73 /* ui */,
-				A6A6924C1A376CB400414E73 /* view */,
-				A6A6923F1A376B2200414E73 /* model */,
+				A67871811A41190D00AEE184 /* domain */,
 				A6A692171A3766E300414E73 /* AppDelegate.h */,
 				A6A692181A3766E300414E73 /* AppDelegate.m */,
 				A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */,
@@ -269,8 +378,6 @@
 				A6A692511A376FC400414E73 /* RCCSQuestion.m */,
 				A6A692531A37705B00414E73 /* RCText.h */,
 				A6A692541A37705B00414E73 /* RCText.m */,
-				A6A692561A3770DA00414E73 /* QuestionSet.h */,
-				A6A692571A3770DA00414E73 /* QuestionSet.m */,
 				A67871561A40954100AEE184 /* Vocabulary.h */,
 				A67871571A40954100AEE184 /* Vocabulary.m */,
 			);
@@ -280,30 +387,19 @@
 		A6A6924C1A376CB400414E73 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A678719B1A4258D000AEE184 /* question */,
 				A6A692591A37759F00414E73 /* MainViewController.h */,
 				A6A6925A1A37759F00414E73 /* MainViewController.m */,
 				A678715C1A40BA6400AEE184 /* NavViewController.h */,
 				A678715D1A40BA6400AEE184 /* NavViewController.m */,
 				A678716C1A40C4AA00AEE184 /* ExamViewController.h */,
 				A678716D1A40C4AA00AEE184 /* ExamViewController.m */,
-				A6A692611A37856000414E73 /* TCViewController.h */,
-				A6A692621A37856000414E73 /* TCViewController.m */,
-				A66FDBD01A3E20E200DAAE13 /* TCAnswerView.h */,
-				A66FDBD11A3E20E200DAAE13 /* TCAnswerView.m */,
-				A66FDBDF1A3F47B700DAAE13 /* SEViewController.h */,
-				A66FDBE01A3F47B700DAAE13 /* SEViewController.m */,
-				A66FDBE21A3F47E800DAAE13 /* SEAnswerView.h */,
-				A66FDBE31A3F47E800DAAE13 /* SEAnswerView.m */,
-				A6A06F231A3FA17D00D5F8D2 /* RCViewController.h */,
-				A6A06F241A3FA17D00D5F8D2 /* RCViewController.m */,
-				A6A06F171A3F8D8C00D5F8D2 /* RCQViewController.h */,
-				A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */,
-				A6A06F1A1A3F8DA000D5F8D2 /* RCAnswerView.h */,
-				A6A06F1B1A3F8DA000D5F8D2 /* RCAnswerView.m */,
-				A6A06F201A3FA13D00D5F8D2 /* RCAViewController.h */,
-				A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */,
 				A67871591A40961200AEE184 /* VocabViewController.h */,
 				A678715A1A40961200AEE184 /* VocabViewController.m */,
+				A678718F1A42180700AEE184 /* ExamResultViewController.h */,
+				A67871901A42180700AEE184 /* ExamResultViewController.m */,
+				A67871981A424B4E00AEE184 /* QuestionViewController.h */,
+				A67871991A424B4E00AEE184 /* QuestionViewController.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -311,18 +407,8 @@
 		A6A692641A37888900414E73 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				A66FDBD61A3E2DAC00DAAE13 /* GREButton.h */,
-				A66FDBD71A3E2DAC00DAAE13 /* GREButton.m */,
-				A66FDBDC1A3F33EE00DAAE13 /* GREButtonGroup.h */,
-				A66FDBDD1A3F33EE00DAAE13 /* GREButtonGroup.m */,
-				A6A692651A3788A700414E73 /* GRERadioButton.h */,
-				A6A692661A3788A700414E73 /* GRERadioButton.m */,
-				A6A692681A3788B800414E73 /* GREChoiceBox.h */,
-				A6A692691A3788B800414E73 /* GREChoiceBox.m */,
-				A66FDBD31A3E2D2B00DAAE13 /* GRETextButton.h */,
-				A66FDBD41A3E2D2B00DAAE13 /* GRETextButton.m */,
-				A66FDBD91A3E715800DAAE13 /* UIUtils.h */,
-				A66FDBDA1A3E715800DAAE13 /* UIUtils.m */,
+				A6A6924C1A376CB400414E73 /* view */,
+				A67871801A4118DD00AEE184 /* control */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -411,7 +497,9 @@
 				A67871671A40C2DC00AEE184 /* Previous@2x.png in Resources */,
 				A678714C1A40909800AEE184 /* Article.png in Resources */,
 				A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */,
+				A67871931A421E6700AEE184 /* Result.png in Resources */,
 				A67871541A4090EA00AEE184 /* Article@3x.png in Resources */,
+				A67871951A421E7D00AEE184 /* Result@2x.png in Resources */,
 				A67871631A40C2BD00AEE184 /* Previous.png in Resources */,
 				A678714D1A40909800AEE184 /* Question.png in Resources */,
 				A67871621A40C2BD00AEE184 /* Next.png in Resources */,
@@ -440,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67871911A42180700AEE184 /* ExamResultViewController.m in Sources */,
 				A6A6924F1A376F2A00414E73 /* RCMSQuestion.m in Sources */,
 				A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */,
 				A6A692451A376C3E00414E73 /* RCQuestion.m in Sources */,
@@ -453,6 +542,7 @@
 				A6A692191A3766E300414E73 /* AppDelegate.m in Sources */,
 				A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */,
 				A66FDBDB1A3E715800DAAE13 /* UIUtils.m in Sources */,
+				A678719A1A424B4E00AEE184 /* QuestionViewController.m in Sources */,
 				A6A692421A376BAE00414E73 /* Question.m in Sources */,
 				A6A06F191A3F8D8C00D5F8D2 /* RCQViewController.m in Sources */,
 				A66FDBD51A3E2D2B00DAAE13 /* GRETextButton.m in Sources */,
@@ -463,11 +553,15 @@
 				A6A6925B1A37759F00414E73 /* MainViewController.m in Sources */,
 				A6A692551A37705B00414E73 /* RCText.m in Sources */,
 				A6A692481A376C8700414E73 /* TCQuestion.m in Sources */,
+				A678717A1A40EE2A00AEE184 /* ExamTimer.m in Sources */,
 				A6A692581A3770DA00414E73 /* QuestionSet.m in Sources */,
 				A678715E1A40BA6400AEE184 /* NavViewController.m in Sources */,
 				A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */,
+				A678718E1A4122D200AEE184 /* ExamSuite.m in Sources */,
 				A66FDBD21A3E20E200DAAE13 /* TCAnswerView.m in Sources */,
+				A678718B1A411FD000AEE184 /* VocabPlan.m in Sources */,
 				A66FDBE11A3F47B700DAAE13 /* SEViewController.m in Sources */,
+				A678717E1A41173000AEE184 /* DataManager.m in Sources */,
 				A678715B1A40961200AEE184 /* VocabViewController.m in Sources */,
 				A6A6921C1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld in Sources */,
 			);

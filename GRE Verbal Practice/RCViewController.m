@@ -30,6 +30,11 @@
     [options addObject:@"Whether it has caused certain of Glass's works to be derivative in quality"];
     [question setOptions:options];
     
+    NSMutableArray* answers = [[NSMutableArray alloc] init];
+    [answers addObject: [[NSNumber alloc] initWithInteger: 0]];
+    
+    [question setAnswers:answers];
+    
     [self setQuestionData:question];
 }
 
@@ -38,7 +43,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)showAnswer {
+    [(RCQViewController*)[[self viewControllers] objectAtIndex: 1]
+        showAnswers: self.questionData.answers];
+}
 /*
 #pragma mark - Navigation
 

@@ -10,4 +10,8 @@
 
 @implementation RCText
 
+- (NSString*)toString {
+    return self.text;
+}
+
 @end

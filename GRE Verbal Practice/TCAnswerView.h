@@ -17,4 +17,6 @@
 @property(nonatomic, readwrite, retain) NSArray* options;
 @property(nonatomic, readwrite) CGSize preferredSize;
 
+- (void)showAnswer:(NSArray*)answer;
+
 @end

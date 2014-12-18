@@ -12,8 +12,9 @@
 #import <UIKit/UIKit.h>
 #import "TCQuestion.h"
 #import "TCAnswerView.h"
+#import "QViewController.h"
 
-@interface TCViewController : UIViewController
+@interface TCViewController : UIViewController<QViewController>
 
 // UI Controls
 @property(nonatomic, readwrite, retain) IBOutlet UILabel* questionLabel;

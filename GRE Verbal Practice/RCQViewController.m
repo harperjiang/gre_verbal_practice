@@ -38,6 +38,9 @@
     [self.answerView setOptions: questionData.options];
 }
 
+- (void)showAnswers:(NSArray *)answers {
+    [self.answerView showAnswers: answers];
+}
 
 /*
 #pragma mark - Navigation

@@ -14,11 +14,13 @@
     self = [super init];
     if(self) {
         self.chosen = nil;
+        self.buttons = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 -(void) add:(GREButton *)button {
+    [self.buttons addObject:button];
     [button addTarget:self action:@selector(buttonChosen:) forControlEvents:UIControlEventTouchDown];
 }
 
@@ -31,7 +33,6 @@
         }
         self.chosen = btn;
     }
-    
 }
 
 @end

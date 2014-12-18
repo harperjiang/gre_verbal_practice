@@ -23,6 +23,9 @@
     if(self.chosen) {
         background = [UIColor blackColor].CGColor;
         foreground = [UIColor whiteColor].CGColor;
+    } else if(self.rightAnswer){
+        background = [UIColor redColor].CGColor;
+        foreground = [UIColor blackColor].CGColor;
     } else {
         background = [UIColor whiteColor].CGColor;
         foreground = [UIColor blackColor].CGColor;

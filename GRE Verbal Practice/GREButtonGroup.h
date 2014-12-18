@@ -10,7 +10,8 @@
 
 @interface GREButtonGroup : NSObject
 
-@property(nonatomic,readwrite,weak) GREButton* chosen;
+@property(nonatomic, readwrite, strong) GREButton* chosen;
+@property(nonatomic, readwrite, strong) NSMutableArray* buttons;
 
 -(void) add: (GREButton*) button;
 -(void) buttonChosen: (id) button;

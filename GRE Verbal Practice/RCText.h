@@ -19,6 +19,7 @@
 @interface RCText : NSObject
 
 @property(nonatomic, readwrite, retain) NSArray* paragraphs;
+@property(nonatomic, readwrite, strong) NSString* text;
 
 -(NSString*) toString;
 

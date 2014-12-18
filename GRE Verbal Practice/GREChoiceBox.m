@@ -15,8 +15,15 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSaveGState(context);
+    
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     CGContextStrokeRect(context, rect);
+    if(self.rightAnswer) {
+        CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+        CGContextFillRect(context, rect);
+    }
     if(self.chosen) {
         CGContextMoveToPoint(context, 0, 0);
         CGContextAddLineToPoint(context, rect.size.width, rect.size.height);
@@ -24,6 +31,8 @@
         CGContextAddLineToPoint(context, rect.size.width, 0);
         CGContextStrokePath(context);
     }
+    
+    CGContextRestoreGState(context);
 }
 
 

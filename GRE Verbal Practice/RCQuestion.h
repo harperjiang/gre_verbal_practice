@@ -14,7 +14,8 @@
  */
 @interface RCQuestion : Question
 
-@property(nonatomic, readwrite, retain) RCText* readText;
-@property(nonatomic, readwrite, retain) NSArray* options;
+@property(nonatomic, readwrite, strong) RCText* readText;
+@property(nonatomic, readwrite, strong) NSArray* options;
+@property(nonatomic, readwrite, strong) NSArray* answers;
 
 @end

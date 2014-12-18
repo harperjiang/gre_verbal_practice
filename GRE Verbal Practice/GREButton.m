@@ -22,4 +22,12 @@
     }
 }
 
+- (void) setRightAnswer:(BOOL)rightAnswer {
+    BOOL old = [self rightAnswer];
+    self->_rightAnswer = rightAnswer;
+    if(rightAnswer != old) {
+        [self setNeedsDisplay];
+    }
+}
+
 @end

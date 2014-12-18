@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Demo Data
     TCQuestion* question = [[TCQuestion alloc] init];
     
     [question setText:@"This is a sample question"];
@@ -37,6 +38,11 @@
     
     [question setOptions:optionsArray];
     
+    NSMutableArray* answers = [[NSMutableArray alloc] init];
+    [answers addObject: [[NSNumber alloc] initWithInteger:0]];
+    [answers addObject: [[NSNumber alloc] initWithInteger:1]];
+    [question setAnswers: answers];
+    
     [self setQuestionData: question];
 }
 
@@ -52,6 +58,10 @@
         [self.questionLabel setText: self.questionData.text];
         [self.answerView setOptions: self.questionData.options];
     }
+}
+
+- (void)showAnswer {
+    [self.answerView showAnswer: self.questionData.answers];
 }
 
 #pragma mark - Navigation

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RCQuestion.h"
+#import "QViewController.h"
 
-@interface RCViewController : UITabBarController
+@interface RCViewController : UITabBarController<QViewController>
 
 @property(nonatomic, readwrite, retain) RCQuestion* questionData;
 

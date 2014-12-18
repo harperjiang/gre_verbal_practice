@@ -13,15 +13,34 @@
 @implementation SEAnswerView
 
 
--(void) setOptions:(NSArray *)options {
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if(self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if(self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+    self->buttons = [[NSMutableArray alloc] init];
+}
+
+- (void)setOptions:(NSArray *)options {
     self->_options = options;
     [self refresh];
 }
 
-
--(void) refresh {
+- (void)refresh {
     [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
+    [self->buttons removeAllObjects];
     // Generate new items
     
     NSInteger MARGIN = 20;
@@ -41,7 +60,7 @@
         
         CGRect frame = CGRectMake(x, y, BOX_SIZE, BOX_SIZE);
         GREChoiceBox* choice = [[GREChoiceBox alloc] initWithFrame:frame];
-        
+        [self->buttons addObject:choice];
         [self addSubview:choice];
         
         x += BOX_SIZE + INTERCELL;
@@ -77,6 +96,13 @@
     [self addConstraints:heightConstraint];
     
     [self setNeedsDisplay];
+}
+
+- (void)showAnswer:(NSArray *)answers {
+    for(int i = 0 ; i < answers.count ;i++) {
+        NSInteger index = [(NSNumber*)[answers objectAtIndex:i] integerValue];
+        [(GREButton*)[self->buttons objectAtIndex:index] setRightAnswer:YES];
+    }
 }
 
 @end

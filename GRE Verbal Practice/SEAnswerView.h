@@ -11,8 +11,11 @@
 @interface SEAnswerView : UIView {
     NSArray* widthConstraint;
     NSArray* heightConstraint;
+    NSMutableArray* buttons;
 }
 
 @property(nonatomic, readwrite, retain) NSArray* options;
+
+- (void)showAnswer: (NSArray*)answers;
 
 @end
