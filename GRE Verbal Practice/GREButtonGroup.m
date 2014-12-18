@@ -21,13 +21,12 @@
 
 -(void) add:(GREButton *)button {
     [self.buttons addObject:button];
-    [button addTarget:self action:@selector(buttonChosen:) forControlEvents:UIControlEventTouchDown];
+    [button addButtonListener:self];
 }
 
--(void) buttonChosen:(id) source {
+-(void) buttonChanged:(id) source chosen:(BOOL) chosen {
     GREButton* btn = (GREButton*)source;
-    BOOL tobe = !btn.chosen;
-    if(tobe) {
+    if(chosen) {
         if(self.chosen != nil) {
             [self.chosen setChosen:false];
         }

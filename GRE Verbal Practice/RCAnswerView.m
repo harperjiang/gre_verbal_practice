@@ -45,6 +45,8 @@
         
         CGRect frame = CGRectMake(x, y, BOX_SIZE, BOX_SIZE);
         GRERadioButton* radio = [[GRERadioButton alloc] initWithFrame:frame];
+        [radio addButtonListener:self];
+        [radio setTag:i];
         [group add:radio];
         [self addSubview:radio];
         
@@ -97,6 +99,18 @@
         NSInteger index = [(NSNumber*)[answers objectAtIndex:i] integerValue];
         [(GREButton*)[self->group.buttons objectAtIndex:index] setRightAnswer:YES];
     }
+}
+
+
+- (void)buttonChanged:(id)source chosen:(BOOL)chosen {
+    NSMutableArray* results = [[NSMutableArray alloc] init];
+    NSInteger result = -1;
+    if(group.chosen != nil){
+        result = group.chosen.tag;
+    }
+    [results addObject: [[NSNumber alloc] initWithInteger: result]];
+    
+    [self.answerListener answerChanged:results];
 }
 
 @end

@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ButtonListener <NSObject>
+
+- (void)buttonChanged:(id) source chosen:(BOOL)chosen;
+
+@end
+
 @interface GREButton : UIButton
 
-@property(nonatomic,readwrite) BOOL chosen;
-@property(nonatomic,readwrite) BOOL rightAnswer;
+@property(nonatomic, readwrite) BOOL chosen;
+@property(nonatomic, readwrite) BOOL rightAnswer;
+@property(nonatomic, readwrite, strong) NSMutableArray* listeners;
+
+- (void)addButtonListener:(id<ButtonListener>) listener;
 
 @end

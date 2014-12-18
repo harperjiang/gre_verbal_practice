@@ -13,5 +13,6 @@
 @interface RCViewController : UITabBarController<QViewController>
 
 @property(nonatomic, readwrite, retain) RCQuestion* questionData;
+@property(nonatomic, readwrite, strong) id<AnswerListener> answerListener;
 
 @end

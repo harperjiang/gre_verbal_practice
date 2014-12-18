@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnswerListener.h"
+#import "GREButton.h"
 
-@interface TCAnswerView : UIView {
+@interface TCAnswerView : UIView<ButtonListener> {
     NSMutableArray* _groups;
     NSArray* widthConstraint;
     NSArray* heightConstraint;
 }
 
-@property(nonatomic, readwrite, retain) NSArray* options;
+@property(nonatomic, readwrite, strong) NSArray* options;
 @property(nonatomic, readwrite) CGSize preferredSize;
+@property(nonatomic, readwrite, weak) id<AnswerListener> answerListener;
 
 - (void)showAnswer:(NSArray*)answer;
 

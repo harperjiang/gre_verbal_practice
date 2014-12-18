@@ -26,7 +26,6 @@
     [self refresh];
 }
 
-
 -(void) refresh {
     // Remove all subviews
     [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -52,7 +51,9 @@
             CGRect frame = CGRectMake(x, y, maxLength, ystep);
             
             GRETextButton* textbutton = [[GRETextButton alloc] initWithFrame:frame];
+            [textbutton addButtonListener:self];
             [textbutton setText:(NSString*) [sub objectAtIndex:j]];
+            [textbutton setTag: i*100 + j];
             [self addSubview:textbutton];
             [group add:textbutton];
             y += ystep;
@@ -90,6 +91,19 @@
         GREButton* button = [[(GREButtonGroup*)[self->_groups objectAtIndex:i] buttons] objectAtIndex:answer];
         [button setRightAnswer:true];
     }
+}
+
+- (void)buttonChanged:(id)source chosen:(BOOL)chosen {
+    NSMutableArray* results = [[NSMutableArray alloc] init];
+    for(int i = 0 ; i < self->_groups.count; i++) {
+        GREButtonGroup* group = (GREButtonGroup*)[self->_groups objectAtIndex:i];
+        NSInteger result = -1;
+        if(group.chosen != nil){
+            result = group.chosen.tag;
+        }
+        [results addObject: [[NSNumber alloc] initWithInteger: result]];
+    }
+    [self.answerListener answerChanged:results];
 }
 
 - (void)setup {

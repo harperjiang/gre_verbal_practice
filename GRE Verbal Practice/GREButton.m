@@ -7,11 +7,35 @@
 //
 
 #import "GREButton.h"
+#import "WeakRef.h"
 
 @implementation GREButton
 
+- (id)init {
+    self = [super init];
+    if(self) {
+        self.listeners = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [self setChosen: !self.chosen];
+}
+
+- (void)addButtonListener:(id<ButtonListener>) listener {
+    WeakRef* ref = [[WeakRef alloc] init];
+    ref.reference = listener;
+    [self.listeners addObject: ref];
+}
+
+- (void)fireChosen:(BOOL) chosen {
+    for(int i = 0 ; i < self.listeners.count ; i++) {
+        WeakRef* ref = (WeakRef*)[self.listeners objectAtIndex:i];
+        if(ref.reference != nil) {
+            [(id<ButtonListener>)ref.reference buttonChanged: self chosen: chosen];
+        }
+    }
 }
 
 - (void) setChosen:(BOOL)chosen {
@@ -19,6 +43,7 @@
     self->_chosen = chosen;
     if(chosen != old) {
         [self setNeedsDisplay];
+        [self fireChosen:chosen];
     }
 }
 

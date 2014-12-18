@@ -8,17 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "QViewController.h"
+#import "Question.h"
+#import "QuestionSet.h"
 
-typedef enum { SENTENCE_EQUIV, READING_COMP, TEXT_COMPLETION } QuestionType;
 
-@interface QuestionViewController : UIViewController {
+@interface QuestionViewController : UIViewController<AnswerListener> {
     id<QViewController> currentController;
 }
 
-@property(nonatomic, readwrite) QuestionType questionType;
+@property(nonatomic, readwrite, strong) QuestionSet* questionSet;
 
 @property(nonatomic, readwrite, strong) IBOutlet UIView* toolbarView;
 @property(nonatomic, readwrite, strong) IBOutlet UIView* containerView;
+@property(nonatomic, readwrite, strong) IBOutlet UIButton* toggleButton;
 
 - (IBAction)toggleToolbar:(id)sender;
 

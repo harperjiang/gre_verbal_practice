@@ -1,18 +1,14 @@
 //
-//  ExamResultViewController.m
+//  MessageViewController.m
 //  GRE Verbal Practice
 //
 //  Created by Harper on 12/17/14.
 //  Copyright (c) 2014 Hao Jiang. All rights reserved.
 //
 
-#import "ExamResultViewController.h"
+#import "MessageViewController.h"
 
-@interface ExamResultViewController ()
-
-@end
-
-@implementation ExamResultViewController
+@implementation MessageViewController
 
 - (void)setQuestionData:(Question *)data {
     

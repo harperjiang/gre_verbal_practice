@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnswerListener.h"
+#import "GREButton.h"
 
-@interface SEAnswerView : UIView {
+@interface SEAnswerView : UIView<ButtonListener> {
     NSArray* widthConstraint;
     NSArray* heightConstraint;
     NSMutableArray* buttons;
 }
 
 @property(nonatomic, readwrite, retain) NSArray* options;
+@property(nonatomic, readwrite, weak) id<AnswerListener> answerListener;
 
 - (void)showAnswer: (NSArray*)answers;
 

@@ -10,4 +10,8 @@
 
 @implementation RCQuestion
 
+- (QuestionType)type {
+    return READING_COMP;
+}
+
 @end

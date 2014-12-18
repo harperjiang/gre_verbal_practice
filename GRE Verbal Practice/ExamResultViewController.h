@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QViewController.h"
 
-@interface ExamResultViewController : UIViewController
+@interface ExamResultViewController : UIViewController<QViewController>
 
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* timeLabel;
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* resultLabel;

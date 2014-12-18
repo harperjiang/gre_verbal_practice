@@ -64,6 +64,10 @@
     [self.answerView showAnswer: self.questionData.answers];
 }
 
+- (void)setAnswerListener:(id<AnswerListener>)listener {
+    [self.answerView setAnswerListener:listener];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

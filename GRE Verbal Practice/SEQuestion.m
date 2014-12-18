@@ -10,4 +10,8 @@
 
 @implementation SEQuestion
 
+- (QuestionType)type {
+    return SENTENCE_EQUIV;
+}
+
 @end

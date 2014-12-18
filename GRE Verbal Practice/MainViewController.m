@@ -35,6 +35,9 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if([[segue destinationViewController] isKindOfClass:[QuestionViewController class]]) {
+        QuestionViewController* qvc = (QuestionViewController*)
+            [segue destinationViewController];
+        // Load Question List
         // Determine the question type
         UIButton* btn = (UIButton*)sender;
         QuestionType qt = READING_COMP;
@@ -47,10 +50,7 @@
         if ([@"Text Completion" isEqualToString: btn.titleLabel.text]) {
             qt = TEXT_COMPLETION;
         }
-        QuestionViewController* qvc = (QuestionViewController*) [segue destinationViewController];
-        [qvc setQuestionType: qt];
-        
-        // Load Question List
+
         
     }
     if([[segue destinationViewController] isKindOfClass:[ExamViewController class]]) {

@@ -10,4 +10,8 @@
 
 @implementation TCQuestion
 
+- (QuestionType)type {
+    return TEXT_COMPLETION;
+}
+
 @end

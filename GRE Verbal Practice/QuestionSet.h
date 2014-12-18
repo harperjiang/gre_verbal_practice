@@ -7,9 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Question.h"
 
-@interface QuestionSet : NSObject
+@interface QuestionSet : NSObject {
+    NSInteger current;
+}
 
-@property(nonatomic, readwrite, retain) NSArray* questions;
+@property(nonatomic, readwrite, strong) NSArray* questions;
+@property(nonatomic, readwrite, strong) NSMutableArray* answers;
+@property(nonatomic, readwrite) QuestionType type;
 
+- (Question*)nextQuestion;
+- (void)answer: (NSArray*)answer;
 @end

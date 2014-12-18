@@ -18,15 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    if(self->currentController != nil)
+        return;
     
-    if(self->currentController == nil) {
-        // Display different Question Types based on QuestionType
-        NSString* vcid = @"";
-        switch(self.questionType) {
+    NSString* vcid = @"";
+    if(self.questionSet != nil) {
+        switch([self.questionSet type]) {
             case TEXT_COMPLETION:
                 vcid = @"TCViewController";
                 break;
@@ -40,9 +37,23 @@
                 NSLog(@"Error when loading subviews, no subview to load");
                 return;
         }
-        UIViewController* viewController = (UIViewController*)[[self storyboard] instantiateViewControllerWithIdentifier:vcid];
-        [self showContentController: viewController];
+    } else {
+        vcid = @"MessageViewController";
+        [self.toolbarView setHidden:YES];
+        [self.toggleButton setHidden:YES];
     }
+    
+    UIViewController* vc = (UIViewController*)[self.storyboard instantiateViewControllerWithIdentifier:vcid];
+    [self showContentController: vc];
+
+    if(self.questionSet != nil) {
+        Question* firstQuestion = [self.questionSet nextQuestion];
+        [self->currentController setQuestionData:firstQuestion];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,23 +75,39 @@
 
 - (IBAction)nextQuestion:(id)sender {
     // Get Next Question from Question List
-    Question* question = nil;
-    // Set Next Question to view controller
-    [self->currentController setQuestionData:question];
+    Question* question = [self.questionSet nextQuestion];
+    if(question == nil) {
+        // Show Result
+        
+    } else {
+        // Set Next Question to view controller
+        [self->currentController setQuestionData: question];
+    }
 }
 
 - (void)hideContentController:(UIViewController*) vc {
     [vc willMoveToParentViewController:nil];  // 1
     [vc.view removeFromSuperview];            // 2
     [vc removeFromParentViewController];      // 3
+    [(id<QViewController>)vc setAnswerListener: nil];
 }
 
 - (void)showContentController:(UIViewController*) vc {
+    if(vc == (UIViewController*)currentController)
+        return;
+    if(self->currentController != nil) {
+        [self hideContentController:(UIViewController*)self->currentController];
+    }
     [self addChildViewController:vc];
     vc.view.frame = self.containerView.frame;
     [self.containerView addSubview: vc.view];
     [vc didMoveToParentViewController:self];
     currentController = (id<QViewController>)vc;
+    [currentController setAnswerListener: self];
+}
+
+- (void) answerChanged:(NSArray *)answer {
+    [self.questionSet answer:answer];
 }
 
 @end

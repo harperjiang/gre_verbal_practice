@@ -10,4 +10,8 @@
 
 @implementation Question
 
+- (QuestionType)type{
+    return 0;
+}
+
 @end

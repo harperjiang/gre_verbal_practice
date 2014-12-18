@@ -39,6 +39,8 @@
 		A67871931A421E6700AEE184 /* Result.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871921A421E6700AEE184 /* Result.png */; };
 		A67871951A421E7D00AEE184 /* Result@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871941A421E7D00AEE184 /* Result@2x.png */; };
 		A678719A1A424B4E00AEE184 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871991A424B4E00AEE184 /* QuestionViewController.m */; };
+		A67871A01A427B2300AEE184 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A678719F1A427B2300AEE184 /* MessageViewController.m */; };
+		A67871A71A429E0E00AEE184 /* WeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871A61A429E0E00AEE184 /* WeakRef.m */; };
 		A6A06F191A3F8D8C00D5F8D2 /* RCQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */; };
 		A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F1B1A3F8DA000D5F8D2 /* RCAnswerView.m */; };
 		A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */; };
@@ -126,6 +128,11 @@
 		A67871981A424B4E00AEE184 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		A67871991A424B4E00AEE184 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		A678719D1A42617100AEE184 /* QViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QViewController.h; sourceTree = "<group>"; };
+		A678719E1A427B2300AEE184 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		A678719F1A427B2300AEE184 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		A67871A11A42949400AEE184 /* AnswerListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnswerListener.h; sourceTree = "<group>"; };
+		A67871A51A429E0E00AEE184 /* WeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakRef.h; sourceTree = "<group>"; };
+		A67871A61A429E0E00AEE184 /* WeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakRef.m; sourceTree = "<group>"; };
 		A6A06F171A3F8D8C00D5F8D2 /* RCQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQViewController.h; sourceTree = "<group>"; };
 		A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCQViewController.m; sourceTree = "<group>"; };
 		A6A06F1A1A3F8DA000D5F8D2 /* RCAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnswerView.h; sourceTree = "<group>"; };
@@ -192,13 +199,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A67871771A40EB4F00AEE184 /* tool */ = {
+		A67871771A40EB4F00AEE184 /* util */ = {
 			isa = PBXGroup;
 			children = (
 				A67871781A40EE2A00AEE184 /* ExamTimer.h */,
 				A67871791A40EE2A00AEE184 /* ExamTimer.m */,
+				A67871A51A429E0E00AEE184 /* WeakRef.h */,
+				A67871A61A429E0E00AEE184 /* WeakRef.m */,
 			);
-			name = tool;
+			name = util;
 			sourceTree = "<group>";
 		};
 		A678717B1A4116A600AEE184 /* persist */ = {
@@ -272,6 +281,9 @@
 				A6A06F201A3FA13D00D5F8D2 /* RCAViewController.h */,
 				A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */,
 				A678719D1A42617100AEE184 /* QViewController.h */,
+				A678719E1A427B2300AEE184 /* MessageViewController.h */,
+				A678719F1A427B2300AEE184 /* MessageViewController.m */,
+				A67871A11A42949400AEE184 /* AnswerListener.h */,
 			);
 			name = question;
 			sourceTree = "<group>";
@@ -320,7 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				A6A06F261A40853800D5F8D2 /* res */,
-				A67871771A40EB4F00AEE184 /* tool */,
+				A67871771A40EB4F00AEE184 /* util */,
 				A6A692641A37888900414E73 /* ui */,
 				A67871811A41190D00AEE184 /* domain */,
 				A6A692171A3766E300414E73 /* AppDelegate.h */,
@@ -536,6 +548,7 @@
 				A67871581A40954100AEE184 /* Vocabulary.m in Sources */,
 				A678716E1A40C4AA00AEE184 /* ExamViewController.m in Sources */,
 				A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */,
+				A67871A01A427B2300AEE184 /* MessageViewController.m in Sources */,
 				A66FDBDE1A3F33EE00DAAE13 /* GREButtonGroup.m in Sources */,
 				A6A692521A376FC500414E73 /* RCCSQuestion.m in Sources */,
 				A6A692631A37856000414E73 /* TCViewController.m in Sources */,
@@ -548,6 +561,7 @@
 				A66FDBD51A3E2D2B00DAAE13 /* GRETextButton.m in Sources */,
 				A66FDBE41A3F47E800DAAE13 /* SEAnswerView.m in Sources */,
 				A66FDBD81A3E2DAC00DAAE13 /* GREButton.m in Sources */,
+				A67871A71A429E0E00AEE184 /* WeakRef.m in Sources */,
 				A6A6924B1A376CA400414E73 /* SEQuestion.m in Sources */,
 				A6A692161A3766E300414E73 /* main.m in Sources */,
 				A6A6925B1A37759F00414E73 /* MainViewController.m in Sources */,

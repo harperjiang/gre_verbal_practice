@@ -10,11 +10,13 @@
 #define GRE_Verbal_Practice_QViewController_h
 
 #import "Question.h"
+#import "AnswerListener.h"
 
 @protocol QViewController <NSObject>
 
 - (void)setQuestionData:(Question*) data;
 - (void)showAnswer;
+- (void)setAnswerListener:(id<AnswerListener>)listener;
 
 @end
 

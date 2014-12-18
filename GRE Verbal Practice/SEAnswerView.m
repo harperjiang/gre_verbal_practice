@@ -60,6 +60,8 @@
         
         CGRect frame = CGRectMake(x, y, BOX_SIZE, BOX_SIZE);
         GREChoiceBox* choice = [[GREChoiceBox alloc] initWithFrame:frame];
+        [choice addButtonListener:self];
+        [choice setTag:i];
         [self->buttons addObject:choice];
         [self addSubview:choice];
         
@@ -103,6 +105,22 @@
         NSInteger index = [(NSNumber*)[answers objectAtIndex:i] integerValue];
         [(GREButton*)[self->buttons objectAtIndex:index] setRightAnswer:YES];
     }
+}
+
+
+- (void)buttonChanged:(id)source chosen:(BOOL)chosen {
+    NSMutableArray* results = [[NSMutableArray alloc] init];
+    
+    for(int i = 0 ; i < self.subviews.count ; i++) {
+        UIView* sub = [self.subviews objectAtIndex:i];
+        if([sub isKindOfClass:[GREChoiceBox class]]) {
+            GREChoiceBox* gcb = (GREChoiceBox*)sub;
+            if(gcb.chosen) {
+                [results addObject: [[NSNumber alloc] initWithInteger: gcb.tag]];
+            }
+        }
+    }
+    [self.answerListener answerChanged:results];
 }
 
 @end

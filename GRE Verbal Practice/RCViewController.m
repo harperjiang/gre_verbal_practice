@@ -47,6 +47,11 @@
     [(RCQViewController*)[[self viewControllers] objectAtIndex: 1]
         showAnswers: self.questionData.answers];
 }
+
+- (void)setAnswerListener:(id<AnswerListener>)listener {
+    [((RCQViewController*)[[self viewControllers] objectAtIndex: 1]).answerView
+        setAnswerListener: listener];
+}
 /*
 #pragma mark - Navigation
 

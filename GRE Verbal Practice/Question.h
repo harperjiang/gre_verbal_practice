@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum { SENTENCE_EQUIV = 1, READING_COMP, TEXT_COMPLETION } QuestionType;
+
 @interface Question : NSObject
 
 @property (nonatomic, readwrite) NSString* text;
+
+- (QuestionType)type;
 
 @end

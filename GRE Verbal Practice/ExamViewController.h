@@ -11,18 +11,25 @@
 #import "RCViewController.h"
 #import "TCViewController.h"
 #import "ExamResultViewController.h"
+#import "MessageViewController.h"
 #import "ExamTimer.h"
+#import "ExamSuite.h"
+#import "AnswerListener.h"
 
-@interface ExamViewController : UIViewController {
+@interface ExamViewController : UIViewController<AnswerListener> {
     SEViewController* sevc;
     RCViewController* rcvc;
     TCViewController* tcvc;
     ExamResultViewController* ervc;
     
-    UIViewController* currentVC;
+    MessageViewController* msgvc;
+    
+    id<QViewController> currentController;
     
     ExamTimer* timer;
 }
+
+@property(nonatomic, readwrite, strong) ExamSuite* examSuite;
 
 @property(nonatomic, readwrite, strong) IBOutlet UIView* containerView;
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* timeLabel;

@@ -56,6 +56,10 @@
 - (void)showAnswer {
     [self.answerView showAnswer: self.questionData.answers];
 }
+
+- (void)setAnswerListener:(id<AnswerListener>)listener {
+    [self.answerView setAnswerListener:listener];
+}
 /*
 #pragma mark - Navigation
 
