@@ -8,8 +8,20 @@
 
 #import "ExamSuite.h"
 #import "Scorer.h"
+#import "DataManager.h"
 
 @implementation ExamSuite
+
++ (ExamSuite*)create {
+    ExamSuite* esuite = [[ExamSuite alloc] init];
+    NSMutableArray* questions = [[NSMutableArray alloc] init];
+    [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: TEXT_COMPLETION count: 5]];
+    [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: SENTENCE_EQUIV count: 4]];
+    [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: READING_COMP count: 4]];
+    
+    [esuite setQuestions:questions];
+    return esuite;
+}
 
 - (id)init {
     self = [super init];

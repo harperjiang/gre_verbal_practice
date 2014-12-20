@@ -11,6 +11,7 @@
 #import <CoreData/CoreData.h>
 #import "Vocabulary.h"
 #import "SEQuestion.h"
+#import "RCQuestion.h"
 #import "MemoryStore.h"
 
 
@@ -74,6 +75,30 @@
     XCTAssertEqualObjects(opt, seq.options);
     NSArray* ans = @[@0,@1];
     XCTAssertEqualObjects(ans, seq.answers);
+}
+
+- (void)testRCQuestion {
+    NSManagedObjectContext* moc = [memoryStore memoryContext];
+    
+    RCText* t = [[RCText alloc] initWithEntity:[memoryStore edFromName:@"RCText"] insertIntoManagedObjectContext: moc];
+    NSEntityDescription* rced = [memoryStore edFromName:@"RCQuestion"];
+    RCQuestion* rcq1 = [[RCQuestion alloc] initWithEntity:rced insertIntoManagedObjectContext: moc];
+    [rcq1 setReadText:t];
+    RCQuestion* rcq2 = [[RCQuestion alloc] initWithEntity:rced insertIntoManagedObjectContext: moc];
+    [rcq2 setReadText:t];
+    
+    [moc insertObject:t];
+    [moc insertObject:rcq1];
+    [moc insertObject:rcq2];
+    NSError* error;
+    XCTAssert([moc save:&error]);
+    
+    NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"RCQuestion"];
+    NSArray* rcqs = [moc executeFetchRequest:req error:&error];
+    
+    rcq1 = [rcqs objectAtIndex:0];
+    rcq2 = [rcqs objectAtIndex:1];
+    XCTAssert(rcq1.readText == rcq2.readText);
 }
 
 @end

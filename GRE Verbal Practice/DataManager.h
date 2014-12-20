@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "VocabPlan.h"
+#import "Question.h"
 
 
 @interface DataManager : NSObject
@@ -17,8 +18,9 @@
 - (NSArray*)getVocabs:(NSInteger)count;
 - (void)updateVocabProgress:(Vocabulary*)vocab;
 
-- (NSArray*)getSEQuestions:(NSInteger)count;
-- (NSArray*)getTCQuestions:(NSInteger)count;
-- (NSArray*)getRCQuestions:(NSInteger)count;
+- (NSArray*)getQuestions:(QuestionType)type count:(NSInteger)count;
+
+
+- (void)reset;
 
 @end

@@ -195,6 +195,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkM-gt-ipF">
+                                <rect key="frame" x="16" y="266" width="102" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="YbN-bv-scX"/>
+                                    <constraint firstAttribute="width" constant="102" id="bZs-kU-jw2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vg-FR-F47">
                                 <rect key="frame" x="0.0" y="135" width="600" height="110"/>
                                 <subviews>
@@ -259,15 +269,84 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuJ-0u-UFc">
+                                <rect key="frame" x="0.0" y="319" width="600" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions per Exercise:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ivj-gu-2Fl">
+                                        <rect key="frame" x="16" y="20" width="163" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="1KM-Jq-3KE"/>
+                                            <constraint firstAttribute="width" constant="163" id="OHH-75-XRf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="5" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="3bG-Zs-Z1f">
+                                        <rect key="frame" x="14" y="66" width="568" height="31"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.49999999999999961"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="392" id="XqC-Vc-dnN"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="XqC-Vc-dnN"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="ZbY-Pz-xlK" eventType="valueChanged" id="BzU-rm-Y4L"/>
+                                        </connections>
+                                    </slider>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSB-GW-VeL">
+                                        <rect key="frame" x="202" y="20" width="57" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="57" id="U78-zR-rw8"/>
+                                            <constraint firstAttribute="width" constant="57" id="g2Y-6f-AIp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="U78-zR-rw8"/>
+                                            </mask>
+                                        </variation>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" label=""/>
+                                <constraints>
+                                    <constraint firstItem="3bG-Zs-Z1f" firstAttribute="leading" secondItem="Ivj-gu-2Fl" secondAttribute="leading" id="2xK-K3-EoG"/>
+                                    <constraint firstItem="3bG-Zs-Z1f" firstAttribute="top" secondItem="Ivj-gu-2Fl" secondAttribute="bottom" constant="18" id="BqY-XW-OeU"/>
+                                    <constraint firstItem="MSB-GW-VeL" firstAttribute="leading" secondItem="Ivj-gu-2Fl" secondAttribute="trailing" constant="23" id="Dc4-Qq-kNo"/>
+                                    <constraint firstItem="3bG-Zs-Z1f" firstAttribute="top" secondItem="MSB-GW-VeL" secondAttribute="bottom" constant="13" id="G9L-fM-qOf"/>
+                                    <constraint firstAttribute="trailing" secondItem="3bG-Zs-Z1f" secondAttribute="trailing" constant="20" id="TsZ-K8-6DS"/>
+                                    <constraint firstItem="Ivj-gu-2Fl" firstAttribute="leading" secondItem="cuJ-0u-UFc" secondAttribute="leading" constant="16" id="a9R-2q-8P8"/>
+                                    <constraint firstAttribute="height" constant="110" id="dbO-Tn-k3M"/>
+                                    <constraint firstItem="Ivj-gu-2Fl" firstAttribute="top" secondItem="cuJ-0u-UFc" secondAttribute="top" constant="20" id="dk2-ki-wr9"/>
+                                    <constraint firstItem="Ivj-gu-2Fl" firstAttribute="top" secondItem="MSB-GW-VeL" secondAttribute="top" id="lSz-Zh-nj2"/>
+                                    <constraint firstAttribute="trailing" secondItem="MSB-GW-VeL" secondAttribute="trailing" constant="322" id="vdF-Ah-nPU"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="G9L-fM-qOf"/>
+                                        <exclude reference="vdF-Ah-nPU"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2vg-FR-F47" firstAttribute="top" secondItem="JFW-wk-Wlp" secondAttribute="bottom" constant="20" id="AW5-T5-bqp"/>
+                            <constraint firstItem="cuJ-0u-UFc" firstAttribute="leading" secondItem="2vg-FR-F47" secondAttribute="leading" id="Ekm-q6-wlK"/>
                             <constraint firstItem="JFW-wk-Wlp" firstAttribute="leading" secondItem="309-SE-DSK" secondAttribute="leadingMargin" id="INB-3x-Utr"/>
+                            <constraint firstItem="cuJ-0u-UFc" firstAttribute="trailing" secondItem="2vg-FR-F47" secondAttribute="trailing" id="KG4-rZ-Aog"/>
                             <constraint firstItem="2vg-FR-F47" firstAttribute="leading" secondItem="309-SE-DSK" secondAttribute="leading" id="WM4-n0-0Z0"/>
+                            <constraint firstItem="cuJ-0u-UFc" firstAttribute="top" secondItem="JkM-gt-ipF" secondAttribute="bottom" constant="32" id="Yh2-c3-cjS"/>
                             <constraint firstAttribute="trailing" secondItem="2vg-FR-F47" secondAttribute="trailing" id="ax7-22-Ekw"/>
+                            <constraint firstItem="JkM-gt-ipF" firstAttribute="leading" secondItem="JFW-wk-Wlp" secondAttribute="leading" id="cgh-Vm-n27"/>
                             <constraint firstItem="JFW-wk-Wlp" firstAttribute="top" secondItem="fyy-ys-fRT" secondAttribute="bottom" constant="30" id="coa-bu-amW"/>
                             <constraint firstItem="EMF-OR-cR6" firstAttribute="top" secondItem="2vg-FR-F47" secondAttribute="bottom" constant="355" id="drm-IC-rcd"/>
+                            <constraint firstItem="JkM-gt-ipF" firstAttribute="top" secondItem="2vg-FR-F47" secondAttribute="bottom" constant="21" id="fkw-S0-EFA"/>
                             <constraint firstItem="EMF-OR-cR6" firstAttribute="top" secondItem="2vg-FR-F47" secondAttribute="bottom" constant="394" id="gd9-k8-uA9"/>
                         </constraints>
                         <variation key="default">
@@ -278,6 +357,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="questionPerSetSlider" destination="3bG-Zs-Z1f" id="g8g-GQ-TRK"/>
+                        <outlet property="questionPerSetText" destination="MSB-GW-VeL" id="VqJ-CY-QeB"/>
                         <outlet property="vocabDailySlider" destination="toF-Gw-CWn" id="pWP-1F-D9v"/>
                         <outlet property="vocabDailyText" destination="Ol5-AS-FzC" id="rcj-Lp-mpY"/>
                     </connections>

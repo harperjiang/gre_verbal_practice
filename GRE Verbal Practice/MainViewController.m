@@ -10,6 +10,8 @@
 #import "QuestionViewController.h"
 #import "ExamViewController.h"
 #import "VocabViewController.h"
+#import "DataManager.h"
+#import "UserPreference.h"
 
 @interface MainViewController ()
 
@@ -75,12 +77,13 @@
         if ([@"Text Completion" isEqualToString: btn.titleLabel.text]) {
             qt = TEXT_COMPLETION;
         }
-
         
+        [qvc setQuestionSet: [QuestionSet create:qt]];
     }
     if([[segue destinationViewController] isKindOfClass:[ExamViewController class]]) {
         // Load Exam Question List
-        
+        ExamViewController* evc = (ExamViewController*)[segue destinationViewController];
+        [evc setExamSuite:[ExamSuite create]];
     }
     if([[segue destinationViewController] isKindOfClass:[VocabViewController class]]) {
         // Load Vocabulary List

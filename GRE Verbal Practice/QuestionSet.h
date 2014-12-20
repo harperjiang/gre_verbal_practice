@@ -17,6 +17,8 @@
 @property(nonatomic, readwrite, strong) NSMutableArray* answers;
 @property(nonatomic, readwrite) QuestionType type;
 
++ (QuestionSet*)create:(QuestionType)qt;
+
 - (Question*)nextQuestion;
 - (void)answer: (NSArray*)answer;
 - (void)answer:(NSArray *)answer index:(NSInteger)index;

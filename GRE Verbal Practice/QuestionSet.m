@@ -8,8 +8,18 @@
 
 #import "QuestionSet.h"
 #import "Scorer.h"
+#import "DataManager.h"
+#import "UserPreference.h"
 
 @implementation QuestionSet
+
++ (QuestionSet*) create:(QuestionType)qt {
+    NSInteger questionCount = [UserPreference getInteger: USER_QUES_PER_SET defval:USER_QUES_PER_SET_DEFAULT];
+    QuestionSet* qs = [[QuestionSet alloc] init];
+    [qs setQuestions:
+     [[DataManager defaultManager] getQuestions:qt count:questionCount]];
+    return qs;
+}
 
 - (id)init {
     self = [super init];

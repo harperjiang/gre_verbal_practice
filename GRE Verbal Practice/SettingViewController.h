@@ -13,6 +13,9 @@
 @property(nonatomic, readwrite, strong) IBOutlet UISlider* vocabDailySlider;
 @property(nonatomic, readwrite, strong) IBOutlet UITextField* vocabDailyText;
 
+@property(nonatomic, readwrite, strong) IBOutlet UISlider* questionPerSetSlider;
+@property(nonatomic, readwrite, strong) IBOutlet UITextField* questionPerSetText;
+
 -(IBAction)sliderValueChanged:(id)sender;
 
 @end

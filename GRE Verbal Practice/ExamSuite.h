@@ -16,6 +16,8 @@
 @property(nonatomic, readonly) NSInteger current;
 @property(nonatomic, readwrite) NSInteger timeLimit;
 
++ (ExamSuite*)create;
+
 - (NSInteger)size;
 - (BOOL)next;
 - (BOOL)prev;

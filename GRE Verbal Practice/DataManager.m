@@ -13,7 +13,11 @@
 #import "MemoryAlgorithm.h"
 #import "DateUtils.h"
 
-@implementation DataManager
+@implementation DataManager {
+    NSArray* seQuestions;
+    NSArray* rcQuestions;
+    NSArray* tcQuestions;
+}
 
 static DataManager* inst;
 
@@ -35,6 +39,12 @@ static DataManager* inst;
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+}
+
+- (void)reset {
+    seQuestions = nil;
+    rcQuestions = nil;
+    tcQuestions = nil;
 }
 
 - (NSArray*)query:(NSFetchRequest*)request {
@@ -89,5 +99,58 @@ static DataManager* inst;
     [self save];
 }
 
+- (NSArray*)getQuestions:(QuestionType)type count:(NSInteger)count {
+    NSArray* source = nil;
+    NSString* name = nil;
+    switch(type) {
+        case SENTENCE_EQUIV:
+            source = [self seQuestions];
+            name = @"SEQuestion";
+            break;
+        case READING_COMP:
+            source = [self rcQuestions];
+            name = @"RCQuestion";
+            break;
+        case TEXT_COMPLETION:
+            source = [self tcQuestions];
+            name = @"TCQuestion";
+            break;
+    }
+
+    NSMutableSet* result = [[NSMutableSet alloc] init];
+    
+    while(result.count < count) {
+        [result addObject:[source objectAtIndex: arc4random() % source.count]];
+    }
+    
+    return [result allObjects];
+}
+
+- (NSArray*)seQuestions {
+    if(seQuestions == nil) {
+        // Re-fetch all SEQuestions
+        NSFetchRequest* fetchAll = [[NSFetchRequest alloc] initWithEntityName:@"SEQuestion"];
+        seQuestions = [self query:fetchAll];
+    }
+    return seQuestions;
+}
+
+- (NSArray*)rcQuestions {
+    if(rcQuestions == nil) {
+        // Re-fetch all RCQuestions
+        NSFetchRequest* fetchAll = [[NSFetchRequest alloc] initWithEntityName:@"RCQuestion"];
+        rcQuestions = [self query:fetchAll];
+    }
+    return rcQuestions;
+}
+
+- (NSArray*)tcQuestions {
+    if(tcQuestions == nil) {
+        // Re-fetch all TCQuestions
+        NSFetchRequest* fetchAll = [[NSFetchRequest alloc] initWithEntityName:@"TCQuestion"];
+        tcQuestions = [self query:fetchAll];
+    }
+    return tcQuestions;
+}
 
 @end
