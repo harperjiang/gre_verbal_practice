@@ -50,6 +50,8 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize memoryObjectContext = _memoryObjectContext;
+@synthesize memoryStoreCoordinator = _memoryStoreCoordinator;
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "haojiang.GRE_Verbal_Practice" in the application's documents directory.
@@ -94,6 +96,30 @@
     return _persistentStoreCoordinator;
 }
 
+- (NSPersistentStoreCoordinator*) memoryStoreCoordinator {
+    
+    if(_memoryStoreCoordinator != nil)
+        return _memoryStoreCoordinator;
+    
+    _memoryStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    
+    NSError *error = nil;
+    NSString *failureReason = @"There was an error creating the application's memory store.";
+    if (![_memoryStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:&error]) {
+        // Report any error we got.
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's memory store";
+        dict[NSLocalizedFailureReasonErrorKey] = failureReason;
+        dict[NSUnderlyingErrorKey] = error;
+        error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
+        // Replace this with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return _memoryStoreCoordinator;
+}
 
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
@@ -110,6 +136,20 @@
     return _managedObjectContext;
 }
 
+- (NSManagedObjectContext *)memoryObjectContext {
+    if (_memoryObjectContext != nil) {
+        return _memoryObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self memoryStoreCoordinator];
+    if (!coordinator) {
+        return nil;
+    }
+    _memoryObjectContext = [[NSManagedObjectContext alloc] init];
+    [_memoryObjectContext setPersistentStoreCoordinator:coordinator];
+    return _memoryObjectContext;
+}
+
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {
@@ -124,5 +164,8 @@
         }
     }
 }
+
+#pragma mark - Restoration Support
+
 
 @end

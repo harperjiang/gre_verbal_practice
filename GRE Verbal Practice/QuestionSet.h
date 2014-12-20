@@ -10,7 +10,7 @@
 #import "Question.h"
 
 @interface QuestionSet : NSObject {
-    NSInteger current;
+    NSInteger next;
 }
 
 @property(nonatomic, readwrite, strong) NSArray* questions;
@@ -19,4 +19,7 @@
 
 - (Question*)nextQuestion;
 - (void)answer: (NSArray*)answer;
+- (void)answer:(NSArray *)answer index:(NSInteger)index;
+- (NSString*)score;
+
 @end

@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 typedef enum { SENTENCE_EQUIV = 1, READING_COMP, TEXT_COMPLETION } QuestionType;
 
-@interface Question : NSObject
+@interface Question : NSManagedObject
 
 @property (nonatomic, readwrite) NSString* text;
 
++ (id)emptyAnswer;
+
 - (QuestionType)type;
+- (BOOL)verifyAnswer:(id)answer;
 
 @end

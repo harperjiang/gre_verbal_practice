@@ -10,8 +10,16 @@
 
 @implementation TCQuestion
 
+@dynamic options, answers;
+
 - (QuestionType)type {
     return TEXT_COMPLETION;
+}
+
+- (BOOL)verifyAnswer:(id)answer {
+    if(answer == [Question emptyAnswer])
+        return NO;
+    return [self.answers isEqualToArray:(NSArray*) answer];
 }
 
 @end

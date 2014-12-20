@@ -10,8 +10,23 @@
 
 @implementation Question
 
-- (QuestionType)type{
+@dynamic text;
+
+static NSArray* empty;
+
++ (id)emptyAnswer {
+    if(empty == nil) {
+        empty = [[NSArray alloc] init];
+    }
+    return empty;
+}
+
+- (QuestionType)type {
     return 0;
+}
+
+- (BOOL)verifyAnswer:(id)answer {
+    return NO;
 }
 
 @end

@@ -7,13 +7,14 @@
 //
 
 #import "QuestionSet.h"
+#import "Scorer.h"
 
 @implementation QuestionSet
 
 - (id)init {
     self = [super init];
     if(self) {
-        self->current = 0;
+        self->next = 0;
         self.answers = [[NSMutableArray alloc] init];
     }
     return self;
@@ -22,18 +23,26 @@
 - (Question*)nextQuestion {
     if(self.questions == nil)
         return nil;
-    if(self->current == self.questions.count)
+    if(self->next == self.questions.count)
         return nil;
-    Question* result = (Question*)[self.questions objectAtIndex:current];
-    current ++;
+    Question* result = (Question*)[self.questions objectAtIndex:next];
+    next++;
     return result;
 }
 
-- (void)answer:(NSArray *)answer{
-    while(self.answers.count <= current) {
-        [self.answers addObject:nil];
+- (void)answer:(NSArray *)answer index:(NSInteger)index {
+    while(self.answers.count <= index) {
+        [self.answers addObject:[Question emptyAnswer]];
     }
-    [self.answers replaceObjectAtIndex:current withObject: answer];
+    [self.answers replaceObjectAtIndex:index withObject: answer];
+}
+
+- (void)answer:(NSArray *)answer {
+    [self answer:answer index: next - 1];
+}
+
+- (NSString*)score {
+    return [Scorer score:self.questions answer: self.answers];
 }
 
 @end

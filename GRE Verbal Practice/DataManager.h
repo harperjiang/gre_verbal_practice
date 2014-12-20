@@ -7,20 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RCQuestion.h"
-#import "TCQuestion.h"
-#import "SEQuestion.h"
-#import "Vocabulary.h"
+#import "VocabPlan.h"
 
 
 @interface DataManager : NSObject
 
 + (DataManager*)defaultManager;
 
-- (RCQuestion*)getRCQuestion;
-- (TCQuestion*)getTCQuestion;
-- (SEQuestion*)getSEQuestion;
-- (Vocabulary*)getVocabulary;
+- (NSArray*)getVocabs:(NSInteger)count;
+- (void)updateVocabProgress:(Vocabulary*)vocab;
 
+- (NSArray*)getSEQuestions:(NSInteger)count;
+- (NSArray*)getTCQuestions:(NSInteger)count;
+- (NSArray*)getRCQuestions:(NSInteger)count;
 
 @end

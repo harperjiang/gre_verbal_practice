@@ -7,44 +7,62 @@
 //
 
 #import "ExamSuite.h"
+#import "Scorer.h"
 
 @implementation ExamSuite
 
 - (id)init {
     self = [super init];
     if(self) {
-        self.current = 0;
+        self->_current = 0;
         self.answers = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (NSInteger)size {
+    if(self.questions == nil)
+        return 0;
     return self.questions.count;
 }
 
-- (Question*)prevQuestion {
-    if(self.current != 0) {
-        self.current--;
-        return [self.questions objectAtIndex: self.current];
+- (BOOL)prev {
+    if(self.current > 0) {
+        self->_current--;
+        return YES;
     }
-    return nil;
+    return NO;
 }
 
-- (Question*)nextQuestion {
-    if(self.current < self.questions.count) {
-        Question* res = (Question*)[self.questions objectAtIndex: self.current];
-        self.current++;
-        return res;
+- (BOOL)next {
+    if(self.questions != nil && self.current < self.questions.count - 1) {
+        self->_current++;
+        return YES;
     }
-    return nil;
+    return NO;
+}
+
+- (Question*)question {
+    if(self.questions == nil || self.questions.count == 0)
+        return nil;
+    return (Question*)[self.questions objectAtIndex:self.current];
 }
 
 - (void)answer:(NSArray *)answer for:(NSInteger)i {
-    while(self.answers.count <= self.current) {
-        [self.answers addObject:nil];
+    if(self.questions == nil) {
+        @throw [[NSException alloc] initWithName:@"NPE" reason:@"Question list is empty" userInfo:nil];
     }
-    [self.answers replaceObjectAtIndex:self.current withObject: answer];
+    if(i < 0 && i >= self.questions.count) {
+        @throw [[NSException alloc] initWithName:@"OOB" reason:@"Out of Bound" userInfo:nil];
+    }
+    while(self.answers.count <= i) {
+        [self.answers addObject:[Question emptyAnswer]];
+    }
+    [self.answers replaceObjectAtIndex:i withObject: answer];
+}
+
+- (NSString*)score {
+    return [Scorer score:self.questions answer: self.answers];
 }
 
 @end

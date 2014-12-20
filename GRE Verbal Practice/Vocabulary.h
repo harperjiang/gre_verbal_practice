@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Vocabulary : NSObject
 
-@property(nonatomic, readwrite, retain) NSString* word;
-@property(nonatomic, readwrite, retain) NSString* explanation;
-@property(nonatomic, readwrite, retain) NSString* synonyms;
-@property(nonatomic, readwrite, retain) NSString* samples;
+@interface Vocabulary: NSManagedObject
+
+@property(nonatomic, readwrite, strong) NSString* word;
+@property(nonatomic, readwrite, strong) NSString* explanation;
+@property(nonatomic, readwrite, strong) NSString* synonyms;
+@property(nonatomic, readwrite, strong) NSString* samples;
+
+@property(nonatomic, readwrite, strong) NSDate* scheduleDate;
+@property(nonatomic, readwrite) NSInteger passCount;
 
 @end
+

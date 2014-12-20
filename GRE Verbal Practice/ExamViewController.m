@@ -25,17 +25,15 @@
     ervc = (ExamResultViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ExamResultViewController"];
     msgvc = (MessageViewController*)[self.storyboard
         instantiateViewControllerWithIdentifier:@"MessageViewController"];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    
     
     // Check Exam Suite
     if([self.examSuite size] == 0) {
         [self showContentController:msgvc];
         [self.toolbar setHidden:YES];
+        [self.timeLabel setHidden:YES];
     }else {
-        [self showQuestion: [self.examSuite nextQuestion]];
+        [self showQuestion: [self.examSuite question]];
         // Initialize Timer
         timer = [[ExamTimer alloc] initWithMinutes:[self.examSuite timeLimit] target:self interval: @selector(timerInterval:) done: @selector(showResultView)];
     }
@@ -70,16 +68,26 @@
     remain = remain % 3600;
     long minute = remain / 60;
     long second = remain % 60;
-    [self.timeLabel setText:[NSString stringWithFormat:@"%02ld:%02ld:%02ld", hour, minute, second]];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.timeLabel setText:[NSString stringWithFormat:@"%02ld:%02ld:%02ld", hour, minute, second]];
+    }];
 }
 
 - (void)showResultView {
     // Send Result Information to Result view
     // TODO
     // Show result view and disable toolbar
-    [self showContentController:ervc];
-    [self.toolbar setHidden:YES];
-    [self.timeLabel setHidden:YES];
+    if([NSThread isMainThread]) {
+        [self showContentController:ervc];
+        [self.toolbar setHidden:YES];
+        [self.timeLabel setHidden:YES];
+    } else {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self showContentController:ervc];
+            [self.toolbar setHidden:YES];
+            [self.timeLabel setHidden:YES];
+        }];
+    }
     [self->timer stop];
 }
 
@@ -96,22 +104,21 @@
 }
 
 - (void)showContentController:(UIViewController*) vc {
-    if(currentController != vc) {
+    if(currentController != (id<QViewController>)vc) {
         if(currentController != nil) {
-            [self hideContentController: currentController];
+            [self hideContentController: (UIViewController*)currentController];
         }
         [self addChildViewController:vc];
         vc.view.frame = self.containerView.frame;
         [self.containerView addSubview: vc.view];
         [vc didMoveToParentViewController:self];
-        currentController = vc;
+        currentController = (id<QViewController>)vc;
         [(id<QViewController>)currentController setAnswerListener: self];
     }
 }
 
 - (void)nextQuestion:(id)button {
-    Question* next = [self.examSuite nextQuestion];
-    if(next == nil) {
+    if(![self.examSuite next]) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"The end"
                               message:@"This is the last question!"
@@ -121,12 +128,11 @@
         [alert show];
         return;
     }
-    [self showQuestion: next];
+    [self showQuestion: [self.examSuite question]];
 }
 
 - (void)prevQuestion:(id)button {
-    Question* prev = [self.examSuite prevQuestion];
-    if(prev == nil) {
+    if(![self.examSuite prev]) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"No more"
                               message:@"This is the first question!"
@@ -137,7 +143,7 @@
 
         return;
     }
-    [self showQuestion: prev];
+    [self showQuestion: [self.examSuite question]];
 }
 
 - (void)markQuestion:(id)button {

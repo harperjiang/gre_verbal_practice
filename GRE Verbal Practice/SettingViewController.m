@@ -1,20 +1,19 @@
 //
-//  NavViewController.m
+//  SettingViewController.m
 //  GRE Verbal Practice
 //
-//  Created by Harper on 12/16/14.
+//  Created by Harper on 12/18/14.
 //  Copyright (c) 2014 Hao Jiang. All rights reserved.
 //
 
-#import "NavViewController.h"
-#import "MainViewController.h"
 #import "SettingViewController.h"
+#import "UserPreference.h"
 
-@interface NavViewController ()
+@interface SettingViewController ()
 
 @end
 
-@implementation NavViewController
+@implementation SettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,15 +25,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)shouldAutorotate {
-    id currentViewController = self.topViewController;
-    
-    if ([currentViewController isKindOfClass:[MainViewController class]])
-        return NO;
-    if ([currentViewController isKindOfClass:[SettingViewController class]])
-        return NO;
-    
-    return YES;
+- (IBAction)sliderValueChanged:(id)sender {
+    UISlider* slider = (UISlider*)sender;
+    NSInteger value = slider.value;
+    [self.vocabDailyText setText:[NSString stringWithFormat:@"%ld", value]];
+    [UserPreference setInteger:value forKey:USER_DAILY_VOCAB];
 }
 
 /*

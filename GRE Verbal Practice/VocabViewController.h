@@ -7,20 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Vocabulary.h"
+#import <iAd/iAd.h>
+#import "VocabPlan.h"
+#import "AdBannerSupport.h"
 
 @interface VocabViewController : UIViewController
 
-@property(nonatomic, readwrite, retain) IBOutlet UILabel* wordLabel;
-@property(nonatomic, readwrite, retain) IBOutlet UILabel* explanationLabel;
-@property(nonatomic, readwrite, retain) IBOutlet UILabel* synonymLabel;
-@property(nonatomic, readwrite, retain) IBOutlet UILabel* sampleLabel;
+@property(nonatomic, readwrite, strong) IBOutlet ADBannerView* adBannerView;
+@property(nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint* adBannerBtmCon;
 
-@property(nonatomic, readwrite, retain) IBOutlet UIButton* knowButton;
-@property(nonatomic, readwrite, retain) IBOutlet UIButton* dontknowButton;
-@property(nonatomic, readwrite, retain) IBOutlet UIButton* showButton;
+@property(nonatomic, readwrite, strong) AdBannerSupport* bannerSupport;
 
-@property(nonatomic, readwrite, retain) Vocabulary* data;
+@property(nonatomic, readwrite, strong) IBOutlet UILabel* progressLabel;
+@property(nonatomic, readwrite, strong) IBOutlet UILabel* messageLabel;
+
+@property(nonatomic, readwrite, strong) IBOutlet UILabel* wordLabel;
+@property(nonatomic, readwrite, strong) IBOutlet UILabel* explanationLabel;
+@property(nonatomic, readwrite, strong) IBOutlet UILabel* synonymLabel;
+@property(nonatomic, readwrite, strong) IBOutlet UILabel* sampleLabel;
+
+@property(nonatomic, readwrite, strong) IBOutlet UIButton* knowButton;
+@property(nonatomic, readwrite, strong) IBOutlet UIButton* dontknowButton;
+@property(nonatomic, readwrite, strong) IBOutlet UIButton* showButton;
+
+@property(nonatomic, readwrite, strong) VocabPlan* plan;
+@property(nonatomic, readwrite, strong) Vocabulary* currentVocab;
 
 - (IBAction) buttonPressed:(id) button;
 

@@ -13,12 +13,14 @@
 
 @property(nonatomic, readwrite, strong) NSArray* questions;
 @property(nonatomic, readwrite, strong) NSMutableArray* answers;
-@property(nonatomic,readwrite) NSInteger current;
-@property(nonatomic,readwrite) NSInteger timeLimit;
+@property(nonatomic, readonly) NSInteger current;
+@property(nonatomic, readwrite) NSInteger timeLimit;
 
 - (NSInteger)size;
-- (Question*)prevQuestion;
-- (Question*)nextQuestion;
+- (BOOL)next;
+- (BOOL)prev;
+- (Question*)question;
 - (void)answer: (NSArray*)answer for:(NSInteger)i;
+- (NSString*)score;
 
 @end

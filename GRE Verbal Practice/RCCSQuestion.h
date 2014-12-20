@@ -10,6 +10,4 @@
 
 @interface RCCSQuestion : RCQuestion
 
-@property (nonatomic, readwrite) NSString* answer;
-
 @end

@@ -7,10 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Vocabulary.h"
 
-@interface VocabPlan : NSObject
+@interface VocabPlan : NSObject {
+    NSMutableArray* source;
+    NSMutableArray* dest;
+    NSUInteger current;
+}
 
 @property(nonatomic, readwrite, strong) NSDate* date;
-@property(nonatomic, readwrite, strong) NSMutableArray* words;
+@property(nonatomic, readwrite, strong) NSArray* words;
+
++ (VocabPlan*)create;
+
+- (Vocabulary*)nextVocab;
+- (NSString*)status;
+- (void)feedback:(BOOL)know;
 
 @end

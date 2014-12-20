@@ -10,8 +10,16 @@
 
 @implementation RCQuestion
 
+@dynamic readText,options,answers;
+
 - (QuestionType)type {
     return READING_COMP;
+}
+
+- (BOOL)verifyAnswer:(id)answer {
+    if(answer == [Question emptyAnswer])
+        return NO;
+    return [self.answers isEqualToArray:(NSArray*) answer];
 }
 
 @end

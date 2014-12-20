@@ -10,4 +10,11 @@
 
 @implementation Vocabulary
 
+@dynamic word;
+@dynamic explanation;
+@dynamic synonyms;
+@dynamic samples;
+@dynamic passCount;
+@dynamic scheduleDate;
+
 @end

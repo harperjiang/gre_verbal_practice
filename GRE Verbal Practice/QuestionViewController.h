@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 #import "QViewController.h"
 #import "Question.h"
 #import "QuestionSet.h"
+#import "AdBannerSupport.h"
 
 
 @interface QuestionViewController : UIViewController<AnswerListener> {
@@ -17,6 +19,11 @@
 }
 
 @property(nonatomic, readwrite, strong) QuestionSet* questionSet;
+
+
+@property(nonatomic, readwrite) AdBannerSupport* adBannerSupport;
+@property(nonatomic, readwrite, strong) IBOutlet ADBannerView* adBannerView;
+@property(nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint* adBannerBtmCon;
 
 @property(nonatomic, readwrite, strong) IBOutlet UIView* toolbarView;
 @property(nonatomic, readwrite, strong) IBOutlet UIView* containerView;

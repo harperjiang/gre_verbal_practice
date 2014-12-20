@@ -41,6 +41,19 @@
 		A678719A1A424B4E00AEE184 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871991A424B4E00AEE184 /* QuestionViewController.m */; };
 		A67871A01A427B2300AEE184 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A678719F1A427B2300AEE184 /* MessageViewController.m */; };
 		A67871A71A429E0E00AEE184 /* WeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871A61A429E0E00AEE184 /* WeakRef.m */; };
+		A67871AB1A42B8F400AEE184 /* AdBannerSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871AA1A42B8F400AEE184 /* AdBannerSupport.m */; };
+		A67871B41A43B9B300AEE184 /* MemoryAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871B31A43B9B300AEE184 /* MemoryAlgorithm.m */; };
+		A67871B71A43BAAE00AEE184 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871B61A43BAAE00AEE184 /* DateUtils.m */; };
+		A67871BA1A43C22B00AEE184 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A67871B91A43C22B00AEE184 /* Settings.bundle */; };
+		A67871BD1A43CF3800AEE184 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871BC1A43CF3800AEE184 /* SettingViewController.m */; };
+		A67871C01A43E50D00AEE184 /* UserPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871BF1A43E50D00AEE184 /* UserPreference.m */; };
+		A67871C41A44737C00AEE184 /* QuestionSetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871C31A44737C00AEE184 /* QuestionSetTest.m */; };
+		A67871C61A4476CB00AEE184 /* VocabPlanTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871C51A4476CB00AEE184 /* VocabPlanTest.m */; };
+		A67871C81A44C99800AEE184 /* ExamSuiteTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871C71A44C99800AEE184 /* ExamSuiteTest.m */; };
+		A67871CB1A44ECBD00AEE184 /* Scorer.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871CA1A44ECBD00AEE184 /* Scorer.m */; };
+		A67871D11A45172C00AEE184 /* DataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871D01A45172C00AEE184 /* DataImporter.m */; };
+		A67871D41A45200200AEE184 /* DataModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871D31A45200200AEE184 /* DataModelTest.m */; };
+		A67871D71A4549E700AEE184 /* MemoryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871D61A4549E700AEE184 /* MemoryStore.m */; };
 		A6A06F191A3F8D8C00D5F8D2 /* RCQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */; };
 		A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F1B1A3F8DA000D5F8D2 /* RCAnswerView.m */; };
 		A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */; };
@@ -51,7 +64,6 @@
 		A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A692231A3766E300414E73 /* iPhone.storyboard */; };
 		A6A692271A3766E300414E73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A692261A3766E300414E73 /* Images.xcassets */; };
 		A6A6922A1A3766E300414E73 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A692281A3766E300414E73 /* LaunchScreen.xib */; };
-		A6A692361A3766E300414E73 /* GRE_Verbal_PracticeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692351A3766E300414E73 /* GRE_Verbal_PracticeTests.m */; };
 		A6A692421A376BAE00414E73 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692411A376BAE00414E73 /* Question.m */; };
 		A6A692451A376C3E00414E73 /* RCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692441A376C3E00414E73 /* RCQuestion.m */; };
 		A6A692481A376C8700414E73 /* TCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692471A376C8700414E73 /* TCQuestion.m */; };
@@ -133,6 +145,27 @@
 		A67871A11A42949400AEE184 /* AnswerListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnswerListener.h; sourceTree = "<group>"; };
 		A67871A51A429E0E00AEE184 /* WeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakRef.h; sourceTree = "<group>"; };
 		A67871A61A429E0E00AEE184 /* WeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakRef.m; sourceTree = "<group>"; };
+		A67871A91A42B8F400AEE184 /* AdBannerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdBannerSupport.h; sourceTree = "<group>"; };
+		A67871AA1A42B8F400AEE184 /* AdBannerSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdBannerSupport.m; sourceTree = "<group>"; };
+		A67871B21A43B9B300AEE184 /* MemoryAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryAlgorithm.h; sourceTree = "<group>"; };
+		A67871B31A43B9B300AEE184 /* MemoryAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryAlgorithm.m; sourceTree = "<group>"; };
+		A67871B51A43BAAE00AEE184 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtils.h; sourceTree = "<group>"; };
+		A67871B61A43BAAE00AEE184 /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtils.m; sourceTree = "<group>"; };
+		A67871B91A43C22B00AEE184 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		A67871BB1A43CF3800AEE184 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		A67871BC1A43CF3800AEE184 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		A67871BE1A43E50D00AEE184 /* UserPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPreference.h; sourceTree = "<group>"; };
+		A67871BF1A43E50D00AEE184 /* UserPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPreference.m; sourceTree = "<group>"; };
+		A67871C31A44737C00AEE184 /* QuestionSetTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSetTest.m; sourceTree = "<group>"; };
+		A67871C51A4476CB00AEE184 /* VocabPlanTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabPlanTest.m; sourceTree = "<group>"; };
+		A67871C71A44C99800AEE184 /* ExamSuiteTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamSuiteTest.m; sourceTree = "<group>"; };
+		A67871C91A44ECBD00AEE184 /* Scorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scorer.h; sourceTree = "<group>"; };
+		A67871CA1A44ECBD00AEE184 /* Scorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scorer.m; sourceTree = "<group>"; };
+		A67871CF1A45172C00AEE184 /* DataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataImporter.h; sourceTree = "<group>"; };
+		A67871D01A45172C00AEE184 /* DataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataImporter.m; sourceTree = "<group>"; };
+		A67871D31A45200200AEE184 /* DataModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelTest.m; sourceTree = "<group>"; };
+		A67871D51A4549E700AEE184 /* MemoryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryStore.h; sourceTree = "<group>"; };
+		A67871D61A4549E700AEE184 /* MemoryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryStore.m; sourceTree = "<group>"; };
 		A6A06F171A3F8D8C00D5F8D2 /* RCQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQViewController.h; sourceTree = "<group>"; };
 		A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCQViewController.m; sourceTree = "<group>"; };
 		A6A06F1A1A3F8DA000D5F8D2 /* RCAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnswerView.h; sourceTree = "<group>"; };
@@ -152,7 +185,6 @@
 		A6A692291A3766E300414E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A6A6922F1A3766E300414E73 /* GRE Verbal PracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GRE Verbal PracticeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A692341A3766E300414E73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6A692351A3766E300414E73 /* GRE_Verbal_PracticeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRE_Verbal_PracticeTests.m; sourceTree = "<group>"; };
 		A6A692401A376BAE00414E73 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		A6A692411A376BAE00414E73 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		A6A692431A376C3E00414E73 /* RCQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQuestion.h; sourceTree = "<group>"; };
@@ -202,10 +234,8 @@
 		A67871771A40EB4F00AEE184 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				A67871781A40EE2A00AEE184 /* ExamTimer.h */,
-				A67871791A40EE2A00AEE184 /* ExamTimer.m */,
-				A67871A51A429E0E00AEE184 /* WeakRef.h */,
-				A67871A61A429E0E00AEE184 /* WeakRef.m */,
+				A67871B51A43BAAE00AEE184 /* DateUtils.h */,
+				A67871B61A43BAAE00AEE184 /* DateUtils.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -215,6 +245,8 @@
 			children = (
 				A678717C1A41173000AEE184 /* DataManager.h */,
 				A678717D1A41173000AEE184 /* DataManager.m */,
+				A67871CF1A45172C00AEE184 /* DataImporter.h */,
+				A67871D01A45172C00AEE184 /* DataImporter.m */,
 			);
 			name = persist;
 			sourceTree = "<group>";
@@ -228,6 +260,8 @@
 				A678718A1A411FD000AEE184 /* VocabPlan.m */,
 				A678718C1A4122D200AEE184 /* ExamSuite.h */,
 				A678718D1A4122D200AEE184 /* ExamSuite.m */,
+				A67871C91A44ECBD00AEE184 /* Scorer.h */,
+				A67871CA1A44ECBD00AEE184 /* Scorer.m */,
 			);
 			name = studyplan;
 			sourceTree = "<group>";
@@ -288,9 +322,103 @@
 			name = question;
 			sourceTree = "<group>";
 		};
+		A67871A81A42B8DC00AEE184 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				A67871781A40EE2A00AEE184 /* ExamTimer.h */,
+				A67871791A40EE2A00AEE184 /* ExamTimer.m */,
+				A67871A91A42B8F400AEE184 /* AdBannerSupport.h */,
+				A67871AA1A42B8F400AEE184 /* AdBannerSupport.m */,
+			);
+			name = support;
+			sourceTree = "<group>";
+		};
+		A67871AC1A43865700AEE184 /* voc */ = {
+			isa = PBXGroup;
+			children = (
+				A67871561A40954100AEE184 /* Vocabulary.h */,
+				A67871571A40954100AEE184 /* Vocabulary.m */,
+			);
+			name = voc;
+			sourceTree = "<group>";
+		};
+		A67871B01A4395C000AEE184 /* question */ = {
+			isa = PBXGroup;
+			children = (
+				A6A692401A376BAE00414E73 /* Question.h */,
+				A6A692411A376BAE00414E73 /* Question.m */,
+				A6A692431A376C3E00414E73 /* RCQuestion.h */,
+				A6A692441A376C3E00414E73 /* RCQuestion.m */,
+				A6A692461A376C8700414E73 /* TCQuestion.h */,
+				A6A692471A376C8700414E73 /* TCQuestion.m */,
+				A6A692491A376CA400414E73 /* SEQuestion.h */,
+				A6A6924A1A376CA400414E73 /* SEQuestion.m */,
+				A6A6924D1A376F2A00414E73 /* RCMSQuestion.h */,
+				A6A6924E1A376F2A00414E73 /* RCMSQuestion.m */,
+				A6A692501A376FC400414E73 /* RCCSQuestion.h */,
+				A6A692511A376FC400414E73 /* RCCSQuestion.m */,
+				A6A692531A37705B00414E73 /* RCText.h */,
+				A6A692541A37705B00414E73 /* RCText.m */,
+			);
+			name = question;
+			sourceTree = "<group>";
+		};
+		A67871B11A43B98B00AEE184 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				A67871B21A43B9B300AEE184 /* MemoryAlgorithm.h */,
+				A67871B31A43B9B300AEE184 /* MemoryAlgorithm.m */,
+			);
+			name = core;
+			sourceTree = "<group>";
+		};
+		A67871B81A43BAB900AEE184 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				A67871A51A429E0E00AEE184 /* WeakRef.h */,
+				A67871A61A429E0E00AEE184 /* WeakRef.m */,
+				A67871BE1A43E50D00AEE184 /* UserPreference.h */,
+				A67871BF1A43E50D00AEE184 /* UserPreference.m */,
+			);
+			name = support;
+			sourceTree = "<group>";
+		};
+		A67871C11A44736200AEE184 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				A67871D21A45176B00AEE184 /* persist */,
+				A67871C21A44736800AEE184 /* studyplan */,
+				A67871D51A4549E700AEE184 /* MemoryStore.h */,
+				A67871D61A4549E700AEE184 /* MemoryStore.m */,
+			);
+			name = domain;
+			sourceTree = "<group>";
+		};
+		A67871C21A44736800AEE184 /* studyplan */ = {
+			isa = PBXGroup;
+			children = (
+				A67871C31A44737C00AEE184 /* QuestionSetTest.m */,
+				A67871C51A4476CB00AEE184 /* VocabPlanTest.m */,
+				A67871C71A44C99800AEE184 /* ExamSuiteTest.m */,
+			);
+			name = studyplan;
+			sourceTree = "<group>";
+		};
+		A67871D21A45176B00AEE184 /* persist */ = {
+			isa = PBXGroup;
+			children = (
+				A67871D31A45200200AEE184 /* DataModelTest.m */,
+			);
+			name = persist;
+			sourceTree = "<group>";
+		};
 		A6A06F261A40853800D5F8D2 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */,
+				A6A692231A3766E300414E73 /* iPhone.storyboard */,
+				A6A692261A3766E300414E73 /* Images.xcassets */,
+				A6A692281A3766E300414E73 /* LaunchScreen.xib */,
 				A67871941A421E7D00AEE184 /* Result@2x.png */,
 				A67871921A421E6700AEE184 /* Result.png */,
 				A67871751A40E56100AEE184 /* Mark@2x.png */,
@@ -332,16 +460,13 @@
 			isa = PBXGroup;
 			children = (
 				A6A06F261A40853800D5F8D2 /* res */,
+				A67871B81A43BAB900AEE184 /* support */,
 				A67871771A40EB4F00AEE184 /* util */,
+				A67871B11A43B98B00AEE184 /* core */,
 				A6A692641A37888900414E73 /* ui */,
 				A67871811A41190D00AEE184 /* domain */,
 				A6A692171A3766E300414E73 /* AppDelegate.h */,
 				A6A692181A3766E300414E73 /* AppDelegate.m */,
-				A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */,
-				A6A692231A3766E300414E73 /* iPhone.storyboard */,
-				A6A692261A3766E300414E73 /* Images.xcassets */,
-				A6A692281A3766E300414E73 /* LaunchScreen.xib */,
-				A6A6921A1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld */,
 				A6A692131A3766E300414E73 /* Supporting Files */,
 			);
 			path = "GRE Verbal Practice";
@@ -352,6 +477,7 @@
 			children = (
 				A6A692141A3766E300414E73 /* Info.plist */,
 				A6A692151A3766E300414E73 /* main.m */,
+				A67871B91A43C22B00AEE184 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -359,7 +485,7 @@
 		A6A692321A3766E300414E73 /* GRE Verbal PracticeTests */ = {
 			isa = PBXGroup;
 			children = (
-				A6A692351A3766E300414E73 /* GRE_Verbal_PracticeTests.m */,
+				A67871C11A44736200AEE184 /* domain */,
 				A6A692331A3766E300414E73 /* Supporting Files */,
 			);
 			path = "GRE Verbal PracticeTests";
@@ -376,22 +502,9 @@
 		A6A6923F1A376B2200414E73 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				A6A692401A376BAE00414E73 /* Question.h */,
-				A6A692411A376BAE00414E73 /* Question.m */,
-				A6A692431A376C3E00414E73 /* RCQuestion.h */,
-				A6A692441A376C3E00414E73 /* RCQuestion.m */,
-				A6A692461A376C8700414E73 /* TCQuestion.h */,
-				A6A692471A376C8700414E73 /* TCQuestion.m */,
-				A6A692491A376CA400414E73 /* SEQuestion.h */,
-				A6A6924A1A376CA400414E73 /* SEQuestion.m */,
-				A6A6924D1A376F2A00414E73 /* RCMSQuestion.h */,
-				A6A6924E1A376F2A00414E73 /* RCMSQuestion.m */,
-				A6A692501A376FC400414E73 /* RCCSQuestion.h */,
-				A6A692511A376FC400414E73 /* RCCSQuestion.m */,
-				A6A692531A37705B00414E73 /* RCText.h */,
-				A6A692541A37705B00414E73 /* RCText.m */,
-				A67871561A40954100AEE184 /* Vocabulary.h */,
-				A67871571A40954100AEE184 /* Vocabulary.m */,
+				A6A6921A1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld */,
+				A67871B01A4395C000AEE184 /* question */,
+				A67871AC1A43865700AEE184 /* voc */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -412,6 +525,8 @@
 				A67871901A42180700AEE184 /* ExamResultViewController.m */,
 				A67871981A424B4E00AEE184 /* QuestionViewController.h */,
 				A67871991A424B4E00AEE184 /* QuestionViewController.m */,
+				A67871BB1A43CF3800AEE184 /* SettingViewController.h */,
+				A67871BC1A43CF3800AEE184 /* SettingViewController.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -419,6 +534,7 @@
 		A6A692641A37888900414E73 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A67871A81A42B8DC00AEE184 /* support */,
 				A6A6924C1A376CB400414E73 /* view */,
 				A67871801A4118DD00AEE184 /* control */,
 			);
@@ -506,6 +622,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A67871551A4090EA00AEE184 /* Question@3x.png in Resources */,
+				A67871BA1A43C22B00AEE184 /* Settings.bundle in Resources */,
 				A67871671A40C2DC00AEE184 /* Previous@2x.png in Resources */,
 				A678714C1A40909800AEE184 /* Article.png in Resources */,
 				A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */,
@@ -547,6 +664,7 @@
 				A6A06F251A3FA17D00D5F8D2 /* RCViewController.m in Sources */,
 				A67871581A40954100AEE184 /* Vocabulary.m in Sources */,
 				A678716E1A40C4AA00AEE184 /* ExamViewController.m in Sources */,
+				A67871B71A43BAAE00AEE184 /* DateUtils.m in Sources */,
 				A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */,
 				A67871A01A427B2300AEE184 /* MessageViewController.m in Sources */,
 				A66FDBDE1A3F33EE00DAAE13 /* GREButtonGroup.m in Sources */,
@@ -556,6 +674,7 @@
 				A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */,
 				A66FDBDB1A3E715800DAAE13 /* UIUtils.m in Sources */,
 				A678719A1A424B4E00AEE184 /* QuestionViewController.m in Sources */,
+				A67871BD1A43CF3800AEE184 /* SettingViewController.m in Sources */,
 				A6A692421A376BAE00414E73 /* Question.m in Sources */,
 				A6A06F191A3F8D8C00D5F8D2 /* RCQViewController.m in Sources */,
 				A66FDBD51A3E2D2B00DAAE13 /* GRETextButton.m in Sources */,
@@ -563,16 +682,21 @@
 				A66FDBD81A3E2DAC00DAAE13 /* GREButton.m in Sources */,
 				A67871A71A429E0E00AEE184 /* WeakRef.m in Sources */,
 				A6A6924B1A376CA400414E73 /* SEQuestion.m in Sources */,
+				A67871CB1A44ECBD00AEE184 /* Scorer.m in Sources */,
 				A6A692161A3766E300414E73 /* main.m in Sources */,
 				A6A6925B1A37759F00414E73 /* MainViewController.m in Sources */,
 				A6A692551A37705B00414E73 /* RCText.m in Sources */,
 				A6A692481A376C8700414E73 /* TCQuestion.m in Sources */,
+				A67871D11A45172C00AEE184 /* DataImporter.m in Sources */,
 				A678717A1A40EE2A00AEE184 /* ExamTimer.m in Sources */,
+				A67871B41A43B9B300AEE184 /* MemoryAlgorithm.m in Sources */,
 				A6A692581A3770DA00414E73 /* QuestionSet.m in Sources */,
+				A67871C01A43E50D00AEE184 /* UserPreference.m in Sources */,
 				A678715E1A40BA6400AEE184 /* NavViewController.m in Sources */,
 				A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */,
 				A678718E1A4122D200AEE184 /* ExamSuite.m in Sources */,
 				A66FDBD21A3E20E200DAAE13 /* TCAnswerView.m in Sources */,
+				A67871AB1A42B8F400AEE184 /* AdBannerSupport.m in Sources */,
 				A678718B1A411FD000AEE184 /* VocabPlan.m in Sources */,
 				A66FDBE11A3F47B700DAAE13 /* SEViewController.m in Sources */,
 				A678717E1A41173000AEE184 /* DataManager.m in Sources */,
@@ -585,7 +709,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6A692361A3766E300414E73 /* GRE_Verbal_PracticeTests.m in Sources */,
+				A67871C61A4476CB00AEE184 /* VocabPlanTest.m in Sources */,
+				A67871D41A45200200AEE184 /* DataModelTest.m in Sources */,
+				A67871C41A44737C00AEE184 /* QuestionSetTest.m in Sources */,
+				A67871C81A44C99800AEE184 /* ExamSuiteTest.m in Sources */,
+				A67871D71A4549E700AEE184 /* MemoryStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

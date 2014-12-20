@@ -18,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Setup Ad
+    self.adBannerSupport = [[AdBannerSupport alloc] init];
+    [self.adBannerSupport setBannerView:self.adBannerView];
+    [self.adBannerSupport setBottomConstraint:self.adBannerBtmCon];
+    
+    
+    // Setup Child View
     if(self->currentController != nil)
         return;
     

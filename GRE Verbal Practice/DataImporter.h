@@ -1,14 +1,13 @@
 //
-//  RCMSQuestion.h
+//  DataImporter.h
 //  GRE Verbal Practice
 //
-//  Created by Harper on 12/9/14.
+//  Created by Harper on 12/19/14.
 //  Copyright (c) 2014 Hao Jiang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "RCQuestion.h"
 
-@interface RCMSQuestion : RCQuestion
+@interface DataImporter : NSObject
 
 @end
