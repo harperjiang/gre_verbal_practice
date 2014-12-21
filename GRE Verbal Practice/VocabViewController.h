@@ -21,6 +21,8 @@
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* progressLabel;
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* messageLabel;
 
+@property(nonatomic, readwrite, strong) IBOutlet UIButton* playButton;
+
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* wordLabel;
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* explanationLabel;
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* synonymLabel;
@@ -33,6 +35,6 @@
 @property(nonatomic, readwrite, strong) VocabPlan* plan;
 @property(nonatomic, readwrite, strong) Vocabulary* currentVocab;
 
-- (IBAction) buttonPressed:(id) button;
-
+- (IBAction)buttonPressed:(id) button;
+- (IBAction)playSound:(id)button;
 @end

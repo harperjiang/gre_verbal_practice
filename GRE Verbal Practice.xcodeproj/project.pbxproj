@@ -54,6 +54,8 @@
 		A67871D11A45172C00AEE184 /* DataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871D01A45172C00AEE184 /* DataImporter.m */; };
 		A67871D41A45200200AEE184 /* DataModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871D31A45200200AEE184 /* DataModelTest.m */; };
 		A67871D71A4549E700AEE184 /* MemoryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871D61A4549E700AEE184 /* MemoryStore.m */; };
+		A67871D91A4620C900AEE184 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67871D81A4620C900AEE184 /* AVFoundation.framework */; };
+		A67871DB1A46260D00AEE184 /* Play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871DA1A46260D00AEE184 /* Play@2x.png */; };
 		A6A06F191A3F8D8C00D5F8D2 /* RCQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */; };
 		A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F1B1A3F8DA000D5F8D2 /* RCAnswerView.m */; };
 		A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */; };
@@ -166,6 +168,8 @@
 		A67871D31A45200200AEE184 /* DataModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModelTest.m; sourceTree = "<group>"; };
 		A67871D51A4549E700AEE184 /* MemoryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryStore.h; sourceTree = "<group>"; };
 		A67871D61A4549E700AEE184 /* MemoryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryStore.m; sourceTree = "<group>"; };
+		A67871D81A4620C900AEE184 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A67871DA1A46260D00AEE184 /* Play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Play@2x.png"; sourceTree = "<group>"; };
 		A6A06F171A3F8D8C00D5F8D2 /* RCQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQViewController.h; sourceTree = "<group>"; };
 		A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCQViewController.m; sourceTree = "<group>"; };
 		A6A06F1A1A3F8DA000D5F8D2 /* RCAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnswerView.h; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67871D91A4620C900AEE184 /* AVFoundation.framework in Frameworks */,
 				A67871701A40E24D00AEE184 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +423,7 @@
 				A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */,
 				A6A692231A3766E300414E73 /* iPhone.storyboard */,
 				A6A692261A3766E300414E73 /* Images.xcassets */,
+				A67871DA1A46260D00AEE184 /* Play@2x.png */,
 				A6A692281A3766E300414E73 /* LaunchScreen.xib */,
 				A67871941A421E7D00AEE184 /* Result@2x.png */,
 				A67871921A421E6700AEE184 /* Result.png */,
@@ -440,6 +446,7 @@
 		A6A692071A3766E300414E73 = {
 			isa = PBXGroup;
 			children = (
+				A67871D81A4620C900AEE184 /* AVFoundation.framework */,
 				A678716F1A40E24D00AEE184 /* iAd.framework */,
 				A6A692121A3766E300414E73 /* GRE Verbal Practice */,
 				A6A692321A3766E300414E73 /* GRE Verbal PracticeTests */,
@@ -637,6 +644,7 @@
 				A67871501A4090C000AEE184 /* Article@2x.png in Resources */,
 				A6A8B87C1A37C1E60096BCAB /* iPad.storyboard in Resources */,
 				A67871761A40E56100AEE184 /* Mark@2x.png in Resources */,
+				A67871DB1A46260D00AEE184 /* Play@2x.png in Resources */,
 				A67871511A4090C000AEE184 /* Question@2x.png in Resources */,
 				A67871741A40E54A00AEE184 /* Mark.png in Resources */,
 				A6A692271A3766E300414E73 /* Images.xcassets in Resources */,

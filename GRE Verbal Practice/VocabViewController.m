@@ -87,6 +87,7 @@
 
 - (void)modeMessage:(NSString*)message {
     [self.wordLabel setHidden:YES];
+    [self.playButton setHidden:YES];
     [self.synonymLabel setHidden:YES];
     [self.sampleLabel setHidden:YES];
     [self.explanationLabel setHidden:YES];
