@@ -28,9 +28,14 @@
     NSInteger remain = self->_timeTarget - [[NSDate date] timeIntervalSinceDate:self->_startTime];
     if(remain <= 0) {
         [self->_timer invalidate];
-        [self->_target performSelector: self->_doneFunc];
+        
+        IMP doneImp = [self->_target methodForSelector:self->_doneFunc];
+        void (*doneFunc)(id, SEL) = (void *)doneImp;
+        doneFunc(self->_target, self->_doneFunc);
     } else {
-        [self->_target performSelector: self->_intervalFunc withObject:[[NSNumber alloc] initWithInteger:remain]];
+        IMP intervalImp = [self->_target methodForSelector:self->_intervalFunc];
+        void (*intervalFunc)(id, SEL, NSNumber*) = (void *)intervalImp;
+        intervalFunc(self->_target, self->_intervalFunc, [[NSNumber alloc] initWithInteger:remain]);
     }
 }
 

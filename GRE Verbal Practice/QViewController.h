@@ -15,6 +15,7 @@
 @protocol QViewController <NSObject>
 
 - (void)setQuestionData:(Question*) data;
+- (Question*)questionData;
 - (void)showAnswer;
 - (void)setAnswerListener:(id<AnswerListener>)listener;
 

@@ -13,5 +13,6 @@
 @interface MessageViewController : UIViewController<QViewController>
 
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* messageLabel;
+@property(nonatomic, readwrite, strong) NSString* message;
 
 @end

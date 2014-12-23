@@ -12,4 +12,6 @@
 
 @property(nonatomic, readwrite, retain) IBOutlet UITextView* articleText;
 
+@property(nonatomic, readwrite) NSString* article;
+
 @end

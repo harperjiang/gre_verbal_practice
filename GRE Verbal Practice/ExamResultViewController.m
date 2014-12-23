@@ -18,6 +18,10 @@
     
 }
 
+- (Question*)questionData {
+    return nil;
+}
+
 - (void)showAnswer {
     
 }

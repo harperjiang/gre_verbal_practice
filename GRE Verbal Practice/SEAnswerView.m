@@ -66,8 +66,7 @@
         [self addSubview:choice];
         
         x += BOX_SIZE + INTERCELL;
-        
-        CGSize bestSize = [option sizeWithFont:[estimator font]];
+        CGSize bestSize = [option sizeWithAttributes: @{NSFontAttributeName:[estimator font]}];
         frame = CGRectMake(x, y, bestSize.width, bestSize.height);
         
         UILabel* label = [[UILabel alloc] initWithFrame:frame];

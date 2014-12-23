@@ -17,28 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    SEQuestion* question = [[SEQuestion alloc] init];
-    [question setText:@"This is a sample SE Question"];
-    
-    NSMutableArray* options = [[NSMutableArray alloc] init];
-    [options addObject:@"Option 1"];
-    [options addObject:@"Option 2"];
-    [options addObject:@"Option 3"];
-    [options addObject:@"Option 4"];
-    [options addObject:@"Option 5"];
-    [options addObject:@"Option 6"];
-    [options addObject:@"Option 7 is very very very very very very long"];
-    [question setOptions:options];
-    
-    NSMutableArray* answers = [[NSMutableArray alloc] init];
-    [answers addObject: [[NSNumber alloc] initWithInteger:0]];
-    [answers addObject: [[NSNumber alloc] initWithInteger:1]];
-    
-    [question setAnswers:answers];
-    
-    [self setQuestionData:question];
-    
 }
 
 - (void)didReceiveMemoryWarning {

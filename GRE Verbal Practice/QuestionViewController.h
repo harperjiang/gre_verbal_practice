@@ -16,18 +16,20 @@
 
 @interface QuestionViewController : UIViewController<AnswerListener> {
     id<QViewController> currentController;
+    ADBannerView* _bannerView;
 }
 
 @property(nonatomic, readwrite, strong) QuestionSet* questionSet;
 
-
-@property(nonatomic, readwrite) AdBannerSupport* adBannerSupport;
-@property(nonatomic, readwrite, strong) IBOutlet ADBannerView* adBannerView;
-@property(nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint* adBannerBtmCon;
+@property(nonatomic, readwrite) AdBannerSupport* adSupport;
+@property(nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint* adBottomConstraint;
 
 @property(nonatomic, readwrite, strong) IBOutlet UIView* toolbarView;
 @property(nonatomic, readwrite, strong) IBOutlet UIView* containerView;
 @property(nonatomic, readwrite, strong) IBOutlet UIButton* toggleButton;
+@property(nonatomic, readwrite, strong) IBOutlet UIButton* showAnswerButton;
+@property(nonatomic, readwrite, strong) IBOutlet UIButton* explainButton;
+
 
 - (IBAction)toggleToolbar:(id)sender;
 

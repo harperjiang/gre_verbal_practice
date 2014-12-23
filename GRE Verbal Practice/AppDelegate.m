@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FileManager.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -17,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSLog(@"Documents Directory: %@", [FileManager appSupportDir]);
     return YES;
 }
 
@@ -166,6 +169,5 @@
 }
 
 #pragma mark - Restoration Support
-
 
 @end

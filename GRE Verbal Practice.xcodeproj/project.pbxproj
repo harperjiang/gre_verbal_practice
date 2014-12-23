@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A662FC711A466121008E6FA6 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A662FC701A466121008E6FA6 /* FileManager.m */; };
+		A662FC741A478A2C008E6FA6 /* ExplainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A662FC731A478A2C008E6FA6 /* ExplainViewController.m */; };
+		A662FC7D1A47CD3D008E6FA6 /* chevron-left-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC771A47CD3D008E6FA6 /* chevron-left-2x.png */; };
+		A662FC7E1A47CD3D008E6FA6 /* chevron-left-4x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC781A47CD3D008E6FA6 /* chevron-left-4x.png */; };
+		A662FC7F1A47CD3D008E6FA6 /* chevron-left-6x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC791A47CD3D008E6FA6 /* chevron-left-6x.png */; };
+		A662FC801A47CD3D008E6FA6 /* chevron-right-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC7A1A47CD3D008E6FA6 /* chevron-right-2x.png */; };
+		A662FC811A47CD3D008E6FA6 /* chevron-right-4x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC7B1A47CD3D008E6FA6 /* chevron-right-4x.png */; };
+		A662FC821A47CD3D008E6FA6 /* chevron-right-6x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC7C1A47CD3D008E6FA6 /* chevron-right-6x.png */; };
+		A662FC861A47CDA7008E6FA6 /* arrow-thick-right-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC831A47CDA7008E6FA6 /* arrow-thick-right-2x.png */; };
+		A662FC871A47CDA7008E6FA6 /* arrow-thick-right-4x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC841A47CDA7008E6FA6 /* arrow-thick-right-4x.png */; };
+		A662FC881A47CDA7008E6FA6 /* arrow-thick-right-6x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC851A47CDA7008E6FA6 /* arrow-thick-right-6x.png */; };
+		A662FC8F1A47CE20008E6FA6 /* puzzle-piece-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC891A47CE20008E6FA6 /* puzzle-piece-2x.png */; };
+		A662FC901A47CE20008E6FA6 /* puzzle-piece-4x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC8A1A47CE20008E6FA6 /* puzzle-piece-4x.png */; };
+		A662FC911A47CE20008E6FA6 /* puzzle-piece-6x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC8B1A47CE20008E6FA6 /* puzzle-piece-6x.png */; };
+		A662FC921A47CE20008E6FA6 /* target-2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC8C1A47CE20008E6FA6 /* target-2x.png */; };
+		A662FC931A47CE20008E6FA6 /* target-4x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC8D1A47CE20008E6FA6 /* target-4x.png */; };
+		A662FC941A47CE20008E6FA6 /* target-6x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC8E1A47CE20008E6FA6 /* target-6x.png */; };
+		A662FC971A48A60B008E6FA6 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A662FC951A48A60B008E6FA6 /* iPad.storyboard */; };
+		A662FC9A1A48C013008E6FA6 /* PadRCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A662FC991A48C013008E6FA6 /* PadRCViewController.m */; };
 		A66FDBD21A3E20E200DAAE13 /* TCAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A66FDBD11A3E20E200DAAE13 /* TCAnswerView.m */; };
 		A66FDBD51A3E2D2B00DAAE13 /* GRETextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A66FDBD41A3E2D2B00DAAE13 /* GRETextButton.m */; };
 		A66FDBD81A3E2DAC00DAAE13 /* GREButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A66FDBD71A3E2DAC00DAAE13 /* GREButton.m */; };
@@ -78,7 +97,6 @@
 		A6A692631A37856000414E73 /* TCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692621A37856000414E73 /* TCViewController.m */; };
 		A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692661A3788A700414E73 /* GRERadioButton.m */; };
 		A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692691A3788B800414E73 /* GREChoiceBox.m */; };
-		A6A8B87C1A37C1E60096BCAB /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +110,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A662FC6F1A466121008E6FA6 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		A662FC701A466121008E6FA6 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		A662FC721A478A2C008E6FA6 /* ExplainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplainViewController.h; sourceTree = "<group>"; };
+		A662FC731A478A2C008E6FA6 /* ExplainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplainViewController.m; sourceTree = "<group>"; };
+		A662FC771A47CD3D008E6FA6 /* chevron-left-2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-left-2x.png"; sourceTree = "<group>"; };
+		A662FC781A47CD3D008E6FA6 /* chevron-left-4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-left-4x.png"; sourceTree = "<group>"; };
+		A662FC791A47CD3D008E6FA6 /* chevron-left-6x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-left-6x.png"; sourceTree = "<group>"; };
+		A662FC7A1A47CD3D008E6FA6 /* chevron-right-2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-right-2x.png"; sourceTree = "<group>"; };
+		A662FC7B1A47CD3D008E6FA6 /* chevron-right-4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-right-4x.png"; sourceTree = "<group>"; };
+		A662FC7C1A47CD3D008E6FA6 /* chevron-right-6x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-right-6x.png"; sourceTree = "<group>"; };
+		A662FC831A47CDA7008E6FA6 /* arrow-thick-right-2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-thick-right-2x.png"; sourceTree = "<group>"; };
+		A662FC841A47CDA7008E6FA6 /* arrow-thick-right-4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-thick-right-4x.png"; sourceTree = "<group>"; };
+		A662FC851A47CDA7008E6FA6 /* arrow-thick-right-6x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-thick-right-6x.png"; sourceTree = "<group>"; };
+		A662FC891A47CE20008E6FA6 /* puzzle-piece-2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle-piece-2x.png"; sourceTree = "<group>"; };
+		A662FC8A1A47CE20008E6FA6 /* puzzle-piece-4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle-piece-4x.png"; sourceTree = "<group>"; };
+		A662FC8B1A47CE20008E6FA6 /* puzzle-piece-6x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle-piece-6x.png"; sourceTree = "<group>"; };
+		A662FC8C1A47CE20008E6FA6 /* target-2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-2x.png"; sourceTree = "<group>"; };
+		A662FC8D1A47CE20008E6FA6 /* target-4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-4x.png"; sourceTree = "<group>"; };
+		A662FC8E1A47CE20008E6FA6 /* target-6x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "target-6x.png"; sourceTree = "<group>"; };
+		A662FC961A48A60B008E6FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPad.storyboard; sourceTree = "<group>"; };
+		A662FC981A48C013008E6FA6 /* PadRCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadRCViewController.h; sourceTree = "<group>"; };
+		A662FC991A48C013008E6FA6 /* PadRCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PadRCViewController.m; sourceTree = "<group>"; };
 		A66FDBD01A3E20E200DAAE13 /* TCAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAnswerView.h; sourceTree = "<group>"; };
 		A66FDBD11A3E20E200DAAE13 /* TCAnswerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAnswerView.m; sourceTree = "<group>"; };
 		A66FDBD31A3E2D2B00DAAE13 /* GRETextButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRETextButton.h; sourceTree = "<group>"; };
@@ -213,7 +253,6 @@
 		A6A692661A3788A700414E73 /* GRERadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRERadioButton.m; sourceTree = "<group>"; };
 		A6A692681A3788B800414E73 /* GREChoiceBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GREChoiceBox.h; sourceTree = "<group>"; };
 		A6A692691A3788B800414E73 /* GREChoiceBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GREChoiceBox.m; sourceTree = "<group>"; };
-		A6A8B87B1A37C1E60096BCAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "GRE Verbal Practice/Base.lproj/iPad.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,13 +275,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A67871771A40EB4F00AEE184 /* util */ = {
+		A67871771A40EB4F00AEE184 /* file */ = {
 			isa = PBXGroup;
 			children = (
-				A67871B51A43BAAE00AEE184 /* DateUtils.h */,
-				A67871B61A43BAAE00AEE184 /* DateUtils.m */,
+				A662FC6F1A466121008E6FA6 /* FileManager.h */,
+				A662FC701A466121008E6FA6 /* FileManager.m */,
 			);
-			name = util;
+			name = file;
 			sourceTree = "<group>";
 		};
 		A678717B1A4116A600AEE184 /* persist */ = {
@@ -323,6 +362,8 @@
 				A678719E1A427B2300AEE184 /* MessageViewController.h */,
 				A678719F1A427B2300AEE184 /* MessageViewController.m */,
 				A67871A11A42949400AEE184 /* AnswerListener.h */,
+				A662FC981A48C013008E6FA6 /* PadRCViewController.h */,
+				A662FC991A48C013008E6FA6 /* PadRCViewController.m */,
 			);
 			name = question;
 			sourceTree = "<group>";
@@ -380,6 +421,8 @@
 		A67871B81A43BAB900AEE184 /* support */ = {
 			isa = PBXGroup;
 			children = (
+				A67871B51A43BAAE00AEE184 /* DateUtils.h */,
+				A67871B61A43BAAE00AEE184 /* DateUtils.m */,
 				A67871A51A429E0E00AEE184 /* WeakRef.h */,
 				A67871A61A429E0E00AEE184 /* WeakRef.m */,
 				A67871BE1A43E50D00AEE184 /* UserPreference.h */,
@@ -420,8 +463,23 @@
 		A6A06F261A40853800D5F8D2 /* res */ = {
 			isa = PBXGroup;
 			children = (
-				A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */,
+				A662FC891A47CE20008E6FA6 /* puzzle-piece-2x.png */,
+				A662FC8A1A47CE20008E6FA6 /* puzzle-piece-4x.png */,
+				A662FC8B1A47CE20008E6FA6 /* puzzle-piece-6x.png */,
+				A662FC8C1A47CE20008E6FA6 /* target-2x.png */,
+				A662FC8D1A47CE20008E6FA6 /* target-4x.png */,
+				A662FC8E1A47CE20008E6FA6 /* target-6x.png */,
+				A662FC831A47CDA7008E6FA6 /* arrow-thick-right-2x.png */,
+				A662FC841A47CDA7008E6FA6 /* arrow-thick-right-4x.png */,
+				A662FC851A47CDA7008E6FA6 /* arrow-thick-right-6x.png */,
+				A662FC771A47CD3D008E6FA6 /* chevron-left-2x.png */,
+				A662FC781A47CD3D008E6FA6 /* chevron-left-4x.png */,
+				A662FC791A47CD3D008E6FA6 /* chevron-left-6x.png */,
+				A662FC7A1A47CD3D008E6FA6 /* chevron-right-2x.png */,
+				A662FC7B1A47CD3D008E6FA6 /* chevron-right-4x.png */,
+				A662FC7C1A47CD3D008E6FA6 /* chevron-right-6x.png */,
 				A6A692231A3766E300414E73 /* iPhone.storyboard */,
+				A662FC951A48A60B008E6FA6 /* iPad.storyboard */,
 				A6A692261A3766E300414E73 /* Images.xcassets */,
 				A67871DA1A46260D00AEE184 /* Play@2x.png */,
 				A6A692281A3766E300414E73 /* LaunchScreen.xib */,
@@ -468,7 +526,7 @@
 			children = (
 				A6A06F261A40853800D5F8D2 /* res */,
 				A67871B81A43BAB900AEE184 /* support */,
-				A67871771A40EB4F00AEE184 /* util */,
+				A67871771A40EB4F00AEE184 /* file */,
 				A67871B11A43B98B00AEE184 /* core */,
 				A6A692641A37888900414E73 /* ui */,
 				A67871811A41190D00AEE184 /* domain */,
@@ -534,6 +592,8 @@
 				A67871991A424B4E00AEE184 /* QuestionViewController.m */,
 				A67871BB1A43CF3800AEE184 /* SettingViewController.h */,
 				A67871BC1A43CF3800AEE184 /* SettingViewController.m */,
+				A662FC721A478A2C008E6FA6 /* ExplainViewController.h */,
+				A662FC731A478A2C008E6FA6 /* ExplainViewController.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -629,25 +689,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				A67871551A4090EA00AEE184 /* Question@3x.png in Resources */,
+				A662FC941A47CE20008E6FA6 /* target-6x.png in Resources */,
+				A662FC7F1A47CD3D008E6FA6 /* chevron-left-6x.png in Resources */,
 				A67871BA1A43C22B00AEE184 /* Settings.bundle in Resources */,
 				A67871671A40C2DC00AEE184 /* Previous@2x.png in Resources */,
 				A678714C1A40909800AEE184 /* Article.png in Resources */,
+				A662FC7E1A47CD3D008E6FA6 /* chevron-left-4x.png in Resources */,
 				A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */,
+				A662FC901A47CE20008E6FA6 /* puzzle-piece-4x.png in Resources */,
+				A662FC931A47CE20008E6FA6 /* target-4x.png in Resources */,
 				A67871931A421E6700AEE184 /* Result.png in Resources */,
+				A662FC7D1A47CD3D008E6FA6 /* chevron-left-2x.png in Resources */,
+				A662FC881A47CDA7008E6FA6 /* arrow-thick-right-6x.png in Resources */,
 				A67871541A4090EA00AEE184 /* Article@3x.png in Resources */,
 				A67871951A421E7D00AEE184 /* Result@2x.png in Resources */,
 				A67871631A40C2BD00AEE184 /* Previous.png in Resources */,
 				A678714D1A40909800AEE184 /* Question.png in Resources */,
 				A67871621A40C2BD00AEE184 /* Next.png in Resources */,
+				A662FC801A47CD3D008E6FA6 /* chevron-right-2x.png in Resources */,
 				A6A6922A1A3766E300414E73 /* LaunchScreen.xib in Resources */,
 				A67871661A40C2DC00AEE184 /* Next@2x.png in Resources */,
 				A67871501A4090C000AEE184 /* Article@2x.png in Resources */,
-				A6A8B87C1A37C1E60096BCAB /* iPad.storyboard in Resources */,
+				A662FC8F1A47CE20008E6FA6 /* puzzle-piece-2x.png in Resources */,
+				A662FC971A48A60B008E6FA6 /* iPad.storyboard in Resources */,
+				A662FC861A47CDA7008E6FA6 /* arrow-thick-right-2x.png in Resources */,
+				A662FC811A47CD3D008E6FA6 /* chevron-right-4x.png in Resources */,
 				A67871761A40E56100AEE184 /* Mark@2x.png in Resources */,
+				A662FC871A47CDA7008E6FA6 /* arrow-thick-right-4x.png in Resources */,
 				A67871DB1A46260D00AEE184 /* Play@2x.png in Resources */,
+				A662FC821A47CD3D008E6FA6 /* chevron-right-6x.png in Resources */,
 				A67871511A4090C000AEE184 /* Question@2x.png in Resources */,
 				A67871741A40E54A00AEE184 /* Mark.png in Resources */,
+				A662FC911A47CE20008E6FA6 /* puzzle-piece-6x.png in Resources */,
 				A6A692271A3766E300414E73 /* Images.xcassets in Resources */,
+				A662FC921A47CE20008E6FA6 /* target-2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +768,7 @@
 				A67871CB1A44ECBD00AEE184 /* Scorer.m in Sources */,
 				A6A692161A3766E300414E73 /* main.m in Sources */,
 				A6A6925B1A37759F00414E73 /* MainViewController.m in Sources */,
+				A662FC741A478A2C008E6FA6 /* ExplainViewController.m in Sources */,
 				A6A692551A37705B00414E73 /* RCText.m in Sources */,
 				A6A692481A376C8700414E73 /* TCQuestion.m in Sources */,
 				A67871D11A45172C00AEE184 /* DataImporter.m in Sources */,
@@ -705,11 +781,13 @@
 				A678718E1A4122D200AEE184 /* ExamSuite.m in Sources */,
 				A66FDBD21A3E20E200DAAE13 /* TCAnswerView.m in Sources */,
 				A67871AB1A42B8F400AEE184 /* AdBannerSupport.m in Sources */,
+				A662FC9A1A48C013008E6FA6 /* PadRCViewController.m in Sources */,
 				A678718B1A411FD000AEE184 /* VocabPlan.m in Sources */,
 				A66FDBE11A3F47B700DAAE13 /* SEViewController.m in Sources */,
 				A678717E1A41173000AEE184 /* DataManager.m in Sources */,
 				A678715B1A40961200AEE184 /* VocabViewController.m in Sources */,
 				A6A6921C1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld in Sources */,
+				A662FC711A466121008E6FA6 /* FileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +814,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A662FC951A48A60B008E6FA6 /* iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A662FC961A48A60B008E6FA6 /* Base */,
+			);
+			name = iPad.storyboard;
+			sourceTree = "<group>";
+		};
 		A6A692231A3766E300414E73 /* iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -750,15 +836,6 @@
 				A6A692291A3766E300414E73 /* Base */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		A6A8B87A1A37C1E60096BCAB /* iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6A8B87B1A37C1E60096BCAB /* Base */,
-			);
-			name = iPad.storyboard;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -852,7 +929,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -865,7 +942,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

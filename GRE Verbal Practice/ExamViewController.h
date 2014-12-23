@@ -18,7 +18,7 @@
 
 @interface ExamViewController : UIViewController<AnswerListener> {
     SEViewController* sevc;
-    RCViewController* rcvc;
+    id<QViewController> rcvc;
     TCViewController* tcvc;
     ExamResultViewController* ervc;
     

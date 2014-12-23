@@ -11,12 +11,25 @@
 
 @implementation GREButton
 
-- (id)init {
-    self = [super init];
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     if(self) {
-        self.listeners = [[NSMutableArray alloc] init];
+        [self setup];
     }
     return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if(self) {
+        [self setup];
+    }
+    return self;
+}
+
+
+- (void)setup {
+    self.listeners = [[NSMutableArray alloc] init];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

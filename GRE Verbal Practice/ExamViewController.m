@@ -14,7 +14,6 @@
 
 @implementation ExamViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -46,20 +45,18 @@
     }
     switch([question type]) {
         case READING_COMP:
-            [rcvc setQuestionData:(RCQuestion*)question];
-            [self showContentController: rcvc];
+            [self showContentController: (UIViewController*)rcvc];
             break;
         case TEXT_COMPLETION:
-            [tcvc setQuestionData:(TCQuestion*)question];
             [self showContentController: tcvc];
             break;
         case SENTENCE_EQUIV:
-            [sevc setQuestionData:(SEQuestion*)question];
             [self showContentController: sevc];
             break;
         default:
             break;
     }
+    [self->currentController setQuestionData:question];
 }
 
 - (void)timerInterval:(NSNumber*) r {
@@ -77,16 +74,16 @@
     // Send Result Information to Result view
     // TODO
     // Show result view and disable toolbar
-    if([NSThread isMainThread]) {
+    void (^updateUI)() = ^void(){
         [self showContentController:ervc];
         [self.toolbar setHidden:YES];
         [self.timeLabel setHidden:YES];
+    };
+
+    if([NSThread isMainThread]) {
+        updateUI();
     } else {
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self showContentController:ervc];
-            [self.toolbar setHidden:YES];
-            [self.timeLabel setHidden:YES];
-        }];
+        [[NSOperationQueue mainQueue] addOperationWithBlock: updateUI];
     }
     [self->timer stop];
 }
@@ -166,5 +163,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (BOOL)automaticallyAdjustsScrollViewInsets {
+    return NO;
+}
 
 @end

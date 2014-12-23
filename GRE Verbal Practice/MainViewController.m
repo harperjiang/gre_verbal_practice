@@ -12,6 +12,7 @@
 #import "VocabViewController.h"
 #import "DataManager.h"
 #import "UserPreference.h"
+#import "DataImporter.h"
 
 @interface MainViewController ()
 
@@ -22,9 +23,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
     self.adSupport = [[AdBannerSupport alloc] init];
-    [self.adSupport setBannerView:self.adBannerView];
-    [self.adSupport setBottomConstraint: self.adBannerBottomCon];
+    // On iOS 6 ADBannerView introduces a new initializer, use it when available.
+    if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
+        _bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+    } else {
+        _bannerView = [[ADBannerView alloc] init];
+    }
+    
+    [self.adSupport setBannerView: _bannerView];
+    [self.view addSubview:_bannerView];
+    
+    [self.adSupport setParentView: self.view];
+    [self.adSupport setShrinkView: nil];
+    [self.adSupport setBottomConstraint: nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +48,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+}
+
+- (void)viewDidLayoutSubviews {
+    [self.adSupport layoutAnimated:YES];
 }
 
 - (void)setup {
@@ -90,6 +108,11 @@
         VocabViewController* vvc = (VocabViewController*)segue.destinationViewController;
         vvc.plan = [VocabPlan create];
     }
+}
+
+#pragma mark - Import Data
+- (IBAction)importData:(id)sender {
+    [DataImporter importTestData];
 }
 
 @end

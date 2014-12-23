@@ -20,11 +20,11 @@
     // Do any additional setup after loading the view.
     NSInteger vocabDaily = [UserPreference getInteger:USER_DAILY_VOCAB defval:USER_DAILY_VOCAB_DEFAULT];
     [self.vocabDailySlider setValue:vocabDaily];
-    [self.vocabDailyText setText: [NSString stringWithFormat:@"%ld",vocabDaily]];
+    [self.vocabDailyText setText: [NSString stringWithFormat:@"%ld",(long)vocabDaily]];
     
     NSInteger quesPerSetDaily = [UserPreference getInteger:USER_QUES_PER_SET defval:USER_QUES_PER_SET_DEFAULT];
     [self.questionPerSetSlider setValue:quesPerSetDaily];
-    [self.questionPerSetText setText: [NSString stringWithFormat:@"%ld",quesPerSetDaily]];
+    [self.questionPerSetText setText: [NSString stringWithFormat:@"%ld",(long)quesPerSetDaily]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,11 +36,11 @@
     UISlider* slider = (UISlider*)sender;
     NSInteger value = slider.value;
     if(slider == self.vocabDailySlider) {
-        [self.vocabDailyText setText:[NSString stringWithFormat:@"%ld", value]];
+        [self.vocabDailyText setText:[NSString stringWithFormat:@"%ld", (long)value]];
         [UserPreference setInteger:value forKey:USER_DAILY_VOCAB];
     }
     if(slider == self.questionPerSetSlider) {
-        [self.questionPerSetText setText:[NSString stringWithFormat:@"%ld", value]];
+        [self.questionPerSetText setText:[NSString stringWithFormat:@"%ld", (long)value]];
         [UserPreference setInteger:value forKey:USER_QUES_PER_SET];
     }
 }

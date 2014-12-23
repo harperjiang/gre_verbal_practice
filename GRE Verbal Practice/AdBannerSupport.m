@@ -24,26 +24,54 @@
 }
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    [self showBanner:YES];
+    [self layoutAnimated:YES];
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    [self showBanner:NO];
+    [self layoutAnimated:YES];
 }
 
 
-- (void)showBanner:(BOOL)show {
-    NSInteger newcon = self.bannerView.bannerLoaded?
-    0:-self.bannerView.bounds.size.height;
+- (void)layoutAnimated:(BOOL)animated {
+    CGRect contentFrame = self.parentView.bounds;
     
-    [UIView animateWithDuration:
-        0.25
-        animations:^{
-            //[self.bannerView setHidden:!show];
-            self.bottomConstraint.constant = newcon;
+    // all we need to do is ask the banner for a size that fits into the layout area we are using
+    CGSize sizeForBanner = [_bannerView sizeThatFits:contentFrame.size];
+    
+    // compute the ad banner frame
+    CGRect bannerFrame = _bannerView.frame;
+    if (_bannerView.bannerLoaded) {
+        
+        // bring the ad into view
+        contentFrame.size.height -= sizeForBanner.height;   // shrink down content frame to fit the banner below it
+        bannerFrame.origin.y = contentFrame.size.height;
+        bannerFrame.size.height = sizeForBanner.height;
+        bannerFrame.size.width = sizeForBanner.width;
+        
+        // if the ad is available and loaded, shrink down the content frame to fit the banner below it,
+        // we do this by modifying the vertical bottom constraint constant to equal the banner's height
+        //
+        if(nil != self.bottomConstraint) {
+            self.bottomConstraint.constant = sizeForBanner.height;
+            [self.parentView layoutSubviews];
         }
-        completion: nil];
+    } else {
+        // hide the banner off screen further off the bottom
+        bannerFrame.origin.y = contentFrame.size.height;
+    }
+    
+    [UIView animateWithDuration:animated ? 0.25 : 0.0 animations:^{
+        if(self.shrinkView != nil) {
+            self.shrinkView.frame = contentFrame;
+            [self.shrinkView layoutIfNeeded];
+        }
+        self.bannerView.frame = bannerFrame;
+    }];
 }
 
+
+- (void)rotate {
+    
+}
 
 @end

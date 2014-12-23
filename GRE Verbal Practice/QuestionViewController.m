@@ -8,6 +8,8 @@
 
 #import "QuestionViewController.h"
 #import "QViewController.h"
+#import "ExplainViewController.h"
+#import "MessageViewController.h"
 
 @interface QuestionViewController ()
 
@@ -20,17 +22,28 @@
     // Do any additional setup after loading the view.
     
     // Setup Ad
-    self.adBannerSupport = [[AdBannerSupport alloc] init];
-    [self.adBannerSupport setBannerView:self.adBannerView];
-    [self.adBannerSupport setBottomConstraint:self.adBannerBtmCon];
+    self.adSupport = [[AdBannerSupport alloc] init];
+    // On iOS 6 ADBannerView introduces a new initializer, use it when available.
+    if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
+        _bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+    } else {
+        _bannerView = [[ADBannerView alloc] init];
+    }
     
+    [self.adSupport setBannerView: _bannerView];
+    [self.view addSubview:_bannerView];
+    
+    [self.adSupport setParentView: self.view];
+    [self.adSupport setShrinkView: self.containerView];
+    [self.adSupport setBottomConstraint: self.adBottomConstraint];
+
     
     // Setup Child View
     if(self->currentController != nil)
         return;
     
     NSString* vcid = @"";
-    if(self.questionSet != nil) {
+    if(![self.questionSet isEmpty]) {
         switch([self.questionSet type]) {
             case TEXT_COMPLETION:
                 vcid = @"TCViewController";
@@ -60,8 +73,9 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self.adSupport layoutAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,24 +86,40 @@
 - (IBAction)toggleToolbar:(id)sender {
     [self.toolbarView setHidden: !self.toolbarView.hidden];
     UIButton* btn = (UIButton*)sender;
-    [btn setTitle: self.toolbarView.hidden?@"Show":@"Hide" forState:UIControlStateNormal];
+    
+    UIImage* leftImage = [UIImage imageNamed:@"Question_ShowBar"];
+    UIImage* rightImage = [UIImage imageNamed:@"Question_HideBar"];
+    if(self.toolbarView.hidden) {
+        [btn setImage:leftImage  forState:UIControlStateNormal];
+    } else {
+        [btn setImage:rightImage  forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)showAnswer:(id)sender {
     if(self->currentController != nil) {
         [self->currentController showAnswer];
     }
+    [self.showAnswerButton setHidden:YES];
+    [self.explainButton setHidden:NO];
 }
 
 - (IBAction)nextQuestion:(id)sender {
     // Get Next Question from Question List
     Question* question = [self.questionSet nextQuestion];
     if(question == nil) {
-        // Show Result
-        
+        // Show Message
+        // TODO Show Question Result
+        MessageViewController* vc = (MessageViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"MessageViewController"];
+        [vc setMessage:@"End of QuestionSet!"];
+        [self showContentController: vc];
+        [self.toolbarView setHidden:YES];
+        [self.toggleButton setHidden:YES];
     } else {
         // Set Next Question to view controller
         [self->currentController setQuestionData: question];
+        [self.showAnswerButton setHidden:NO];
+        [self.explainButton setHidden:YES];
     }
 }
 
@@ -117,5 +147,20 @@
 - (void) answerChanged:(NSArray *)answer {
     [self.questionSet answer:answer];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if([[segue destinationViewController] isKindOfClass:[ExplainViewController class]]) {
+        ExplainViewController* evc = (ExplainViewController*)segue.destinationViewController;
+        Question* currentQ = [self->currentController questionData];
+        [evc setExplainContent: currentQ.explanation];
+    }
+}
+
+- (BOOL)automaticallyAdjustsScrollViewInsets {
+    return NO;
+}
+
 
 @end

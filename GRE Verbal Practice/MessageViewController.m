@@ -10,8 +10,18 @@
 
 @implementation MessageViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    if(self.message != nil) {
+        [self.messageLabel setText:self.message];
+    }
+}
+
 - (void)setQuestionData:(Question *)data {
     
+}
+
+- (Question*)questionData {
+    return nil;
 }
 
 - (void)showAnswer {

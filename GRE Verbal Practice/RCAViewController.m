@@ -18,16 +18,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setAutomaticallyAdjustsScrollViewInsets:FALSE];
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
+    [self.articleText setText: self.article];
     [self.articleText scrollRangeToVisible:NSMakeRange(0, 0)];
-    
-    RCViewController* parentController = (RCViewController*)[self parentViewController];
-    [self.articleText setText: [parentController.questionData.readText toString]];
+}
+
+- (void)viewDidLayoutSubviews {
+//    [self setAutomaticallyAdjustsScrollViewInsets:FALSE];
+////    ;
+//    [self.articleText setContentOffset:CGPointMake(0,-200) animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setArticle:(NSString *)article {
+    self->_article = article;
+    if(self.articleText != nil) {
+        [self.articleText setText: article];
+        [self.articleText scrollRangeToVisible:NSMakeRange(0, 0)];
+    }
 }
 
 /*

@@ -9,6 +9,7 @@
 #import "VocabViewController.h"
 #import "Vocabulary.h"
 #import "DataManager.h"
+#import "FileManager.h"
 
 @interface VocabViewController ()
 
@@ -21,13 +22,29 @@
     // Do any additional setup after loading the view.
     
     // Ad Banner Setup
-    self.bannerSupport = [[AdBannerSupport alloc] init];
-    [self.bannerSupport setBannerView: self.adBannerView];
-    [self.bannerSupport setBottomConstraint: self.adBannerBtmCon];
+    self.adSupport = [[AdBannerSupport alloc] init];
+    // On iOS 6 ADBannerView introduces a new initializer, use it when available.
+    if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
+        _bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+    } else {
+        _bannerView = [[ADBannerView alloc] init];
+    }
+    
+    [self.adSupport setBannerView: _bannerView];
+    [self.view addSubview:_bannerView];
+    
+    [self.adSupport setParentView: self.view];
+    [self.adSupport setShrinkView: nil];
+    [self.adSupport setBottomConstraint: nil];
+
 
     // VocabPlan setup
     if(self.plan == nil) {
-        [self modeMessage:@"No data found!"];
+        [self modeMessage:@"No study plan installed."];
+    } else if([self.plan doneWithSet]){
+        [self modeMessage:@"You are done with the vocabulary study."];
+    } else if([self.plan doneWithToday]) {
+        [self modeMessage:@"You are done with today's plan."];
     } else {
         [self showVocab: [self.plan nextVocab] status:[self.plan status]];
     }
@@ -37,6 +54,10 @@
     [super viewDidAppear:animated];
 }
 
+- (void)viewDidLayoutSubviews {
+    [self.adSupport layoutAnimated:YES];
+}
+
 - (void)showVocab:(Vocabulary*)data status:(NSString*) status{
     self.currentVocab = data;
     [self.wordLabel setText:data.word];
@@ -44,6 +65,9 @@
     [self.synonymLabel setText: data.synonyms];
     [self.sampleLabel setText:data.samples];
     [self.progressLabel setText: status];
+    
+    // Play sound if corresponding file exists
+    [self playSound: nil];
 }
 
 - (void)buttonPressed:(id) button {
@@ -68,6 +92,25 @@
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             [[DataManager defaultManager] updateVocabProgress: self.currentVocab];
         });
+    }
+}
+
+- (void)playSound:(id)button {
+    // Determine Sound File URL based on word name;
+    NSURL* soundFileUrl = [FileManager voiceFileFor:self.currentVocab.word];
+    if(soundFileUrl != nil) {
+        NSError* error;
+        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileUrl error: &error];
+        if(nil == _player) {
+            // Log the problem
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        } else {
+            [_player prepareToPlay];
+            [_player setDelegate:self];
+            [_player play];
+        }
+    } else {
+        NSLog(@"No sound file found for %@",self.currentVocab.word);
     }
 }
 
@@ -104,6 +147,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - AV Audio Player Delegate
+
+- (void)audioPlayerDidFinishPlaying: (AVAudioPlayer *) player
+                       successfully: (BOOL) completed {
+    
+}
+
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player
+                                 error:(NSError *)error {
+    NSLog(@"Error playback:%@,%@",error, [error userInfo]);
+}
 /*
 #pragma mark - Navigation
 

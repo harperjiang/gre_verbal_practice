@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
+#import <AVFoundation/AVFoundation.h>
 #import "VocabPlan.h"
 #import "AdBannerSupport.h"
 
-@interface VocabViewController : UIViewController
+@interface VocabViewController : UIViewController<AVAudioPlayerDelegate> {
+    AVAudioPlayer* _player;
+    ADBannerView* _bannerView;
+}
 
-@property(nonatomic, readwrite, strong) IBOutlet ADBannerView* adBannerView;
-@property(nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint* adBannerBtmCon;
-
-@property(nonatomic, readwrite, strong) AdBannerSupport* bannerSupport;
+@property(nonatomic, readwrite, strong) AdBannerSupport* adSupport;
 
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* progressLabel;
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* messageLabel;

@@ -10,11 +10,12 @@
 #import <iAd/iAd.h>
 #import "AdBannerSupport.h"
 
-@interface MainViewController : UIViewController
-
-@property(nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint* adBannerBottomCon;
-@property(nonatomic, readwrite, strong) IBOutlet ADBannerView* adBannerView;
+@interface MainViewController : UIViewController {
+    ADBannerView* _bannerView;
+}
 
 @property(nonatomic, readwrite, strong) AdBannerSupport* adSupport;
+
+- (IBAction)importData:(id)sender;
 
 @end

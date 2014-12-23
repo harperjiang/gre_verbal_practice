@@ -19,23 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-    RCQuestion* question = [[RCQuestion alloc] init];
-    [question setText:@"The passage addresses which of the following issues related to Glass's use of popular elements in his classical compositions?"];
-    NSMutableArray* options = [[NSMutableArray alloc] init];
-    [options addObject:@"How it is regarded by listeners who prefer rock to the classics"];
-    [options addObject:@"How it has affected the commercial success of Glass's music"];
-    [options addObject:@"Whether it has contributed to a revival of interest among other composers in using popular elements in their compositions"];
-    [options addObject:@"Whether it has had a detrimental effect on Glass's reputation as a composer of classical music"];
-    [options addObject:@"Whether it has caused certain of Glass's works to be derivative in quality"];
-    [question setOptions:options];
-    
-    NSMutableArray* answers = [[NSMutableArray alloc] init];
-    [answers addObject: [[NSNumber alloc] initWithInteger: 0]];
-    
-    [question setAnswers:answers];
-    
-    [self setQuestionData:question];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +34,15 @@
 - (void)setAnswerListener:(id<AnswerListener>)listener {
     [((RCQViewController*)[[self viewControllers] objectAtIndex: 1]).answerView
         setAnswerListener: listener];
+}
+
+- (void)setQuestionData:(RCQuestion *)questionData {
+    self->_questionData = questionData;
+    
+    RCAViewController* articleView = (RCAViewController*)[self.viewControllers objectAtIndex:0];
+    RCQViewController* questionView = (RCQViewController*)[self.viewControllers objectAtIndex:1];
+    [articleView setArticle: [self.questionData.readText toString]];
+    [questionView setQuestionData:questionData];
 }
 /*
 #pragma mark - Navigation

@@ -14,6 +14,10 @@
 #define USER_QUES_PER_SET @"kUserQuestionPerSet"
 #define USER_QUES_PER_SET_DEFAULT 10
 
+#define USER_EXAM_TIMELIMIT @"kUserExamTimelimit"
+#define USER_EXAM_TIMELIMIT_DEFAULT 30
+
+
 @interface UserPreference : NSObject
 
 + (NSInteger)getInteger:(NSString*)key defval:(NSInteger)d;
