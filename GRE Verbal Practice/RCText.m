@@ -10,6 +10,9 @@
 
 @implementation RCText
 
+@dynamic text;
+@synthesize paragraphs;
+
 - (NSString*)toString {
     return self.text;
 }

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 
 @interface RCParagraph : NSObject
@@ -16,7 +17,7 @@
 @end
 
 
-@interface RCText : NSObject
+@interface RCText : NSManagedObject
 
 @property(nonatomic, readwrite, retain) NSArray* paragraphs;
 @property(nonatomic, readwrite, strong) NSString* text;

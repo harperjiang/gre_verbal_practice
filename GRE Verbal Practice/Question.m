@@ -10,7 +10,7 @@
 
 @implementation Question
 
-@dynamic text;
+@dynamic text, explanation;
 
 static NSArray* empty;
 

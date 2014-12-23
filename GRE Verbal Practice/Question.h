@@ -14,6 +14,7 @@ typedef enum { SENTENCE_EQUIV = 1, READING_COMP, TEXT_COMPLETION } QuestionType;
 @interface Question : NSManagedObject
 
 @property (nonatomic, readwrite) NSString* text;
+@property (nonatomic, readwrite) NSString* explanation;
 
 + (id)emptyAnswer;
 
