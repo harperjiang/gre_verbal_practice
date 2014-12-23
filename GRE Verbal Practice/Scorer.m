@@ -20,7 +20,7 @@
             count++;
         }
     }
-    return [NSString stringWithFormat:@"%ld/%ld", count, questions.count];
+    return [NSString stringWithFormat:@"%ld/%ld", (long)count, (long)questions.count];
 }
 
 @end

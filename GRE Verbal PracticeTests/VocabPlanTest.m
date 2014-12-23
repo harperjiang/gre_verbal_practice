@@ -69,7 +69,7 @@
 
 - (void)testStatus {
     [target nextVocab];
-    XCTAssertEqualObjects(@"Remaining: 2", [target status]);
+    XCTAssertEqualObjects(@"This round: 2/2", [target status]);
 }
 
 @end

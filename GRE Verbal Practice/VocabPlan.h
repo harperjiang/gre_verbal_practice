@@ -12,7 +12,10 @@
 @interface VocabPlan : NSObject {
     NSMutableArray* source;
     NSMutableArray* dest;
+    NSUInteger total;
     NSUInteger current;
+    BOOL doneWithToday;
+    BOOL doneWithSet;
 }
 
 @property(nonatomic, readwrite, strong) NSDate* date;
@@ -23,5 +26,8 @@
 - (Vocabulary*)nextVocab;
 - (NSString*)status;
 - (void)feedback:(BOOL)know;
+
+- (BOOL)doneWithToday;
+- (BOOL)doneWithSet;
 
 @end

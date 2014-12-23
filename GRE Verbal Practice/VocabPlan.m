@@ -14,11 +14,24 @@
 
 + (VocabPlan*)create{
     NSInteger dailyCount = [UserPreference getInteger:USER_DAILY_VOCAB defval: USER_DAILY_VOCAB_DEFAULT];
-    NSArray* words = [[DataManager defaultManager] getVocabs:dailyCount];
-    if(words.count == 0)
-        return nil;
+    DataManager* dm = [DataManager defaultManager];
+    NSArray* words = [dm getVocabs:dailyCount];
+    
+    
     VocabPlan* newplan = [[VocabPlan alloc] init];
-    [newplan setWords:words];
+    
+    if(words.count == 0) {
+        NSInteger totalVocab = [dm getVocabCount];
+        if(totalVocab == 0)
+            return nil;
+        newplan->doneWithToday = YES;
+        NSInteger futureVocab = [dm getFutureVocabCount];
+        if(futureVocab == 0) {
+            newplan->doneWithSet = YES;
+        }
+    } else {
+        [newplan setWords:words];
+    }
     return newplan;
 }
 
@@ -26,6 +39,7 @@
     if(source == nil) {
         // Init
         source = [[NSMutableArray alloc] initWithArray: self.words];
+        total = source.count;
         dest = [[NSMutableArray alloc] init];
         self.words = source;
     }
@@ -36,13 +50,14 @@
         source = dest;
         dest = (NSMutableArray*)self.words;
         self.words = source;
+        total = source.count;
     }
     current = arc4random() % source.count;
     return [self->source objectAtIndex: current];
 }
 
 - (NSString*)status {
-    return [NSString stringWithFormat: @"Remaining: %ld", source.count];
+    return [NSString stringWithFormat: @"This round: %ld/%ld", (long)source.count,(long)total];
 }
 
 - (void)feedback:(BOOL)know {
@@ -53,6 +68,14 @@
     if(!know) {
         [self->dest addObject:cv];
     }
+}
+
+- (BOOL)doneWithToday {
+    return doneWithToday;
+}
+
+- (BOOL)doneWithSet {
+    return doneWithSet;
 }
 
 @end

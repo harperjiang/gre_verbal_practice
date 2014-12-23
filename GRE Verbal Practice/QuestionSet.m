@@ -15,9 +15,12 @@
 
 + (QuestionSet*) create:(QuestionType)qt {
     NSInteger questionCount = [UserPreference getInteger: USER_QUES_PER_SET defval:USER_QUES_PER_SET_DEFAULT];
+    
+    NSArray* questions = [[DataManager defaultManager] getQuestions:qt
+                                                              count:questionCount];
     QuestionSet* qs = [[QuestionSet alloc] init];
-    [qs setQuestions:
-     [[DataManager defaultManager] getQuestions:qt count:questionCount]];
+    [qs setType:qt];
+    [qs setQuestions: questions];
     return qs;
 }
 
@@ -28,6 +31,10 @@
         self.answers = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (BOOL)isEmpty {
+    return self.questions == nil || self.questions.count == 0;
 }
 
 - (Question*)nextQuestion {

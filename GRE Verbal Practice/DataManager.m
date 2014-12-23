@@ -57,6 +57,51 @@ static DataManager* inst;
     return array;
 }
 
+- (NSInteger)count:(NSFetchRequest*)request {
+    NSError *error;
+    NSInteger res = [[self getContext] countForFetchRequest:request error:&error];
+    if (res == NSNotFound) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    return res;
+}
+
+- (void)deleteAll:(NSString *)type {
+    NSManagedObjectContext *deleteContext = [self getContext];
+    
+    // Each call to performBlock executes in its own autoreleasepool, so we don't
+    // need to explicitly use one if each chunk is done in a separate performBlock
+    while(true) {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:type];//
+        // Only fetch the number of objects to delete this iteration
+        fetchRequest.fetchLimit = 100;
+        // Prefetch all the relationships;
+        // TODO Not doing this now
+        // Don't need all the properties
+        fetchRequest.includesPropertyValues = NO;
+        
+        NSError* error;
+        NSArray *results = [deleteContext executeFetchRequest:fetchRequest error:&error];
+        if (results.count == 0) {
+            // Didn't get any objects for this fetch
+            if (nil == results) {
+                // Handle error
+                NSLog(@"Error:%@,%@",error,[error userInfo]);
+            }
+            break;
+        }
+        for (NSManagedObject *entity in results) {
+            [deleteContext deleteObject:entity];
+        }
+        
+        if(![deleteContext save:&error]) {
+            NSLog(@"Error:%@,%@",error,[error userInfo]);
+        }
+        [deleteContext reset];
+    }
+}
+
 - (NSArray*)getVocabs:(NSInteger)count {
     NSEntityDescription *ed = [NSEntityDescription
                                entityForName:@"Vocabulary"
@@ -78,7 +123,7 @@ static DataManager* inst;
     // Query Repeat words
     NSFetchRequest* existrequest = [[NSFetchRequest alloc] init];
     [existrequest setEntity:ed];
-    predicate = [NSPredicate predicateWithFormat:@"scheduleDate <= %@", [NSDate date]];
+    predicate = [NSPredicate predicateWithFormat:@"scheduleDate < %@", [DateUtils truncate:[NSDate date]]];
     [existrequest setPredicate:predicate];
     NSArray *existarray = [self query:existrequest];
     
@@ -86,6 +131,18 @@ static DataManager* inst;
     NSMutableArray* result = [[NSMutableArray alloc] initWithArray:newarray];
     [result addObjectsFromArray:existarray];
     return result;
+}
+
+- (NSInteger)getFutureVocabCount {
+    NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"Vocabulary"];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"scheduleDate >= %@", [DateUtils truncate:[NSDate date]]];
+    [fr setPredicate:predicate];
+    return [self count:fr];
+}
+
+- (NSInteger)getVocabCount {
+    NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"Vocabulary"];
+    return [self count:fr];
 }
 
 - (void)updateVocabProgress:(Vocabulary*)vocab {
@@ -117,9 +174,11 @@ static DataManager* inst;
             break;
     }
 
+    if(source == nil || source.count == 0)
+        return [[NSArray alloc] init];
     NSMutableSet* result = [[NSMutableSet alloc] init];
     
-    while(result.count < count) {
+    while(result.count < MIN(count, source.count)) {
         [result addObject:[source objectAtIndex: arc4random() % source.count]];
     }
     

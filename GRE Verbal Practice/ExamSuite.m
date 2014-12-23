@@ -9,6 +9,7 @@
 #import "ExamSuite.h"
 #import "Scorer.h"
 #import "DataManager.h"
+#import "UserPreference.h"
 
 @implementation ExamSuite
 
@@ -18,8 +19,8 @@
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: TEXT_COMPLETION count: 5]];
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: SENTENCE_EQUIV count: 4]];
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: READING_COMP count: 4]];
-    
     [esuite setQuestions:questions];
+    [esuite setTimeLimit:[UserPreference getInteger:USER_EXAM_TIMELIMIT defval:USER_EXAM_TIMELIMIT_DEFAULT]];
     return esuite;
 }
 

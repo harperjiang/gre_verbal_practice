@@ -10,4 +10,8 @@
 
 @interface DataImporter : NSObject
 
++ (void)importTestData;
+
++ (void)importData:(NSDictionary*) data;
+
 @end

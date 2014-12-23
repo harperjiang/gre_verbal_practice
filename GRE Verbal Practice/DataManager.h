@@ -15,11 +15,17 @@
 
 + (DataManager*)defaultManager;
 
+- (NSManagedObjectContext*) getContext;
+
 - (NSArray*)getVocabs:(NSInteger)count;
 - (void)updateVocabProgress:(Vocabulary*)vocab;
+- (NSInteger)getVocabCount;
+- (NSInteger)getFutureVocabCount;
+
 
 - (NSArray*)getQuestions:(QuestionType)type count:(NSInteger)count;
 
+- (void)deleteAll:(NSString*)type;
 
 - (void)reset;
 
