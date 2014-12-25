@@ -11,8 +11,8 @@
 @interface FileManager : NSObject
 
 + (NSURL*)appSupportDir;
-
++ (NSURL*)appCacheDir;
 + (NSURL*)voiceFileFor:(NSString*)word;
-
++ (BOOL)delete:(NSURL*)target;
 
 @end

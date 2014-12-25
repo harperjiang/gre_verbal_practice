@@ -9,6 +9,7 @@
 #import "NavViewController.h"
 #import "MainViewController.h"
 #import "SettingViewController.h"
+#import "UpdateViewController.h"
 
 @interface NavViewController ()
 
@@ -33,7 +34,9 @@
         return NO;
     if ([currentViewController isKindOfClass:[SettingViewController class]])
         return NO;
-    
+    if ([currentViewController isKindOfClass:[UpdateViewController class]]) {
+        return NO;
+    }
     return YES;
 }
 

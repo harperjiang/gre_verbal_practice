@@ -12,6 +12,7 @@
 #import "SEQuestion.h"
 #import "TCQuestion.h"
 #import "RCQuestion.h"
+#import "UserPreference.h"
 #import <CoreData/CoreData.h>
 
 @implementation DataImporter
@@ -84,8 +85,101 @@
     }
 }
 
-+ (void)importData:(NSDictionary *)data {
+
++ (BOOL)importData:(NSDictionary *)data {
+    NSInteger dataVersion = [(NSNumber*)[data objectForKey:@"version"] integerValue];
+   
+    NSInteger currentVersion = [UserPreference getInteger:SYS_DATA_VERSION
+                                                   defval:SYS_DATA_VERSION_DEFAULT];
+    if(dataVersion <= currentVersion) {
+        return YES;
+    }
     
+    DataManager* dm = [DataManager defaultManager];
+    NSManagedObjectContext* moc = [dm getContext];
+    NSEntityDescription* ved = [NSEntityDescription entityForName:@"Vocabulary"
+                                           inManagedObjectContext:moc];
+    NSEntityDescription* seed = [NSEntityDescription entityForName:@"SEQuestion"
+                                           inManagedObjectContext:moc];
+    NSEntityDescription* tced = [NSEntityDescription entityForName:@"TCQuestion"
+                                           inManagedObjectContext:moc];
+    NSEntityDescription* rcted = [NSEntityDescription entityForName:@"RCText"
+                                           inManagedObjectContext:moc];
+    NSEntityDescription* rced = [NSEntityDescription entityForName:@"RCQuestion"
+                                           inManagedObjectContext:moc];
+    
+    BOOL replaceOld = [(NSNumber*)[data objectForKey:@"replace"] boolValue];
+    if(replaceOld) {
+        [dm deleteAll];
+    }
+    
+    // Check Vocabulary Update
+    NSArray* vocArray = (NSArray*)[data objectForKey:@"vocabularies"];
+    if(vocArray != nil) {
+        for(NSDictionary* vocData in vocArray) {
+            Vocabulary* voc = [[Vocabulary alloc] initWithEntity:ved
+                                  insertIntoManagedObjectContext:moc];
+            [voc setWord: [vocData objectForKey:@"word"]];
+            [voc setExplanation:[vocData objectForKey:@"explanation"]];
+            [voc setSamples:[vocData objectForKey:@"samples"]];
+            [voc setSynonyms:[vocData objectForKey:@"synonyms"]];
+            [voc setPassCount:0];
+            [voc setScheduleDate:nil];
+            [moc insertObject:voc];
+        }
+    }
+    
+    NSArray* seQuestions = (NSArray*)[data objectForKey:@"seQuestions"];
+    if(seQuestions != nil) {
+        for(NSDictionary* seqData in seQuestions) {
+            SEQuestion* question = [[SEQuestion alloc] initWithEntity:seed insertIntoManagedObjectContext:moc];
+            [question setText:[seqData objectForKey:@"text"]];
+            [question setOptions:[seqData objectForKey:@"options"]];
+            [question setAnswers:[seqData objectForKey:@"answers"]];
+            [question setExplanation:[seqData objectForKey:@"explanation"]];
+            [moc insertObject:question];
+        }
+    }
+    
+    NSArray* tcQuestions = (NSArray*)[data objectForKey:@"tcQuestions"];
+    if(tcQuestions != nil) {
+        for(NSDictionary* tcqData in tcQuestions) {
+            TCQuestion* question = [[TCQuestion alloc] initWithEntity:tced insertIntoManagedObjectContext:moc];
+            [question setText:[tcqData objectForKey:@"text"]];
+            [question setOptions:[tcqData objectForKey:@"options"]];
+            [question setAnswers:[tcqData objectForKey:@"answers"]];
+            [question setExplanation:[tcqData objectForKey:@"explanation"]];
+            [moc insertObject:question];
+        }
+    }
+    
+    NSDictionary* rcTextDatas = (NSDictionary*)[data objectForKey:@"rcTexts"];
+    NSArray* rcQuestions = (NSArray*)[data objectForKey:@"rcQuestions"];
+    if(rcTextDatas != nil && rcQuestions != nil) {
+        NSMutableDictionary* rcTexts = [[NSMutableDictionary alloc] initWithCapacity:rcTextDatas.count];
+        [rcTextDatas enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop) {
+            RCText* rcText = [[RCText alloc] initWithEntity:rcted
+                             insertIntoManagedObjectContext:moc];
+            [rcText setText: value];
+            [rcTexts setObject:rcText forKey:key];
+            [moc insertObject:rcText];
+        }];
+        for(NSDictionary* rcqData in rcQuestions) {
+            RCQuestion* question = [[RCQuestion alloc] initWithEntity:rced insertIntoManagedObjectContext:moc];
+            [question setText:[rcqData objectForKey:@"text"]];
+            [question setOptions:[rcqData objectForKey:@"options"]];
+            [question setAnswers:[rcqData objectForKey:@"answers"]];
+            [question setExplanation:[rcqData objectForKey:@"explanation"]];
+            [question setReadText: (RCText*)[rcTexts objectForKey:[rcqData objectForKey:@"readText"]]];
+            [moc insertObject:question];
+        }
+    }
+    
+    if([dm save]) {
+        [UserPreference setInteger:dataVersion forKey:SYS_DATA_VERSION];
+        return YES;
+    }
+    return NO;
 }
 
 @end

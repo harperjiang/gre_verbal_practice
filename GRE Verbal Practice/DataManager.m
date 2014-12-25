@@ -33,12 +33,13 @@ static DataManager* inst;
     return [app managedObjectContext];
 }
 
-- (void)save {
+- (BOOL)save {
     NSError* error;
     if(![[self getContext] save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        return NO;
     }
+    return YES;
 }
 
 - (void)reset {
@@ -52,7 +53,7 @@ static DataManager* inst;
     NSArray *array = [[self getContext] executeFetchRequest:request error:&error];
     if (array == nil) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        return nil;
     }
     return array;
 }
@@ -62,9 +63,17 @@ static DataManager* inst;
     NSInteger res = [[self getContext] countForFetchRequest:request error:&error];
     if (res == NSNotFound) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        return -1;
     }
     return res;
+}
+
+- (void)deleteAll {
+    [self deleteAll:@"Vocabulary"];
+    [self deleteAll:@"SEQuestion"];
+    [self deleteAll:@"RCQuestion"];
+    [self deleteAll:@"RCText"];
+    [self deleteAll:@"TCQuestion"];
 }
 
 - (void)deleteAll:(NSString *)type {

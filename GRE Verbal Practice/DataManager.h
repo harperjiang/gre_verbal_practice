@@ -27,6 +27,9 @@
 
 - (void)deleteAll:(NSString*)type;
 
+- (BOOL)save;
+
+- (void)deleteAll;
 - (void)reset;
 
 @end

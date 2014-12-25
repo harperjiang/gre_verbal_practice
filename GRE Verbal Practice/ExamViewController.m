@@ -74,7 +74,7 @@
     // Send Result Information to Result view
     // TODO
     // Show result view and disable toolbar
-    void (^updateUI)() = ^void(){
+    void (^updateUI)() = ^{
         [self showContentController:ervc];
         [self.toolbar setHidden:YES];
         [self.timeLabel setHidden:YES];

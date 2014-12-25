@@ -12,6 +12,6 @@
 
 + (void)importTestData;
 
-+ (void)importData:(NSDictionary*) data;
++ (BOOL)importData:(NSDictionary*) data;
 
 @end

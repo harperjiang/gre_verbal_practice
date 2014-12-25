@@ -23,4 +23,16 @@
     [[NSUserDefaults standardUserDefaults] setObject:num forKey:key];
 }
 
++ (NSString*)getString:(NSString*)key defval:(NSString*)d {
+    NSString* val = (NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:key];
+    if(nil == val) {
+        return d;
+    }
+    return val;
+}
+
++ (void)setString:(NSString*)value forKey:(NSString*)key {
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:key];
+}
+
 @end

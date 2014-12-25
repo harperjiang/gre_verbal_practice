@@ -26,6 +26,15 @@
 		A662FC941A47CE20008E6FA6 /* target-6x.png in Resources */ = {isa = PBXBuildFile; fileRef = A662FC8E1A47CE20008E6FA6 /* target-6x.png */; };
 		A662FC971A48A60B008E6FA6 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A662FC951A48A60B008E6FA6 /* iPad.storyboard */; };
 		A662FC9A1A48C013008E6FA6 /* PadRCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A662FC991A48C013008E6FA6 /* PadRCViewController.m */; };
+		A662FC9D1A49F988008E6FA6 /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A662FC9C1A49F988008E6FA6 /* UpdateViewController.m */; };
+		A662FCA01A4A68C7008E6FA6 /* HttpDownloadSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A662FC9F1A4A68C7008E6FA6 /* HttpDownloadSupport.m */; };
+		A662FCA41A4B4400008E6FA6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A662FCA31A4B4400008E6FA6 /* libz.dylib */; };
+		A662FCB51A4B4477008E6FA6 /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A662FCB01A4B4477008E6FA6 /* SSZipArchive.m */; };
+		A662FCC01A4B52D1008E6FA6 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = A662FCB81A4B52D1008E6FA6 /* ioapi.c */; };
+		A662FCC11A4B52D1008E6FA6 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = A662FCBA1A4B52D1008E6FA6 /* mztools.c */; };
+		A662FCC21A4B52D1008E6FA6 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = A662FCBC1A4B52D1008E6FA6 /* unzip.c */; };
+		A662FCC31A4B52D1008E6FA6 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = A662FCBE1A4B52D1008E6FA6 /* zip.c */; };
+		A662FCC61A4B54C3008E6FA6 /* ZipSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = A662FCC51A4B54C3008E6FA6 /* ZipSupport.m */; };
 		A66FDBD21A3E20E200DAAE13 /* TCAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A66FDBD11A3E20E200DAAE13 /* TCAnswerView.m */; };
 		A66FDBD51A3E2D2B00DAAE13 /* GRETextButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A66FDBD41A3E2D2B00DAAE13 /* GRETextButton.m */; };
 		A66FDBD81A3E2DAC00DAAE13 /* GREButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A66FDBD71A3E2DAC00DAAE13 /* GREButton.m */; };
@@ -132,6 +141,25 @@
 		A662FC961A48A60B008E6FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		A662FC981A48C013008E6FA6 /* PadRCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PadRCViewController.h; sourceTree = "<group>"; };
 		A662FC991A48C013008E6FA6 /* PadRCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PadRCViewController.m; sourceTree = "<group>"; };
+		A662FC9B1A49F988008E6FA6 /* UpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateViewController.h; sourceTree = "<group>"; };
+		A662FC9C1A49F988008E6FA6 /* UpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateViewController.m; sourceTree = "<group>"; };
+		A662FC9E1A4A68C7008E6FA6 /* HttpDownloadSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpDownloadSupport.h; sourceTree = "<group>"; };
+		A662FC9F1A4A68C7008E6FA6 /* HttpDownloadSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpDownloadSupport.m; sourceTree = "<group>"; };
+		A662FCA11A4B43F2008E6FA6 /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
+		A662FCA31A4B4400008E6FA6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A662FCAF1A4B4476008E6FA6 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
+		A662FCB01A4B4477008E6FA6 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
+		A662FCB71A4B52D1008E6FA6 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		A662FCB81A4B52D1008E6FA6 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		A662FCB91A4B52D1008E6FA6 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		A662FCBA1A4B52D1008E6FA6 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		A662FCBB1A4B52D1008E6FA6 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		A662FCBC1A4B52D1008E6FA6 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		A662FCBD1A4B52D1008E6FA6 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		A662FCBE1A4B52D1008E6FA6 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		A662FCBF1A4B52D1008E6FA6 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		A662FCC41A4B54C3008E6FA6 /* ZipSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipSupport.h; sourceTree = "<group>"; };
+		A662FCC51A4B54C3008E6FA6 /* ZipSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipSupport.m; sourceTree = "<group>"; };
 		A66FDBD01A3E20E200DAAE13 /* TCAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAnswerView.h; sourceTree = "<group>"; };
 		A66FDBD11A3E20E200DAAE13 /* TCAnswerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAnswerView.m; sourceTree = "<group>"; };
 		A66FDBD31A3E2D2B00DAAE13 /* GRETextButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRETextButton.h; sourceTree = "<group>"; };
@@ -260,6 +288,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A662FCA41A4B4400008E6FA6 /* libz.dylib in Frameworks */,
 				A67871D91A4620C900AEE184 /* AVFoundation.framework in Frameworks */,
 				A67871701A40E24D00AEE184 /* iAd.framework in Frameworks */,
 			);
@@ -275,6 +304,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A662FCB61A4B4486008E6FA6 /* zip */ = {
+			isa = PBXGroup;
+			children = (
+				A662FCB71A4B52D1008E6FA6 /* crypt.h */,
+				A662FCB81A4B52D1008E6FA6 /* ioapi.c */,
+				A662FCB91A4B52D1008E6FA6 /* ioapi.h */,
+				A662FCBA1A4B52D1008E6FA6 /* mztools.c */,
+				A662FCBB1A4B52D1008E6FA6 /* mztools.h */,
+				A662FCBC1A4B52D1008E6FA6 /* unzip.c */,
+				A662FCBD1A4B52D1008E6FA6 /* unzip.h */,
+				A662FCBE1A4B52D1008E6FA6 /* zip.c */,
+				A662FCBF1A4B52D1008E6FA6 /* zip.h */,
+				A662FCAF1A4B4476008E6FA6 /* SSZipArchive.h */,
+				A662FCB01A4B4477008E6FA6 /* SSZipArchive.m */,
+			);
+			name = zip;
+			sourceTree = "<group>";
+		};
 		A67871771A40EB4F00AEE184 /* file */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +422,10 @@
 				A67871791A40EE2A00AEE184 /* ExamTimer.m */,
 				A67871A91A42B8F400AEE184 /* AdBannerSupport.h */,
 				A67871AA1A42B8F400AEE184 /* AdBannerSupport.m */,
+				A662FC9E1A4A68C7008E6FA6 /* HttpDownloadSupport.h */,
+				A662FC9F1A4A68C7008E6FA6 /* HttpDownloadSupport.m */,
+				A662FCC41A4B54C3008E6FA6 /* ZipSupport.h */,
+				A662FCC51A4B54C3008E6FA6 /* ZipSupport.m */,
 			);
 			name = support;
 			sourceTree = "<group>";
@@ -504,6 +555,8 @@
 		A6A692071A3766E300414E73 = {
 			isa = PBXGroup;
 			children = (
+				A662FCA31A4B4400008E6FA6 /* libz.dylib */,
+				A662FCA11A4B43F2008E6FA6 /* libc.dylib */,
 				A67871D81A4620C900AEE184 /* AVFoundation.framework */,
 				A678716F1A40E24D00AEE184 /* iAd.framework */,
 				A6A692121A3766E300414E73 /* GRE Verbal Practice */,
@@ -524,6 +577,7 @@
 		A6A692121A3766E300414E73 /* GRE Verbal Practice */ = {
 			isa = PBXGroup;
 			children = (
+				A662FCB61A4B4486008E6FA6 /* zip */,
 				A6A06F261A40853800D5F8D2 /* res */,
 				A67871B81A43BAB900AEE184 /* support */,
 				A67871771A40EB4F00AEE184 /* file */,
@@ -594,6 +648,8 @@
 				A67871BC1A43CF3800AEE184 /* SettingViewController.m */,
 				A662FC721A478A2C008E6FA6 /* ExplainViewController.h */,
 				A662FC731A478A2C008E6FA6 /* ExplainViewController.m */,
+				A662FC9B1A49F988008E6FA6 /* UpdateViewController.h */,
+				A662FC9C1A49F988008E6FA6 /* UpdateViewController.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -741,6 +797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A67871911A42180700AEE184 /* ExamResultViewController.m in Sources */,
+				A662FCA01A4A68C7008E6FA6 /* HttpDownloadSupport.m in Sources */,
 				A6A6924F1A376F2A00414E73 /* RCMSQuestion.m in Sources */,
 				A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */,
 				A6A692451A376C3E00414E73 /* RCQuestion.m in Sources */,
@@ -753,11 +810,15 @@
 				A66FDBDE1A3F33EE00DAAE13 /* GREButtonGroup.m in Sources */,
 				A6A692521A376FC500414E73 /* RCCSQuestion.m in Sources */,
 				A6A692631A37856000414E73 /* TCViewController.m in Sources */,
+				A662FCC01A4B52D1008E6FA6 /* ioapi.c in Sources */,
 				A6A692191A3766E300414E73 /* AppDelegate.m in Sources */,
 				A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */,
+				A662FCC11A4B52D1008E6FA6 /* mztools.c in Sources */,
+				A662FCC21A4B52D1008E6FA6 /* unzip.c in Sources */,
 				A66FDBDB1A3E715800DAAE13 /* UIUtils.m in Sources */,
 				A678719A1A424B4E00AEE184 /* QuestionViewController.m in Sources */,
 				A67871BD1A43CF3800AEE184 /* SettingViewController.m in Sources */,
+				A662FCB51A4B4477008E6FA6 /* SSZipArchive.m in Sources */,
 				A6A692421A376BAE00414E73 /* Question.m in Sources */,
 				A6A06F191A3F8D8C00D5F8D2 /* RCQViewController.m in Sources */,
 				A66FDBD51A3E2D2B00DAAE13 /* GRETextButton.m in Sources */,
@@ -768,10 +829,13 @@
 				A67871CB1A44ECBD00AEE184 /* Scorer.m in Sources */,
 				A6A692161A3766E300414E73 /* main.m in Sources */,
 				A6A6925B1A37759F00414E73 /* MainViewController.m in Sources */,
+				A662FCC31A4B52D1008E6FA6 /* zip.c in Sources */,
 				A662FC741A478A2C008E6FA6 /* ExplainViewController.m in Sources */,
 				A6A692551A37705B00414E73 /* RCText.m in Sources */,
 				A6A692481A376C8700414E73 /* TCQuestion.m in Sources */,
+				A662FC9D1A49F988008E6FA6 /* UpdateViewController.m in Sources */,
 				A67871D11A45172C00AEE184 /* DataImporter.m in Sources */,
+				A662FCC61A4B54C3008E6FA6 /* ZipSupport.m in Sources */,
 				A678717A1A40EE2A00AEE184 /* ExamTimer.m in Sources */,
 				A67871B41A43B9B300AEE184 /* MemoryAlgorithm.m in Sources */,
 				A6A692581A3770DA00414E73 /* QuestionSet.m in Sources */,
