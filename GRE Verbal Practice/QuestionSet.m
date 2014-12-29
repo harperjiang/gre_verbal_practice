@@ -62,4 +62,12 @@
     return [Scorer score:self.questions answer: self.answers];
 }
 
+- (NSInteger)current {
+    return next;
+}
+
+- (NSInteger)size {
+    return self.questions.count;
+}
+
 @end

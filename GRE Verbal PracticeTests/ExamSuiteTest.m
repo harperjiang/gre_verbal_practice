@@ -26,28 +26,30 @@
 - (void)setUp {
     [super setUp];
     
-    empty = [[ExamSuite alloc] init];
-    
-    target = [[ExamSuite alloc] init];
-    
     mstore = [[MemoryStore alloc] init];
     
-    NSMutableArray* questions = [[NSMutableArray alloc] init];
+    NSEntityDescription* esed = [mstore edFromName:@"ExamSuite"];
     
+    empty = [[ExamSuite alloc] initWithEntity: esed insertIntoManagedObjectContext:[mstore memoryContext]];
+    target = [[ExamSuite alloc] initWithEntity: esed insertIntoManagedObjectContext:[mstore memoryContext]];
+
     SEQuestion* q1 = [[SEQuestion alloc] initWithEntity:[mstore edFromName: @"SEQuestion"] insertIntoManagedObjectContext:[mstore memoryContext]];
     [q1 setText:@"Test a"];
     [q1 setOptions:@[@"OptionA",@"OptionB",@"OptionC"]];
     [q1 setAnswers:@[@0,@2]];
-    [questions addObject:q1];
     
     
     SEQuestion* q2 = [[SEQuestion alloc] initWithEntity:[mstore edFromName: @"SEQuestion"] insertIntoManagedObjectContext:[mstore memoryContext]];
     [q2 setText:@"Test b"];
     [q2 setOptions:@[@"OptionX",@"OptionY",@"OptionZ"]];
     [q2 setAnswers:@[@0,@1]];
+    
+    NSMutableOrderedSet* questions = [[NSMutableOrderedSet alloc] init];
+    [questions addObject:q1];
     [questions addObject:q2];
     
-    [target setQuestions:questions];
+    [target setQuestions: questions];
+    
 }
 
 - (void)tearDown {

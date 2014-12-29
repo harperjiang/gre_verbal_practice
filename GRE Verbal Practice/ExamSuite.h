@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Question.h"
 
-@interface ExamSuite : NSObject
+@interface ExamSuite : NSManagedObject
 
-@property(nonatomic, readwrite, strong) NSArray* questions;
-@property(nonatomic, readwrite, strong) NSMutableArray* answers;
-@property(nonatomic, readonly) NSInteger current;
-@property(nonatomic, readwrite) NSInteger timeLimit;
+@property(nonatomic) NSString* name;
+@property(nonatomic) NSString* statistics;
+@property(nonatomic) NSOrderedSet* questions;
+@property(nonatomic) NSMutableArray* answers;
+@property(nonatomic) NSInteger current;
+@property(nonatomic) NSInteger timeLimit;
 
 + (ExamSuite*)create;
 
@@ -22,6 +24,7 @@
 - (BOOL)next;
 - (BOOL)prev;
 - (Question*)question;
+- (NSArray*)currentAnswer;
 - (void)answer: (NSArray*)answer for:(NSInteger)i;
 - (NSString*)score;
 

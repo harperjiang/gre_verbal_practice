@@ -17,5 +17,5 @@
 @property(nonatomic, readwrite, strong) AdBannerSupport* adSupport;
 
 - (IBAction)importData:(id)sender;
-
+- (IBAction)test:(id)sender;
 @end

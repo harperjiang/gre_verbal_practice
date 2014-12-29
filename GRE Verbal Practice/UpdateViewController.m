@@ -118,12 +118,37 @@
         NSInteger latest = [[parsedJson objectForKey:type] integerValue];
         [_versionDownloadSupport.userinfo setObject:[NSNumber numberWithInteger:latest] forKey:@"latest"];
         if(latest > val) {
-            if([@"voice" isEqualToString:type]) {
-                [_voiceDownloadSupport download];
-            }
-            if([@"data" isEqualToString:type]) {
-                [_dataDownloadSupport download];
-            }
+            [self updateUI:^{
+                UIAlertController* messageBox =
+                    [UIAlertController alertControllerWithTitle:@"Update Found"
+                                                        message:@"Do you want to download and install the update?"
+                                                 preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* okAction = [UIAlertAction
+                                           actionWithTitle:@"OK"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                                       if([@"voice" isEqualToString:type]) {
+                                                           [_voiceDownloadSupport download];
+                                                       }
+                                                       if([@"data" isEqualToString:type]) {
+                                                           [_dataDownloadSupport download];
+                                                       }
+                                                   }];
+                
+                [messageBox addAction: okAction];
+                UIAlertAction* cancelAction = [UIAlertAction
+                                           actionWithTitle:@"Cancel"
+                                                     style:UIAlertActionStyleCancel
+                                                   handler:^(UIAlertAction * action) {
+                                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+                
+                [messageBox addAction: cancelAction];
+                [self presentViewController:messageBox animated:YES completion:nil];
+            }];
+            
         } else {
             [self updateUI:^{
                 [self showMessageWithInfo:@"Already the latest version"];
@@ -160,31 +185,36 @@
 }
 
 - (void)showMessage:(BOOL)success {
-    if(success) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Update Completed"
-                                                        message:@"Update Success."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed to perform update"
-                                                        message:@"Error occurred in update. Please try again later."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-    }
+    
+    UIAlertController* messageBox =
+    [UIAlertController alertControllerWithTitle:success?@"Update Completed":@"Update Failed"
+                                        message:success?@"Your data is up to date now.":@"Error occurred during update. Please try again later."
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* okAction = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   [self dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    [messageBox addAction:okAction];
+    [self presentViewController:messageBox animated:YES completion:nil];
 }
 
 - (void)showMessageWithInfo:(NSString*)info {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Prompt"
-                                                    message:info
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-    [alert show];
+    UIAlertController* messageBox =
+    [UIAlertController alertControllerWithTitle:@"Prompt"
+                                        message:info
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* okAction = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   [self dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    [messageBox addAction:okAction];
+    [self presentViewController:messageBox animated:YES completion:nil];
 }
 
 - (void)updateDoneRefreshUI:(HttpDownloadSupport*)source {

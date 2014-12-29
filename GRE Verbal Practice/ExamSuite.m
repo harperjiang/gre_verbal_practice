@@ -13,9 +13,16 @@
 
 @implementation ExamSuite
 
+@dynamic name;
+@dynamic statistics;
+@dynamic questions;
+@dynamic timeLimit;
+@synthesize answers;
+@synthesize current;
+
 + (ExamSuite*)create {
     ExamSuite* esuite = [[ExamSuite alloc] init];
-    NSMutableArray* questions = [[NSMutableArray alloc] init];
+    NSMutableOrderedSet* questions = [[NSMutableOrderedSet alloc] init];
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: TEXT_COMPLETION count: 5]];
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: SENTENCE_EQUIV count: 4]];
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: READING_COMP count: 4]];
@@ -24,10 +31,12 @@
     return esuite;
 }
 
-- (id)init {
-    self = [super init];
+
+
+- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     if(self) {
-        self->_current = 0;
+        self.current = 0;
         self.answers = [[NSMutableArray alloc] init];
     }
     return self;
@@ -41,15 +50,15 @@
 
 - (BOOL)prev {
     if(self.current > 0) {
-        self->_current--;
+        self.current--;
         return YES;
     }
     return NO;
 }
 
 - (BOOL)next {
-    if(self.questions != nil && self.current < self.questions.count - 1) {
-        self->_current++;
+    if(self.questions != nil && self.current < ((NSInteger)self.questions.count) - 1) {
+        self.current++;
         return YES;
     }
     return NO;
@@ -75,7 +84,11 @@
 }
 
 - (NSString*)score {
-    return [Scorer score:self.questions answer: self.answers];
+    return [Scorer scoreWithSet:self.questions answer: self.answers];
+}
+
+- (NSArray*)currentAnswer {
+    return [self.answers objectAtIndex:self.current];
 }
 
 @end

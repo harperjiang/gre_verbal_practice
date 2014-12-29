@@ -20,6 +20,8 @@
 + (QuestionSet*)create:(QuestionType)qt;
 
 - (BOOL)isEmpty;
+- (NSInteger)current;
+- (NSInteger)size;
 - (Question*)nextQuestion;
 - (void)answer: (NSArray*)answer;
 - (void)answer:(NSArray *)answer index:(NSInteger)index;

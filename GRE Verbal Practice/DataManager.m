@@ -165,6 +165,16 @@ static DataManager* inst;
     [self save];
 }
 
+- (NSArray*)getExamSuites {
+    NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"ExamSuite"];
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]
+                              initWithKey:@"name" ascending:YES];
+    [fr setSortDescriptors:@[sort]];
+    
+    return [self query:fr];
+}
+
 - (NSArray*)getQuestions:(QuestionType)type count:(NSInteger)count {
     NSArray* source = nil;
     NSString* name = nil;

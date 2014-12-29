@@ -9,12 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class ExamSuite;
+@class QuestionSet;
+
 typedef enum { SENTENCE_EQUIV = 1, READING_COMP, TEXT_COMPLETION } QuestionType;
 
 @interface Question : NSManagedObject
 
-@property (nonatomic, readwrite) NSString* text;
-@property (nonatomic, readwrite) NSString* explanation;
+@property (nonatomic, readwrite, strong) NSString* text;
+@property (nonatomic, readwrite, strong) NSString* explanation;
+@property (nonatomic, readwrite, weak) ExamSuite* examSuite;
+
 
 + (id)emptyAnswer;
 

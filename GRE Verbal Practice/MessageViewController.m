@@ -28,6 +28,14 @@
     
 }
 
+- (void)showExplanation {
+    
+}
+
+- (void)showChoice:(NSArray *)choice {
+    
+}
+
 - (void)setAnswerListener:(id<AnswerListener>)listener {
     
 }

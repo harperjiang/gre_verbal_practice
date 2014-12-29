@@ -11,5 +11,6 @@
 @interface Scorer : NSObject
 
 + (NSString*)score:(NSArray*)questions answer:(NSArray*)answers;
++ (NSString*)scoreWithSet:(NSOrderedSet*)questions answer:(NSArray*)answers;
 
 @end

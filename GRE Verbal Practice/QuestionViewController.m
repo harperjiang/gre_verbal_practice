@@ -56,7 +56,7 @@
                 break;
             default:
                 NSLog(@"Error when loading subviews, no subview to load");
-                return;
+                abort();
         }
     } else {
         vcid = @"MessageViewController";
@@ -68,8 +68,9 @@
     [self showContentController: vc];
 
     if(self.questionSet != nil) {
-        Question* firstQuestion = [self.questionSet nextQuestion];
-        [self->currentController setQuestionData:firstQuestion];
+//        Question* firstQuestion = [self.questionSet nextQuestion];
+//        [self->currentController setQuestionData:firstQuestion];
+        [self nextQuestion:nil];
     }
 }
 
@@ -104,6 +105,12 @@
     [self.explainButton setHidden:NO];
 }
 
+- (IBAction)showExplanation:(id)sender {
+    if(self->currentController != nil) {
+        [self->currentController showExplanation];
+    }
+}
+
 - (IBAction)nextQuestion:(id)sender {
     // Get Next Question from Question List
     Question* question = [self.questionSet nextQuestion];
@@ -120,6 +127,11 @@
         [self->currentController setQuestionData: question];
         [self.showAnswerButton setHidden:NO];
         [self.explainButton setHidden:YES];
+        
+        // Change Navigation Title
+        self.navigationItem.title = [NSString stringWithFormat:@"%ld/%ld",
+                                     self.questionSet.current,
+                                     self.questionSet.size];
     }
 }
 
@@ -138,6 +150,7 @@
     }
     [self addChildViewController:vc];
     vc.view.frame = self.containerView.frame;
+    [vc.view layoutIfNeeded];
     [self.containerView addSubview: vc.view];
     [vc didMoveToParentViewController:self];
     currentController = (id<QViewController>)vc;

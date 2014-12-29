@@ -17,18 +17,22 @@
 
 - (NSManagedObjectContext*) getContext;
 
+// Vocabularies
 - (NSArray*)getVocabs:(NSInteger)count;
 - (void)updateVocabProgress:(Vocabulary*)vocab;
 - (NSInteger)getVocabCount;
 - (NSInteger)getFutureVocabCount;
 
-
+// Questions
 - (NSArray*)getQuestions:(QuestionType)type count:(NSInteger)count;
 
+// Exam Suites
+- (NSArray*)getExamSuites;
+
+
+// General Operations
 - (void)deleteAll:(NSString*)type;
-
 - (BOOL)save;
-
 - (void)deleteAll;
 - (void)reset;
 

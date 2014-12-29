@@ -7,10 +7,14 @@
 //
 
 #import "Question.h"
+#import "ExamSuite.h"
+#import "QuestionSet.h"
 
 @implementation Question
 
-@dynamic text, explanation;
+@dynamic text;
+@dynamic explanation;
+@dynamic examSuite;
 
 static NSArray* empty;
 

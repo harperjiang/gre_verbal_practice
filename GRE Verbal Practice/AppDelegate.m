@@ -20,6 +20,29 @@
     // Override point for customization after application launch.
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSLog(@"Documents Directory: %@", [FileManager appSupportDir]);
+    
+    // Set Default Looks
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
+    shadow.shadowColor = [UIColor whiteColor];
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+       NSFontAttributeName:[UIFont systemFontOfSize:14.0]}
+     forState:UIControlStateNormal];
+    
+    [[UINavigationBar appearance] setBarTintColor:
+                    [UIColor colorWithRed:0.23 green:0.35 blue:0.6 alpha:0.8]];
+    [[UINavigationBar appearance] setTranslucent: NO];
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+                        @{NSForegroundColorAttributeName : [UIColor whiteColor],
+                          NSFontAttributeName : [UIFont systemFontOfSize:14]}];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     return YES;
 }
 

@@ -12,14 +12,18 @@
 
 @interface TCAnswerView : UIView<ButtonListener> {
     NSMutableArray* _groups;
-    NSArray* widthConstraint;
-    NSArray* heightConstraint;
+    BOOL _dirty;
 }
 
 @property(nonatomic, readwrite, strong) NSArray* options;
-@property(nonatomic, readwrite) CGSize preferredSize;
+@property(nonatomic, readwrite, strong) NSArray* answers;
+@property(nonatomic, readwrite) BOOL shouldShowAnswer;
+
+@property(nonatomic, readwrite) CGFloat preferredWidth;
+@property(nonatomic, readwrite) CGFloat preferredHeight;
+
 @property(nonatomic, readwrite, weak) id<AnswerListener> answerListener;
 
-- (void)showAnswer:(NSArray*)answer;
+- (void)showChoice:(NSArray*)choice;
 
 @end

@@ -23,4 +23,15 @@
     return [NSString stringWithFormat:@"%ld/%ld", (long)count, (long)questions.count];
 }
 
++ (NSString*)scoreWithSet:(NSOrderedSet*)questions answer:(NSArray*)answers {
+    NSInteger count = 0;
+    for(int i = 0 ; i < questions.count ; i++) {
+        Question* q = [questions objectAtIndex:i];
+        if(answers.count > i && [q verifyAnswer: [answers objectAtIndex:i]]) {
+            count++;
+        }
+    }
+    return [NSString stringWithFormat:@"%ld/%ld", (long)count, (long)questions.count];
+}
+
 @end

@@ -8,11 +8,12 @@
 
 #import "MainViewController.h"
 #import "QuestionViewController.h"
-#import "ExamViewController.h"
+#import "ExamPrepController.h"
 #import "VocabViewController.h"
 #import "DataManager.h"
 #import "UserPreference.h"
 #import "DataImporter.h"
+#import "SEViewController.h"
 
 @interface MainViewController ()
 
@@ -23,7 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     
     self.adSupport = [[AdBannerSupport alloc] init];
     // On iOS 6 ADBannerView introduces a new initializer, use it when available.
@@ -46,8 +46,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -98,10 +104,10 @@
         
         [qvc setQuestionSet: [QuestionSet create:qt]];
     }
-    if([[segue destinationViewController] isKindOfClass:[ExamViewController class]]) {
-        // Load Exam Question List
-        ExamViewController* evc = (ExamViewController*)[segue destinationViewController];
-        [evc setExamSuite:[ExamSuite create]];
+    if([[segue destinationViewController] isKindOfClass:[ExamPrepController class]]) {
+        ExamPrepController* epvc = (ExamPrepController*)segue.destinationViewController;
+        
+        epvc.examSuites = [[DataManager defaultManager] getExamSuites];
     }
     if([[segue destinationViewController] isKindOfClass:[VocabViewController class]]) {
         // Load Vocabulary List
@@ -112,7 +118,15 @@
 
 #pragma mark - Import Data
 - (IBAction)importData:(id)sender {
+//    [DataImporter importTestData];
     [DataImporter importTestData];
+}
+
+- (IBAction)test:(id)sender{
+    NSArray* questions = [[DataManager defaultManager] getQuestions:SENTENCE_EQUIV count:1];
+    SEViewController* sev = (SEViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"SEViewController"];
+    [self showViewController:sev sender:nil];
+    [sev setQuestionData:(SEQuestion*)[questions objectAtIndex:0]];
 }
 
 @end

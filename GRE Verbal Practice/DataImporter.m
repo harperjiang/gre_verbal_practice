@@ -12,6 +12,7 @@
 #import "SEQuestion.h"
 #import "TCQuestion.h"
 #import "RCQuestion.h"
+#import "ExamSuite.h"
 #import "UserPreference.h"
 #import <CoreData/CoreData.h>
 
@@ -24,12 +25,14 @@
     NSEntityDescription* tcqed = [NSEntityDescription entityForName:@"TCQuestion" inManagedObjectContext:moc];
     NSEntityDescription* rcqed = [NSEntityDescription entityForName:@"RCQuestion" inManagedObjectContext:moc];
     NSEntityDescription* rcted = [NSEntityDescription entityForName:@"RCText"  inManagedObjectContext:moc];
+    NSEntityDescription* esed = [NSEntityDescription entityForName:@"ExamSuite" inManagedObjectContext:moc];
     // Delete all old data
     [[DataManager defaultManager] deleteAll:@"Vocabulary"];
     [[DataManager defaultManager] deleteAll:@"SEQuestion"];
     [[DataManager defaultManager] deleteAll:@"TCQuestion"];
     [[DataManager defaultManager] deleteAll:@"RCQuestion"];
     [[DataManager defaultManager] deleteAll:@"RCText"];
+    [[DataManager defaultManager] deleteAll:@"ExamSuite"];
     
     Vocabulary* test1 = [[Vocabulary alloc] initWithEntity:ved insertIntoManagedObjectContext:moc];
     [test1 setWord:@"good"];
@@ -78,6 +81,17 @@
     [rcq setReadText:rct];
     [moc insertObject:rcq];
     
+    NSMutableOrderedSet* questions = [[NSMutableOrderedSet alloc] init];
+    [questions addObject:rcq];
+    [questions addObject:tcq1];
+    [questions addObject:seq1];
+    
+    ExamSuite* es1 = [[ExamSuite alloc] initWithEntity:esed insertIntoManagedObjectContext:moc];
+    [es1 setName:@"Test ExamSuite"];
+    [es1 setStatistics:@"Tried 1 times, Success rate 24%"];
+    [es1 setQuestions:questions];
+    [es1 setTimeLimit:30];
+    [moc insertObject:es1];
     
     NSError* error;
     if(![moc save:&error]) {

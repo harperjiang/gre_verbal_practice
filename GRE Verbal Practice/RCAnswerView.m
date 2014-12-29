@@ -15,17 +15,51 @@
 }
 
 
--(void) setOptions:(NSArray *)options {
+- (void)setOptions:(NSArray *)options {
+    if(self.options != nil && [options isEqualToArray: self.options]) {
+        return;
+    }
     self->_options = options;
-    
+    [self updateControls];
+    self->_dirty = YES;
+    [self setNeedsLayout];
+}
+
+- (CGSize)sizeThatFits:(CGSize)size {
+    self.preferredWidth = size.width;
     [self refresh];
+    return CGSizeMake(self.preferredWidth, self.preferredHeight);
+}
+
+- (void)layoutSubviews {
+    [self refresh];
+    [super layoutSubviews];
+}
+
+- (void)updateControls {
+    [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    group = [[GREButtonGroup alloc] init];
+    
+    NSInteger BOX_SIZE = 20;
+    CGRect frame = CGRectMake(0, 0, BOX_SIZE, BOX_SIZE);
+    for(int i = 0 ; i < self.options.count; i++) {
+        NSString* option = [self.options objectAtIndex:i];
+        GRERadioButton* radio = [[GRERadioButton alloc] initWithFrame:frame];
+        [radio addButtonListener:self];
+        [radio setTag:i+1];
+        [group add:radio];
+        [self addSubview:radio];
+        
+        UILabel* label = [[UILabel alloc] initWithFrame:frame];
+        [label setNumberOfLines:0];
+        [label setText:option];
+        [self addSubview: label];
+    }
+    [self showAnswer];
 }
 
 - (void) refresh {
-    [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
-    // Generate new items
-    
     NSInteger MARGIN = 20;
     NSInteger INTERCELL = 10;
     
@@ -35,81 +69,58 @@
     
     NSInteger BOX_SIZE = 20;
     
-    NSInteger maxX = 0;
-    
-    group = [[GREButtonGroup alloc] init];
-    
     for(int i = 0 ; i < self.options.count; i++) {
-        
-        NSString* option = [self.options objectAtIndex:i];
-        
         CGRect frame = CGRectMake(x, y, BOX_SIZE, BOX_SIZE);
-        GRERadioButton* radio = [[GRERadioButton alloc] initWithFrame:frame];
-        [radio addButtonListener:self];
-        [radio setTag:i];
-        [group add:radio];
-        [self addSubview:radio];
+        GRERadioButton* radio = [self.subviews objectAtIndex:2*i];
+        radio.frame = frame;
         
         x += BOX_SIZE + INTERCELL;
         
-        UILabel* label = [[UILabel alloc] initWithFrame:frame];
-        [label setNumberOfLines:0];
-        CGRect superframe = self.superview.bounds;
-        label.frame = CGRectMake(x,
-                                 y,
-                                 MAX(350,superframe.size.width),
-                                 0);
+        UILabel* label = [self.subviews objectAtIndex:2*i+1];
         
-        [label setText:option];
-        [label sizeToFit];
+        [label setPreferredMaxLayoutWidth:self.preferredWidth - x];
+        CGSize labelSize = [label sizeThatFits:CGSizeMake(label.preferredMaxLayoutWidth, 1000)];
         
-        CGSize bestSize = label.frame.size;
+        frame = CGRectMake(x, y, labelSize.width, labelSize.height);
+        label.frame = frame;
         
-        [label setText:option];
-        [self addSubview: label];
-        
-        maxX = MAX(maxX, x + bestSize.width);
-        
-        y += MAX(bestSize.height, 20);
+        y += MAX(labelSize.height, BOX_SIZE);
         y += INTERCELL;
         x = MARGIN;
     }
+    [self setPreferredHeight:y];
     
-    if(widthConstraint != nil) {
-        [self removeConstraints:widthConstraint];
-    }
-    if(heightConstraint != nil) {
-        [self removeConstraints:heightConstraint];
-    }
-    NSDictionary *viewsDictionary = @{@"answerView":self};
-    NSString* widthString = [NSString stringWithFormat:@"H:[answerView(%ld)]", (long)maxX];
-    widthConstraint = [NSLayoutConstraint constraintsWithVisualFormat: widthString options:0 metrics:nil views:viewsDictionary];
-    [self addConstraints:widthConstraint];
-    
-    NSString* heightString = [NSString stringWithFormat:@"V:[answerView(%ld)]", (long)y];
-    heightConstraint = [NSLayoutConstraint constraintsWithVisualFormat: heightString options:0 metrics:nil views:viewsDictionary];
-    [self addConstraints:heightConstraint];
-    
-    [self setNeedsDisplay];
-
+    self->_dirty = NO;
 }
 
-- (void)showAnswers:(NSArray *)answers {
-    for(int i = 0 ; i < answers.count ; i++) {
-        NSInteger index = [(NSNumber*)[answers objectAtIndex:i] integerValue];
+- (void)setShouldShowAnswer:(BOOL)should {
+    self->_shouldShowAnswer = should;
+    if(should)
+        [self showAnswer];
+}
+
+- (void)showAnswer {
+    if(!self.shouldShowAnswer) {
+        return;
+    }
+    for(int i = 0 ; i < self.answers.count ; i++) {
+        NSInteger index = [(NSNumber*)[self.answers objectAtIndex:i] integerValue];
         [(GREButton*)[self->group.buttons objectAtIndex:index] setRightAnswer:YES];
     }
 }
 
+- (void)showChoice:(NSArray *)choice {
+    for(NSNumber* num in choice) {
+        NSInteger value = [num integerValue];
+        GREButton* btn = (GREButton*)[self viewWithTag:value];
+        [btn setChosen:YES];
+    }
+}
 
 - (void)buttonChanged:(id)source chosen:(BOOL)chosen {
     NSMutableArray* results = [[NSMutableArray alloc] init];
-    NSInteger result = -1;
-    if(group.chosen != nil){
-        result = group.chosen.tag;
-    }
-    [results addObject: [[NSNumber alloc] initWithInteger: result]];
-    
+    GREButton* btn = (GREButton*)source;
+    [results addObject: [NSNumber numberWithInteger: btn.tag]];
     [self.answerListener answerChanged:results];
 }
 

@@ -27,8 +27,18 @@
 }
 
 - (void)showAnswer {
-    [(RCQViewController*)[[self viewControllers] objectAtIndex: 1]
-        showAnswers: self.questionData.answers];
+    RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
+    [qvc showAnswer];
+}
+
+- (void)showExplanation {
+    RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
+    [qvc showExplanation];
+}
+
+- (void)showChoice:(NSArray *)choice {
+    RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
+    [qvc showChoice:choice];
 }
 
 - (void)setAnswerListener:(id<AnswerListener>)listener {

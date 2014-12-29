@@ -25,7 +25,7 @@
 }
 
 - (void)showAnswer {
-    [self.answerView showAnswers:self.questionData.answers];
+    [self.answerView setShouldShowAnswer:YES];
 }
 
 - (void)setAnswerListener:(id<AnswerListener>)listener {
@@ -37,6 +37,7 @@
     
     [self.articleTextView setText: [self.questionData.readText toString]];
     [self.questionLabel setText: questionData.text];
+    [self.answerView setAnswers: questionData.answers];
     [self.answerView setOptions: questionData.options];
 }
 

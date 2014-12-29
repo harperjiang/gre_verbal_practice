@@ -21,21 +21,65 @@
 }
 */
 
--(void) setOptions:(NSArray *)options {
+- (void)setOptions:(NSArray *)options {
+    if(self->_options != nil && [self->_options isEqualToArray:options]) {
+        return;
+    }
     self->_options = options;
-    [self refresh];
+    [self updateControls];
+    self->_dirty = YES;
+    [self setNeedsLayout];
 }
 
--(void) refresh {
-    // Remove all subviews
+- (CGSize)sizeThatFits:(CGSize)size {
+    self.preferredWidth = size.width;
+    [self refresh];
+    return CGSizeMake(self.preferredWidth, self.preferredHeight);
+}
+
+- (void)layoutSubviews {
+    [self refresh];
+    [super layoutSubviews];
+}
+
+- (void)updateControls {
     [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self->_groups removeAllObjects];
+    for(int i = 0 ; i < self.options.count;i++) {
+        NSArray* sub = (NSArray*)[self.options objectAtIndex:i];
+        
+        GREButtonGroup* group = [[GREButtonGroup alloc] init];
+        [self->_groups addObject:group];
+        for(int j = 0 ; j < sub.count; j++) {
+            CGRect frame = CGRectMake(0, 0, 100, 20);
+            
+            GRETextButton* textbutton = [[GRETextButton alloc] initWithFrame:frame];
+            [textbutton addButtonListener:self];
+            [textbutton setText:(NSString*) [sub objectAtIndex:j]];
+            [textbutton setTag: i*100 + j + 1];
+            [self addSubview:textbutton];
+            [group add:textbutton];
+        }
+    }
+    [self showAnswer];
+}
+
+- (void)refresh {
+    if(self.preferredWidth == 0)
+        return;
+    if(self.subviews == nil || self.subviews.count == 0)
+        return;
+    if(!self->_dirty) {
+        return;
+    }
     // Add options
     NSInteger x = 20;
     NSInteger y = 20;
     NSInteger ystep = [UIUtils getDefaultTextboxHeight];
     NSInteger ymax = 0;
-    GRETextButton* sizeEstimator = [[GRETextButton alloc] init];
+    NSInteger yrow = 20;
     
+    GRETextButton* sizeEstimator = [[GRETextButton alloc] init];
     for(int i = 0 ; i < self.options.count;i++) {
         NSArray* sub = (NSArray*)[self.options objectAtIndex:i];
         NSInteger maxLength = 0;
@@ -45,63 +89,64 @@
             CGSize estimated = [sizeEstimator getPreferredSize];
             maxLength = MAX(maxLength, estimated.width);
         }
-        GREButtonGroup* group = [[GREButtonGroup alloc] init];
-        [self->_groups addObject:group];
+        // If size is more than width, change to next line
+        if(x + maxLength > self.preferredWidth) {
+            // Change Line
+            x = 20;
+            y = ymax + 20;
+            yrow = y;
+        }
+        
         for(int j = 0 ; j < sub.count; j++) {
             CGRect frame = CGRectMake(x, y, maxLength, ystep);
-            
-            GRETextButton* textbutton = [[GRETextButton alloc] initWithFrame:frame];
-            [textbutton addButtonListener:self];
-            [textbutton setText:(NSString*) [sub objectAtIndex:j]];
-            [textbutton setTag: i*100 + j];
-            [self addSubview:textbutton];
-            [group add:textbutton];
+            GRETextButton* textbutton = (GRETextButton*)[self viewWithTag:i*100+j+1];
+            textbutton.frame = frame;
             y += ystep;
         }
         x += maxLength;
         x += 20;
         ymax = MAX(ymax, y);
-        y = 20;
+        y = yrow;
     }
-    [self setPreferredSize:CGSizeMake(x,ymax)];
-    
-    if(widthConstraint != nil) {
-        [self removeConstraints:widthConstraint];
-    }
-    if(heightConstraint != nil) {
-        [self removeConstraints:heightConstraint];
-    }
-    
-    NSDictionary *viewsDictionary = @{@"answerView":self};
-    NSString* widthString = [NSString stringWithFormat:@"H:[answerView(%ld)]", (long)x];
-    widthConstraint = [NSLayoutConstraint constraintsWithVisualFormat: widthString options:0 metrics:nil views:viewsDictionary];
-    [self addConstraints:widthConstraint];
-    
-    NSString* heightString = [NSString stringWithFormat:@"V:[answerView(%ld)]", (long)ymax];
-    heightConstraint = [NSLayoutConstraint constraintsWithVisualFormat: heightString options:0 metrics:nil views:viewsDictionary];
-    [self addConstraints:heightConstraint];
-
-    
-    [self setNeedsDisplay];
+    self.preferredHeight = ymax;
+    self->_dirty = NO;
 }
 
-- (void)showAnswer:(NSArray*)answers {
-    for(int i = 0 ; i < answers.count;i++) {
-        NSInteger answer = [(NSNumber*)[answers objectAtIndex:i] integerValue];
-        GREButton* button = [[(GREButtonGroup*)[self->_groups objectAtIndex:i] buttons] objectAtIndex:answer];
-        [button setRightAnswer:true];
+- (void)setShouldShowAnswer:(BOOL)should {
+    self->_shouldShowAnswer = should;
+    [self showAnswer];
+}
+
+- (void)showAnswer {
+    if(self.shouldShowAnswer) {
+        for(int i = 0 ; i < self.answers.count;i++) {
+            NSInteger answer = [(NSNumber*)[self.answers objectAtIndex:i] integerValue];
+            GREButton* button = [[(GREButtonGroup*)[self->_groups objectAtIndex:i] buttons] objectAtIndex:answer];
+            [button setRightAnswer:YES];
+        }
+    }
+}
+
+- (void)showChoice:(NSArray *)choice {
+    for(NSNumber* val in choice) {
+        NSInteger value = [val integerValue];
+        if(value != -1) {
+            GREButton* button = (GREButton*)[self viewWithTag:value];
+            [button setChosen:YES];
+        }
     }
 }
 
 - (void)buttonChanged:(id)source chosen:(BOOL)chosen {
     NSMutableArray* results = [[NSMutableArray alloc] init];
-    for(int i = 0 ; i < self->_groups.count; i++) {
-        GREButtonGroup* group = (GREButtonGroup*)[self->_groups objectAtIndex:i];
-        NSInteger result = -1;
-        if(group.chosen != nil){
-            result = group.chosen.tag;
+    for(int i = 0 ; i < self->_groups.count ; i++) {
+        [results addObject: [NSNumber numberWithInteger:-1]];
+    }
+    for(GREButton* subview in self.subviews) {
+        if(subview.chosen) {
+            NSInteger group = subview.tag / 100;
+            [results setObject:[NSNumber numberWithInteger:subview.tag] atIndexedSubscript:group];
         }
-        [results addObject: [[NSNumber alloc] initWithInteger: result]];
     }
     [self.answerListener answerChanged:results];
 }

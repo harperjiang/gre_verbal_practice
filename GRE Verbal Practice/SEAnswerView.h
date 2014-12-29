@@ -11,14 +11,18 @@
 #import "GREButton.h"
 
 @interface SEAnswerView : UIView<ButtonListener> {
-    NSArray* widthConstraint;
-    NSArray* heightConstraint;
     NSMutableArray* buttons;
+    BOOL dirty;
 }
 
-@property(nonatomic, readwrite, retain) NSArray* options;
+@property(nonatomic, readwrite, weak) NSArray* options;
+@property(nonatomic, readwrite, weak) NSArray* answers;
 @property(nonatomic, readwrite, weak) id<AnswerListener> answerListener;
+@property(nonatomic, readwrite) CGFloat preferredWidth;
+@property(nonatomic, readwrite) CGFloat preferredHeight;
 
-- (void)showAnswer: (NSArray*)answers;
+@property(nonatomic) BOOL shouldShowAnswer;
+
+- (void)showChoice:(NSArray*)choice;
 
 @end

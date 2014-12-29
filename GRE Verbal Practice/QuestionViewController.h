@@ -34,6 +34,7 @@
 - (IBAction)toggleToolbar:(id)sender;
 
 - (IBAction)showAnswer:(id)sender;
+- (IBAction)showExplanation:(id)sender;
 - (IBAction)nextQuestion:(id)sender;
 
 @end

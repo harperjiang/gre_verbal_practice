@@ -11,13 +11,16 @@
 #import "AnswerListener.h"
 
 @interface RCAnswerView : UIView<ButtonListener> {
-    NSArray* widthConstraint;
-    NSArray* heightConstraint;
+    BOOL _dirty;
 }
 
-@property(nonatomic,readwrite,retain) NSArray* options;
+@property(nonatomic) NSArray* options;
+@property(nonatomic) NSArray* answers;
+@property(nonatomic) BOOL shouldShowAnswer;
+@property(nonatomic) CGFloat preferredWidth;
+@property(nonatomic) CGFloat preferredHeight;
 @property(nonatomic, readwrite, weak) id<AnswerListener> answerListener;
 
-- (void)showAnswers:(NSArray*)answers;
+- (void)showChoice:(NSArray*)choice;
 
 @end
