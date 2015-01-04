@@ -24,10 +24,16 @@
 
 @property(nonatomic, readwrite, strong) IBOutlet UIButton* playButton;
 
-@property(nonatomic, readwrite, strong) IBOutlet UILabel* wordLabel;
-@property(nonatomic, readwrite, strong) IBOutlet UILabel* explanationLabel;
-@property(nonatomic, readwrite, strong) IBOutlet UILabel* synonymLabel;
-@property(nonatomic, readwrite, strong) IBOutlet UILabel* sampleLabel;
+@property(nonatomic) IBOutlet NSLayoutConstraint* pageWidth;
+@property(nonatomic) IBOutlet NSLayoutConstraint* bottomHeight;
+
+@property(nonatomic) IBOutlet UILabel* wordLabel;
+@property(nonatomic) IBOutlet UITextView* explanationText;
+@property(nonatomic) IBOutlet NSLayoutConstraint* explainHeight;
+@property(nonatomic) IBOutlet UITextView* synonymText;
+@property(nonatomic) IBOutlet NSLayoutConstraint* synonymHeight;
+@property(nonatomic) IBOutlet UITextView* sampleText;
+@property(nonatomic) IBOutlet NSLayoutConstraint* sampleHeight;
 
 @property(nonatomic, readwrite, strong) IBOutlet UIButton* knowButton;
 @property(nonatomic, readwrite, strong) IBOutlet UIButton* dontknowButton;

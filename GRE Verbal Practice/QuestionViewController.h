@@ -22,19 +22,23 @@
 @property(nonatomic, readwrite, strong) QuestionSet* questionSet;
 
 @property(nonatomic, readwrite) AdBannerSupport* adSupport;
-@property(nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint* adBottomConstraint;
+@property(nonatomic) IBOutlet NSLayoutConstraint* adBottomConstraint;
 
-@property(nonatomic, readwrite, strong) IBOutlet UIView* toolbarView;
-@property(nonatomic, readwrite, strong) IBOutlet UIView* containerView;
-@property(nonatomic, readwrite, strong) IBOutlet UIButton* toggleButton;
-@property(nonatomic, readwrite, strong) IBOutlet UIButton* showAnswerButton;
-@property(nonatomic, readwrite, strong) IBOutlet UIButton* explainButton;
+@property(nonatomic) IBOutlet UIView* toolbarView;
+@property(nonatomic) IBOutlet UIView* containerView;
+@property(nonatomic) IBOutlet UIButton* toggleButton;
+
+@property(nonatomic) IBOutlet UIButton* prevButton;
+@property(nonatomic) IBOutlet UIButton* nextButton;
+@property(nonatomic) IBOutlet UIButton* showAnswerButton;
+@property(nonatomic) IBOutlet UIButton* explainButton;
 
 
 - (IBAction)toggleToolbar:(id)sender;
 
 - (IBAction)showAnswer:(id)sender;
 - (IBAction)showExplanation:(id)sender;
+- (IBAction)prevQuestion:(id)sender;
 - (IBAction)nextQuestion:(id)sender;
 
 @end

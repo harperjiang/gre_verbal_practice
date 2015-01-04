@@ -39,6 +39,7 @@
     if(self->_options != nil && [self.options isEqualToArray:options])
         return;
     self->_options = options;
+    self->_answers = nil;
     [self updateControls];
     self->dirty = YES;
     [self setNeedsLayout];
@@ -74,9 +75,7 @@
         [label setNumberOfLines:0];
         [self addSubview: label];
     }
-    if(self.shouldShowAnswer) {
-        [self showAnswer];
-    }
+    [self showAnswer];
 }
 
 - (void)refresh {
@@ -121,18 +120,13 @@
 
 - (void)setShouldShowAnswer:(BOOL)shouldShowAnswer {
     self->_shouldShowAnswer = shouldShowAnswer;
-    if(self.shouldShowAnswer) {
-        [self showAnswer];
-    }
+    [self showAnswer];
 }
 
 - (void)showAnswer {
-    if(!self.shouldShowAnswer) {
-        return;
-    }
     for(int i = 0 ; i < self.answers.count ;i++) {
         NSInteger index = [(NSNumber*)[self.answers objectAtIndex:i] integerValue];
-        [(GREButton*)[self->buttons objectAtIndex:index] setRightAnswer:YES];
+        [(GREButton*)[self->buttons objectAtIndex:index] setRightAnswer: self.shouldShowAnswer];
     }
 }
 

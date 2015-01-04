@@ -75,4 +75,17 @@
     return suggestedSize;
 }
 
++ (UIColor*)menuColor {
+    return [UIColor colorWithRed:0.3 green:0.49 blue:0.8 alpha:1];
+}
+
++ (UIColor*)navbarColor {
+    return [UIColor colorWithRed:0.23 green:0.35 blue:0.6 alpha:0.8];
+}
+
++ (UIColor*)backgroundColor {
+//    return [UIColor colorWithRed:0.86 green:0.88 blue:0.92 alpha:1];
+    return [UIColor colorWithRed:1 green:0.98 blue:0.96 alpha:1];
+}
+
 @end

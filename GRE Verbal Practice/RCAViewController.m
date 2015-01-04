@@ -20,13 +20,18 @@
     // Do any additional setup after loading the view.
     [self setAutomaticallyAdjustsScrollViewInsets:NO];
     [self.articleText setText: self.article];
+    [self.linenumView setFont: self.articleText.font];
+    [self.linenumView setMargin:23];
+    [self.linenumView setBorder: 10];
+    [self.linenumView setLineSpacing:0.1];
     [self.articleText scrollRangeToVisible:NSMakeRange(0, 0)];
 }
 
-- (void)viewDidLayoutSubviews {
-//    [self setAutomaticallyAdjustsScrollViewInsets:FALSE];
-////    ;
-//    [self.articleText setContentOffset:CGPointMake(0,-200) animated:NO];
+- (void)viewWillLayoutSubviews {
+//    CGSize contentSize = self.articleText.contentSize;
+    CGSize fit = [self.articleText sizeThatFits:CGSizeMake(10000, 10000)];
+    self.widthConstraint.constant = fit.width;
+    self.heightConstraint.constant = fit.height;
 }
 
 - (void)didReceiveMemoryWarning {

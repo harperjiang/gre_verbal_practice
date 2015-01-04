@@ -29,5 +29,6 @@
 
 // Data Model
 @property(nonatomic, readwrite, retain) TCQuestion* questionData;
+@property(nonatomic, readwrite, retain) id<AnswerListener> answerListener;
 
 @end

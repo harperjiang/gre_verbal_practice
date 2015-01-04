@@ -8,6 +8,7 @@
 
 #import "RCAnswerView.h"
 #import "GRERadioButton.h"
+#import "GREChoiceBox.h"
 #import "GREButtonGroup.h"
 
 @implementation RCAnswerView {
@@ -15,11 +16,13 @@
 }
 
 
-- (void)setOptions:(NSArray *)options {
+- (void)setOptions:(NSArray *)options multiple:(BOOL)multiple{
     if(self.options != nil && [options isEqualToArray: self.options]) {
         return;
     }
     self->_options = options;
+    self->_answers = nil;
+    self->_multiple = multiple;
     [self updateControls];
     self->_dirty = YES;
     [self setNeedsLayout];
@@ -39,18 +42,27 @@
 - (void)updateControls {
     [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    group = [[GREButtonGroup alloc] init];
-    
+    if(!self.multiple) {
+        group = [[GREButtonGroup alloc] init];
+    } else {
+        group = nil;
+    }
     NSInteger BOX_SIZE = 20;
     CGRect frame = CGRectMake(0, 0, BOX_SIZE, BOX_SIZE);
     for(int i = 0 ; i < self.options.count; i++) {
         NSString* option = [self.options objectAtIndex:i];
-        GRERadioButton* radio = [[GRERadioButton alloc] initWithFrame:frame];
-        [radio addButtonListener:self];
-        [radio setTag:i+1];
-        [group add:radio];
-        [self addSubview:radio];
-        
+        if(self.multiple) {
+            GREChoiceBox* choice = [[GREChoiceBox alloc] initWithFrame:frame];
+            [choice addButtonListener:self];
+            [choice setTag:i+1];
+            [self addSubview:choice];
+        } else {
+            GRERadioButton* radio = [[GRERadioButton alloc] initWithFrame:frame];
+            [radio addButtonListener:self];
+            [radio setTag:i+1];
+            [group add:radio];
+            [self addSubview:radio];
+        }
         UILabel* label = [[UILabel alloc] initWithFrame:frame];
         [label setNumberOfLines:0];
         [label setText:option];
@@ -95,17 +107,13 @@
 
 - (void)setShouldShowAnswer:(BOOL)should {
     self->_shouldShowAnswer = should;
-    if(should)
-        [self showAnswer];
+    [self showAnswer];
 }
 
 - (void)showAnswer {
-    if(!self.shouldShowAnswer) {
-        return;
-    }
     for(int i = 0 ; i < self.answers.count ; i++) {
         NSInteger index = [(NSNumber*)[self.answers objectAtIndex:i] integerValue];
-        [(GREButton*)[self->group.buttons objectAtIndex:index] setRightAnswer:YES];
+        [(GREButton*)[self->group.buttons objectAtIndex:index] setRightAnswer:self.shouldShowAnswer];
     }
 }
 
@@ -119,9 +127,24 @@
 
 - (void)buttonChanged:(id)source chosen:(BOOL)chosen {
     NSMutableArray* results = [[NSMutableArray alloc] init];
-    GREButton* btn = (GREButton*)source;
-    [results addObject: [NSNumber numberWithInteger: btn.tag]];
-    [self.answerListener answerChanged:results];
+    if(self.multiple) {
+        for(int i = 0 ; i < self.subviews.count ; i++) {
+            UIView* sub = [self.subviews objectAtIndex:i];
+            if([sub isKindOfClass:[GREChoiceBox class]]) {
+                GREChoiceBox* gcb = (GREChoiceBox*)sub;
+                if(gcb.chosen) {
+                    [results addObject: [[NSNumber alloc] initWithInteger: gcb.tag]];
+                }
+            }
+        }
+        [self.answerListener answerChanged:results];
+    } else {
+        GREButton* btn = (GREButton*)source;
+        if(btn.chosen) {
+            [results addObject: [NSNumber numberWithInteger: btn.tag]];
+            [self.answerListener answerChanged:results];
+        }
+    }
 }
 
 @end

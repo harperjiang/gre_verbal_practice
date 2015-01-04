@@ -9,13 +9,22 @@
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
 #import "AdBannerSupport.h"
+#import "UIBlockView.h"
 
 @interface MainViewController : UIViewController {
     ADBannerView* _bannerView;
 }
 
+@property(nonatomic) IBOutlet UIView* titleView;
+@property(nonatomic) IBOutlet UIScrollView* scrollView;
+@property(nonatomic) IBOutlet UIBlockView* blockView;
+@property(nonatomic) IBOutlet NSLayoutConstraint* bottomConstraint;
+
+@property(nonatomic) IBOutlet NSLayoutConstraint* widthConstraint;
+@property(nonatomic) IBOutlet NSLayoutConstraint* heightConstraint;
+
 @property(nonatomic, readwrite, strong) AdBannerSupport* adSupport;
 
+
 - (IBAction)importData:(id)sender;
-- (IBAction)test:(id)sender;
 @end

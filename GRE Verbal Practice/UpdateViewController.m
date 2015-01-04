@@ -12,6 +12,7 @@
 #import "FileManager.h"
 #import "SSZipArchive.h"
 #import "ZipSupport.h"
+#import "UIUtils.h"
 
 @interface UpdateViewController ()
 
@@ -21,7 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIUtils backgroundColor];
     // Do any additional setup after loading the view.
+    
     [self.voiceProgressView setHidden:YES];
     [self.dataProgressView setHidden:YES];
     
@@ -142,6 +146,7 @@
                                            actionWithTitle:@"Cancel"
                                                      style:UIAlertActionStyleCancel
                                                    handler:^(UIAlertAction * action) {
+                                                       [self updateDoneRefreshUI: _versionDownloadSupport];
                                                        [self dismissViewControllerAnimated:YES completion:nil];
                                                    }];
                 

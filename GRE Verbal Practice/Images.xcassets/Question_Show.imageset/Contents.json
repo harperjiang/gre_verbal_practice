@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "puzzle-piece-2x.png"
+      "filename" : "target-3x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "puzzle-piece-4x.png"
+      "filename" : "target-6x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "puzzle-piece-6x.png"
+      "filename" : "target-8x.png"
     }
   ],
   "info" : {

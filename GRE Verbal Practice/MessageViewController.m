@@ -24,11 +24,11 @@
     return nil;
 }
 
-- (void)showAnswer {
+- (void)showAnswer:(BOOL)show {
     
 }
 
-- (void)showExplanation {
+- (void)showExplanation:(BOOL)show {
     
 }
 

@@ -7,11 +7,21 @@
 //
 
 #import "MenuView.h"
+#import "UIUtils.h"
 
 @implementation MenuItem
 
 @end
 
+@implementation MenuCell
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, 24, 24);
+}
+
+@end
 
 @interface MenuView () {
     NSMutableArray* _items;
@@ -21,9 +31,22 @@
 
 @implementation MenuView
 
+- (BOOL)isPad {
+#ifdef UI_USER_INTERFACE_IDIOM
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+#else
+    return NO;
+#endif
+}
+
+- (BOOL)landscape {
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    return UIInterfaceOrientationIsLandscape(orientation);
+}
+
 - (void)setup {
     self->_items = [[NSMutableArray alloc] init];
-    self.backgroundColor = [UIColor colorWithRed:0.3 green:0.49 blue:0.8 alpha:1];
+    self.backgroundColor = [UIUtils menuColor];
     self.show = NO;
     self.delegate = self;
     self.dataSource = self;
@@ -52,9 +75,16 @@
     
     CGRect menuFrame = self.mainView.bounds;
     CGRect viewFrame = self.mainView.bounds;
+    CGRect hideFrame = self.mainView.bounds;
     if(self.show) {
-        CGRect buttonFrame = [[event.allTouches anyObject] view].bounds;
-        CGFloat width = buttonFrame.origin.x + buttonFrame.size.width + 5;
+        CGFloat width = 0;
+        if([self isPad] || [self landscape]) {
+            // For iPad, the menu is fixed to be 200px
+            width = menuFrame.size.width - 200;
+        } else {
+            CGRect buttonFrame = [[event.allTouches anyObject] view].bounds;
+            width = buttonFrame.origin.x + buttonFrame.size.width + 5;
+        }
         menuFrame.size.width -= width;
     
         UIWindow* currentWindow = [UIApplication sharedApplication].keyWindow;
@@ -66,6 +96,11 @@
         menuFrame.size.height -= statusBarFrame.size.height;
     
         viewFrame.origin.x += menuFrame.size.width;
+        hideFrame = menuFrame;
+        hideFrame.origin.x = - menuFrame.size.width;
+        [UIView animateWithDuration:0 animations:^{
+            self.frame = hideFrame;
+        }];
     } else {
         menuFrame.origin.x -= menuFrame.size.width;
         viewFrame.origin.x = 0;
@@ -104,9 +139,9 @@
     if([indexPath indexAtPosition:0] > 0) {
         return [self.externalDataSource tableView:tableView cellForRowAtIndexPath:indexPath];
     }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+    MenuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
     if(nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DefaultCell"];
+        cell = [[MenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DefaultCell"];
         cell.textLabel.font = [UIFont systemFontOfSize:16];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;

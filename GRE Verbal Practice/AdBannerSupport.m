@@ -28,6 +28,7 @@
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+    NSLog(@"%@:%@",error,[error userInfo]);
     [self layoutAnimated:YES];
 }
 
@@ -40,6 +41,7 @@
     
     // compute the ad banner frame
     CGRect bannerFrame = _bannerView.frame;
+    CGFloat newbottomDist = 0;
     if (_bannerView.bannerLoaded) {
         
         // bring the ad into view
@@ -50,28 +52,26 @@
         
         // if the ad is available and loaded, shrink down the content frame to fit the banner below it,
         // we do this by modifying the vertical bottom constraint constant to equal the banner's height
-        //
-        if(nil != self.bottomConstraint) {
-            self.bottomConstraint.constant = sizeForBanner.height;
-            [self.parentView layoutSubviews];
-        }
+        newbottomDist = sizeForBanner.height;
+        _loaded = YES;
     } else {
         // hide the banner off screen further off the bottom
         bannerFrame.origin.y = contentFrame.size.height;
+        newbottomDist = 0;
+        _loaded = NO;
     }
     
     [UIView animateWithDuration:animated ? 0.25 : 0.0 animations:^{
-        if(self.shrinkView != nil) {
-            self.shrinkView.frame = contentFrame;
-            [self.shrinkView layoutIfNeeded];
-        }
+//        if(self.shrinkView != nil) {
+//            self.shrinkView.frame = contentFrame;
+//            [self.shrinkView layoutIfNeeded];
+//        }
         self.bannerView.frame = bannerFrame;
+        if(nil != self.bottomConstraint) {
+            self.bottomConstraint.constant = newbottomDist;
+        }
+        self.bannerView.hidden = !_bannerView.bannerLoaded;
     }];
-}
-
-
-- (void)rotate {
-    
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Vocabulary.h"
+#import "VocabGroup.h"
 
 @interface VocabPlan : NSObject {
     NSMutableArray* source;
@@ -20,8 +21,9 @@
 
 @property(nonatomic, readwrite, strong) NSDate* date;
 @property(nonatomic, readwrite, strong) NSArray* words;
+@property(nonatomic, readwrite, strong) VocabGroup* group;
 
-+ (VocabPlan*)create;
++ (VocabPlan*)create:(VocabGroup*)group;
 
 - (Vocabulary*)nextVocab;
 - (NSString*)status;

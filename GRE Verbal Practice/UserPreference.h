@@ -24,7 +24,7 @@
 #define SYS_DATA_VERSION_DEFAULT 0
 
 #define SYS_UPDATE_URL @"kSysUpdateUrl"
-#define SYS_UPDATE_URL_DEFAULT @"http://localhost:8080/"
+#define SYS_UPDATE_URL_DEFAULT @"http://localhost:8080/data.json"
 
 #define SYS_VOICE_VERSION @"kSysVoiceVersion"
 #define SYS_VOICE_VERSION_DEFAULT 0

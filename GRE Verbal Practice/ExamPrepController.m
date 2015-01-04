@@ -9,6 +9,8 @@
 #import "ExamPrepController.h"
 #import "ExamViewController.h"
 #import "ExamSuite.h"
+#import "UIUtils.h"
+#import "DataManager.h"
 
 @interface ExamPrepController ()
 
@@ -19,7 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.examTableView.backgroundColor = [UIUtils backgroundColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.examTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +46,7 @@
         cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.backgroundColor = [UIColor clearColor];
     }
     [cell.textLabel setText: suite.name];
     [cell.detailTextLabel setText:suite.statistics];
@@ -56,6 +64,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     ExamViewController* evc = (ExamViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ExamViewController"];
     ExamSuite* selectedSuite = (ExamSuite*)[self.examSuites objectAtIndex:indexPath.row];
+    [selectedSuite setLastVisited:[NSDate date]];
+    [[DataManager defaultManager] save];
     [evc setExamSuite:selectedSuite];
     
     [self showViewController:evc sender:nil];

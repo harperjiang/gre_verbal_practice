@@ -74,6 +74,9 @@ static DataManager* inst;
     [self deleteAll:@"RCQuestion"];
     [self deleteAll:@"RCText"];
     [self deleteAll:@"TCQuestion"];
+    [self deleteAll:@"QuestionSet"];
+    [self deleteAll:@"VocabGroup"];
+    [self deleteAll:@"ExamSuite"];
 }
 
 - (void)deleteAll:(NSString *)type {
@@ -111,16 +114,28 @@ static DataManager* inst;
     }
 }
 
-- (NSArray*)getVocabs:(NSInteger)count {
+- (NSArray*)getVocabGroups {
+    NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"VocabGroup"];
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]
+                              initWithKey:@"name" ascending:YES];
+    [fr setSortDescriptors:@[sort]];
+    
+    return [self query:fr];
+}
+
+- (NSArray*)getVocabs:(NSInteger)count ingroup:(VocabGroup *)group {
     NSEntityDescription *ed = [NSEntityDescription
                                entityForName:@"Vocabulary"
                                inManagedObjectContext:[self getContext]];
     // Query New words
     NSFetchRequest *newrequest = [[NSFetchRequest alloc] init];
     [newrequest setEntity:ed];
-    NSPredicate* predicate = [NSPredicate
+    NSPredicate* datePredicate = [NSPredicate
                               predicateWithFormat:@"scheduleDate = nil"];
-    [newrequest setPredicate: predicate];
+    NSPredicate* groupPredicate = [NSPredicate predicateWithFormat:@"group = %@", group];
+    [newrequest setPredicate: [NSCompoundPredicate andPredicateWithSubpredicates:
+                                    @[datePredicate, groupPredicate]]];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
                                         initWithKey:@"word"
@@ -132,8 +147,9 @@ static DataManager* inst;
     // Query Repeat words
     NSFetchRequest* existrequest = [[NSFetchRequest alloc] init];
     [existrequest setEntity:ed];
-    predicate = [NSPredicate predicateWithFormat:@"scheduleDate < %@", [DateUtils truncate:[NSDate date]]];
-    [existrequest setPredicate:predicate];
+    datePredicate = [NSPredicate predicateWithFormat:@"scheduleDate < %@", [DateUtils truncate:[NSDate date]]];
+    [existrequest setPredicate:
+     [NSCompoundPredicate andPredicateWithSubpredicates:@[datePredicate, groupPredicate]]];
     NSArray *existarray = [self query:existrequest];
     
     // Merge two parts;
@@ -142,27 +158,27 @@ static DataManager* inst;
     return result;
 }
 
-- (NSInteger)getFutureVocabCount {
+- (NSInteger)getDoneVocabCount:(VocabGroup*)group {
     NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"Vocabulary"];
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"scheduleDate >= %@", [DateUtils truncate:[NSDate date]]];
-    [fr setPredicate:predicate];
+    NSPredicate* datePredicate = [NSPredicate predicateWithFormat:@"scheduleDate <= %@", [DateUtils truncate:[NSDate date]]];
+    NSPredicate* groupPredicate = [NSPredicate predicateWithFormat:@"group = %@", group];
+    [fr setPredicate: [NSCompoundPredicate andPredicateWithSubpredicates:@[datePredicate, groupPredicate]]];
     return [self count:fr];
 }
 
-- (NSInteger)getVocabCount {
+- (NSInteger)getFutureVocabCount:(VocabGroup*)group {
     NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"Vocabulary"];
+    NSPredicate* datePredicate = [NSPredicate predicateWithFormat:@"scheduleDate > %@", [DateUtils truncate:[NSDate date]]];
+    NSPredicate* groupPredicate = [NSPredicate predicateWithFormat:@"group = %@", group];
+    [fr setPredicate: [NSCompoundPredicate andPredicateWithSubpredicates:@[datePredicate, groupPredicate]]];
     return [self count:fr];
 }
 
-- (void)updateVocabProgress:(Vocabulary*)vocab {
-    vocab.passCount++;
-    if(vocab.scheduleDate == nil) {
-        vocab.scheduleDate = [DateUtils truncate:[NSDate date]];
-    } else {
-        NSInteger interval = [MemoryAlgorithm interval:vocab.passCount];
-        vocab.scheduleDate = [DateUtils addDate:vocab.scheduleDate date:interval];
-    }
-    [self save];
+- (NSInteger)getVocabCount:(VocabGroup*)group {
+    NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"Vocabulary"];
+    NSPredicate* groupPredicate = [NSPredicate predicateWithFormat:@"group = %@", group];
+    [fr setPredicate:groupPredicate];
+    return [self count:fr];
 }
 
 - (NSArray*)getExamSuites {
@@ -202,6 +218,20 @@ static DataManager* inst;
     }
     
     return [result allObjects];
+}
+
+- (NSArray*)getQuestionSets:(QuestionType)type {
+    
+    NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"QuestionSet"];
+    
+    NSPredicate* condition = [NSPredicate predicateWithFormat:@"rawType = %ld",type];
+    [fr setPredicate:condition];
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]
+                              initWithKey:@"name" ascending:YES];
+    [fr setSortDescriptors:@[sort]];
+    
+    return [self query:fr];
 }
 
 - (NSArray*)seQuestions {

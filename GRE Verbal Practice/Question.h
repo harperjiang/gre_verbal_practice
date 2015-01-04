@@ -19,7 +19,7 @@ typedef enum { SENTENCE_EQUIV = 1, READING_COMP, TEXT_COMPLETION } QuestionType;
 @property (nonatomic, readwrite, strong) NSString* text;
 @property (nonatomic, readwrite, strong) NSString* explanation;
 @property (nonatomic, readwrite, weak) ExamSuite* examSuite;
-
+@property (nonatomic, readwrite, weak) QuestionSet* questionSet;
 
 + (id)emptyAnswer;
 

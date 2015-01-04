@@ -10,7 +10,9 @@
 #import <iAd/iAd.h>
 
 
-@interface AdBannerSupport : NSObject<ADBannerViewDelegate>
+@interface AdBannerSupport : NSObject<ADBannerViewDelegate> {
+    BOOL _loaded;
+}
 
 @property(nonatomic, readwrite, weak) UIView* parentView;
 @property(nonatomic, readwrite, weak) UIView* shrinkView;

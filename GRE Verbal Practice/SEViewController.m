@@ -76,14 +76,17 @@
         [self.answerView setAnswers: questionData.answers];
         [self.explanationLabel setText: self.questionData.explanation];
     }
+    if(self.answerListener != nil) {
+        [self.answerView setAnswerListener:self.answerListener];
+    }
 }
 
-- (void)showAnswer {
-    [self.answerView setShouldShowAnswer:YES];
+- (void)showAnswer:(BOOL)show {
+    [self.answerView setShouldShowAnswer:show];
 }
 
-- (void)showExplanation {
-    self.explanationLabel.hidden = NO;
+- (void)showExplanation:(BOOL)show {
+    self.explanationLabel.hidden = !show;
     [self layout];
 }
 
@@ -92,7 +95,10 @@
 }
 
 - (void)setAnswerListener:(id<AnswerListener>)listener {
-    [self.answerView setAnswerListener:listener];
+    self->_answerListener = listener;
+    if(self.answerView != nil) {
+        [self.answerView setAnswerListener:listener];
+    }
 }
 
 @end

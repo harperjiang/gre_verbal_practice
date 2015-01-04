@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FileManager.h"
+#import "UIUtils.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -32,8 +33,9 @@
        NSFontAttributeName:[UIFont systemFontOfSize:14.0]}
      forState:UIControlStateNormal];
     
-    [[UINavigationBar appearance] setBarTintColor:
-                    [UIColor colorWithRed:0.23 green:0.35 blue:0.6 alpha:0.8]];
+//    [[UIView appearance] setBackgroundColor:[UIUtils backgroundColor]];
+    
+    [[UINavigationBar appearance] setBarTintColor: [UIUtils navbarColor]];
     [[UINavigationBar appearance] setTranslucent: NO];
     [[UINavigationBar appearance] setBackgroundColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];

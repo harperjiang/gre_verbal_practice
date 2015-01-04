@@ -7,6 +7,8 @@
 //
 
 #import "ExamViewController.h"
+#import "DateUtils.h"
+#import "UIUtils.h"
 
 @interface ExamViewController ()
 
@@ -17,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIUtils backgroundColor];
+    
     UINavigationItem* item = self.navigationItem;
     item.title = self.examSuite.name;
     
@@ -33,12 +37,12 @@
     menuView.mainView = self.navigationController.view;
     
     
-    [menuView addButton:@"Quit" image:nil target:self action:@selector(onQuit:)];
+    [menuView addButton:@"Quit" image:[UIImage imageNamed:@"General_Cancel"] target:self action:@selector(onQuit:)];
     menuView.externalDelegate = self;
     menuView.externalDataSource = self;
     
     if(!self.reviewMode) {
-        [menuView addButton:@"Submit" image:nil target:self action:@selector(showResult:)];
+        [menuView addButton:@"Submit" image:[UIImage imageNamed:@"General_OK"] target:self action:@selector(showResult:)];
         
 
         UIBarButtonItem *bookmarkButton = [[UIBarButtonItem alloc] initWithTitle:@" "
@@ -47,19 +51,29 @@
                                                                           action:@selector(markQuestion:)];
         bookmarkButton.image = [UIImage imageNamed:@"Bookmark"];
     
-        UIBarButtonItem *timeButton = [[UIBarButtonItem alloc] initWithTitle:@" "
-                                                                   style:UIBarButtonItemStylePlain
-                                                                  target:self
-                                                                  action:@selector(toggleTime:event:)];
+        timeButton = [[UIBarButtonItem alloc] initWithTitle:@" "
+                                                      style:UIBarButtonItemStylePlain
+                                                     target:self
+                                                     action:@selector(toggleTime:event:)];
         timeButton.image = [UIImage imageNamed:@"Time"];
         item.rightBarButtonItems = @[bookmarkButton,timeButton];
     }
     
+    id<AnswerListener> listener = self;
+    if(self.reviewMode) {
+        listener = nil;
+    }
+    
     sevc = (SEViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"SEViewController"];
+    [sevc setAnswerListener:listener];
     tcvc = (TCViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"TCViewController"];
+    [tcvc setAnswerListener:listener];
     rcvc = (RCViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"RCViewController"];
+    [rcvc setAnswerListener:listener];
+    
     msgvc = (MessageViewController*)[self.storyboard
         instantiateViewControllerWithIdentifier:@"MessageViewController"];
+    
     
     // Instantiate Time Label
     self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 20)];
@@ -67,6 +81,10 @@
     self.timeLabel.backgroundColor = [UIColor clearColor];
     self.timeLabel.font = [UIFont systemFontOfSize:14];
     self.timeLabel.hidden = YES;
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleTime:)];
+    tapGestureRecognizer.numberOfTapsRequired = 1;
+    [self.timeLabel addGestureRecognizer:tapGestureRecognizer];
+    self.timeLabel.userInteractionEnabled = YES;
     [self.navigationController.navigationBar addSubview:self.timeLabel];
     
     // Check Exam Suite
@@ -84,6 +102,11 @@
     }
     
     self->markedQuestions = [[NSMutableSet alloc] init];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.timeLabel.hidden = YES;
 }
 
 - (void)showQuestion:(Question*) question {
@@ -110,33 +133,36 @@
                                  self.examSuite.size];
     if(self.reviewMode) {
         [self->currentController showChoice:[self.examSuite currentAnswer]];
-        [self->currentController showAnswer];
-        [self->currentController showExplanation];
+        [self->currentController showAnswer:YES];
+        [self->currentController showExplanation:YES];
     }
 }
 
 - (void)timerInterval:(NSNumber*) r {
     long remain = [r longValue];
-    long hour = remain / 3600;
-    remain = remain % 3600;
-    long minute = remain / 60;
-    long second = remain % 60;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        self.timeLabel.text = [NSString stringWithFormat:@"%02ld:%02ld:%02ld", hour, minute, second];
+        self.timeLabel.text = [DateUtils format:remain];
     }];
+
 }
 
 - (void)showResultView {
-    // Send Result Information to Result view
-    // TODO
+    
+    [self->timer stop];
+    self.examSuite.timeRemain = self->timer.remain;
+    
     // Show result view and disable toolbar
     ExamResultController* ervc = (ExamResultController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ExamResultController"];
     [ervc setExamSuite: self.examSuite];
     void (^updateUI)() = ^{
         UINavigationController* navController = self.navigationController;
         NSMutableArray *controllers=[[NSMutableArray alloc] initWithArray:navController.viewControllers] ;
+        UIViewController* last = [controllers lastObject];
+        [last willMoveToParentViewController:nil];
         [controllers removeLastObject];
         [navController setViewControllers:controllers];
+        [last removeFromParentViewController];
+        [last didMoveToParentViewController:nil];
         [navController pushViewController: ervc animated:YES];
     };
 
@@ -145,7 +171,6 @@
     } else {
         [[NSOperationQueue mainQueue] addOperationWithBlock: updateUI];
     }
-    [self->timer stop];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -161,7 +186,6 @@
     [vc willMoveToParentViewController:nil];  // 1
     [vc.view removeFromSuperview];            // 2
     [vc removeFromParentViewController];      // 3
-    [(id<QViewController>)vc setAnswerListener: nil];
 }
 
 - (void)showContentController:(UIViewController*) vc {
@@ -174,7 +198,6 @@
         [self.containerView addSubview: vc.view];
         [vc didMoveToParentViewController:self];
         currentController = (id<QViewController>)vc;
-        [(id<QViewController>)currentController setAnswerListener: self];
     }
 }
 
@@ -245,16 +268,29 @@
     [self->menuView toggleMenu:sender event:event];
 }
 
+// This is from Button
 - (void)toggleTime:(id)sender event:(UIEvent *)event {
-    CGRect buttonBounds = [[event.allTouches anyObject] view].frame;
-    CGFloat width = 60;
-    CGFloat height = 20;
-    CGFloat centerx = buttonBounds.origin.x + buttonBounds.size.width/2;
-    CGFloat centery = buttonBounds.origin.y + buttonBounds.size.height/2;
-    self.timeLabel.frame = CGRectMake(centerx - width/2, centery - height/2, width, height);
-    self.timeLabel.hidden = !self.timeLabel.hidden;
+    if(self.timeLabel.frame.origin.x == 0) {
+        CGRect buttonBounds = [[event.allTouches anyObject] view].frame;
+        CGFloat width = self.timeLabel.frame.size.width;
+        CGFloat height = self.timeLabel.frame.size.height;
+        CGFloat centerx = buttonBounds.origin.x + buttonBounds.size.width/2;
+        CGFloat centery = buttonBounds.origin.y + buttonBounds.size.height/2;
+        self.timeLabel.frame = CGRectMake(centerx - width/2, centery - height/2, width, height);
+    }
+    self.timeLabel.hidden = NO;
     UIBarButtonItem* button = (UIBarButtonItem*)sender;
-    [button setImage:self.timeLabel.hidden? [UIImage imageNamed:@"Time"]:nil];
+    NSMutableArray* buttons = [[NSMutableArray alloc]initWithArray:self.navigationItem.rightBarButtonItems];
+    [buttons removeObject:button];
+    self.navigationItem.rightBarButtonItems = buttons;
+}
+
+// This is from UILabel
+- (void)toggleTime:(id)sender {
+    self.timeLabel.hidden = YES;
+    NSMutableArray* buttons = [[NSMutableArray alloc]initWithArray:self.navigationItem.rightBarButtonItems];
+    [buttons addObject:timeButton];
+    self.navigationItem.rightBarButtonItems = buttons;
 }
 
 - (void)onQuit:(id)sender {

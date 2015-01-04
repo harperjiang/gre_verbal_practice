@@ -15,6 +15,7 @@
 @dynamic text;
 @dynamic explanation;
 @dynamic examSuite;
+@dynamic questionSet;
 
 static NSArray* empty;
 

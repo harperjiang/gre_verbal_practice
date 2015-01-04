@@ -27,7 +27,7 @@
         background = [UIColor redColor].CGColor;
         foreground = [UIColor blackColor].CGColor;
     } else {
-        background = [UIColor whiteColor].CGColor;
+        background = [UIColor clearColor].CGColor;
         foreground = [UIColor blackColor].CGColor;
     }
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);

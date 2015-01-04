@@ -26,12 +26,13 @@
 - (void)setUp {
     [super setUp];
     mstore = [[MemoryStore alloc] init];
+    NSManagedObjectContext* moc = [mstore memoryContext];
+    NSEntityDescription *qsed = [mstore edFromName:@"QuestionSet"];
+    empty = [[QuestionSet alloc] initWithEntity:qsed insertIntoManagedObjectContext:moc];
     
-    empty = [[QuestionSet alloc] init];
-    
-    target = [[QuestionSet alloc] init];
+    target = [[QuestionSet alloc] initWithEntity:qsed insertIntoManagedObjectContext:moc];
     [target setType: SENTENCE_EQUIV];
-    NSMutableArray* questions = [[NSMutableArray alloc] init];
+    NSMutableOrderedSet* questions = [[NSMutableOrderedSet alloc] init];
     
     SEQuestion* q1 = [[SEQuestion alloc] initWithEntity:[mstore edFromName: @"SEQuestion"] insertIntoManagedObjectContext:[mstore memoryContext]];
     [q1 setText:@"Test a"];
@@ -55,31 +56,48 @@
 }
 
 - (void)testEmptyQuestionSet {
-    XCTAssert([empty nextQuestion] == nil, @"Empty QuestionSet emit nil for next Question");
+    XCTAssert([empty question] == nil, @"Empty QuestionSet emit nil for next Question");
+    XCTAssert(![empty prev]);
+    XCTAssert(![empty next]);
 }
 
 - (void)testNextQuestion {
-    Question* q = [target nextQuestion];
+    
+    XCTAssert([target current] == 0);
+    XCTAssert(![target prev]);
+    Question* q = [target question];
     
     XCTAssert([q isKindOfClass:[SEQuestion class]]);
     SEQuestion* seq = (SEQuestion*)q;
     
     XCTAssertEqual(@"Test a", seq.text);
 
-    q = [target nextQuestion];
+    XCTAssert([target next]);
+    XCTAssert([target current] == 1);
+    q = [target question];
     
     XCTAssert([q isKindOfClass:[SEQuestion class]]);
     seq = (SEQuestion*)q;
     
     XCTAssertEqual(@"Test b", seq.text);
     
-    XCTAssert([target nextQuestion] == nil);
+    XCTAssert(![target next]);
+    XCTAssert([target current] == 1);
+    
+    XCTAssert([target prev]);
+    q = [target question];
+    
+    XCTAssert([q isKindOfClass:[SEQuestion class]]);
+    seq = (SEQuestion*)q;
+    
+    XCTAssertEqual(@"Test a", seq.text);
+    XCTAssert(![target prev]);
 }
 
 - (void)testScore {
-    [target nextQuestion];
+    [target question];
     [target answer:[Question emptyAnswer]];
-    [target nextQuestion];
+    [target next];
     [target answer:@[@0,@1]];
     
     XCTAssertEqualObjects(@"1/2", [target score]);

@@ -8,8 +8,8 @@
 
 #import "QuestionViewController.h"
 #import "QViewController.h"
-#import "ExplainViewController.h"
 #import "MessageViewController.h"
+#import "UIUtils.h"
 
 @interface QuestionViewController ()
 
@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIUtils backgroundColor];
     
     // Setup Ad
     self.adSupport = [[AdBannerSupport alloc] init];
@@ -68,15 +69,14 @@
     [self showContentController: vc];
 
     if(self.questionSet != nil) {
-//        Question* firstQuestion = [self.questionSet nextQuestion];
-//        [self->currentController setQuestionData:firstQuestion];
-        [self nextQuestion:nil];
+        [self.questionSet reset];
+        [self showQuestion: [self.questionSet question]];
     }
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    [self.adSupport layoutAnimated:YES];
+    [self.adSupport layoutAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,7 +99,7 @@
 
 - (IBAction)showAnswer:(id)sender {
     if(self->currentController != nil) {
-        [self->currentController showAnswer];
+        [self->currentController showAnswer:YES];
     }
     [self.showAnswerButton setHidden:YES];
     [self.explainButton setHidden:NO];
@@ -107,31 +107,68 @@
 
 - (IBAction)showExplanation:(id)sender {
     if(self->currentController != nil) {
-        [self->currentController showExplanation];
+        [self->currentController showExplanation:YES];
+    }
+}
+
+- (void)reset {
+    // Reset the view to normal mode
+    [self->currentController showAnswer:NO];
+    [self->currentController showExplanation:NO];
+    [self.showAnswerButton setHidden:NO];
+    [self.explainButton setHidden:YES];
+}
+
+- (void)showQuestion:(Question*)question {
+    [self reset];
+    // Set Next Question to view controller
+    [self->currentController setQuestionData: question];
+        
+    // Change Navigation Title
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld/%ld",
+                                     self.questionSet.current + 1,
+                                     self.questionSet.size];
+}
+
+- (IBAction)prevQuestion:(id)sender {
+    if(![self.questionSet prev]) {
+        UIAlertController* messageBox =
+        [UIAlertController alertControllerWithTitle:@"First"
+                                            message:@"Already the first question"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction
+                                   actionWithTitle:@"OK"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                   }];
+        
+        [messageBox addAction: okAction];
+        [self presentViewController:messageBox animated:YES completion:nil];
+    } else {
+        [self showQuestion: [self.questionSet question]];
     }
 }
 
 - (IBAction)nextQuestion:(id)sender {
-    // Get Next Question from Question List
-    Question* question = [self.questionSet nextQuestion];
-    if(question == nil) {
-        // Show Message
-        // TODO Show Question Result
-        MessageViewController* vc = (MessageViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"MessageViewController"];
-        [vc setMessage:@"End of QuestionSet!"];
-        [self showContentController: vc];
-        [self.toolbarView setHidden:YES];
-        [self.toggleButton setHidden:YES];
-    } else {
-        // Set Next Question to view controller
-        [self->currentController setQuestionData: question];
-        [self.showAnswerButton setHidden:NO];
-        [self.explainButton setHidden:YES];
+    if(![self.questionSet next]) {
+        UIAlertController* messageBox =
+        [UIAlertController alertControllerWithTitle:@"Last"
+                                            message:@"Already the last question"
+                                     preferredStyle:UIAlertControllerStyleAlert];
         
-        // Change Navigation Title
-        self.navigationItem.title = [NSString stringWithFormat:@"%ld/%ld",
-                                     self.questionSet.current,
-                                     self.questionSet.size];
+        UIAlertAction* okAction = [UIAlertAction
+                                   actionWithTitle:@"OK"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                   }];
+        
+        [messageBox addAction: okAction];
+        [self presentViewController:messageBox animated:YES completion:nil];
+    } else {
+        [self showQuestion: [self.questionSet question]];
     }
 }
 
@@ -159,16 +196,6 @@
 
 - (void) answerChanged:(NSArray *)answer {
     [self.questionSet answer:answer];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if([[segue destinationViewController] isKindOfClass:[ExplainViewController class]]) {
-        ExplainViewController* evc = (ExplainViewController*)segue.destinationViewController;
-        Question* currentQ = [self->currentController questionData];
-        [evc setExplainContent: currentQ.explanation];
-    }
 }
 
 - (BOOL)automaticallyAdjustsScrollViewInsets {

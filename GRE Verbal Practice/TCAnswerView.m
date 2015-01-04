@@ -26,7 +26,9 @@
         return;
     }
     self->_options = options;
+    self->_answers = nil;
     [self updateControls];
+    // Should clear answer when option changed
     self->_dirty = YES;
     [self setNeedsLayout];
 }
@@ -118,12 +120,10 @@
 }
 
 - (void)showAnswer {
-    if(self.shouldShowAnswer) {
-        for(int i = 0 ; i < self.answers.count;i++) {
-            NSInteger answer = [(NSNumber*)[self.answers objectAtIndex:i] integerValue];
-            GREButton* button = [[(GREButtonGroup*)[self->_groups objectAtIndex:i] buttons] objectAtIndex:answer];
-            [button setRightAnswer:YES];
-        }
+    for(int i = 0 ; i < self.answers.count;i++) {
+        NSInteger answer = [(NSNumber*)[self.answers objectAtIndex:i] integerValue];
+        GREButton* button = [[(GREButtonGroup*)[self->_groups objectAtIndex:i] buttons]objectAtIndex:answer];
+        [button setRightAnswer:self.shouldShowAnswer];
     }
 }
 

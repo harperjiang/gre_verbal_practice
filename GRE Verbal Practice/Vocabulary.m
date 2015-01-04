@@ -10,6 +10,7 @@
 
 @implementation Vocabulary
 
+@dynamic group;
 @dynamic word;
 @dynamic explanation;
 @dynamic synonyms;

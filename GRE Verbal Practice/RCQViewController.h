@@ -24,10 +24,11 @@
 @property(nonatomic, readwrite) BOOL shouldShowAnswer;
 @property(nonatomic, readwrite) BOOL shouldShowExplanation;
 @property(nonatomic, readwrite) NSArray* choice;
+@property(nonatomic, readwrite) id<AnswerListener> answerListener;
 @property(nonatomic, readwrite, retain) RCQuestion* questionData;
 
-- (void)showAnswer;
-- (void)showExplanation;
+- (void)showAnswer:(BOOL)show;
+- (void)showExplanation:(BOOL)show;
 - (void)showChoice:(NSArray*)choice;
 
 @end

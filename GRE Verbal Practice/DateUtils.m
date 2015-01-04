@@ -28,5 +28,12 @@
     return [gregorian dateFromComponents:comps];
 }
 
++ (NSString*)format:(long)remain {
+    long hour = remain / 3600;
+    remain = remain % 3600;
+    long minute = remain / 60;
+    long second = remain % 60;
+    return [NSString stringWithFormat:@"%02ld:%02ld:%02ld", hour, minute, second];
+}
 
 @end

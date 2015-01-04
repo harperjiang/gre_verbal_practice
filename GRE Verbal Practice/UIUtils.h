@@ -10,8 +10,12 @@
 
 @interface UIUtils : NSObject
 
-+(void) drawText:(CGContextRef) context text:(NSString*) text at:(CGPoint) location with:(CGColorRef) color within:(CGRect) range;
-+(NSInteger) defaultTextSize;
-+(CGSize) textBound:(NSString*) text;
-+(NSInteger) getDefaultTextboxHeight;
++ (void)drawText:(CGContextRef) context text:(NSString*) text at:(CGPoint) location with:(CGColorRef) color within:(CGRect) range;
++ (NSInteger) defaultTextSize;
++ (CGSize) textBound:(NSString*) text;
++ (NSInteger) getDefaultTextboxHeight;
+
++ (UIColor*)navbarColor;
++ (UIColor*)menuColor;
++ (UIColor*)backgroundColor;
 @end

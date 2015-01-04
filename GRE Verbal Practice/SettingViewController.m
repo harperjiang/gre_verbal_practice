@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "UserPreference.h"
+#import "UIUtils.h"
 
 @interface SettingViewController ()
 
@@ -18,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIUtils backgroundColor];
+    
     NSInteger vocabDaily = [UserPreference getInteger:USER_DAILY_VOCAB defval:USER_DAILY_VOCAB_DEFAULT];
     [self.vocabDailySlider setValue:vocabDaily];
     [self.vocabDailyText setText: [NSString stringWithFormat:@"%ld",(long)vocabDaily]];

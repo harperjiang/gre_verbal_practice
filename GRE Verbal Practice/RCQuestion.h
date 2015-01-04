@@ -17,5 +17,6 @@
 @property(nonatomic, readwrite, strong) RCText* readText;
 @property(nonatomic, readwrite, strong) NSArray* options;
 @property(nonatomic, readwrite, strong) NSArray* answers;
+@property(nonatomic, readwrite) BOOL multiple;
 
 @end

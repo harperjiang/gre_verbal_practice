@@ -23,6 +23,9 @@
         [self.answerView setAnswers: self.questionData.answers];
         [self.explainLabel setText: self.questionData.explanation];
     }
+    if(self.answerListener != nil) {
+        [self.answerView setAnswerListener:self.answerListener];
+    }
 }
 
 - (void)viewWillLayoutSubviews {
@@ -78,13 +81,12 @@
     
 }
 
-- (void)showAnswer {
-    [self.answerView setShouldShowAnswer: YES];
+- (void)showAnswer:(BOOL)show {
+    [self.answerView setShouldShowAnswer: show];
 }
 
-- (void)showExplanation {
-    [self.explainLabel setHidden:NO];
-    [self.explainLabel setText: self.questionData.explanation];
+- (void)showExplanation:(BOOL)show {
+    [self.explainLabel setHidden:!show];
     [self layout];
 }
 
@@ -94,7 +96,10 @@
 }
 
 - (void)setAnswerListener:(id<AnswerListener>)listener {
-    [self.answerView setAnswerListener:listener];
+    self->_answerListener = listener;
+    if(self.answerView != nil) {
+        [self.answerView setAnswerListener:listener];
+    }
 }
 
 @end

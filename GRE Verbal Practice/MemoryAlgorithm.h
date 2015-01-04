@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Vocabulary.h"
 
 @interface MemoryAlgorithm : NSObject
 
-+ (NSInteger)interval:(NSInteger)count;
++ (void)updateVocab:(Vocabulary*) vocab know:(BOOL) know;
 
 @end

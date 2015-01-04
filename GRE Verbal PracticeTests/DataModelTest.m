@@ -34,6 +34,11 @@
 
 - (void)testVocabulary {
     NSManagedObjectContext* moc = [memoryStore memoryContext];
+    
+    VocabGroup* group = [[VocabGroup alloc] initWithEntity:[memoryStore edFromName:@"VocabGroup"] insertIntoManagedObjectContext:moc];
+    [group setName:@"Test Group"];
+    [group setDetail:@"Test Detail"];
+    
     Vocabulary* insert = [[Vocabulary alloc] initWithEntity: [memoryStore edFromName:@"Vocabulary"] insertIntoManagedObjectContext: moc];
     insert.word = @"Test";
     insert.explanation = @"Test Explanation";
@@ -41,15 +46,28 @@
     insert.samples = @"SDFfwefew";
     
     [moc insertObject: insert];
+    
+    NSMutableSet* vocabs = [[NSMutableSet alloc] init];
+    [vocabs addObject:insert];
+    [group setVocabularies:vocabs];
+    [moc insertObject:group];
+    
     NSError* error;
     XCTAssert([moc save:&error]);
     
-    NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:@"Vocabulary"];
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:@"VocabGroup"];
 
     NSArray* result = [moc executeFetchRequest:fetch error:&error];
     XCTAssert(result != nil);
     
-    XCTAssertEqualObjects(@"Test", [(Vocabulary*)[result objectAtIndex:0] word]);
+    VocabGroup* loadedGroup = (VocabGroup*)[result objectAtIndex:0];
+    XCTAssertEqual(1, loadedGroup.vocabularies.count);
+    XCTAssertEqualObjects(@"Test Group", [loadedGroup name]);
+    XCTAssertEqualObjects(@"Test Detail", [loadedGroup detail]);
+    
+    Vocabulary* loadedVocab = (Vocabulary*)[loadedGroup.vocabularies anyObject];
+    
+    XCTAssertEqualObjects(@"Test", loadedVocab.word);
 }
 
 - (void)testQuestion {

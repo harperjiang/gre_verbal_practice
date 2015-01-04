@@ -13,38 +13,63 @@
 
 @implementation QuestionSet
 
+
+@dynamic name, detail, lastVisited;
+@dynamic questions;
+@dynamic rawType;
+
+@synthesize answers;
+
 + (QuestionSet*) create:(QuestionType)qt {
     NSInteger questionCount = [UserPreference getInteger: USER_QUES_PER_SET defval:USER_QUES_PER_SET_DEFAULT];
     
     NSArray* questions = [[DataManager defaultManager] getQuestions:qt
                                                               count:questionCount];
     QuestionSet* qs = [[QuestionSet alloc] init];
-    [qs setType:qt];
-    [qs setQuestions: questions];
+    [qs setType:qt];;
+    [qs setQuestions: [[NSOrderedSet alloc]initWithArray:questions]];
     return qs;
 }
 
-- (id)init {
-    self = [super init];
+- (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context {
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     if(self) {
-        self->next = 0;
+        self->current = 0;
         self.answers = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void)reset {
+    self->current = 0;
 }
 
 - (BOOL)isEmpty {
     return self.questions == nil || self.questions.count == 0;
 }
 
-- (Question*)nextQuestion {
+- (Question*)question {
     if(self.questions == nil)
         return nil;
-    if(self->next == self.questions.count)
-        return nil;
-    Question* result = (Question*)[self.questions objectAtIndex:next];
-    next++;
-    return result;
+    return [self.questions objectAtIndex:current];
+}
+
+- (BOOL)prev {
+    if([self isEmpty])
+        return NO;
+    if(self->current <= 0)
+        return NO;
+    self->current--;
+    return YES;
+}
+
+- (BOOL)next {
+    if([self isEmpty])
+        return NO;
+    if(self->current >= self.questions.count - 1)
+        return NO;
+    self->current ++;
+    return YES;
 }
 
 - (void)answer:(NSArray *)answer index:(NSInteger)index {
@@ -55,19 +80,27 @@
 }
 
 - (void)answer:(NSArray *)answer {
-    [self answer:answer index: next - 1];
+    [self answer:answer index: current];
 }
 
 - (NSString*)score {
-    return [Scorer score:self.questions answer: self.answers];
+    return [Scorer scoreWithSet:self.questions answer: self.answers];
 }
 
 - (NSInteger)current {
-    return next;
+    return current;
 }
 
 - (NSInteger)size {
     return self.questions.count;
+}
+
+- (QuestionType)type {
+    return (QuestionType)[self.rawType intValue];
+}
+
+- (void)setType:(QuestionType)type {
+    [self setRawType:[NSNumber numberWithInt:type]];
 }
 
 @end

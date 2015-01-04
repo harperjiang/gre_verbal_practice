@@ -25,8 +25,8 @@
 
 - (void)update {
     // Update remain time
-    NSInteger remain = self->_timeTarget - [[NSDate date] timeIntervalSinceDate:self->_startTime];
-    if(remain <= 0) {
+    _remain = self->_timeTarget - [[NSDate date] timeIntervalSinceDate:self->_startTime];
+    if(_remain <= 0) {
         [self->_timer invalidate];
         
         IMP doneImp = [self->_target methodForSelector:self->_doneFunc];
@@ -35,7 +35,7 @@
     } else {
         IMP intervalImp = [self->_target methodForSelector:self->_intervalFunc];
         void (*intervalFunc)(id, SEL, NSNumber*) = (void *)intervalImp;
-        intervalFunc(self->_target, self->_intervalFunc, [[NSNumber alloc] initWithInteger:remain]);
+        intervalFunc(self->_target, self->_intervalFunc, [[NSNumber alloc] initWithInteger:_remain]);
     }
 }
 
@@ -43,7 +43,5 @@
     if([self->_timer isValid])
         [self->_timer invalidate];
 }
-
-
 
 @end

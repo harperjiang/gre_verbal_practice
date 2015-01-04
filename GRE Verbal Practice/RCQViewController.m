@@ -21,17 +21,17 @@
     
     if(self.questionData != nil) {
         [self.questionLabel setText: self.questionData.text];
-        [self.answerView setOptions: self.questionData.options];
+        [self.answerView setOptions: self.questionData.options multiple:self.questionData.multiple];
         [self.answerView setAnswers: self.questionData.answers];
         [self.explainLabel setText: self.questionData.explanation];
+        if(self.choice != nil) {
+            [self.answerView showChoice:self.choice];
+        }
     }
-    if(self.shouldShowExplanation) {
-        [self.explainLabel setHidden:NO];
-    }
+    [self.explainLabel setHidden: !self.shouldShowExplanation];
+    
+    [self.answerView setAnswerListener:self.answerListener];
     [self.answerView setShouldShowAnswer:self.shouldShowAnswer];
-    if(self.choice != nil) {
-        [self.answerView showChoice:self.choice];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,22 +43,22 @@
     self->_questionData = questionData;
     if(self.questionLabel != nil) {
         [self.questionLabel setText: questionData.text];
-        [self.answerView setOptions: questionData.options];
+        [self.answerView setOptions: questionData.options multiple:questionData.multiple];
         [self.answerView setAnswers: questionData.answers];
         [self.explainLabel setText: self.questionData.explanation];
     }
 }
 
-- (void)showAnswer {
-    self.shouldShowAnswer = YES;
+- (void)showAnswer:(BOOL)show {
+    self.shouldShowAnswer = show;
     if(self.answerView != nil) {
-        [self.answerView setShouldShowAnswer:YES];
+        [self.answerView setShouldShowAnswer:show];
     }
 }
 
-- (void)showExplanation {
-    self.shouldShowExplanation = YES;
-    self.explainLabel.hidden = NO;
+- (void)showExplanation:(BOOL)show {
+    self.shouldShowExplanation = show;
+    self.explainLabel.hidden = !show;
     [self layout];
 }
 
@@ -66,6 +66,13 @@
     self.choice = choice;
     if(self.answerView != nil) {
         [self.answerView showChoice:choice];
+    }
+}
+
+- (void)setAnswerListener:(id<AnswerListener>)answerListener {
+    self->_answerListener = answerListener;
+    if(self.answerView != nil) {
+        [self.answerView setAnswerListener:answerListener];
     }
 }
 

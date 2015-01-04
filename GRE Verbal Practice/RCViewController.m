@@ -19,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if(self.answerListener != nil) {
+        RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
+        [qvc setAnswerListener: self.answerListener];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,14 +30,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showAnswer {
+- (void)showAnswer:(BOOL)show {
     RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
-    [qvc showAnswer];
+    [qvc showAnswer:show];
 }
 
-- (void)showExplanation {
+- (void)showExplanation:(BOOL)show {
     RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
-    [qvc showExplanation];
+    [qvc showExplanation:show];
 }
 
 - (void)showChoice:(NSArray *)choice {
@@ -42,8 +46,11 @@
 }
 
 - (void)setAnswerListener:(id<AnswerListener>)listener {
-    [((RCQViewController*)[[self viewControllers] objectAtIndex: 1]).answerView
-        setAnswerListener: listener];
+    self->_answerListener = listener;
+    RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
+    if(qvc != nil) {
+        [qvc.answerView setAnswerListener: listener];
+    }
 }
 
 - (void)setQuestionData:(RCQuestion *)questionData {
@@ -54,14 +61,6 @@
     [articleView setArticle: [self.questionData.readText toString]];
     [questionView setQuestionData:questionData];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

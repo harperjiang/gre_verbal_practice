@@ -30,6 +30,7 @@
     
     MenuView* menuView;
     NSMutableSet* markedQuestions;
+    UIBarButtonItem* timeButton;
 }
 
 @property(nonatomic, readwrite, strong) ExamSuite* examSuite;
@@ -37,11 +38,13 @@
 @property(nonatomic, readwrite) BOOL reviewMode;
 
 @property(nonatomic, readwrite, strong) IBOutlet UIView* containerView;
-
+@property(nonatomic, readwrite, strong) IBOutlet UIButton* prevButton;
+@property(nonatomic, readwrite, strong) IBOutlet UIButton* nextButton;
 
 - (IBAction)markQuestion: (id) button;
 - (IBAction)showResult:(id) button;
-
+- (IBAction)prevQuestion:(id)button;
+- (IBAction)nextQuestion:(id)button;
 - (IBAction)swipe:(UISwipeGestureRecognizer *)recognizer;
 
 - (void)showMenu:(id)sender event:(UIEvent*)event;

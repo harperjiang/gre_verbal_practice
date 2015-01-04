@@ -13,10 +13,12 @@
 
 @property(nonatomic) NSString* name;
 @property(nonatomic) NSString* statistics;
+@property(nonatomic) NSDate* lastVisited;
 @property(nonatomic) NSOrderedSet* questions;
 @property(nonatomic) NSMutableArray* answers;
 @property(nonatomic) NSInteger current;
 @property(nonatomic) NSInteger timeLimit;
+@property(nonatomic) long timeRemain;
 
 + (ExamSuite*)create;
 

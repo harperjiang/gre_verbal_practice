@@ -10,6 +10,7 @@
 #import "Vocabulary.h"
 #import "DataManager.h"
 #import "FileManager.h"
+#import "UIUtils.h"
 
 @interface VocabViewController ()
 
@@ -20,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIUtils backgroundColor];
     
     // Ad Banner Setup
     self.adSupport = [[AdBannerSupport alloc] init];
@@ -35,9 +37,8 @@
     
     [self.adSupport setParentView: self.view];
     [self.adSupport setShrinkView: nil];
-    [self.adSupport setBottomConstraint: nil];
-
-
+    [self.adSupport setBottomConstraint: self.bottomHeight];
+    
     // VocabPlan setup
     if(self.plan == nil) {
         [self modeMessage:@"No study plan installed."];
@@ -54,16 +55,34 @@
     [super viewDidAppear:animated];
 }
 
+- (void)viewWillLayoutSubviews {
+    CGRect bound = self.view.bounds;
+    self.pageWidth.constant = bound.size.width;
+}
+
 - (void)viewDidLayoutSubviews {
-    [self.adSupport layoutAnimated:YES];
+    CGRect bounds = self.explanationText.bounds;
+    CGSize expect = [self.explanationText sizeThatFits:CGSizeMake(bounds.size.width, 10000)];
+    self.explainHeight.constant = expect.height;
+    
+    bounds = self.sampleText.bounds;
+    expect = [self.sampleText sizeThatFits:CGSizeMake(bounds.size.width, 10000)];
+    self.sampleHeight.constant = expect.height;
+    
+    bounds = self.synonymText.bounds;
+    expect = [self.synonymText sizeThatFits:CGSizeMake(bounds.size.width, 10000)];
+    self.synonymHeight.constant = expect.height;
+    
+    
+    [self.adSupport layoutAnimated:NO];
 }
 
 - (void)showVocab:(Vocabulary*)data status:(NSString*) status{
     self.currentVocab = data;
     [self.wordLabel setText:data.word];
-    [self.explanationLabel setText: data.explanation];
-    [self.synonymLabel setText: data.synonyms];
-    [self.sampleLabel setText:data.samples];
+    [self.explanationText setText: data.explanation];
+    [self.synonymText setText: data.synonyms];
+    [self.sampleText setText:data.samples];
     [self.progressLabel setText: status];
     
     // Play sound if corresponding file exists
@@ -76,22 +95,19 @@
     }
     
     if(button == self.knowButton || button == self.dontknowButton) {
-        [self.plan feedback:(button == self.knowButton)];
-        
+        BOOL know = (button == self.knowButton);
+        [self.plan feedback: know];
         Vocabulary* vocab = [self.plan nextVocab];
+        
         if(vocab == nil) {
             // No more vocabulary
-            self.currentVocab = nil;
+            // TODO Why do I need this?
+            // self.currentVocab = nil;
             [self modeMessage:@"Today's plan is done"];
         } else {
             [self modeQuestion];
-            [self showVocab: [self.plan nextVocab] status:[self.plan status]];
+            [self showVocab: vocab status:[self.plan status]];
         }
-        
-        // Persist the state of plan
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-            [[DataManager defaultManager] updateVocabProgress: self.currentVocab];
-        });
     }
 }
 
@@ -111,18 +127,35 @@
         }
     } else {
         NSLog(@"No sound file found for %@",self.currentVocab.word);
+        if(button == nil)
+            return;
+        // Only play error message when user click the button
+        UIAlertController* messageBox =
+        [UIAlertController alertControllerWithTitle:@"Voice Package not found"
+                                            message:@"Please upgrade to latest voice package."
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction
+                                   actionWithTitle:@"OK"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                   }];
+        
+        [messageBox addAction: okAction];
+        [self presentViewController:messageBox animated:YES completion:nil];
     }
 }
 
 - (void)modeQuestion {
-    [self.explanationLabel setHidden:true];
+    [self.explanationText setHidden:true];
     [self.knowButton setHidden:true];
     [self.dontknowButton setHidden:true];
     [self.showButton setHidden:false];
 }
 
 - (void)modeAnswer {
-    [self.explanationLabel setHidden:false];
+    [self.explanationText setHidden:false];
     [self.knowButton setHidden:false];
     [self.dontknowButton setHidden:false];
     [self.showButton setHidden:true];
@@ -131,15 +164,19 @@
 - (void)modeMessage:(NSString*)message {
     [self.wordLabel setHidden:YES];
     [self.playButton setHidden:YES];
-    [self.synonymLabel setHidden:YES];
-    [self.sampleLabel setHidden:YES];
-    [self.explanationLabel setHidden:YES];
+    [self.synonymText setHidden:YES];
+    [self.sampleText setHidden:YES];
+    [self.explanationText setHidden:YES];
     [self.knowButton setHidden:YES];
     [self.dontknowButton setHidden:YES];
     [self.showButton setHidden:YES];
     [self.progressLabel setHidden:YES];
     [self.messageLabel setHidden:NO];
     [self.messageLabel setText:message];
+    
+    [UIView animateWithDuration:5 delay: 3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    } completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,7 +17,16 @@
 @property(nonatomic, readwrite, strong) IBOutlet UITextView* articleTextView;
 @property(nonatomic, readwrite, retain) IBOutlet UILabel* questionLabel;
 @property(nonatomic, readwrite, retain) IBOutlet RCAnswerView* answerView;
+@property(nonatomic, readwrite, retain) IBOutlet UIScrollView* scrollView;
+@property(nonatomic, readwrite, retain) IBOutlet UILabel* explainLabel;
 
+@property(nonatomic, readwrite, retain) IBOutlet NSLayoutConstraint* viewWidth;
+@property(nonatomic, readwrite, retain) IBOutlet NSLayoutConstraint* questionHeight;
+@property(nonatomic, readwrite, retain) IBOutlet NSLayoutConstraint* answerHeight;
+@property(nonatomic, readwrite, retain) IBOutlet NSLayoutConstraint* explainHeight;
+
+// Data Model
+@property(nonatomic, readwrite, retain) id<AnswerListener> answerListener;
 @property(nonatomic, readwrite, strong) RCQuestion* questionData;
 
 @end

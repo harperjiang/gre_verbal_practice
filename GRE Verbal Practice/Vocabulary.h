@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
+#import "VocabGroup.h"
 
 @interface Vocabulary: NSManagedObject
 
-@property(nonatomic, readwrite, strong) NSString* word;
-@property(nonatomic, readwrite, strong) NSString* explanation;
-@property(nonatomic, readwrite, strong) NSString* synonyms;
-@property(nonatomic, readwrite, strong) NSString* samples;
-
-@property(nonatomic, readwrite, strong) NSDate* scheduleDate;
-@property(nonatomic, readwrite) NSInteger passCount;
+@property(nonatomic) VocabGroup* group;
+@property(nonatomic) NSString* word;
+@property(nonatomic) NSString* explanation;
+@property(nonatomic) NSString* synonyms;
+@property(nonatomic) NSString* samples;
+@property(nonatomic) NSDate* scheduleDate;
+@property(nonatomic) NSNumber* passCount;
 
 @end
 

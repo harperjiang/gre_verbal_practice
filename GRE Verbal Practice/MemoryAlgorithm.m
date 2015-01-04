@@ -7,11 +7,30 @@
 //
 
 #import "MemoryAlgorithm.h"
+#import "DateUtils.h"
+
+int INTERVAL[] = {0,1,2,4,4,7,7,15,21,30};
 
 @implementation MemoryAlgorithm
 
-+ (NSInteger)interval:(NSInteger)count {
-    return arc4random()%(count*4);
+// 1, 2, 4, 7, 15, 21, 30
+
++ (void)updateVocab:(Vocabulary*)vocab know:(BOOL)know {
+    if(!know) {
+        // Start from the beginning
+        [vocab setPassCount: [NSNumber numberWithInt:0]];
+    } else {
+        [vocab setPassCount: [NSNumber numberWithInt: [vocab.passCount intValue] + 1]];
+    }
+    if(vocab.passCount.intValue >= 10) {
+        // No more repeat
+        return;
+    }
+    NSDate* schedule = [DateUtils addDate:[DateUtils truncate:[NSDate date]]
+                                     date:INTERVAL[vocab.passCount.intValue]];
+    
+    [vocab setScheduleDate: schedule];
+    
 }
 
 @end

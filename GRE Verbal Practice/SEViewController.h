@@ -24,5 +24,6 @@
 @property(nonatomic, readwrite, retain) IBOutlet NSLayoutConstraint* explainHeight;
 
 @property(nonatomic, readwrite, retain) SEQuestion* questionData;
+@property(nonatomic, readwrite, retain) id<AnswerListener> answerListener;
 
 @end

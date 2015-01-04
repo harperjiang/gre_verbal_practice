@@ -14,6 +14,7 @@
     BOOL _dirty;
 }
 
+@property(nonatomic) BOOL multiple;
 @property(nonatomic) NSArray* options;
 @property(nonatomic) NSArray* answers;
 @property(nonatomic) BOOL shouldShowAnswer;
@@ -22,5 +23,6 @@
 @property(nonatomic, readwrite, weak) id<AnswerListener> answerListener;
 
 - (void)showChoice:(NSArray*)choice;
+- (void)setOptions:(NSArray *)options multiple:(BOOL)multiple;
 
 @end

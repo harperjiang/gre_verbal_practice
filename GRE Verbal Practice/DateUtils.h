@@ -12,5 +12,5 @@
 
 + (NSDate*)truncate:(NSDate*) input;
 + (NSDate*)addDate:(NSDate*)source date:(NSInteger)d;
-
++ (NSString*)format:(long)seconds;
 @end

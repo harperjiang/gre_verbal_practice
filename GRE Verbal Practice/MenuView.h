@@ -18,6 +18,10 @@
 
 @end
 
+@interface MenuCell : UITableViewCell
+@end
+
+
 @interface MenuView : UITableView<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic) BOOL show;

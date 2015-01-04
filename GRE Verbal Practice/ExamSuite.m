@@ -14,11 +14,13 @@
 @implementation ExamSuite
 
 @dynamic name;
+@dynamic lastVisited;
 @dynamic statistics;
 @dynamic questions;
 @dynamic timeLimit;
 @synthesize answers;
 @synthesize current;
+@synthesize timeRemain;
 
 + (ExamSuite*)create {
     ExamSuite* esuite = [[ExamSuite alloc] init];
@@ -88,6 +90,8 @@
 }
 
 - (NSArray*)currentAnswer {
+    if(self.answers.count <= self.current)
+        return [Question emptyAnswer];
     return [self.answers objectAtIndex:self.current];
 }
 
