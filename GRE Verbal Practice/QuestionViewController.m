@@ -99,7 +99,7 @@
 
 - (IBAction)showAnswer:(id)sender {
     if(self->currentController != nil) {
-        [self->currentController showAnswer:YES];
+        [self->currentController showAnswerWithChoice:[self.questionSet answerForIndex:self.questionSet.current]];
     }
     [self.showAnswerButton setHidden:YES];
     [self.explainButton setHidden:NO];
@@ -113,7 +113,7 @@
 
 - (void)reset {
     // Reset the view to normal mode
-    [self->currentController showAnswer:NO];
+    [self->currentController hideAnswer];
     [self->currentController showExplanation:NO];
     [self.showAnswerButton setHidden:NO];
     [self.explainButton setHidden:YES];
@@ -125,9 +125,18 @@
     [self->currentController setQuestionData: question];
         
     // Change Navigation Title
-    self.navigationItem.title = [NSString stringWithFormat:@"%ld/%ld",
+    self.navigationItem.title = [NSString stringWithFormat:@"%zd/%zd",
                                      self.questionSet.current + 1,
                                      self.questionSet.size];
+}
+
+- (IBAction)swipe:(UISwipeGestureRecognizer*)recognizer {
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionLeft) {
+        [self nextQuestion:recognizer];
+    }
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self prevQuestion:recognizer];
+    }
 }
 
 - (IBAction)prevQuestion:(id)sender {

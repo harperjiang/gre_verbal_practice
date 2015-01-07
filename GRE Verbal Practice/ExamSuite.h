@@ -17,7 +17,7 @@
 @property(nonatomic) NSOrderedSet* questions;
 @property(nonatomic) NSMutableArray* answers;
 @property(nonatomic) NSInteger current;
-@property(nonatomic) NSInteger timeLimit;
+@property(nonatomic) NSNumber* timeLimit;
 @property(nonatomic) long timeRemain;
 
 + (ExamSuite*)create;

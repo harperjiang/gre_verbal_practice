@@ -23,6 +23,14 @@
 }
 
 - (void)openOutputStream {
+    NSError* error = nil;
+    NSString* folder = [self.destinationFile.path stringByDeletingLastPathComponent];
+    if(![[NSFileManager defaultManager] createDirectoryAtPath:folder
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error: &error]) {
+        NSLog(@"Failed to create folder for file %@, %@-%@",self.destinationFile.path, error, error.userInfo);
+    }
     _outputStream = [NSOutputStream outputStreamWithURL:self.destinationFile append:NO];
     [_outputStream setDelegate:self];
     [_outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
@@ -51,6 +59,7 @@
 
 - (void)error:(NSError*)error {
     _receivedData = nil;
+    [_connection cancel];
     if(!self.inMemory) {
         [_outputStream close];
         _outputStream = nil;
@@ -62,13 +71,19 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    NSHTTPURLResponse* resp = (NSHTTPURLResponse*)response;
+    if(resp.statusCode != 200) {
+        [self error:[[NSError alloc] initWithDomain:@"HttpDownloadDomain" code:resp.statusCode userInfo:@{}]];
+        return;
+    }
+    
     [_receivedData setLength:0];
     if(!self.inMemory) {
         // Close and reopen
         [_outputStream close];
         [self openOutputStream];
     }
-    _expectedLength = [response expectedContentLength];
+    _expectedLength = (NSUInteger)[response expectedContentLength];
     _progressLength = 0;
     _receiveDone = NO;
 }

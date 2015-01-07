@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HttpDownloadSupport.h"
 
 @interface FileManager : NSObject
 
 + (NSURL*)appSupportDir;
 + (NSURL*)appCacheDir;
-+ (NSURL*)voiceFileFor:(NSString*)word;
++ (NSURL*)voiceFileFor:(NSString*)word check:(BOOL)c;
 + (BOOL)delete:(NSURL*)target;
-
 @end

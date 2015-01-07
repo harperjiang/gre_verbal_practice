@@ -16,9 +16,10 @@
 
 - (void)setQuestionData:(Question*) data;
 - (Question*)questionData;
-- (void)showAnswer:(BOOL)show;
-- (void)showExplanation:(BOOL)show;
+- (void)showAnswerWithChoice: (NSArray*) choice;
+- (void)hideAnswer;
 - (void)showChoice:(NSArray*)choice;
+- (void)showExplanation:(BOOL)show;
 - (void)setAnswerListener:(id<AnswerListener>)listener;
 
 @end

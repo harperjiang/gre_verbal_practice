@@ -83,6 +83,12 @@
     [self answer:answer index: current];
 }
 
+- (NSArray*)answerForIndex:(NSInteger)index {
+    if(self.answers.count <= index)
+        return [Question emptyAnswer];
+    return [self.answers objectAtIndex:index];
+}
+
 - (NSString*)score {
     return [Scorer scoreWithSet:self.questions answer: self.answers];
 }

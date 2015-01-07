@@ -137,10 +137,10 @@ static DataManager* inst;
     [newrequest setPredicate: [NSCompoundPredicate andPredicateWithSubpredicates:
                                     @[datePredicate, groupPredicate]]];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-                                        initWithKey:@"word"
-                                        ascending:NO];
-    [newrequest setSortDescriptors:@[sortDescriptor]];
+//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+//                                        initWithKey:@"word"
+//                                        ascending:NO];
+//    [newrequest setSortDescriptors:@[sortDescriptor]];
     [newrequest setFetchLimit: count];
     NSArray* newarray = [self query:newrequest];
     

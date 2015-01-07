@@ -22,11 +22,15 @@
     if(self.questionData != nil) {
         [self.questionLabel setText: self.questionData.text];
         [self.answerView setOptions: self.questionData.options multiple:self.questionData.multiple];
-        [self.answerView setAnswers: self.questionData.answers];
-        [self.explainLabel setText: self.questionData.explanation];
-        if(self.choice != nil) {
-            [self.answerView showChoice:self.choice];
+        if(!self.questionData.selectSentence) {
+            [self.answerView setAnswers: self.questionData.answers];
+            if(self.choice != nil) {
+                [self.answerView showChoice:self.choice];
+            }
         }
+        if(self.shouldShowAnswer)
+            [self judgeAndShowImage];
+        [self.explainLabel setText: self.questionData.explanation];
     }
     [self.explainLabel setHidden: !self.shouldShowExplanation];
     
@@ -44,16 +48,36 @@
     if(self.questionLabel != nil) {
         [self.questionLabel setText: questionData.text];
         [self.answerView setOptions: questionData.options multiple:questionData.multiple];
-        [self.answerView setAnswers: questionData.answers];
+        if(!questionData.selectSentence) {
+            [self.answerView setAnswers: questionData.answers];
+        }
         [self.explainLabel setText: self.questionData.explanation];
     }
 }
 
-- (void)showAnswer:(BOOL)show {
-    self.shouldShowAnswer = show;
+- (void)showChoice:(NSArray *)choice {
+    self.choice = choice;
+    [self.answerView showChoice:choice];
+}
+
+- (void)showAnswerWithChoice:(NSArray *)choice {
+    [self setShouldShowAnswer:YES];
+    [self showChoice:choice];
     if(self.answerView != nil) {
-        [self.answerView setShouldShowAnswer:show];
+        [self.answerView setShouldShowAnswer:YES];
+        [self.answerView setAnswerListener: nil];
+        
     }
+    [self judgeAndShowImage];
+}
+
+- (void)hideAnswer {
+    [self setShouldShowAnswer:NO];
+    if(self.answerView != nil) {
+        [self.answerView setShouldShowAnswer:NO];
+        [self.answerView setAnswerListener:self.answerListener];
+    }
+    self.resultImageView.hidden = YES;
 }
 
 - (void)showExplanation:(BOOL)show {
@@ -62,11 +86,11 @@
     [self layout];
 }
 
-- (void)showChoice:(NSArray *)choice {
-    self.choice = choice;
-    if(self.answerView != nil) {
-        [self.answerView showChoice:choice];
-    }
+- (void)judgeAndShowImage {
+    NSString* imageName = [self.questionData verifyAnswer:self.choice]?@"Vocab_Yes":@"Vocab_No";
+    UIImage* image = [UIImage imageNamed:imageName];
+    [self.resultImageView setImage:image];
+    self.resultImageView.hidden = NO;
 }
 
 - (void)setAnswerListener:(id<AnswerListener>)answerListener {
@@ -80,7 +104,6 @@
     [self layout];
     [super viewWillLayoutSubviews];
 }
-
 
 - (void)layout {
     CGRect bounds = self.view.bounds;

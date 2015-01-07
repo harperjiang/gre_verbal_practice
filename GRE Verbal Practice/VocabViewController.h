@@ -11,8 +11,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import "VocabPlan.h"
 #import "AdBannerSupport.h"
+#import "HttpDownloadSupport.h"
 
-@interface VocabViewController : UIViewController<AVAudioPlayerDelegate> {
+@interface VocabViewController : UIViewController<AVAudioPlayerDelegate, HttpDownloadListener> {
     AVAudioPlayer* _player;
     ADBannerView* _bannerView;
 }
@@ -23,6 +24,7 @@
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* messageLabel;
 
 @property(nonatomic, readwrite, strong) IBOutlet UIButton* playButton;
+@property(nonatomic, readwrite, strong) IBOutlet UIActivityIndicatorView* actIndicator;
 
 @property(nonatomic) IBOutlet NSLayoutConstraint* pageWidth;
 @property(nonatomic) IBOutlet NSLayoutConstraint* bottomHeight;

@@ -29,7 +29,8 @@
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: SENTENCE_EQUIV count: 4]];
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: READING_COMP count: 4]];
     [esuite setQuestions:questions];
-    [esuite setTimeLimit:[UserPreference getInteger:USER_EXAM_TIMELIMIT defval:USER_EXAM_TIMELIMIT_DEFAULT]];
+    NSInteger val = [UserPreference getInteger:USER_EXAM_TIMELIMIT defval:USER_EXAM_TIMELIMIT_DEFAULT];
+    [esuite setTimeLimit: [NSNumber numberWithInteger:val]];
     return esuite;
 }
 

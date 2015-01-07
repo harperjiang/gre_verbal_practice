@@ -30,11 +30,11 @@
     [self.dataProgressView setHidden:YES];
     
     NSInteger voiceVersion = [UserPreference getInteger:SYS_VOICE_VERSION defval:SYS_VOICE_VERSION_DEFAULT];
-    [self.voiceVersionLabel setText: [NSString stringWithFormat:@"%ld", voiceVersion]];
+    [self.voiceVersionLabel setText: [NSString stringWithFormat:@"%zd", voiceVersion]];
     
     
     NSInteger dataVersion = [UserPreference getInteger:SYS_DATA_VERSION defval:SYS_DATA_VERSION_DEFAULT];
-    [self.dataVersionLabel setText: [NSString stringWithFormat:@"%ld", dataVersion]];
+    [self.dataVersionLabel setText: [NSString stringWithFormat:@"%zd", dataVersion]];
     
     _dataDownloadSupport = [[HttpDownloadSupport alloc] init:YES];
     _dataDownloadSupport.listener = self;
@@ -247,14 +247,14 @@
             NSInteger voiceVer = [UserPreference getInteger:SYS_VOICE_VERSION
                                                      defval:SYS_VOICE_VERSION_DEFAULT];
             [self updateUI:^{
-                [self.voiceVersionLabel setText:[NSString stringWithFormat:@"%ld",voiceVer]];
+                [self.voiceVersionLabel setText:[NSString stringWithFormat:@"%zd",voiceVer]];
             }];
         }
         if(source == _dataDownloadSupport) {
             NSInteger dataVer = [UserPreference getInteger:SYS_DATA_VERSION
                                                     defval:SYS_DATA_VERSION_DEFAULT];
             [self updateUI:^{
-                [self.dataVersionLabel setText: [NSString stringWithFormat:@"%ld",dataVer]];
+                [self.dataVersionLabel setText: [NSString stringWithFormat:@"%zd",dataVer]];
             }];
         }
     }
@@ -267,7 +267,7 @@
 - (void)updateVoiceData {
     // Remove old voice file
     NSURL* voiceFolder = [[FileManager appSupportDir] URLByAppendingPathComponent:@"voice" isDirectory:YES];
-    [FileManager delete:voiceFolder];
+    //[FileManager delete:voiceFolder];
     
     // Unzip the downloaded file to target
     // This will take considerable time, thus put it in background thread
@@ -336,6 +336,7 @@
     }
     [self updateDone:_dataDownloadSupport success:success];
 }
+
 /*
 #pragma mark - Navigation
 

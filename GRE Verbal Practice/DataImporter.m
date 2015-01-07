@@ -145,7 +145,7 @@
     [es1 setName:@"Test ExamSuite"];
     [es1 setStatistics:@"Tried 1 times, Success rate 24%"];
     [es1 setQuestions:questions];
-    [es1 setTimeLimit:30];
+    [es1 setTimeLimit: [NSNumber numberWithInt:30]];
     [moc insertObject:es1];
     
     qss = [[NSMutableOrderedSet alloc] init];
@@ -210,6 +210,9 @@
                 [vocabs addObject:voc];
             }
             [group setVocabularies:vocabs];
+            if([@"" isEqualToString: group.detail]) {
+                group.detail = [NSString stringWithFormat:@"Total %zd words", vocabs.count];
+            }
             [moc insertObject: group];
         }
     }
@@ -222,8 +225,11 @@
                                insertIntoManagedObjectContext:moc];
             
             es.name = [esData objectForKey:@"name"];
-            es.statistics = [esData objectForKey:@"statistics"];
-            es.timeLimit = [[esData objectForKey:@"timeLimit"] integerValue];
+            es.statistics = [esData objectForKey:@"detail"];
+            es.timeLimit = [esData objectForKey:@"timeLimit"];
+            if(es.timeLimit.intValue == 0) {
+                es.timeLimit = [NSNumber numberWithInt:30];
+            }
             
             NSOrderedSet* questions = [DataImporter extractQuestions: (NSArray*)[esData objectForKey:@"questions"]];
             [es setQuestions:questions];
@@ -306,6 +312,7 @@
                 [question setExplanation:[qd objectForKey:@"explanation"]];
                 [question setReadText: rctext];
                 [question setMultiple: [[qd objectForKey:@"multiple"] boolValue]];
+                [question setSelectSentence:[[qd objectForKey:@"selectSentence"] boolValue]];
                 [moc insertObject:question];
                 [result addObject:question];
                 break;

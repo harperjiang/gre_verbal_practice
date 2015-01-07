@@ -58,7 +58,7 @@
 }
 
 - (NSString*)status {
-    return [NSString stringWithFormat: @"This round: %ld/%ld", (long)dest.count,(long)total];
+    return [NSString stringWithFormat: @"This round: %zd/%zd", total - source.count, total];
 }
 
 - (void)feedback:(BOOL)know {
@@ -73,7 +73,7 @@
         [dm save];
         NSInteger vocabcount = [dm getVocabCount:self.group];
         NSInteger vocabFuture = [dm getDoneVocabCount:self.group];
-        self.group.detail = [NSString stringWithFormat:@"Progress: %ld/%ld",vocabFuture,vocabcount];
+        self.group.detail = [NSString stringWithFormat:@"Progress: %zd/%zd",vocabFuture,vocabcount];
         [dm save];
     });
     

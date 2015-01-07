@@ -113,7 +113,7 @@
 - (void)showAnswer {
     for(int i = 0 ; i < self.answers.count ; i++) {
         NSInteger index = [(NSNumber*)[self.answers objectAtIndex:i] integerValue];
-        [(GREButton*)[self->group.buttons objectAtIndex:index] setRightAnswer:self.shouldShowAnswer];
+        [(GREButton*)[self viewWithTag:index+1] setRightAnswer:self.shouldShowAnswer];
     }
 }
 

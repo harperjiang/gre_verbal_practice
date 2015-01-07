@@ -81,8 +81,23 @@
     
 }
 
-- (void)showAnswer:(BOOL)show {
-    [self.answerView setShouldShowAnswer: show];
+- (void)showChoice:(NSArray *)choice {
+    self.choice = choice;
+    [self.answerView showChoice:choice];
+}
+
+- (void)showAnswerWithChoice:(NSArray *)choice {
+    [self.answerView setShouldShowAnswer: YES];
+    [self showChoice:choice];
+    // Only listen to answerchange when not showing answer
+    [self.answerView setAnswerListener:nil];
+    [self judgeAndShowImage];
+}
+
+- (void)hideAnswer {
+    [self.answerView setShouldShowAnswer:NO];
+    [self.answerView setAnswerListener:self.answerListener];
+    self.resultImageView.hidden = YES;
 }
 
 - (void)showExplanation:(BOOL)show {
@@ -90,16 +105,18 @@
     [self layout];
 }
 
-- (void)showChoice:(NSArray *)choice {
-    [self.answerView showChoice:choice];
-    
-}
-
 - (void)setAnswerListener:(id<AnswerListener>)listener {
     self->_answerListener = listener;
-    if(self.answerView != nil) {
+    if(self.answerView != nil && self.answerView.shouldShowAnswer) {
         [self.answerView setAnswerListener:listener];
     }
+}
+
+- (void)judgeAndShowImage {
+    NSString* imageName = [self.questionData verifyAnswer:self.choice]?@"Vocab_Yes":@"Vocab_No";
+    UIImage* image = [UIImage imageNamed:imageName];
+    [self.resultImageView setImage:image];
+    self.resultImageView.hidden = NO;
 }
 
 @end

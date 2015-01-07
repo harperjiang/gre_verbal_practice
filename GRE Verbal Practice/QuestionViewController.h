@@ -40,5 +40,5 @@
 - (IBAction)showExplanation:(id)sender;
 - (IBAction)prevQuestion:(id)sender;
 - (IBAction)nextQuestion:(id)sender;
-
+- (IBAction)swipe:(UISwipeGestureRecognizer*)sender;
 @end

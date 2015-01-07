@@ -5,7 +5,7 @@
 //  Created by Harper on 12/20/14.
 //  Copyright (c) 2014 Hao Jiang. All rights reserved.
 //
-
+#import "HttpDownloadSupport.h"
 #import "FileManager.h"
 
 @implementation FileManager
@@ -57,13 +57,18 @@ static NSURL* appCacheDir;
     return appCacheDir;
 }
 
-+ (NSURL*)voiceFileFor:(NSString *)word {
++ (NSURL*)voiceFileFor:(NSString *)word check:(BOOL)check{
     NSURL* voiceRoot = [[FileManager appSupportDir] URLByAppendingPathComponent:@"voice" isDirectory:YES];
     NSURL* voiceFolder = [voiceRoot URLByAppendingPathComponent:[NSString stringWithFormat: @"%C", [[word uppercaseString] characterAtIndex:0]] isDirectory:YES];
     
     NSURL* voiceFile = [voiceFolder URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", word]];
-    return [voiceFile checkResourceIsReachableAndReturnError:nil]?voiceFile:nil;
+    if(check) {
+        return [voiceFile checkResourceIsReachableAndReturnError:nil]?voiceFile:nil;
+    } else {
+        return voiceFile;
+    }
 }
+
 
 + (BOOL)delete:(NSURL *)target {
     NSFileManager* fm = [NSFileManager defaultManager];

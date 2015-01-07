@@ -94,7 +94,7 @@
         [self showQuestion: [self.examSuite question]];
         // Initialize Timer
         if(!self.reviewMode){
-            timer = [[ExamTimer alloc] initWithMinutes:[self.examSuite timeLimit]
+            timer = [[ExamTimer alloc] initWithMinutes:[self.examSuite timeLimit].integerValue
                                                 target:self
                                               interval:@selector(timerInterval:)
                                                   done:@selector(showResultView)];
@@ -128,13 +128,14 @@
             break;
     }
     [self->currentController setQuestionData:question];
-    self.navigationItem.title = [NSString stringWithFormat:@"%ld/%ld",
+    self.navigationItem.title = [NSString stringWithFormat:@"%zd/%zd",
                                  self.examSuite.current + 1,
-                                 self.examSuite.size];
+                                 (long)self.examSuite.size];
     if(self.reviewMode) {
-        [self->currentController showChoice:[self.examSuite currentAnswer]];
-        [self->currentController showAnswer:YES];
+        [self->currentController showAnswerWithChoice:[self.examSuite currentAnswer]];
         [self->currentController showExplanation:YES];
+    } else {
+        [self->currentController showChoice: [self.examSuite currentAnswer]];
     }
 }
 
@@ -212,20 +213,35 @@
 
 - (void)nextQuestion:(id)button {
     if(![self.examSuite next]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The end"
-                                                        message:@"This is the last question!"
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-        [alert show];
-        return;
+        UIAlertController* messageBox =
+        [UIAlertController alertControllerWithTitle:@"The end"
+                                            message:@"This is the last question. Do you want to submit?"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"Submit"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action) {
+                                                             [self dismissViewControllerAnimated:YES completion:nil];
+                                                             [self showResult:nil];
+                                                         }];
+        [messageBox addAction:okAction];
+        
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Continue"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * action) {
+                                                                 [self dismissViewControllerAnimated:YES completion:nil];
+                                                            }];
+        [messageBox addAction:cancelAction];
+        
+        [self presentViewController:messageBox animated:YES completion:nil];
+    } else {
+        [self showQuestion: [self.examSuite question]];
     }
-    [self showQuestion: [self.examSuite question]];
 }
 
 - (void)prevQuestion:(id)button {
     if(![self.examSuite prev]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No more"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The beginning"
                                                         message:@"This is the first question!"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
@@ -321,7 +337,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
         cell.backgroundColor = [UIColor clearColor];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"Question %ld", indexPath.row + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"Question %zd", indexPath.row + 1];
     NSNumber* current = [NSNumber numberWithInteger:indexPath.row];
     if([markedQuestions containsObject:current]) {
         cell.imageView.image = [UIImage imageNamed:@"Bookmark"];

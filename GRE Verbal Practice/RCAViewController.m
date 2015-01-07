@@ -19,20 +19,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setAutomaticallyAdjustsScrollViewInsets:NO];
-    [self.articleText setText: self.article];
-    [self.linenumView setFont: self.articleText.font];
-    [self.linenumView setMargin:23];
-    [self.linenumView setBorder: 10];
-    [self.linenumView setLineSpacing:0.1];
-    [self.articleText scrollRangeToVisible:NSMakeRange(0, 0)];
+    
+    
+    _tapSupporter = [[TextViewTapSupporter alloc] init];
+    _tapSupporter.textView = self.articleTextView;
+    _tapSupporter.font = [UIFont systemFontOfSize:16];
+    self.articleTextView.delegate = _tapSupporter;
+    
+    if(self.questionData != nil) {
+        [_tapSupporter setText: self.questionData.readText.text];
+        if(self.questionData.selectSentence) {
+            [_tapSupporter markSentences:self.questionData.answers highlight:self.shouldShowAnswer];
+        }
+    }
+    [_tapSupporter selectSentences:self.choice highlight:YES];
 }
 
-- (void)viewWillLayoutSubviews {
-//    CGSize contentSize = self.articleText.contentSize;
-    CGSize fit = [self.articleText sizeThatFits:CGSizeMake(10000, 10000)];
-    self.widthConstraint.constant = fit.width;
-    self.heightConstraint.constant = fit.height;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -40,21 +42,46 @@
 }
 
 - (void)setArticle:(NSString *)article {
-    self->_article = article;
-    if(self.articleText != nil) {
-        [self.articleText setText: article];
-        [self.articleText scrollRangeToVisible:NSMakeRange(0, 0)];
+    [_tapSupporter setText:article];
+}
+
+- (void)onArticleTapped:(id)sender {
+    [_tapSupporter onTap:(UITapGestureRecognizer*)sender];
+    if(self.questionData.selectSentence) {
+        [self.answerListener answerChanged:@[[NSNumber numberWithInteger:[_tapSupporter selectedSentence]]]];
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setQuestionData:(RCQuestion*) data {
+    self->_questionData = data;
+    if(_tapSupporter != nil) {
+        [_tapSupporter setText:data.readText.text];
+    }
 }
-*/
+
+- (void)showAnswerWithChoice: (NSArray*) choice {
+    [self showChoice:choice];
+    self.shouldShowAnswer = YES;
+    [_tapSupporter markSentences:self.questionData.answers highlight:YES];
+}
+
+- (void)hideAnswer {
+    self.shouldShowAnswer = NO;
+    [_tapSupporter markSentences:self.questionData.answers highlight:NO];
+}
+
+- (void)showChoice:(NSArray*)choice {
+    self.choice = choice;
+    [_tapSupporter selectSentences:choice highlight:YES];
+}
+
+- (void)showExplanation:(BOOL)show {
+    // Do nothing
+}
+
+- (void)setAnswerListener:(id<AnswerListener>)listener {
+    self->_answerListener = listener;
+}
+
 
 @end

@@ -22,6 +22,8 @@
     if(self.answerListener != nil) {
         RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
         [qvc setAnswerListener: self.answerListener];
+        RCAViewController* qva = (RCAViewController*)[self.viewControllers objectAtIndex: 0];
+        [qva setAnswerListener: self.answerListener];
     }
 }
 
@@ -30,9 +32,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)showAnswer:(BOOL)show {
-    RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
-    [qvc showAnswer:show];
+- (void)showChoice:(NSArray *)choice {
+    if(self.questionData.selectSentence) {
+        RCAViewController* qva = (RCAViewController*)[self.viewControllers objectAtIndex: 0];
+        [qva showChoice:choice];
+    } else {
+        RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
+        [qvc showChoice:choice];
+    }
+}
+
+- (void)showAnswerWithChoice:(NSArray *)choice {
+    if(self.questionData.selectSentence) {
+        RCAViewController* qva = (RCAViewController*)[self.viewControllers objectAtIndex: 0];
+        [qva showAnswerWithChoice:choice];
+    } else {
+        RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
+        [qvc showAnswerWithChoice:choice];
+    }
+}
+
+- (void)hideAnswer {
+    if(self.questionData.selectSentence) {
+        RCAViewController* qva = (RCAViewController*)[self.viewControllers objectAtIndex: 0];
+        [qva hideAnswer];
+    } else {
+        RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
+        [qvc hideAnswer];
+    }
 }
 
 - (void)showExplanation:(BOOL)show {
@@ -40,16 +67,15 @@
     [qvc showExplanation:show];
 }
 
-- (void)showChoice:(NSArray *)choice {
-    RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
-    [qvc showChoice:choice];
-}
-
 - (void)setAnswerListener:(id<AnswerListener>)listener {
     self->_answerListener = listener;
+    RCAViewController* qva = (RCAViewController*)[self.viewControllers objectAtIndex: 0];
+    if(qva != nil) {
+        [qva setAnswerListener: listener];
+    }
     RCQViewController* qvc = (RCQViewController*)[self.viewControllers objectAtIndex: 1];
     if(qvc != nil) {
-        [qvc.answerView setAnswerListener: listener];
+        [qvc setAnswerListener: listener];
     }
 }
 
@@ -58,8 +84,8 @@
     
     RCAViewController* articleView = (RCAViewController*)[self.viewControllers objectAtIndex:0];
     RCQViewController* questionView = (RCQViewController*)[self.viewControllers objectAtIndex:1];
-    [articleView setArticle: [self.questionData.readText toString]];
-    [questionView setQuestionData:questionData];
+    [articleView setQuestionData: questionData];
+    [questionView setQuestionData: questionData];
 }
 
 

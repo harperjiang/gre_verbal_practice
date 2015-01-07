@@ -8,15 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "LinenumView.h"
+#import "TextViewTapSupporter.h"
+#import "RCQuestion.h"
+#import "AnswerListener.h"
+#import "QViewController.h"
 
-@interface RCAViewController : UIViewController
+@interface RCAViewController : UIViewController<QViewController> {
+    TextViewTapSupporter* _tapSupporter;
+}
 
-@property(nonatomic, readwrite, retain) IBOutlet UIScrollView* scrollView;
-@property(nonatomic, readwrite, retain) IBOutlet UITextView* articleText;
-@property(nonatomic, readwrite, retain) IBOutlet LinenumView* linenumView;
-@property(nonatomic, readwrite, retain) IBOutlet NSLayoutConstraint* widthConstraint;
-@property(nonatomic, readwrite, retain) IBOutlet NSLayoutConstraint* heightConstraint;
+@property(nonatomic, readwrite, retain) IBOutlet UITextView* articleTextView;
 
-@property(nonatomic, readwrite) NSString* article;
+@property(nonatomic, readwrite) BOOL shouldShowAnswer;
+@property(nonatomic, readwrite) NSArray* choice;
+@property(nonatomic, readwrite) id<AnswerListener> answerListener;
+@property(nonatomic, readwrite, retain) RCQuestion* questionData;
+
+-(IBAction) onArticleTapped:(id)sender;
 
 @end

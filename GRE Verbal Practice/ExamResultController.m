@@ -23,7 +23,7 @@
     self.view.backgroundColor = [UIUtils backgroundColor];
     
     // Display Exam Result
-    [self.timeLabel setText: [DateUtils format: self.examSuite.timeLimit * 60
+    [self.timeLabel setText: [DateUtils format: self.examSuite.timeLimit.intValue * 60
                               - self.examSuite.timeRemain]];
     [self.resultLabel setText: [self.examSuite score]];
     

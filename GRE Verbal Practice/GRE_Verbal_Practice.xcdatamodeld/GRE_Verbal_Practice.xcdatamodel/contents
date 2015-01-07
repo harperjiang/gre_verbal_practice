@@ -24,6 +24,7 @@
     </entity>
     <entity name="RCQuestion" representedClassName="RCQuestion" parentEntity="Question" syncable="YES">
         <attribute name="multiple" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="selectSentence" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="readText" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCText" syncable="YES"/>
     </entity>
     <entity name="RCText" representedClassName="RCText" syncable="YES">
@@ -46,14 +47,14 @@
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VocabGroup" inverseName="vocabularies" inverseEntity="VocabGroup" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ExamSuite" positionX="205" positionY="-66" width="101" height="118"/>
+        <element name="ExamSuite" positionX="205" positionY="-66" width="101" height="120"/>
         <element name="Question" positionX="414" positionY="72" width="128" height="133"/>
-        <element name="RCQuestion" positionX="207" positionY="225" width="128" height="73"/>
+        <element name="QuestionSet" positionX="198" positionY="90" width="128" height="118"/>
+        <element name="RCQuestion" positionX="207" positionY="225" width="128" height="90"/>
         <element name="RCText" positionX="207" positionY="351" width="128" height="58"/>
         <element name="SEQuestion" positionX="412" positionY="243" width="128" height="43"/>
         <element name="TCQuestion" positionX="574" positionY="225" width="128" height="43"/>
-        <element name="Vocabulary" positionX="-11" positionY="99" width="128" height="148"/>
-        <element name="QuestionSet" positionX="198" positionY="90" width="128" height="118"/>
         <element name="VocabGroup" positionX="207" positionY="99" width="128" height="88"/>
+        <element name="Vocabulary" positionX="-11" positionY="99" width="128" height="148"/>
     </elements>
 </model>

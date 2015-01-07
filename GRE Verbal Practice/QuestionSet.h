@@ -32,6 +32,7 @@
 - (Question*)question;
 - (void)answer: (NSArray*)answer;
 - (void)answer:(NSArray *)answer index:(NSInteger)index;
+- (NSArray*) answerForIndex:(NSInteger)index;
 - (NSString*)score;
 
 @end

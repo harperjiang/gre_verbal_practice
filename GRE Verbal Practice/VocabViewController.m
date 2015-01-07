@@ -11,6 +11,7 @@
 #import "DataManager.h"
 #import "FileManager.h"
 #import "UIUtils.h"
+#import "HttpDownloadSupport.h"
 
 @interface VocabViewController ()
 
@@ -113,7 +114,11 @@
 
 - (void)playSound:(id)button {
     // Determine Sound File URL based on word name;
-    NSURL* soundFileUrl = [FileManager voiceFileFor:self.currentVocab.word];
+    NSURL* soundFileUrl = [FileManager voiceFileFor:self.currentVocab.word check:YES];
+    if(soundFileUrl == nil) {
+        [self downloadVoiceFile:self.currentVocab.word];
+        return;
+    }
     if(soundFileUrl != nil) {
         NSError* error;
         _player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileUrl error: &error];
@@ -127,12 +132,13 @@
         }
     } else {
         NSLog(@"No sound file found for %@",self.currentVocab.word);
+        // Disable Alert for no-audio file
         if(button == nil)
             return;
         // Only play error message when user click the button
         UIAlertController* messageBox =
-        [UIAlertController alertControllerWithTitle:@"Voice Package not found"
-                                            message:@"Please upgrade to latest voice package."
+        [UIAlertController alertControllerWithTitle:@"Voice File not found"
+                                            message:@"Please connect to Internet or upgrade to latest voice package."
                                      preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* okAction = [UIAlertAction
@@ -207,6 +213,58 @@
 
 - (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
     NSLog(@"Encoding...");
+}
+
+#pragma mark - Http Download Listener
+
+- (void) downloadVoiceFile:(NSString*)word {
+    self.playButton.hidden = YES;
+    self.actIndicator.hidden = NO;
+    [self.actIndicator startAnimating];
+    
+    NSLog(@"Downloading voice file from Google");
+    NSString* urlbase = @"https://ssl.gstatic.com/dictionary/static/sounds/de/0/%@.mp3";
+    NSString* url = [NSString stringWithFormat:urlbase, word];
+    HttpDownloadSupport* download = [[HttpDownloadSupport alloc] init:NO];
+    download.targetURL = url;
+    download.destinationFile = [FileManager voiceFileFor:word check:NO];
+    download.listener = self;
+    [download download];
+}
+
+- (void)onProgress:(HttpDownloadSupport *)source progress:(float)progress {
+    // Nothing to do
+}
+
+- (void)onSuccess:(HttpDownloadSupport *)source {
+    self.playButton.hidden = NO;
+    [self.actIndicator stopAnimating];
+    // Make sure the file exists
+    [self playSound:nil];
+}
+
+- (void)onError:(HttpDownloadSupport *)source error:(NSError *)error {
+    self.playButton.hidden = NO;
+    [self.actIndicator stopAnimating];
+    
+    NSLog(@"No sound file found for %@",self.currentVocab.word);
+    /*
+    // Only play error message when user click the button
+    UIAlertController* messageBox =
+    [UIAlertController alertControllerWithTitle:@"Voice File not found"
+                                        message:@"Please connect to Internet or upgrade to latest voice package."
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* okAction = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   [self dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    
+    [messageBox addAction: okAction];
+    [self presentViewController:messageBox animated:YES completion:nil];
+     */
 }
 
 @end

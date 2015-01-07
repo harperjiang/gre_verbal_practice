@@ -24,7 +24,15 @@
     return nil;
 }
 
-- (void)showAnswer:(BOOL)show {
+-(void)showChoice:(NSArray *)choice {
+    
+}
+
+- (void)showAnswerWithChoice:(NSArray *)choice {
+    
+}
+
+- (void)hideAnswer {
     
 }
 
@@ -32,9 +40,6 @@
     
 }
 
-- (void)showChoice:(NSArray *)choice {
-    
-}
 
 - (void)setAnswerListener:(id<AnswerListener>)listener {
     

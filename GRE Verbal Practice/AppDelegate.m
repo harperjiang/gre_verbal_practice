@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "FileManager.h"
 #import "UIUtils.h"
+#import "DataImporter.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -16,11 +17,51 @@
 
 @implementation AppDelegate
 
+- (void)firstStartSetup {
+    // Setup voice folder
+    NSURL* voiceFolder = [[FileManager appSupportDir] URLByAppendingPathComponent:@"voice" isDirectory:YES];
+    NSError* error = nil;
+    [[NSFileManager defaultManager] createDirectoryAtPath: voiceFolder.path
+                              withIntermediateDirectories: YES
+                                               attributes: nil
+                                                    error: &error];
+    if(error != nil) {
+        NSLog(@"%@-%@",error, error.userInfo);
+    }
+    // Change folder privilege
+    BOOL success = [voiceFolder setResourceValue: [NSNumber numberWithBool: YES]
+                                          forKey: NSURLIsExcludedFromBackupKey
+                                           error: &error];
+    if(!success) {
+        NSLog(@"%@-%@",error, error.userInfo);
+        return;
+    }
+    
+    // Import init data
+    NSURL* jsonURL = [[NSBundle mainBundle] URLForResource:@"demoset" withExtension:@"json"];
+    NSData* data = [[NSData alloc] initWithContentsOfURL:jsonURL];
+    NSDictionary* parsedJson = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:NSJSONReadingMutableContainers
+                                                                 error:&error];
+    if(parsedJson == nil) {
+        NSLog(@"Failed to parse data json,%@-%@", error, error.userInfo);
+        return;
+    }
+    success = [DataImporter importData:parsedJson];
+    if(!success) {
+        NSLog(@"Failed to import data");
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSLog(@"Documents Directory: %@", [FileManager appSupportDir]);
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"ReturnLaunch"]) {
+        [self firstStartSetup];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ReturnLaunch"];
+    }
     
     // Set Default Looks
     NSShadow *shadow = [[NSShadow alloc] init];
