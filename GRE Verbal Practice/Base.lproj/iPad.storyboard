@@ -1563,10 +1563,10 @@
             </objects>
             <point key="canvasLocation" x="2208" y="-2048"/>
         </scene>
-        <!--Sentence Equivalance-->
+        <!--Sentence Equivalence-->
         <scene sceneID="tBu-FZ-fzh">
             <objects>
-                <viewController storyboardIdentifier="SEViewController" title="Sentence Equivalance" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qXn-fb-FfI" customClass="SEViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SEViewController" title="Sentence Equivalence" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qXn-fb-FfI" customClass="SEViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nQ7-bO-spp"/>
                         <viewControllerLayoutGuide type="bottom" id="85o-dM-AYW"/>

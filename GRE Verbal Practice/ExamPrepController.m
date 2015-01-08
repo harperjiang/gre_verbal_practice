@@ -64,6 +64,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     ExamViewController* evc = (ExamViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ExamViewController"];
     ExamSuite* selectedSuite = (ExamSuite*)[self.examSuites objectAtIndex:indexPath.row];
+    // Clear all transient information
+    [selectedSuite reset];
     [selectedSuite setLastVisited:[NSDate date]];
     [[DataManager defaultManager] save];
     [evc setExamSuite:selectedSuite];
@@ -71,14 +73,5 @@
     [self showViewController:evc sender:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

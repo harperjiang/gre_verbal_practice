@@ -29,5 +29,6 @@
 - (NSArray*)currentAnswer;
 - (void)answer: (NSArray*)answer for:(NSInteger)i;
 - (NSString*)score;
+- (void)reset;
 
 @end

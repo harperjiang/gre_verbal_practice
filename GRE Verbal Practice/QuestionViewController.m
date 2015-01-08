@@ -123,7 +123,7 @@
     [self reset];
     // Set Next Question to view controller
     [self->currentController setQuestionData: question];
-        
+    [self->currentController showChoice: [self.questionSet answerForIndex:self.questionSet.current]];
     // Change Navigation Title
     self.navigationItem.title = [NSString stringWithFormat:@"%zd/%zd",
                                      self.questionSet.current + 1,

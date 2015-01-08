@@ -43,7 +43,7 @@
     CGRect bannerFrame = _bannerView.frame;
     CGFloat newbottomDist = 0;
     if (_bannerView.bannerLoaded) {
-        
+//    if(NO) {
         // bring the ad into view
         contentFrame.size.height -= sizeForBanner.height;   // shrink down content frame to fit the banner below it
         bannerFrame.origin.y = contentFrame.size.height;

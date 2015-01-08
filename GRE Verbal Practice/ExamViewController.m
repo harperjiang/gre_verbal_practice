@@ -254,11 +254,25 @@
 
 - (void)markQuestion:(id)button {
     NSNumber* current = [NSNumber numberWithInteger:self.examSuite.current];
+    NSString* message = nil;
     if([self->markedQuestions containsObject: current]) {
         [markedQuestions removeObject:current];
+        message = @"Question is unmarked";
     } else {
         [markedQuestions addObject:current];
+        message = @"Question is marked";
     }
+    UIAlertController* messageBox =
+    [UIAlertController alertControllerWithTitle:message
+                                        message:nil
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action) {
+                                                         [self dismissViewControllerAnimated:YES completion:nil];
+                                                     }];
+    [messageBox addAction:okAction];
+    [self presentViewController:messageBox animated:YES completion:nil];
     [self->menuView reloadData];
 }
 
@@ -339,9 +353,13 @@
     }
     cell.textLabel.text = [NSString stringWithFormat:@"Question %zd", indexPath.row + 1];
     NSNumber* current = [NSNumber numberWithInteger:indexPath.row];
+    UIImage* bookmarkImage = [[UIImage imageNamed:@"Bookmark"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     if([markedQuestions containsObject:current]) {
-        cell.imageView.image = [UIImage imageNamed:@"Bookmark"];
+        cell.imageView.image = bookmarkImage;
+    } else {
+        cell.imageView.image = nil;
     }
+    [cell setTintColor:[UIColor redColor]];
     return cell;
 }
 

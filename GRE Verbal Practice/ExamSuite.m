@@ -96,4 +96,9 @@
     return [self.answers objectAtIndex:self.current];
 }
 
+- (void)reset {
+    self.current = 0;
+    self.answers = [[NSMutableArray alloc] init];
+}
+
 @end

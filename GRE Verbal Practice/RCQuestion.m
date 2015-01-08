@@ -19,7 +19,7 @@
 - (BOOL)verifyAnswer:(NSArray*)answer {
     if(answer == [Question emptyAnswer])
         return NO;
-    return [self.answers isEqualToArray:(NSArray*) answer] || [self.answers isEqualToArray:[self translate: answer]];
+    return [self.answers isEqualToArray:[self translate: answer]];
 }
 
 - (NSArray*)translate:(NSArray*)inputs {

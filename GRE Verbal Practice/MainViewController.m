@@ -100,7 +100,7 @@
                       image:[UIImage imageNamed:@"Main_SE"]
                      target:self
                      method:@selector(pushQuestionController:param:)
-                      param:@"Sentence Equivalance"];
+                      param:@"Sentence Equivalence"];
     
     [self.blockView addItem:@"Exam\nPractice"
                       image:[UIImage imageNamed:@"Main_Exam"]
