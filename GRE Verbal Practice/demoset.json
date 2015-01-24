@@ -4309,7 +4309,7 @@
    ],
    "exam_suites":[
       {
-         "name":"Demo Exam Suite",
+         "name":"Exam Suite 1",
          "detail":"",
          "questions":[
             {
@@ -4718,7 +4718,7 @@
    ],
    "question_sets":[
       {
-         "name":"Demo Set 1",
+         "name":"Exercise 1",
          "detail":"",
          "type":2,
          "questions":[
@@ -4860,7 +4860,7 @@
          ]
       },
       {
-         "name":"Demo Set 1",
+         "name":"Exercise 1",
          "detail":"",
          "type":1,
          "questions":[
@@ -5047,7 +5047,7 @@
          ]
       },
       {
-         "name":"Demo Set 1",
+         "name":"Exercise 1",
          "detail":"",
          "type":3,
          "questions":[

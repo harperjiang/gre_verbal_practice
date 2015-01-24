@@ -24,6 +24,12 @@
 @property(nonatomic, readwrite, strong) IBOutlet UIProgressView* dataProgressView;
 @property(nonatomic, readwrite, strong) IBOutlet UIButton* dataButton;
 
+
+@property(nonatomic) IBOutlet UITextView* labelText1;
+@property(nonatomic) IBOutlet UITextView* labelText2;
+@property(nonatomic) IBOutlet NSLayoutConstraint* labelHeight1;
+@property(nonatomic) IBOutlet NSLayoutConstraint* labelHeight2;
+
 - (IBAction)checkVoiceUpdate:(id)sender;
 - (IBAction)checkDataUpdate:(id)sender;
 

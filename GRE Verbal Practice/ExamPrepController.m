@@ -35,42 +35,102 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger index = [indexPath row];
-    
-    ExamSuite* suite = [self.examSuites objectAtIndex:index];
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
-        cell.textLabel.font = [UIFont systemFontOfSize:16];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
-        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.backgroundColor = [UIColor clearColor];
+    switch(indexPath.section) {
+        case 0: {
+            NSInteger index = [indexPath row];
+            
+            ExamSuite* suite = [self.examSuites objectAtIndex:index];
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
+                cell.textLabel.font = [UIFont systemFontOfSize:16];
+                cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
+                cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.backgroundColor = [UIColor clearColor];
+            }
+            [cell.textLabel setText: suite.name];
+            [cell.detailTextLabel setText:suite.statistics];
+            // cell.imageView.image = theImage;
+            return cell;
+        }
+        case 1: {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FixedCell"];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"FixedCell"];
+                cell.textLabel.font = [UIFont systemFontOfSize:16];
+                cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
+                cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+                cell.accessoryType = UITableViewCellAccessoryDetailButton;
+                cell.backgroundColor = [UIColor clearColor];
+            }
+            switch(indexPath.row) {
+                case 0:
+                    [cell.textLabel setText: @"Visit Update Site"];
+                    break;
+                default:
+                    break;
+            }
+            // cell.imageView.image = theImage;
+            return cell;
+        }
+        default:
+            return nil;
     }
-    [cell.textLabel setText: suite.name];
-    [cell.detailTextLabel setText:suite.statistics];
-    // cell.imageView.image = theImage;
-    return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 0)
-        return self.examSuites.count;
+    switch (section) {
+        case 0:
+            return self.examSuites.count;
+        case 1:
+            return 1;
+        default:
+            break;
+    }
     return 0;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 1:
+            return @"More Exam Suites";
+        default:
+            return nil;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    ExamViewController* evc = (ExamViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ExamViewController"];
-    ExamSuite* selectedSuite = (ExamSuite*)[self.examSuites objectAtIndex:indexPath.row];
-    // Clear all transient information
-    [selectedSuite reset];
-    [selectedSuite setLastVisited:[NSDate date]];
-    [[DataManager defaultManager] save];
-    [evc setExamSuite:selectedSuite];
-    
-    [self showViewController:evc sender:nil];
+    switch (indexPath.section) {
+        case 0:{
+            ExamViewController* evc = (ExamViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ExamViewController"];
+            ExamSuite* selectedSuite = (ExamSuite*)[self.examSuites objectAtIndex:indexPath.row];
+            // Clear all transient information
+            [selectedSuite reset];
+            [selectedSuite setLastVisited:[NSDate date]];
+            [[DataManager defaultManager] save];
+            [evc setExamSuite:selectedSuite];
+            
+            [self showViewController:evc sender:nil];
+            break;
+        }
+        case 1:{
+            switch(indexPath.row) {
+                case 0: {
+                    UIViewController* updateController = [self.storyboard instantiateViewControllerWithIdentifier:@"UpdateViewController"];
+                    [self.navigationController pushViewController:updateController animated:YES];
+                    break;
+                }
+            }
+            break;
+        }
+    }
 }
 
 

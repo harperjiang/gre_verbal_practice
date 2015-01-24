@@ -196,6 +196,13 @@
 		A6A692631A37856000414E73 /* TCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692621A37856000414E73 /* TCViewController.m */; };
 		A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692661A3788A700414E73 /* GRERadioButton.m */; };
 		A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692691A3788B800414E73 /* GREChoiceBox.m */; };
+		A6C6A1AF1A6EF956000E2F23 /* school.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1AE1A6EF956000E2F23 /* school.png */; };
+		A6C6A1B11A6EFCB9000E2F23 /* school_white.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1B01A6EFCB9000E2F23 /* school_white.png */; };
+		A6C6A1B51A6F3C8C000E2F23 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1B41A6F3C8C000E2F23 /* PieChartView.m */; };
+		A6C6A1B81A70A739000E2F23 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1B71A70A739000E2F23 /* GradientView.m */; };
+		A6C6A1BA1A70C9A0000E2F23 /* GradeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1B91A70C9A0000E2F23 /* GradeView.xib */; };
+		A6C6A1BD1A70CCB2000E2F23 /* GradeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1BC1A70CCB2000E2F23 /* GradeView.m */; };
+		A6C6A1C01A72139B000E2F23 /* ExamGrader.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1BF1A72139B000E2F23 /* ExamGrader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -470,6 +477,17 @@
 		A6A692661A3788A700414E73 /* GRERadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRERadioButton.m; sourceTree = "<group>"; };
 		A6A692681A3788B800414E73 /* GREChoiceBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GREChoiceBox.h; sourceTree = "<group>"; };
 		A6A692691A3788B800414E73 /* GREChoiceBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GREChoiceBox.m; sourceTree = "<group>"; };
+		A6C6A1AE1A6EF956000E2F23 /* school.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = school.png; sourceTree = "<group>"; };
+		A6C6A1B01A6EFCB9000E2F23 /* school_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = school_white.png; sourceTree = "<group>"; };
+		A6C6A1B31A6F3C8C000E2F23 /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
+		A6C6A1B41A6F3C8C000E2F23 /* PieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartView.m; sourceTree = "<group>"; };
+		A6C6A1B61A70A739000E2F23 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		A6C6A1B71A70A739000E2F23 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		A6C6A1B91A70C9A0000E2F23 /* GradeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GradeView.xib; sourceTree = "<group>"; };
+		A6C6A1BB1A70CCB2000E2F23 /* GradeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeView.h; sourceTree = "<group>"; };
+		A6C6A1BC1A70CCB2000E2F23 /* GradeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeView.m; sourceTree = "<group>"; };
+		A6C6A1BE1A72139B000E2F23 /* ExamGrader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamGrader.h; sourceTree = "<group>"; };
+		A6C6A1BF1A72139B000E2F23 /* ExamGrader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamGrader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -641,6 +659,8 @@
 		A6005A831A5C293E009EF5AF /* splash */ = {
 			isa = PBXGroup;
 			children = (
+				A6C6A1B01A6EFCB9000E2F23 /* school_white.png */,
+				A6C6A1AE1A6EF956000E2F23 /* school.png */,
 				A6005A9A1A5C7830009EF5AF /* background2.png */,
 				A6005A841A5C296D009EF5AF /* Default-568h@2x.png */,
 				A6005A851A5C296D009EF5AF /* Default-667h@2x.png */,
@@ -725,6 +745,7 @@
 		A67871801A4118DD00AEE184 /* control */ = {
 			isa = PBXGroup;
 			children = (
+				A6C6A1B21A6F3C70000E2F23 /* chart */,
 				A6005A6E1A575366009EF5AF /* ContentView.h */,
 				A6005A6F1A575366009EF5AF /* ContentView.m */,
 				A66FDBD61A3E2DAC00DAAE13 /* GREButton.h */,
@@ -741,6 +762,8 @@
 				A60059DB1A54787C009EF5AF /* UIBlockView.m */,
 				A6005A771A587D36009EF5AF /* LinenumView.h */,
 				A6005A781A587D36009EF5AF /* LinenumView.m */,
+				A6C6A1B61A70A739000E2F23 /* GradientView.h */,
+				A6C6A1B71A70A739000E2F23 /* GradientView.m */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -843,6 +866,8 @@
 			children = (
 				A67871B21A43B9B300AEE184 /* MemoryAlgorithm.h */,
 				A67871B31A43B9B300AEE184 /* MemoryAlgorithm.m */,
+				A6C6A1BE1A72139B000E2F23 /* ExamGrader.h */,
+				A6C6A1BF1A72139B000E2F23 /* ExamGrader.m */,
 			);
 			name = core;
 			sourceTree = "<group>";
@@ -901,6 +926,7 @@
 				A6005A711A5762FC009EF5AF /* iPad.storyboard */,
 				A6A692261A3766E300414E73 /* Images.xcassets */,
 				A6A692281A3766E300414E73 /* LaunchScreen.xib */,
+				A6C6A1B91A70C9A0000E2F23 /* GradeView.xib */,
 			);
 			name = res;
 			sourceTree = "<group>";
@@ -985,6 +1011,8 @@
 			children = (
 				A60059371A4F5496009EF5AF /* MenuView.h */,
 				A60059381A4F5496009EF5AF /* MenuView.m */,
+				A6C6A1BB1A70CCB2000E2F23 /* GradeView.h */,
+				A6C6A1BC1A70CCB2000E2F23 /* GradeView.m */,
 				A6202C991A4F05D900E20903 /* exam */,
 				A678719B1A4258D000AEE184 /* question */,
 				A60059481A51E75D009EF5AF /* vocab */,
@@ -1014,6 +1042,15 @@
 				A67871801A4118DD00AEE184 /* control */,
 			);
 			name = ui;
+			sourceTree = "<group>";
+		};
+		A6C6A1B21A6F3C70000E2F23 /* chart */ = {
+			isa = PBXGroup;
+			children = (
+				A6C6A1B31A6F3C8C000E2F23 /* PieChartView.h */,
+				A6C6A1B41A6F3C8C000E2F23 /* PieChartView.m */,
+			);
+			name = chart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1116,6 +1153,7 @@
 				A6005A931A5C296D009EF5AF /* Default-Portrait-736h@3x.png in Resources */,
 				A600595A1A53218C009EF5AF /* cancel.png in Resources */,
 				A60059771A532701009EF5AF /* file-8x.png in Resources */,
+				A6C6A1B11A6EFCB9000E2F23 /* school_white.png in Resources */,
 				A60059861A532842009EF5AF /* clock-2x.png in Resources */,
 				A6005A611A564341009EF5AF /* update2.png in Resources */,
 				A6005A941A5C296D009EF5AF /* Default-Portrait.png in Resources */,
@@ -1150,6 +1188,7 @@
 				A6005A961A5C296D009EF5AF /* Default.png in Resources */,
 				A60059B71A53B1FB009EF5AF /* chevron-right-2x.png in Resources */,
 				A60059CA1A53B423009EF5AF /* puzzle-piece-8x.png in Resources */,
+				A6C6A1BA1A70C9A0000E2F23 /* GradeView.xib in Resources */,
 				A6005A4E1A560E51009EF5AF /* Icon-Small@3x.png in Resources */,
 				A60059731A532701009EF5AF /* clock-6x.png in Resources */,
 				A6005A971A5C296D009EF5AF /* Default@2x.png in Resources */,
@@ -1206,6 +1245,7 @@
 				A6005A921A5C296D009EF5AF /* Default-Landscape@2x.png in Resources */,
 				A60059721A532701009EF5AF /* clock-3x.png in Resources */,
 				A6A692271A3766E300414E73 /* Images.xcassets in Resources */,
+				A6C6A1AF1A6EF956000E2F23 /* school.png in Resources */,
 				A6005A051A55EF94009EF5AF /* info@3x.png in Resources */,
 				A6005A5E1A564341009EF5AF /* setting.png in Resources */,
 				A6005A751A5762FC009EF5AF /* iPad.storyboard in Resources */,
@@ -1231,6 +1271,7 @@
 			files = (
 				A67871911A42180700AEE184 /* ExamResultController.m in Sources */,
 				A600598F1A534B80009EF5AF /* VocabGroupController.m in Sources */,
+				A6C6A1B81A70A739000E2F23 /* GradientView.m in Sources */,
 				A6005A7F1A5B1300009EF5AF /* TextViewTapSupporter.m in Sources */,
 				A60059DC1A54787C009EF5AF /* UIBlockView.m in Sources */,
 				A662FCA01A4A68C7008E6FA6 /* HttpDownloadSupport.m in Sources */,
@@ -1248,6 +1289,7 @@
 				A6A692521A376FC500414E73 /* RCCSQuestion.m in Sources */,
 				A6A692631A37856000414E73 /* TCViewController.m in Sources */,
 				A662FCC01A4B52D1008E6FA6 /* ioapi.c in Sources */,
+				A6C6A1BD1A70CCB2000E2F23 /* GradeView.m in Sources */,
 				A6A692191A3766E300414E73 /* AppDelegate.m in Sources */,
 				A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */,
 				A662FCC11A4B52D1008E6FA6 /* mztools.c in Sources */,
@@ -1276,11 +1318,13 @@
 				A6A692551A37705B00414E73 /* RCText.m in Sources */,
 				A6A692481A376C8700414E73 /* TCQuestion.m in Sources */,
 				A662FC9D1A49F988008E6FA6 /* UpdateViewController.m in Sources */,
+				A6C6A1B51A6F3C8C000E2F23 /* PieChartView.m in Sources */,
 				A67871D11A45172C00AEE184 /* DataImporter.m in Sources */,
 				A662FCC61A4B54C3008E6FA6 /* ZipSupport.m in Sources */,
 				A678717A1A40EE2A00AEE184 /* ExamTimer.m in Sources */,
 				A67871B41A43B9B300AEE184 /* MemoryAlgorithm.m in Sources */,
 				A6A692581A3770DA00414E73 /* QuestionSet.m in Sources */,
+				A6C6A1C01A72139B000E2F23 /* ExamGrader.m in Sources */,
 				A67871C01A43E50D00AEE184 /* UserPreference.m in Sources */,
 				A678715E1A40BA6400AEE184 /* NavViewController.m in Sources */,
 				A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */,

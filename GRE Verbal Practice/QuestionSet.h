@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Question.h"
+#import "Scorer.h"
 
 @interface QuestionSet : NSManagedObject {
     NSInteger current;
@@ -33,6 +34,6 @@
 - (void)answer: (NSArray*)answer;
 - (void)answer:(NSArray *)answer index:(NSInteger)index;
 - (NSArray*) answerForIndex:(NSInteger)index;
-- (NSString*)score;
+- (Score*)score;
 
 @end

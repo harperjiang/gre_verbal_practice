@@ -10,12 +10,21 @@
 #import "MainViewController.h"
 #import "SettingViewController.h"
 #import "UpdateViewController.h"
+#import "ExamResultController.h"
 
 @interface NavViewController ()
 
 @end
 
 @implementation NavViewController
+
+- (BOOL)isPad {
+#ifdef UI_USER_INTERFACE_IDIOM
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+#else
+    return NO;
+#endif
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,16 +41,23 @@
 }
 
 - (BOOL)shouldAutorotate {
-    id currentViewController = self.topViewController;
-    
-    if ([currentViewController isKindOfClass:[MainViewController class]])
-        return NO;
-    if ([currentViewController isKindOfClass:[SettingViewController class]])
-        return NO;
-    if ([currentViewController isKindOfClass:[UpdateViewController class]]) {
-        return NO;
-    }
     return YES;
+}
+
+-(NSUInteger)supportedInterfaceOrientations {
+    if([self isPad]) {
+        return UIInterfaceOrientationMaskAll;
+    } else {
+        id currentViewController = self.topViewController;
+        if ([currentViewController isKindOfClass:[MainViewController class]])
+            return UIInterfaceOrientationMaskPortrait;
+        if ([currentViewController isKindOfClass:[SettingViewController class]])
+            return UIInterfaceOrientationMaskPortrait;
+        if ([currentViewController isKindOfClass:[UpdateViewController class]]) {
+            return UIInterfaceOrientationMaskPortrait;
+        }
+        return UIInterfaceOrientationMaskAll;
+    }
 }
 
 /*

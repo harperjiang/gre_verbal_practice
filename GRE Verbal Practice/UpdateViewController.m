@@ -54,6 +54,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidLayoutSubviews {
+    CGSize size = self.labelText1.bounds.size;
+    size = [self.labelText1 sizeThatFits: CGSizeMake(size.width, 10000)];
+    self.labelHeight1.constant = size.height;
+    
+    size = self.labelText2.bounds.size;
+    size = [self.labelText2 sizeThatFits: CGSizeMake(size.width, 10000)];
+    self.labelHeight2.constant = size.height;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }

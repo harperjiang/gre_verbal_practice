@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Question.h"
+#import "Scorer.h"
 
 @interface ExamSuite : NSManagedObject
 
@@ -28,7 +29,7 @@
 - (Question*)question;
 - (NSArray*)currentAnswer;
 - (void)answer: (NSArray*)answer for:(NSInteger)i;
-- (NSString*)score;
+- (Score*)score;
 - (void)reset;
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "QuestionSet.h"
-#import "Scorer.h"
 #import "DataManager.h"
 #import "UserPreference.h"
 
@@ -89,7 +88,7 @@
     return [self.answers objectAtIndex:index];
 }
 
-- (NSString*)score {
+- (Score*)score {
     return [Scorer scoreWithSet:self.questions answer: self.answers];
 }
 

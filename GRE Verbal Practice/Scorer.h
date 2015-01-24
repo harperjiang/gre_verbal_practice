@@ -8,9 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@interface Score : NSObject
+
+@property(nonatomic) NSInteger total;
+@property(nonatomic) NSInteger correct;
+
+- (NSString*)scoreText;
+- (NSNumber*)scoreValue;
+
+@end
+
 @interface Scorer : NSObject
 
-+ (NSString*)score:(NSArray*)questions answer:(NSArray*)answers;
-+ (NSString*)scoreWithSet:(NSOrderedSet*)questions answer:(NSArray*)answers;
++ (Score*)score:(NSArray*)questions answer:(NSArray*)answers;
++ (Score*)scoreWithSet:(NSOrderedSet*)questions answer:(NSArray*)answers;
 
 @end
