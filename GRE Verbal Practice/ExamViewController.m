@@ -8,6 +8,7 @@
 
 #import "ExamViewController.h"
 #import "DateUtils.h"
+#import "DataManager.h"
 #import "UIUtils.h"
 
 @interface ExamViewController ()
@@ -87,6 +88,12 @@
     self.timeLabel.userInteractionEnabled = YES;
     [self.navigationController.navigationBar addSubview:self.timeLabel];
     
+    self->markedQuestions = [[NSMutableSet alloc] init];
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    // To obtain the correct size of containers, only load question after subview is layouted
     // Check Exam Suite
     if([self.examSuite size] == 0) {
         [self showContentController:msgvc];
@@ -100,8 +107,6 @@
                                                   done:@selector(showResultView)];
         }
     }
-    
-    self->markedQuestions = [[NSMutableSet alloc] init];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -152,7 +157,7 @@
     [self->timer stop];
     self.examSuite.timeRemain = self->timer.remain;
     
-    // Show result view and disable toolbar
+    // Show result view
     ExamResultController* ervc = (ExamResultController*)[self.storyboard instantiateViewControllerWithIdentifier:@"ExamResultController"];
     [ervc setExamSuite: self.examSuite];
     void (^updateUI)() = ^{
@@ -324,6 +329,10 @@
 }
 
 - (void)onQuit:(id)sender {
+    [self->timer stop];
+    if(self.examSuite.temporary) {
+        [[[DataManager defaultManager] getContext] rollback];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 

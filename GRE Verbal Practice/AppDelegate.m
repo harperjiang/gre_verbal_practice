@@ -38,7 +38,7 @@
     }
     
     // Import init data
-    NSURL* jsonURL = [[NSBundle mainBundle] URLForResource:@"demoset" withExtension:@"json"];
+    NSURL* jsonURL = [[NSBundle mainBundle] URLForResource:@"data" withExtension:@"json"];
     NSData* data = [[NSData alloc] initWithContentsOfURL:jsonURL];
     NSDictionary* parsedJson = [NSJSONSerialization JSONObjectWithData:data
                                                                options:NSJSONReadingMutableContainers
@@ -109,8 +109,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
 }
 
 

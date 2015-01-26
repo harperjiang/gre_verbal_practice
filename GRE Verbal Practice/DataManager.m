@@ -13,11 +13,7 @@
 #import "MemoryAlgorithm.h"
 #import "DateUtils.h"
 
-@implementation DataManager {
-    NSArray* seQuestions;
-    NSArray* rcQuestions;
-    NSArray* tcQuestions;
-}
+@implementation DataManager
 
 static DataManager* inst;
 
@@ -33,6 +29,20 @@ static DataManager* inst;
     return [app managedObjectContext];
 }
 
+- (NSManagedObjectContext*)getTempContext {
+    if(_memoryContext != nil)
+        return _memoryContext;
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"GRE_Verbal_Practice" withExtension:@"momd"];
+    NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
+    if(![psc addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:NULL]) {
+        abort();
+    }
+    _memoryContext = [[NSManagedObjectContext alloc] init];
+    _memoryContext.persistentStoreCoordinator = psc;
+    return _memoryContext;
+}
+
 - (BOOL)save {
     NSError* error;
     if(![[self getContext] save:&error]) {
@@ -43,9 +53,7 @@ static DataManager* inst;
 }
 
 - (void)reset {
-    seQuestions = nil;
-    rcQuestions = nil;
-    tcQuestions = nil;
+    
 }
 
 - (NSArray*)query:(NSFetchRequest*)request {
@@ -191,27 +199,27 @@ static DataManager* inst;
     return [self query:fr];
 }
 
-- (NSArray*)getQuestions:(QuestionType)type count:(NSInteger)count {
-    NSArray* source = nil;
+- (NSArray*)getQuestions:(QuestionType)type diffculty:(NSInteger) diffculty count:(NSInteger)count {
     NSString* name = nil;
     switch(type) {
         case SENTENCE_EQUIV:
-            source = [self seQuestions];
             name = @"SEQuestion";
             break;
         case READING_COMP:
-            source = [self rcQuestions];
             name = @"RCQuestion";
             break;
         case TEXT_COMPLETION:
-            source = [self tcQuestions];
             name = @"TCQuestion";
             break;
     }
 
-    if(source == nil || source.count == 0)
-        return [[NSArray alloc] init];
     NSMutableSet* result = [[NSMutableSet alloc] init];
+    
+    NSFetchRequest* questionFetch = [[NSFetchRequest alloc] initWithEntityName:name];
+    NSPredicate* condition = [NSPredicate predicateWithFormat:@"questionSet.difficulty = %ld", diffculty];
+    [questionFetch setPredicate:condition];
+    
+    NSArray* source = [self query:questionFetch];
     
     while(result.count < MIN(count, source.count)) {
         [result addObject:[source objectAtIndex: arc4random() % source.count]];
@@ -232,33 +240,6 @@ static DataManager* inst;
     [fr setSortDescriptors:@[sort]];
     
     return [self query:fr];
-}
-
-- (NSArray*)seQuestions {
-    if(seQuestions == nil) {
-        // Re-fetch all SEQuestions
-        NSFetchRequest* fetchAll = [[NSFetchRequest alloc] initWithEntityName:@"SEQuestion"];
-        seQuestions = [self query:fetchAll];
-    }
-    return seQuestions;
-}
-
-- (NSArray*)rcQuestions {
-    if(rcQuestions == nil) {
-        // Re-fetch all RCQuestions
-        NSFetchRequest* fetchAll = [[NSFetchRequest alloc] initWithEntityName:@"RCQuestion"];
-        rcQuestions = [self query:fetchAll];
-    }
-    return rcQuestions;
-}
-
-- (NSArray*)tcQuestions {
-    if(tcQuestions == nil) {
-        // Re-fetch all TCQuestions
-        NSFetchRequest* fetchAll = [[NSFetchRequest alloc] initWithEntityName:@"TCQuestion"];
-        tcQuestions = [self query:fetchAll];
-    }
-    return tcQuestions;
 }
 
 @end

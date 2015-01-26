@@ -7,6 +7,7 @@
 //
 
 #import "QuestionViewController.h"
+#import "QuestionListController.h"
 #import "QViewController.h"
 #import "MessageViewController.h"
 #import "UIUtils.h"
@@ -71,6 +72,13 @@
     if(self.questionSet != nil) {
         [self.questionSet reset];
         [self showQuestion: [self.questionSet question]];
+    }
+}
+
+- (void)willMoveToParentViewController:(UIViewController *)parent {
+    // When going back to question selection, clear out selected answers
+    if (parent == nil) {
+        [self.questionSet.answers removeAllObjects];
     }
 }
 

@@ -54,6 +54,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillLayoutSubviews {
+    self.pageWidth.constant = self.view.bounds.size.width;
+}
+
 - (void)viewDidLayoutSubviews {
     CGSize size = self.labelText1.bounds.size;
     size = [self.labelText1 sizeThatFits: CGSizeMake(size.width, 10000)];

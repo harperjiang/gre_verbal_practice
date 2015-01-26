@@ -115,7 +115,6 @@
 		A6005A751A5762FC009EF5AF /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6005A711A5762FC009EF5AF /* iPad.storyboard */; };
 		A6005A791A587D36009EF5AF /* LinenumView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6005A781A587D36009EF5AF /* LinenumView.m */; };
 		A6005A7F1A5B1300009EF5AF /* TextViewTapSupporter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6005A7E1A5B1300009EF5AF /* TextViewTapSupporter.m */; };
-		A6005A821A5C1F87009EF5AF /* demoset.json in Resources */ = {isa = PBXBuildFile; fileRef = A6005A811A5C1F87009EF5AF /* demoset.json */; };
 		A6005A8E1A5C296D009EF5AF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6005A841A5C296D009EF5AF /* Default-568h@2x.png */; };
 		A6005A8F1A5C296D009EF5AF /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6005A851A5C296D009EF5AF /* Default-667h@2x.png */; };
 		A6005A901A5C296D009EF5AF /* Default-Landscape-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6005A861A5C296D009EF5AF /* Default-Landscape-736h@3x.png */; };
@@ -203,6 +202,8 @@
 		A6C6A1BA1A70C9A0000E2F23 /* GradeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1B91A70C9A0000E2F23 /* GradeView.xib */; };
 		A6C6A1BD1A70CCB2000E2F23 /* GradeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1BC1A70CCB2000E2F23 /* GradeView.m */; };
 		A6C6A1C01A72139B000E2F23 /* ExamGrader.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1BF1A72139B000E2F23 /* ExamGrader.m */; };
+		A6C6A1C91A74456B000E2F23 /* PercentChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1C81A74456B000E2F23 /* PercentChartView.m */; };
+		A6C6A1D31A761E20000E2F23 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1D21A761E20000E2F23 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -334,7 +335,6 @@
 		A6005A781A587D36009EF5AF /* LinenumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinenumView.m; sourceTree = "<group>"; };
 		A6005A7D1A5B1300009EF5AF /* TextViewTapSupporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTapSupporter.h; sourceTree = "<group>"; };
 		A6005A7E1A5B1300009EF5AF /* TextViewTapSupporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTapSupporter.m; sourceTree = "<group>"; };
-		A6005A811A5C1F87009EF5AF /* demoset.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demoset.json; sourceTree = "<group>"; };
 		A6005A841A5C296D009EF5AF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A6005A851A5C296D009EF5AF /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		A6005A861A5C296D009EF5AF /* Default-Landscape-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape-736h@3x.png"; sourceTree = "<group>"; };
@@ -488,6 +488,9 @@
 		A6C6A1BC1A70CCB2000E2F23 /* GradeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeView.m; sourceTree = "<group>"; };
 		A6C6A1BE1A72139B000E2F23 /* ExamGrader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamGrader.h; sourceTree = "<group>"; };
 		A6C6A1BF1A72139B000E2F23 /* ExamGrader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamGrader.m; sourceTree = "<group>"; };
+		A6C6A1C71A74456B000E2F23 /* PercentChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PercentChartView.h; sourceTree = "<group>"; };
+		A6C6A1C81A74456B000E2F23 /* PercentChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PercentChartView.m; sourceTree = "<group>"; };
+		A6C6A1D21A761E20000E2F23 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -651,7 +654,7 @@
 		A6005A801A5C1F73009EF5AF /* data */ = {
 			isa = PBXGroup;
 			children = (
-				A6005A811A5C1F87009EF5AF /* demoset.json */,
+				A6C6A1D21A761E20000E2F23 /* data.json */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -875,6 +878,9 @@
 		A67871B81A43BAB900AEE184 /* support */ = {
 			isa = PBXGroup;
 			children = (
+				A6C6A1CF1A74811D000E2F23 /* report */,
+				A67871771A40EB4F00AEE184 /* file */,
+				A662FCB61A4B4486008E6FA6 /* zip */,
 				A67871B51A43BAAE00AEE184 /* DateUtils.h */,
 				A67871B61A43BAAE00AEE184 /* DateUtils.m */,
 				A67871A51A429E0E00AEE184 /* WeakRef.h */,
@@ -956,10 +962,8 @@
 			isa = PBXGroup;
 			children = (
 				A6005A801A5C1F73009EF5AF /* data */,
-				A662FCB61A4B4486008E6FA6 /* zip */,
 				A6A06F261A40853800D5F8D2 /* res */,
 				A67871B81A43BAB900AEE184 /* support */,
-				A67871771A40EB4F00AEE184 /* file */,
 				A67871B11A43B98B00AEE184 /* core */,
 				A6A692641A37888900414E73 /* ui */,
 				A67871811A41190D00AEE184 /* domain */,
@@ -1049,8 +1053,17 @@
 			children = (
 				A6C6A1B31A6F3C8C000E2F23 /* PieChartView.h */,
 				A6C6A1B41A6F3C8C000E2F23 /* PieChartView.m */,
+				A6C6A1C71A74456B000E2F23 /* PercentChartView.h */,
+				A6C6A1C81A74456B000E2F23 /* PercentChartView.m */,
 			);
 			name = chart;
+			sourceTree = "<group>";
+		};
+		A6C6A1CF1A74811D000E2F23 /* report */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = report;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1169,9 +1182,9 @@
 				A60059E51A55C00F009EF5AF /* Yellow.png in Resources */,
 				A600596C1A532701009EF5AF /* book-3x.png in Resources */,
 				A600597E1A5327C4009EF5AF /* menu-6x.png in Resources */,
-				A6005A821A5C1F87009EF5AF /* demoset.json in Resources */,
 				A60059361A4F50F1009EF5AF /* menu-2x.png in Resources */,
 				A600597C1A5327C4009EF5AF /* menu-3x.png in Resources */,
+				A6C6A1D31A761E20000E2F23 /* data.json in Resources */,
 				A60059B61A53B1FB009EF5AF /* chevron-left-8x.png in Resources */,
 				A60059741A532701009EF5AF /* clock-8x.png in Resources */,
 				A6005A5B1A564341009EF5AF /* exam.png in Resources */,
@@ -1296,6 +1309,7 @@
 				A662FCC21A4B52D1008E6FA6 /* unzip.c in Sources */,
 				A6005A6D1A5747E9009EF5AF /* WebViewController.m in Sources */,
 				A66FDBDB1A3E715800DAAE13 /* UIUtils.m in Sources */,
+				A6C6A1C91A74456B000E2F23 /* PercentChartView.m in Sources */,
 				A678719A1A424B4E00AEE184 /* QuestionViewController.m in Sources */,
 				A67871BD1A43CF3800AEE184 /* SettingViewController.m in Sources */,
 				A662FCB51A4B4477008E6FA6 /* SSZipArchive.m in Sources */,

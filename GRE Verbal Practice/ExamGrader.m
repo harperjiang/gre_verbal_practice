@@ -14,11 +14,11 @@
 
 @implementation ExamGrader
 
-+ (ExamGrade *)grade:(NSNumber *)correct time:(NSNumber *)time diffculty:(NSInteger)diffculty {
++ (ExamGrade *)grade:(NSNumber *)correct time:(NSNumber *)time difficulty:(NSInteger)difficulty {
     // TODO
     ExamGrade* grade = [[ExamGrade alloc] init];
     
-    grade.diffcultyWeight = [NSNumber numberWithDouble:0.25];
+    grade.difficultyWeight = [NSNumber numberWithDouble:0.25];
     grade.correctnessWeight = [NSNumber numberWithDouble:0.4];
     grade.timeWeight = [NSNumber numberWithDouble:0.35];
 
@@ -30,15 +30,15 @@
     }
     grade.timeGrade = [self scoreToGrade:timeScore];
     
-    double diffcultyScore = 100 - diffculty * 12;
-    grade.diffcultyGrade = [self scoreToGrade:diffcultyScore];
+    double difficultyScore = 100 - difficulty * 12;
+    grade.difficultyGrade = [self scoreToGrade:difficultyScore];
     
     
     double correctnessScore = 100 * correct.doubleValue;
     grade.correctnessGrade = [self scoreToGrade:correctnessScore];
     
     double total = timeScore * grade.timeWeight.doubleValue +
-                   diffcultyScore * grade.diffcultyWeight.doubleValue +
+                   difficultyScore * grade.difficultyWeight.doubleValue +
                    correctnessScore * grade.correctnessWeight.doubleValue;
     
     grade.grade = [self scoreToGrade:total];

@@ -195,7 +195,7 @@
     if ([@"Reading Comprehension" isEqualToString: param]) {
         qt = READING_COMP;
     }
-    if ([@"Sentence Equivalance" isEqualToString: param]) {
+    if ([@"Sentence Equivalence" isEqualToString: param]) {
         qt = SENTENCE_EQUIV;
     }
     if ([@"Text Completion" isEqualToString: param]) {

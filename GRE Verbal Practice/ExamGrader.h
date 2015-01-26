@@ -14,17 +14,17 @@
 
 @property(nonatomic) NSString* timeGrade;
 @property(nonatomic) NSString* correctnessGrade;
-@property(nonatomic) NSString* diffcultyGrade;
+@property(nonatomic) NSString* difficultyGrade;
 
 @property(nonatomic) NSNumber* timeWeight;
 @property(nonatomic) NSNumber* correctnessWeight;
-@property(nonatomic) NSNumber* diffcultyWeight;
+@property(nonatomic) NSNumber* difficultyWeight;
 
 @end
 
 
 @interface ExamGrader : NSObject
 
-+ (ExamGrade*)grade:(NSNumber*)correct time:(NSNumber*)time diffculty:(NSInteger)diffculty;
++ (ExamGrade*)grade:(NSNumber*)correct time:(NSNumber*)time difficulty:(NSInteger)difficulty;
 
 @end

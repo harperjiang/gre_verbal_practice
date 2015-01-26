@@ -13,9 +13,4 @@
  */
 @interface TCQuestion : Question
 
-// Array of array, contains question options
-@property (nonatomic, readwrite) NSArray* options;
-// Array of NSString, contains correct answer for each blank
-@property (nonatomic, readwrite) NSArray* answers;
-
 @end

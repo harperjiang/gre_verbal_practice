@@ -192,6 +192,7 @@
     if(vocGroups != nil) {
         for(NSDictionary* vocGroup in vocGroups) {
             VocabGroup* group = [[VocabGroup alloc] initWithEntity:vged insertIntoManagedObjectContext:moc];
+            group.uid = [vocGroup objectForKey:@"uid"];
             group.name = [vocGroup objectForKey:@"name"];
             group.detail = [vocGroup objectForKey:@"detail"];
             
@@ -223,9 +224,10 @@
         for(NSDictionary* esData in esDatas) {
             ExamSuite* es = [[ExamSuite alloc] initWithEntity:esed
                                insertIntoManagedObjectContext:moc];
-            
+            es.uid = [esData objectForKey:@"uid"];
             es.name = [esData objectForKey:@"name"];
             es.statistics = [esData objectForKey:@"detail"];
+            es.difficulty = [esData objectForKey:@"difficulty"];
             es.timeLimit = [esData objectForKey:@"timeLimit"];
             if(es.timeLimit.intValue == 0) {
                 es.timeLimit = [NSNumber numberWithInt:30];
@@ -243,7 +245,9 @@
         for(NSDictionary* qsData in qsDatas) {
             QuestionSet* qs = [[QuestionSet alloc] initWithEntity:qsed
                                insertIntoManagedObjectContext:moc];
+            qs.uid = [qsData objectForKey:@"uid"];
             qs.name = [qsData objectForKey:@"name"];
+            qs.difficulty = [qsData objectForKey:@"difficulty"];
             qs.type = (QuestionType)[[qsData objectForKey:@"type"] integerValue];
             
             NSOrderedSet* questions = [DataImporter extractQuestions: (NSArray*)[qsData objectForKey:@"questions"]];
@@ -279,6 +283,7 @@
         switch (type) {
             case SENTENCE_EQUIV: {
                 SEQuestion* question = [[SEQuestion alloc] initWithEntity:seed insertIntoManagedObjectContext:moc];
+                [question setUid:[qd objectForKey:@"uid"]];
                 [question setText:[qd objectForKey:@"text"]];
                 [question setOptions:[qd objectForKey:@"options"]];
                 [question setAnswers:[qd objectForKey:@"answers"]];
@@ -289,6 +294,7 @@
             }
             case TEXT_COMPLETION: {
                 TCQuestion* question = [[TCQuestion alloc] initWithEntity:tced insertIntoManagedObjectContext:moc];
+                [question setUid:[qd objectForKey:@"uid"]];
                 [question setText:[qd objectForKey:@"text"]];
                 [question setOptions:[qd objectForKey:@"options"]];
                 [question setAnswers:[qd objectForKey:@"answers"]];
@@ -307,6 +313,7 @@
                 }
                 RCQuestion* question = [[RCQuestion alloc] initWithEntity:rced insertIntoManagedObjectContext:moc];
                 [question setText:[qd objectForKey:@"text"]];
+                [question setUid:[qd objectForKey:@"uid"]];
                 [question setOptions:[qd objectForKey:@"options"]];
                 [question setAnswers:[qd objectForKey:@"answers"]];
                 [question setExplanation:[qd objectForKey:@"explanation"]];

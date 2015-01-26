@@ -12,6 +12,7 @@
 
 @interface ExamSuite : NSManagedObject
 
+@property(nonatomic) NSString* uid;
 @property(nonatomic) NSString* name;
 @property(nonatomic) NSString* statistics;
 @property(nonatomic) NSDate* lastVisited;
@@ -19,9 +20,11 @@
 @property(nonatomic) NSMutableArray* answers;
 @property(nonatomic) NSInteger current;
 @property(nonatomic) NSNumber* timeLimit;
+@property(nonatomic) NSNumber* difficulty;
 @property(nonatomic) long timeRemain;
+@property(nonatomic) BOOL temporary;
 
-+ (ExamSuite*)create;
++ (ExamSuite*)create:(NSInteger) difficulty;;
 
 - (NSInteger)size;
 - (BOOL)next;
@@ -31,5 +34,6 @@
 - (void)answer: (NSArray*)answer for:(NSInteger)i;
 - (Score*)score;
 - (void)reset;
+- (NSString*)difficultyString;
 
 @end

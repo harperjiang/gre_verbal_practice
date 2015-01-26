@@ -26,7 +26,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="school_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="hpp-9F-U7W">
-                    <rect key="frame" x="80" y="182" width="440" height="235"/>
+                    <rect key="frame" x="40" y="161" width="520" height="277"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="hpp-9F-U7W" secondAttribute="height" multiplier="15:8" id="plC-s5-CAJ"/>
                     </constraints>
@@ -44,7 +44,7 @@
                 <constraint firstAttribute="centerY" secondItem="hpp-9F-U7W" secondAttribute="centerY" id="bn6-3f-DxI"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
                 <constraint firstAttribute="centerX" secondItem="hpp-9F-U7W" secondAttribute="centerX" id="lPt-rs-isw"/>
-                <constraint firstItem="hpp-9F-U7W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="80" id="y2e-Ul-wVI"/>
+                <constraint firstItem="hpp-9F-U7W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="y2e-Ul-wVI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <variation key="default">

@@ -11,6 +11,7 @@
 
 @interface VocabGroup : NSManagedObject
 
+@property(nonatomic) NSString* uid;
 @property(nonatomic) NSString* name;
 @property(nonatomic) NSString* detail;
 @property(nonatomic) NSSet* vocabularies;

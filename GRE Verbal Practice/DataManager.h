@@ -11,11 +11,14 @@
 #import "Question.h"
 
 
-@interface DataManager : NSObject
+@interface DataManager : NSObject {
+    NSManagedObjectContext* _memoryContext;
+}
 
 + (DataManager*)defaultManager;
 
 - (NSManagedObjectContext*) getContext;
+- (NSManagedObjectContext*) getTempContext;
 
 // Vocabularies
 - (NSArray*)getVocabGroups;
@@ -25,8 +28,7 @@
 - (NSInteger)getFutureVocabCount:(VocabGroup*)group;
 
 // Questions and Sets
-- (NSArray*)getQuestions:(QuestionType)type count:(NSInteger)count;
-
+- (NSArray*)getQuestions:(QuestionType)type diffculty:(NSInteger) diffculty count:(NSInteger)count;
 - (NSArray*)getQuestionSets:(QuestionType)type;
 
 

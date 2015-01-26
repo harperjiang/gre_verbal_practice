@@ -37,58 +37,97 @@
 
 #pragma mark - Table view data source
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view
+       forSection:(NSInteger)section {
+    view.tintColor = [UIUtils navbarColor];
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor whiteColor]];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(section > 0)
+        return 28;
+    return 0;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = indexPath.section;
     NSInteger index = indexPath.row;
     
-    if(section == 0) {
-        VocabGroup* group = [self.vocabGroups objectAtIndex:index];
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
-            cell.textLabel.font = [UIFont systemFontOfSize:16];
-            cell.backgroundColor = [UIColor clearColor];
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
-            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    switch (section) {
+        case 0: {
+            VocabGroup* group = [self.vocabGroups objectAtIndex:index];
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
+                cell.textLabel.font = [UIFont systemFontOfSize:16];
+                cell.backgroundColor = [UIColor clearColor];
+                cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
+                cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
+            [cell.textLabel setText: group.name];
+            [cell.detailTextLabel setText:group.detail];
+            // cell.imageView.image = theImage;
+            return cell;
         }
-        [cell.textLabel setText: group.name];
-        [cell.detailTextLabel setText:group.detail];
-        // cell.imageView.image = theImage;
-        return cell;
+        case 1: {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Section2Cell"];
+            if(cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Section2Cell"];
+                cell.textLabel.font = [UIFont systemFontOfSize:16];
+                cell.backgroundColor = [UIColor clearColor];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
+            switch(index) {
+                case 0:
+                    cell.textLabel.text = @"Word of the day";
+                    break;
+                case 1:
+                    cell.textLabel.text = @"Vocabulary Quiz";
+                    break;
+                default:
+                    break;
+            }
+            return cell;
+        }
+        case 2: {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FixedCell"];
+            if(cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"FixedCell"];
+                cell.textLabel.font = [UIFont systemFontOfSize:16];
+                cell.backgroundColor = [UIColor clearColor];
+                cell.accessoryType = UITableViewCellAccessoryDetailButton;
+            }
+            switch(index) {
+                case 0:
+                    cell.textLabel.text = @"Visit Update Site";
+                default:
+                    break;
+            }
+            return cell;
+        }
+        default:
+            return nil;
     }
-    if(section == 1) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FixedCell"];
-        if(cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"FixedCell"];
-            cell.textLabel.font = [UIFont systemFontOfSize:16];
-            cell.backgroundColor = [UIColor clearColor];
-            cell.accessoryType = UITableViewCellAccessoryDetailButton;
-        }
-        switch(index) {
-            case 0:
-                cell.textLabel.text = @"Visit Update Site";
-            default:
-                break;
-        }
-        return cell;
-    }
-    return nil;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 0) {
-        return self.vocabGroups.count;
+    switch (section) {
+        case 0:
+            return self.vocabGroups.count;
+        case 1:
+            return 1;
+        case 2:
+            return 1;
+        default:
+            return 0;
     }
-    if(section == 1) {
-        return 1;
-    }
-    return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,10 +162,14 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if(section == 1) {
-        return @"More Vocabulary Sets";
+    switch (section) {
+        case 1:
+            return @"Vocabulary Games";
+        case 2:
+            return @"More Vocabulary Sets";
+        default:
+            return nil;
     }
-    return nil;
 }
 
 @end

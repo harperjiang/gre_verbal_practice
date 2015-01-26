@@ -12,21 +12,35 @@
 
 @implementation ExamSuite
 
+@dynamic uid;
 @dynamic name;
 @dynamic lastVisited;
 @dynamic statistics;
 @dynamic questions;
 @dynamic timeLimit;
+@dynamic difficulty;
 @synthesize answers;
 @synthesize current;
+@synthesize temporary;
 @synthesize timeRemain;
 
-+ (ExamSuite*)create {
-    ExamSuite* esuite = [[ExamSuite alloc] init];
++ (ExamSuite*)create:(NSInteger)diffculty {
+    NSManagedObjectContext* context = [[DataManager defaultManager] getContext];
+    NSEntityDescription* esd = [NSEntityDescription entityForName:@"ExamSuite"
+                                           inManagedObjectContext:context];
+    ExamSuite* esuite = [[ExamSuite alloc] initWithEntity:esd insertIntoManagedObjectContext: context];
+    esuite.temporary = YES;
+    esuite.difficulty = [NSNumber numberWithInteger: diffculty];
     NSMutableOrderedSet* questions = [[NSMutableOrderedSet alloc] init];
-    [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: TEXT_COMPLETION count: 5]];
-    [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: SENTENCE_EQUIV count: 4]];
-    [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: READING_COMP count: 4]];
+    [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: TEXT_COMPLETION
+                                                                    diffculty: diffculty
+                                                                        count: 5]];
+    [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: SENTENCE_EQUIV
+                                                                    diffculty: diffculty
+                                                                        count: 4]];
+    [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: READING_COMP
+                                                                    diffculty: diffculty
+                                                                        count: 4]];
     [esuite setQuestions:questions];
     NSInteger val = [UserPreference getInteger:USER_EXAM_TIMELIMIT defval:USER_EXAM_TIMELIMIT_DEFAULT];
     [esuite setTimeLimit: [NSNumber numberWithInteger:val]];
@@ -100,4 +114,16 @@
     self.answers = [[NSMutableArray alloc] init];
 }
 
+- (NSString *)difficultyString {
+    switch (self.difficulty.intValue) {
+        case 0:
+            return @"Hard";
+        case 1:
+            return @"Normal";
+        case 2:
+            return @"Easy";
+        default:
+            return @"";
+    }
+}
 @end

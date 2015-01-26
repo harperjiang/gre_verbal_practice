@@ -10,7 +10,7 @@
 
 @implementation RCQuestion
 
-@dynamic readText, options, answers, multiple, selectSentence;
+@dynamic readText, multiple, selectSentence;
 
 - (QuestionType)type {
     return READING_COMP;

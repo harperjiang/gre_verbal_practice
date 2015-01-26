@@ -12,6 +12,7 @@
 #import "RCAnswerView.h"
 #import "QViewController.h"
 #import "TextViewTapSupporter.h"
+#import "PercentChartView.h"
 
 @interface PadRCViewController : UIViewController<QViewController>{
     TextViewTapSupporter* _tapSupporter;
@@ -23,7 +24,10 @@
 @property(nonatomic, readwrite, retain) IBOutlet RCAnswerView* answerView;
 @property(nonatomic, readwrite, retain) IBOutlet UIScrollView* scrollView;
 @property(nonatomic, readwrite, retain) IBOutlet UILabel* explainLabel;
+
 @property(nonatomic, readwrite, retain) IBOutlet UIImageView* resultImageView;
+@property(nonatomic, readwrite, retain) IBOutlet PercentChartView* resultPercentView;
+@property(nonatomic, readwrite, retain) IBOutlet UILabel* resultLabel;
 
 @property(nonatomic, readwrite, retain) IBOutlet NSLayoutConstraint* viewWidth;
 @property(nonatomic, readwrite, retain) IBOutlet NSLayoutConstraint* questionHeight;

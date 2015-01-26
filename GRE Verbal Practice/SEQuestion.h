@@ -13,7 +13,5 @@
  **/
 @interface SEQuestion : Question
 
-@property(nonatomic, readwrite, retain) NSArray* options;
-@property(nonatomic, readwrite, retain) NSArray* answers;
 
 @end

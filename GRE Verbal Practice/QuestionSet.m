@@ -12,17 +12,19 @@
 
 @implementation QuestionSet
 
-
+@dynamic uid;
 @dynamic name, detail, lastVisited;
 @dynamic questions;
 @dynamic rawType;
+@dynamic difficulty;
 
 @synthesize answers;
 
-+ (QuestionSet*) create:(QuestionType)qt {
++ (QuestionSet*) create:(QuestionType)qt difficulty:(NSInteger) difficulty{
     NSInteger questionCount = [UserPreference getInteger: USER_QUES_PER_SET defval:USER_QUES_PER_SET_DEFAULT];
     
     NSArray* questions = [[DataManager defaultManager] getQuestions:qt
+                                                          diffculty:difficulty
                                                               count:questionCount];
     QuestionSet* qs = [[QuestionSet alloc] init];
     [qs setType:qt];;
@@ -106,6 +108,19 @@
 
 - (void)setType:(QuestionType)type {
     [self setRawType:[NSNumber numberWithInt:type]];
+}
+
+- (NSString *)difficultyString {
+    switch (self.difficulty.intValue) {
+        case 0:
+            return @"Hard";
+        case 1:
+            return @"Normal";
+        case 2:
+            return @"Easy";
+        default:
+            return @"";
+    }
 }
 
 @end

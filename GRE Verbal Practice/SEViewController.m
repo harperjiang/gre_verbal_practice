@@ -101,6 +101,8 @@
         self.answerView.answerListener = self.answerListener;
     }
     self.resultImageView.hidden = YES;
+    self.resultLabel.hidden = YES;
+    self.resultPercentView.hidden = YES;
 }
 
 - (void)showExplanation:(BOOL)show {
@@ -120,6 +122,9 @@
     UIImage* image = [UIImage imageNamed:imageName];
     [self.resultImageView setImage:image];
     self.resultImageView.hidden = NO;
+    
+//    self.resultLabel.hidden = NO;
+//    self.resultPercentView.hidden = NO;
 }
 
 @end

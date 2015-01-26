@@ -92,6 +92,8 @@
         [self.answerView setShouldShowAnswer: YES];
     }
     [self judgeAndShowImage];
+    self.resultLabel.hidden = NO;
+    self.resultPercentView.hidden = NO;
 }
 
 - (void)hideAnswer {
@@ -101,6 +103,8 @@
         [self.answerView setShouldShowAnswer: NO];
     }
     self.resultImageView.hidden = YES;
+    self.resultLabel.hidden = YES;
+    self.resultPercentView.hidden = YES;
 }
 
 - (void)showExplanation:(BOOL)show {

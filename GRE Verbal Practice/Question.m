@@ -14,6 +14,9 @@
 
 @dynamic text;
 @dynamic explanation;
+@dynamic options;
+@dynamic answers;
+@dynamic uid;
 @dynamic examSuite;
 @dynamic questionSet;
 

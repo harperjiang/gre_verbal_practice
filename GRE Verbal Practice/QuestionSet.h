@@ -14,6 +14,7 @@
     NSInteger current;
 }
 
+@property(nonatomic, readwrite) NSString* uid;
 @property(nonatomic, readwrite) NSString* name;
 @property(nonatomic, readwrite) NSString* detail;
 @property(nonatomic, readwrite) NSDate* lastVisited;
@@ -21,8 +22,9 @@
 @property(nonatomic, readwrite, strong) NSMutableArray* answers;
 @property(nonatomic, readwrite) QuestionType type;
 @property(nonatomic, readwrite) NSNumber* rawType;
+@property(nonatomic, readwrite) NSNumber* difficulty;
 
-+ (QuestionSet*)create:(QuestionType)qt;
++ (QuestionSet*)create:(QuestionType)qt difficulty:(NSInteger) difficulty;
 
 - (BOOL)isEmpty;
 - (NSInteger)current;
@@ -35,5 +37,5 @@
 - (void)answer:(NSArray *)answer index:(NSInteger)index;
 - (NSArray*) answerForIndex:(NSInteger)index;
 - (Score*)score;
-
+- (NSString*)difficultyString;
 @end

@@ -24,6 +24,7 @@
 @property(nonatomic, readwrite, strong) IBOutlet UIProgressView* dataProgressView;
 @property(nonatomic, readwrite, strong) IBOutlet UIButton* dataButton;
 
+@property(nonatomic) IBOutlet NSLayoutConstraint* pageWidth;
 
 @property(nonatomic) IBOutlet UITextView* labelText1;
 @property(nonatomic) IBOutlet UITextView* labelText2;

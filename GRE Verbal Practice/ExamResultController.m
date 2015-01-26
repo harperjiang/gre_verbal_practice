@@ -27,19 +27,6 @@
 #endif
 }
 
-- (NSString*)diffcultyName:(NSInteger)diffculty {
-    switch (diffculty) {
-        case 0:
-            return @"Hard";
-        case 1:
-            return @"Normal";
-        case 2:
-            return @"Easy";
-        default:
-            return @"";
-    }
-}
-
 - (void)viewDidLoad {
     self.view.backgroundColor = [UIUtils backgroundColor];
     
@@ -52,11 +39,11 @@
     Score* score = [self.examSuite score];
     [self.resultLabel setText: [score scoreText]];
     
-    NSInteger diffculty = 1;
-    [self.diffcultyLabel setText: [self diffcultyName:diffculty]];
+    [self.diffcultyLabel setText: self.examSuite.difficultyString];
     
     NSNumber* timePercent = [NSNumber numberWithDouble: ((double)usedTime) / totalTime];
-    _grade = [ExamGrader grade: score.scoreValue time: timePercent diffculty: diffculty];
+    _grade = [ExamGrader grade: score.scoreValue time: timePercent
+                     difficulty: self.examSuite.difficulty.integerValue];
     
     NSString* grade = [_grade grade];
     
@@ -65,9 +52,11 @@
     [self.gradeView setGrade: grade];
     
     // Update Statistics
-    self.examSuite.statistics = [NSString stringWithFormat:@"Grade: %@, Time used: %@, result %@",
-                                 grade, self.timeLabel.text, self.resultLabel.text];
-    [[DataManager defaultManager] save];
+    if(!self.examSuite.temporary) {
+        self.examSuite.statistics = [NSString stringWithFormat:@"%@, Grade: %@, Time used: %@, result %@",
+                                 self.examSuite.difficultyString, grade, self.timeLabel.text, self.resultLabel.text];
+        [[DataManager defaultManager] save];
+    }
 }
 
 - (void)viewWillLayoutSubviews {
@@ -101,7 +90,7 @@
 - (double)percentOfSection:(NSInteger)section {
     switch(section) {
         case 0:
-            return _grade.diffcultyWeight.doubleValue;
+            return _grade.difficultyWeight.doubleValue;
         case 1:
             return _grade.correctnessWeight.doubleValue;
         case 2:
@@ -114,7 +103,7 @@
 - (NSString *)titleOfSection:(NSInteger)section {
     switch(section) {
         case 0:
-            return [NSString stringWithFormat: @"Diffculty Grade: %@", _grade.diffcultyGrade];
+            return [NSString stringWithFormat: @"Diffculty Grade: %@", _grade.difficultyGrade];
         case 1:
             return [NSString stringWithFormat: @"Correctness Grade: %@", _grade.correctnessGrade];
         case 2:

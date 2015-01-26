@@ -33,6 +33,20 @@
 
 #pragma mark - Table view data source
 
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view
+       forSection:(NSInteger)section {
+    view.tintColor = [UIUtils navbarColor];
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor whiteColor]];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(section > 0)
+        return 28;
+    return 0;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     NSInteger index = [indexPath row];
@@ -50,7 +64,7 @@
                 cell.backgroundColor = [UIColor clearColor];
             }
             [cell.textLabel setText: qs.name];
-            [cell.detailTextLabel setText:qs.detail];
+            [cell.detailTextLabel setText: qs.difficultyString];
             // cell.imageView.image = theImage;
             return cell;
         }

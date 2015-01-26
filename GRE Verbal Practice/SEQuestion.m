@@ -10,8 +10,6 @@
 
 @implementation SEQuestion
 
-@dynamic options, answers;
-
 - (QuestionType)type {
     return SENTENCE_EQUIV;
 }

@@ -10,6 +10,6 @@
 
 @implementation VocabGroup
 
-@dynamic name, detail, vocabularies;
+@dynamic uid, name, detail, vocabularies;
 
 @end

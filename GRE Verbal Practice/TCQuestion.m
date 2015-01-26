@@ -10,7 +10,6 @@
 
 @implementation TCQuestion
 
-@dynamic options, answers;
 
 - (QuestionType)type {
     return TEXT_COMPLETION;

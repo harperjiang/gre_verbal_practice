@@ -10,4 +10,6 @@
 
 @interface PercentChartView : UIView
 
+@property(nonatomic) double percent;
+@property(nonatomic) UILabel* label;
 @end

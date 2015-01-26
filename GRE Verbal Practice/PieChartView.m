@@ -88,7 +88,6 @@ void fillRing(CGContextRef context, CGColorRef color, CGFloat cx, CGFloat cy, CG
     CGRect rect = self.bounds;
     CGFloat width = MIN(rect.size.width - 2 * self.margin, rect.size.height - 2 * self.margin);
     
-    
     [self.textLabel setFrame:CGRectMake(0, 2 * self.margin + width, rect.size.width, rect.size.height - 2 * self.margin - width)];
 }
 

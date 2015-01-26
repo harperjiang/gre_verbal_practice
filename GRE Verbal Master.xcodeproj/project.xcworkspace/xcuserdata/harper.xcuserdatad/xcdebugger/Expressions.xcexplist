@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[SEViewController layout]:SEViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[QuestionSetTest setUp]:QuestionSetTest.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCViewController viewDidLoad]:TCViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MenuView showMenu:event:]:MenuView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RCQViewController showAnswer]:RCQViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[PadRCViewController layout]:PadRCViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCAnswerView setOptions:]:TCAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCViewController viewWillAppear:]:TCViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RCAnswerView buttonChanged:chosen:]:RCAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[GradientView drawRect:]:GradientView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "colordata[5]">
+            </PersistentString>
+            <PersistentString
+               value = "colordata[6]">
+            </PersistentString>
+            <PersistentString
+               value = "colordata[4]">
+            </PersistentString>
+            <PersistentString
+               value = "colordata[7]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[TextViewTapSupporter selectSentences:]:TextViewTapSupporter.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCAnswerView buttonChanged:chosen:]:TCAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[UIBlockView layoutSubviews]:UIBlockView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "boxWidth">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[TextViewTapSupporter onTap:]:TextViewTapSupporter.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "size">
+            </PersistentString>
+            <PersistentString
+               value = "insets">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RCQViewController viewDidAppear:]:RCQViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ExamViewController viewDidLoad]:ExamViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SEViewController setQuestionData:]:SEViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ExamViewController showQuestion:]:ExamViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCAnswerView showAnswer]:TCAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCAnswerView updateControls]:TCAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SEViewController viewDidLoad]:SEViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ExamSuite answer:for:]:ExamSuite.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RCQViewController viewDidLoad]:RCQViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[DataImporter extractQuestions:]:DataImporter.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "rctext">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ExamViewController markQuestion:]:ExamViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RCQViewController setQuestionData:]:RCQViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCAnswerView refresh]:TCAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ExamSuiteTest setUp]:ExamSuiteTest.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "target.questions">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MenuView tableView:didSelectRowAtIndexPath:]:MenuView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RCAnswerView refresh]:RCAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SEAnswerView layoutSubviews]:SEAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MainViewController test:]:MainViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCAnswerView setShouldShowAnswer:]:TCAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[BlockButton layoutSubviews]:UIBlockView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ExamViewController toggleTime:event:]:ExamViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "event.allTouches">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[DataManager updateVocabProgress:]:DataManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[QuestionViewController nextQuestion:]:QuestionViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ExamViewController answerChanged:]:ExamViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SEAnswerView setOptions:]:SEAnswerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[QuestionSet answer:index:]:QuestionSet.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[WebViewController viewDidLoad]:WebViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[WebViewController viewWillAppear:]:WebViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.webView.delegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__40-[TextViewTapSupporter selectSentences:]_block_invoke:TextViewTapSupporter.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ExamSuite next]:ExamSuite.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.questions">
+            </PersistentString>
+            <PersistentString
+               value = "self.current">
+            </PersistentString>
+            <PersistentString
+               value = "self.questions.count - 1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[TCViewController layout]:TCViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.questionLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RCAViewController showChoice:]:RCAViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[PieChartView onTap:]:PieChartView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_seps[2]">
+            </PersistentString>
+            <PersistentString
+               value = "_seps[0]">
+            </PersistentString>
+            <PersistentString
+               value = "_seps[1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[SEAnswerView refresh]:SEAnswerView.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -21,7 +21,7 @@
 #define SYS_VERSION_URL_DEFAULT @"http://www.cocopen.com/gv/version"
 
 #define SYS_DATA_VERSION @"kSysDataVersion"
-#define SYS_DATA_VERSION_DEFAULT 0
+#define SYS_DATA_VERSION_DEFAULT -1
 
 #define SYS_UPDATE_URL @"kSysUpdateUrl"
 #define SYS_UPDATE_URL_DEFAULT @"http://www.cocopen.com/gv/data.json"
