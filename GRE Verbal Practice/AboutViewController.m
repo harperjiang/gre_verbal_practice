@@ -20,6 +20,22 @@
 
 @implementation AboutViewController
 
+- (BOOL)isPad {
+#ifdef UI_USER_INTERFACE_IDIOM
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+#else
+    return NO;
+#endif
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    if(![self isPad]) {
+        return UIInterfaceOrientationMaskPortrait;
+    } else {
+        return UIInterfaceOrientationMaskAll;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
