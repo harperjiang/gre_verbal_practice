@@ -16,6 +16,7 @@
 @dynamic synonyms;
 @dynamic samples;
 @dynamic passCount;
+@dynamic memoryDate;
 @dynamic scheduleDate;
 
 @end

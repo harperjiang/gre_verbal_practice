@@ -34,13 +34,13 @@
     NSMutableOrderedSet* questions = [[NSMutableOrderedSet alloc] init];
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: TEXT_COMPLETION
                                                                     diffculty: diffculty
-                                                                        count: 5]];
+                                                                        count: 7]];
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: SENTENCE_EQUIV
                                                                     diffculty: diffculty
-                                                                        count: 4]];
+                                                                        count: 6]];
     [questions addObjectsFromArray:[[DataManager defaultManager] getQuestions: READING_COMP
                                                                     diffculty: diffculty
-                                                                        count: 4]];
+                                                                        count: 7]];
     [esuite setQuestions:questions];
     NSInteger val = [UserPreference getInteger:USER_EXAM_TIMELIMIT defval:USER_EXAM_TIMELIMIT_DEFAULT];
     [esuite setTimeLimit: [NSNumber numberWithInteger:val]];

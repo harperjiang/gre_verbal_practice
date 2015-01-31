@@ -168,21 +168,16 @@
 }
 
 - (void)modeMessage:(NSString*)message {
-    [self.wordLabel setHidden:YES];
-    [self.playButton setHidden:YES];
-    [self.synonymText setHidden:YES];
-    [self.sampleText setHidden:YES];
-    [self.explanationText setHidden:YES];
-    [self.knowButton setHidden:YES];
-    [self.dontknowButton setHidden:YES];
-    [self.showButton setHidden:YES];
-    [self.progressLabel setHidden:YES];
+    [self.view.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        ((UIView*)obj).hidden = YES;
+    }];
+    
     [self.messageLabel setHidden:NO];
     [self.messageLabel setText:message];
     
-    [UIView animateWithDuration:5 delay: 3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.navigationController popViewControllerAnimated:YES];
-    } completion:nil];
+    });
 }
 
 - (void)didReceiveMemoryWarning {

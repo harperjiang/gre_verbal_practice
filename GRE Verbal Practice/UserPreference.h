@@ -17,6 +17,8 @@
 #define USER_EXAM_TIMELIMIT @"kUserExamTimelimit"
 #define USER_EXAM_TIMELIMIT_DEFAULT 30
 
+#define DATA_QUIZ_HIGHSCORE @"kDataQuizHighScore"
+
 #define SYS_VERSION_URL @"kSysVersionURL"
 #define SYS_VERSION_URL_DEFAULT @"http://www.cocopen.com/gv/version"
 

@@ -132,6 +132,17 @@ static DataManager* inst;
     return [self query:fr];
 }
 
+- (Vocabulary*)getVocab:(NSInteger)count {
+    NSEntityDescription *ed = [NSEntityDescription
+                               entityForName:@"Vocabulary"
+                               inManagedObjectContext:[self getContext]];
+    NSFetchRequest* fetch = [[NSFetchRequest alloc] init];
+    [fetch setEntity:ed];
+    [fetch setFetchOffset:count];
+    [fetch setFetchLimit:1];
+    return [[self query:fetch] objectAtIndex:0];
+}
+
 - (NSArray*)getVocabs:(NSInteger)count ingroup:(VocabGroup *)group {
     NSEntityDescription *ed = [NSEntityDescription
                                entityForName:@"Vocabulary"
@@ -167,10 +178,12 @@ static DataManager* inst;
 }
 
 - (NSInteger)getDoneVocabCount:(VocabGroup*)group {
+    NSDate* date = [DateUtils truncate:[NSDate date]];
     NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"Vocabulary"];
-    NSPredicate* datePredicate = [NSPredicate predicateWithFormat:@"scheduleDate <= %@", [DateUtils truncate:[NSDate date]]];
+    NSPredicate* date1Predicate = [NSPredicate predicateWithFormat:@"memoryDate <= %@", date];
+    NSPredicate* date2Predicate = [NSPredicate predicateWithFormat:@"scheduleDate >= %@", date];
     NSPredicate* groupPredicate = [NSPredicate predicateWithFormat:@"group = %@", group];
-    [fr setPredicate: [NSCompoundPredicate andPredicateWithSubpredicates:@[datePredicate, groupPredicate]]];
+    [fr setPredicate: [NSCompoundPredicate andPredicateWithSubpredicates:@[date1Predicate, date2Predicate, groupPredicate]]];
     return [self count:fr];
 }
 

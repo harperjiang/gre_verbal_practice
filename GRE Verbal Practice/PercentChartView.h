@@ -12,4 +12,6 @@
 
 @property(nonatomic) double percent;
 @property(nonatomic) UILabel* label;
+@property(nonatomic) BOOL showPercent;
+
 @end

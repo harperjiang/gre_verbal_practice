@@ -59,5 +59,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>junegull.ttf</string>
+		<string>Tobago Poster.ttf</string>
+		<string>SansitaOne.ttf</string>
+		<string>Let&apos;s go Digital Regular.ttf</string>
+		<string>Zantroke.otf</string>
+	</array>
 </dict>
 </plist>

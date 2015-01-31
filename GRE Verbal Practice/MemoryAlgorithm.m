@@ -20,6 +20,7 @@ int INTERVAL[] = {0,1,2,4,4,7,7,15,21,30};
         // Start from the beginning
         [vocab setPassCount: [NSNumber numberWithInt:0]];
     } else {
+        [vocab setMemoryDate: [DateUtils truncate:[NSDate date]]];
         [vocab setPassCount: [NSNumber numberWithInt: [vocab.passCount intValue] + 1]];
     }
     if(vocab.passCount.intValue >= 10) {

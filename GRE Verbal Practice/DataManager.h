@@ -27,6 +27,8 @@
 - (NSInteger)getDoneVocabCount:(VocabGroup*)group;
 - (NSInteger)getFutureVocabCount:(VocabGroup*)group;
 
+- (Vocabulary*)getVocab:(NSInteger)count;
+
 // Questions and Sets
 - (NSArray*)getQuestions:(QuestionType)type diffculty:(NSInteger) diffculty count:(NSInteger)count;
 - (NSArray*)getQuestionSets:(QuestionType)type;

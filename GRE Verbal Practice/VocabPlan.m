@@ -7,6 +7,7 @@
 //
 
 #import "VocabPlan.h"
+#import "DateUtils.h"
 #import "DataManager.h"
 #import "UserPreference.h"
 #import "MemoryAlgorithm.h"
@@ -72,8 +73,10 @@
         [MemoryAlgorithm updateVocab: cv know:know];
         [dm save];
         NSInteger vocabcount = [dm getVocabCount:self.group];
-        NSInteger vocabFuture = [dm getDoneVocabCount:self.group];
-        self.group.detail = [NSString stringWithFormat:@"Progress: %zd/%zd",vocabFuture,vocabcount];
+        NSInteger vocabDone = [dm getDoneVocabCount:self.group];
+        self.group.detail = [NSString stringWithFormat:@"Progress: %zd/%zd",vocabDone,vocabcount];
+        self.group.percent = [NSNumber numberWithDouble:((double)vocabDone)/vocabcount];
+        self.group.updateDate = [DateUtils truncate:[NSDate date]];
         [dm save];
     });
     

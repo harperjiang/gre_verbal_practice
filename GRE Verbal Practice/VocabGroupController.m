@@ -11,7 +11,9 @@
 #import "VocabGroup.h"
 #import "VocabPlan.h"
 #import "DataManager.h"
+#import "PercentChartView.h"
 #import "UIUtils.h"
+#import "DateUtils.h"
 
 @interface VocabGroupController ()
 
@@ -32,6 +34,19 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    DataManager* dm = [DataManager defaultManager];
+    NSDate* now = [DateUtils truncate:[NSDate date]];
+    for(VocabGroup* vg in self.vocabGroups) {
+        if(!(vg.updateDate == nil || [now isEqualToDate:vg.updateDate])) {
+            NSInteger vocabcount = [dm getVocabCount: vg];
+            NSInteger vocabDone = [dm getDoneVocabCount: vg];
+            vg.percent = [NSNumber numberWithDouble:((double)vocabDone)/vocabcount];
+            vg.updateDate = [DateUtils truncate:[NSDate date]];
+            [dm save];
+        }
+    }
+    
     [self.tableView reloadData];
 }
 
@@ -58,17 +73,18 @@
         case 0: {
             VocabGroup* group = [self.vocabGroups objectAtIndex:index];
             
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VocabGroupCell"];
+            /*if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"VocabGroupCell"];
                 cell.textLabel.font = [UIFont systemFontOfSize:16];
                 cell.backgroundColor = [UIColor clearColor];
                 cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
                 cell.selectionStyle = UITableViewCellSelectionStyleDefault;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            }
-            [cell.textLabel setText: group.name];
-            [cell.detailTextLabel setText:group.detail];
+            }*/
+            [(PercentChartView*)[cell viewWithTag:3] setPercent: group.percent.doubleValue];
+            [(UILabel*)[cell viewWithTag:1] setText: group.name];
+            [(UILabel*)[cell viewWithTag:2] setText:group.detail];
             // cell.imageView.image = theImage;
             return cell;
         }
@@ -78,14 +94,14 @@
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Section2Cell"];
                 cell.textLabel.font = [UIFont systemFontOfSize:16];
                 cell.backgroundColor = [UIColor clearColor];
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.accessoryType = UITableViewCellAccessoryDetailButton;
             }
             switch(index) {
                 case 0:
-                    cell.textLabel.text = @"Word of the day";
+                    cell.textLabel.text = @"Vocabulary Quiz";
                     break;
                 case 1:
-                    cell.textLabel.text = @"Vocabulary Quiz";
+                    cell.textLabel.text = @"Word of the Day";
                     break;
                 default:
                     break;
@@ -122,7 +138,7 @@
         case 0:
             return self.vocabGroups.count;
         case 1:
-            return 1;
+            return 2;
         case 2:
             return 1;
         default:
@@ -143,6 +159,18 @@
             break;
         }
         case 1: {
+            switch (indexPath.row) {
+                case 0: {// Quiz
+                    UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VocabQuizController"];
+                    [self.navigationController pushViewController:vc animated:YES];
+                    break;
+                }
+                case 1: // Word of the day;
+                    break;
+            }
+            break;
+        }
+        case 2: {
             switch(indexPath.row) {
                 case 0: {
                     UIViewController* updateController = [self.storyboard instantiateViewControllerWithIdentifier:@"UpdateViewController"];
@@ -170,6 +198,14 @@
         default:
             return nil;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
 }
 
 @end

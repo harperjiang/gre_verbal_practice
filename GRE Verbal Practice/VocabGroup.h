@@ -16,4 +16,7 @@
 @property(nonatomic) NSString* detail;
 @property(nonatomic) NSSet* vocabularies;
 
+@property(nonatomic) NSNumber* percent;
+@property(nonatomic) NSDate* updateDate;
+
 @end

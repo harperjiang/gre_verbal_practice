@@ -18,4 +18,16 @@
 + (UIColor*)navbarColor;
 + (UIColor*)menuColor;
 + (UIColor*)backgroundColor;
+
++ (UIColor*)chromeYellow;
++ (UIColor*)chromeGreen;
++ (UIColor*)chromeRed;
+
++ (UIColor*)lightGreen;
++ (UIColor*)darkGreen;
+
++ (UIColor*)darkBlue;
+
++ (void)popAndPush:(UINavigationController*)nav push:(UIViewController*)push animate:(BOOL)animate;
+
 @end

@@ -112,7 +112,6 @@
 		A6005A6A1A574479009EF5AF /* extend.png in Resources */ = {isa = PBXBuildFile; fileRef = A6005A691A574479009EF5AF /* extend.png */; };
 		A6005A6D1A5747E9009EF5AF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6005A6C1A5747E9009EF5AF /* WebViewController.m */; };
 		A6005A701A575366009EF5AF /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6005A6F1A575366009EF5AF /* ContentView.m */; };
-		A6005A751A5762FC009EF5AF /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6005A711A5762FC009EF5AF /* iPad.storyboard */; };
 		A6005A791A587D36009EF5AF /* LinenumView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6005A781A587D36009EF5AF /* LinenumView.m */; };
 		A6005A7F1A5B1300009EF5AF /* TextViewTapSupporter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6005A7E1A5B1300009EF5AF /* TextViewTapSupporter.m */; };
 		A6005A8E1A5C296D009EF5AF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6005A841A5C296D009EF5AF /* Default-568h@2x.png */; };
@@ -173,6 +172,16 @@
 		A67871D71A4549E700AEE184 /* MemoryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A67871D61A4549E700AEE184 /* MemoryStore.m */; };
 		A67871D91A4620C900AEE184 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67871D81A4620C900AEE184 /* AVFoundation.framework */; };
 		A67871DB1A46260D00AEE184 /* Play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67871DA1A46260D00AEE184 /* Play@2x.png */; };
+		A69CC70E1A7B32D900D299B1 /* count.wav in Resources */ = {isa = PBXBuildFile; fileRef = A69CC70D1A7B32D900D299B1 /* count.wav */; };
+		A69CC7101A7B33BF00D299B1 /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = A69CC70F1A7B33BF00D299B1 /* tick.wav */; };
+		A69CC7141A7B501300D299B1 /* VocabQuiz.m in Sources */ = {isa = PBXBuildFile; fileRef = A69CC7131A7B501300D299B1 /* VocabQuiz.m */; };
+		A69CC7171A7B514600D299B1 /* VocabQuizSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A69CC7161A7B514600D299B1 /* VocabQuizSet.m */; };
+		A69CC71A1A7B5B1400D299B1 /* incorrect.aiff in Resources */ = {isa = PBXBuildFile; fileRef = A69CC7181A7B5B1400D299B1 /* incorrect.aiff */; };
+		A69CC71B1A7B5B1400D299B1 /* correct.aiff in Resources */ = {isa = PBXBuildFile; fileRef = A69CC7191A7B5B1400D299B1 /* correct.aiff */; };
+		A69CC71D1A7CA82C00D299B1 /* SansitaOne.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A69CC71C1A7CA82C00D299B1 /* SansitaOne.ttf */; };
+		A69CC71F1A7CA89600D299B1 /* Tobago Poster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A69CC71E1A7CA89600D299B1 /* Tobago Poster.ttf */; };
+		A69CC7221A7CA96600D299B1 /* InfoDialogDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A69CC7211A7CA96600D299B1 /* InfoDialogDelegate.m */; };
+		A69CC7251A7CA9D400D299B1 /* QuizResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = A69CC7241A7CA9D400D299B1 /* QuizResultController.m */; };
 		A6A06F191A3F8D8C00D5F8D2 /* RCQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */; };
 		A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F1B1A3F8DA000D5F8D2 /* RCAnswerView.m */; };
 		A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A06F211A3FA13D00D5F8D2 /* RCAViewController.m */; };
@@ -180,9 +189,7 @@
 		A6A692161A3766E300414E73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692151A3766E300414E73 /* main.m */; };
 		A6A692191A3766E300414E73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692181A3766E300414E73 /* AppDelegate.m */; };
 		A6A6921C1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6A6921A1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld */; };
-		A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A692231A3766E300414E73 /* iPhone.storyboard */; };
 		A6A692271A3766E300414E73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A692261A3766E300414E73 /* Images.xcassets */; };
-		A6A6922A1A3766E300414E73 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A692281A3766E300414E73 /* LaunchScreen.xib */; };
 		A6A692421A376BAE00414E73 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692411A376BAE00414E73 /* Question.m */; };
 		A6A692451A376C3E00414E73 /* RCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692441A376C3E00414E73 /* RCQuestion.m */; };
 		A6A692481A376C8700414E73 /* TCQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692471A376C8700414E73 /* TCQuestion.m */; };
@@ -195,6 +202,10 @@
 		A6A692631A37856000414E73 /* TCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692621A37856000414E73 /* TCViewController.m */; };
 		A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692661A3788A700414E73 /* GRERadioButton.m */; };
 		A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A692691A3788B800414E73 /* GREChoiceBox.m */; };
+		A6BF433C1A7D31CF00B52322 /* junegull.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6BF433B1A7D31CF00B52322 /* junegull.ttf */; };
+		A6BF433E1A7D333B00B52322 /* Zantroke.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6BF433D1A7D333B00B52322 /* Zantroke.otf */; };
+		A6BF43411A7D49FF00B52322 /* QuizReviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF43401A7D49FF00B52322 /* QuizReviewController.m */; };
+		A6BF43431A7D4F5800B52322 /* givestar.wav in Resources */ = {isa = PBXBuildFile; fileRef = A6BF43421A7D4F5800B52322 /* givestar.wav */; };
 		A6C6A1AF1A6EF956000E2F23 /* school.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1AE1A6EF956000E2F23 /* school.png */; };
 		A6C6A1B11A6EFCB9000E2F23 /* school_white.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1B01A6EFCB9000E2F23 /* school_white.png */; };
 		A6C6A1B51A6F3C8C000E2F23 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1B41A6F3C8C000E2F23 /* PieChartView.m */; };
@@ -204,6 +215,15 @@
 		A6C6A1C01A72139B000E2F23 /* ExamGrader.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1BF1A72139B000E2F23 /* ExamGrader.m */; };
 		A6C6A1C91A74456B000E2F23 /* PercentChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1C81A74456B000E2F23 /* PercentChartView.m */; };
 		A6C6A1D31A761E20000E2F23 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1D21A761E20000E2F23 /* data.json */; };
+		A6C6A1D61A78A1C3000E2F23 /* Let's go Digital Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1D51A78A1C3000E2F23 /* Let's go Digital Regular.ttf */; };
+		A6C6A1D71A78A38F000E2F23 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6005A711A5762FC009EF5AF /* iPad.storyboard */; };
+		A6C6A1D81A78A3A4000E2F23 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A692281A3766E300414E73 /* LaunchScreen.xib */; };
+		A6C6A1D91A78A3B5000E2F23 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A692231A3766E300414E73 /* iPhone.storyboard */; };
+		A6C6A1DC1A78A9E7000E2F23 /* VocabQuizController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1DB1A78A9E7000E2F23 /* VocabQuizController.m */; };
+		A6C6A1DF1A7969EB000E2F23 /* QuizInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1DE1A7969EB000E2F23 /* QuizInfoController.m */; };
+		A6C6A1E31A79CEB6000E2F23 /* InfoPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1E21A79CEB6000E2F23 /* InfoPresentationController.m */; };
+		A6C6A1E51A7A01FC000E2F23 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1E41A7A01FC000E2F23 /* TitleView.xib */; };
+		A6C6A1E81A7A04F7000E2F23 /* TitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1E71A7A04F7000E2F23 /* TitleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -434,6 +454,20 @@
 		A67871D61A4549E700AEE184 /* MemoryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryStore.m; sourceTree = "<group>"; };
 		A67871D81A4620C900AEE184 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A67871DA1A46260D00AEE184 /* Play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Play@2x.png"; sourceTree = "<group>"; };
+		A69CC70D1A7B32D900D299B1 /* count.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = count.wav; sourceTree = "<group>"; };
+		A69CC70F1A7B33BF00D299B1 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
+		A69CC7121A7B501300D299B1 /* VocabQuiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabQuiz.h; sourceTree = "<group>"; };
+		A69CC7131A7B501300D299B1 /* VocabQuiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabQuiz.m; sourceTree = "<group>"; };
+		A69CC7151A7B514600D299B1 /* VocabQuizSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabQuizSet.h; sourceTree = "<group>"; };
+		A69CC7161A7B514600D299B1 /* VocabQuizSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabQuizSet.m; sourceTree = "<group>"; };
+		A69CC7181A7B5B1400D299B1 /* incorrect.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = incorrect.aiff; sourceTree = "<group>"; };
+		A69CC7191A7B5B1400D299B1 /* correct.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = correct.aiff; sourceTree = "<group>"; };
+		A69CC71C1A7CA82C00D299B1 /* SansitaOne.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SansitaOne.ttf; sourceTree = "<group>"; };
+		A69CC71E1A7CA89600D299B1 /* Tobago Poster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tobago Poster.ttf"; sourceTree = "<group>"; };
+		A69CC7201A7CA96600D299B1 /* InfoDialogDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoDialogDelegate.h; sourceTree = "<group>"; };
+		A69CC7211A7CA96600D299B1 /* InfoDialogDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoDialogDelegate.m; sourceTree = "<group>"; };
+		A69CC7231A7CA9D400D299B1 /* QuizResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizResultController.h; sourceTree = "<group>"; };
+		A69CC7241A7CA9D400D299B1 /* QuizResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizResultController.m; sourceTree = "<group>"; };
 		A6A06F171A3F8D8C00D5F8D2 /* RCQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCQViewController.h; sourceTree = "<group>"; };
 		A6A06F181A3F8D8C00D5F8D2 /* RCQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCQViewController.m; sourceTree = "<group>"; };
 		A6A06F1A1A3F8DA000D5F8D2 /* RCAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnswerView.h; sourceTree = "<group>"; };
@@ -477,6 +511,11 @@
 		A6A692661A3788A700414E73 /* GRERadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRERadioButton.m; sourceTree = "<group>"; };
 		A6A692681A3788B800414E73 /* GREChoiceBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GREChoiceBox.h; sourceTree = "<group>"; };
 		A6A692691A3788B800414E73 /* GREChoiceBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GREChoiceBox.m; sourceTree = "<group>"; };
+		A6BF433B1A7D31CF00B52322 /* junegull.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = junegull.ttf; sourceTree = "<group>"; };
+		A6BF433D1A7D333B00B52322 /* Zantroke.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zantroke.otf; sourceTree = "<group>"; };
+		A6BF433F1A7D49FF00B52322 /* QuizReviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizReviewController.h; sourceTree = "<group>"; };
+		A6BF43401A7D49FF00B52322 /* QuizReviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizReviewController.m; sourceTree = "<group>"; };
+		A6BF43421A7D4F5800B52322 /* givestar.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = givestar.wav; sourceTree = "<group>"; };
 		A6C6A1AE1A6EF956000E2F23 /* school.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = school.png; sourceTree = "<group>"; };
 		A6C6A1B01A6EFCB9000E2F23 /* school_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = school_white.png; sourceTree = "<group>"; };
 		A6C6A1B31A6F3C8C000E2F23 /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
@@ -491,6 +530,16 @@
 		A6C6A1C71A74456B000E2F23 /* PercentChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PercentChartView.h; sourceTree = "<group>"; };
 		A6C6A1C81A74456B000E2F23 /* PercentChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PercentChartView.m; sourceTree = "<group>"; };
 		A6C6A1D21A761E20000E2F23 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		A6C6A1D51A78A1C3000E2F23 /* Let's go Digital Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Let's go Digital Regular.ttf"; sourceTree = "<group>"; };
+		A6C6A1DA1A78A9E7000E2F23 /* VocabQuizController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabQuizController.h; sourceTree = "<group>"; };
+		A6C6A1DB1A78A9E7000E2F23 /* VocabQuizController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabQuizController.m; sourceTree = "<group>"; };
+		A6C6A1DD1A7969EB000E2F23 /* QuizInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizInfoController.h; sourceTree = "<group>"; };
+		A6C6A1DE1A7969EB000E2F23 /* QuizInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizInfoController.m; sourceTree = "<group>"; };
+		A6C6A1E11A79CEB6000E2F23 /* InfoPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoPresentationController.h; sourceTree = "<group>"; };
+		A6C6A1E21A79CEB6000E2F23 /* InfoPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoPresentationController.m; sourceTree = "<group>"; };
+		A6C6A1E41A7A01FC000E2F23 /* TitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		A6C6A1E61A7A04F7000E2F23 /* TitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleView.h; sourceTree = "<group>"; };
+		A6C6A1E71A7A04F7000E2F23 /* TitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +642,14 @@
 				A678715A1A40961200AEE184 /* VocabViewController.m */,
 				A600598D1A534B80009EF5AF /* VocabGroupController.h */,
 				A600598E1A534B80009EF5AF /* VocabGroupController.m */,
+				A6C6A1DA1A78A9E7000E2F23 /* VocabQuizController.h */,
+				A6C6A1DB1A78A9E7000E2F23 /* VocabQuizController.m */,
+				A6C6A1DD1A7969EB000E2F23 /* QuizInfoController.h */,
+				A6C6A1DE1A7969EB000E2F23 /* QuizInfoController.m */,
+				A69CC7231A7CA9D400D299B1 /* QuizResultController.h */,
+				A69CC7241A7CA9D400D299B1 /* QuizResultController.m */,
+				A6BF433F1A7D49FF00B52322 /* QuizReviewController.h */,
+				A6BF43401A7D49FF00B52322 /* QuizReviewController.m */,
 			);
 			name = vocab;
 			sourceTree = "<group>";
@@ -920,9 +977,34 @@
 			name = persist;
 			sourceTree = "<group>";
 		};
+		A69CC70C1A7B32C900D299B1 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				A6BF43421A7D4F5800B52322 /* givestar.wav */,
+				A69CC7181A7B5B1400D299B1 /* incorrect.aiff */,
+				A69CC7191A7B5B1400D299B1 /* correct.aiff */,
+				A69CC70F1A7B33BF00D299B1 /* tick.wav */,
+				A69CC70D1A7B32D900D299B1 /* count.wav */,
+			);
+			name = sound;
+			sourceTree = "<group>";
+		};
+		A69CC7111A7B4FF300D299B1 /* vquiz */ = {
+			isa = PBXGroup;
+			children = (
+				A69CC7121A7B501300D299B1 /* VocabQuiz.h */,
+				A69CC7131A7B501300D299B1 /* VocabQuiz.m */,
+				A69CC7151A7B514600D299B1 /* VocabQuizSet.h */,
+				A69CC7161A7B514600D299B1 /* VocabQuizSet.m */,
+			);
+			name = vquiz;
+			sourceTree = "<group>";
+		};
 		A6A06F261A40853800D5F8D2 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				A69CC70C1A7B32C900D299B1 /* sound */,
+				A6C6A1D41A78A1AE000E2F23 /* font */,
 				A6005A831A5C293E009EF5AF /* splash */,
 				A6005A521A56431F009EF5AF /* mainmenu */,
 				A6005A091A56082A009EF5AF /* appicon */,
@@ -933,6 +1015,7 @@
 				A6A692261A3766E300414E73 /* Images.xcassets */,
 				A6A692281A3766E300414E73 /* LaunchScreen.xib */,
 				A6C6A1B91A70C9A0000E2F23 /* GradeView.xib */,
+				A6C6A1E41A7A01FC000E2F23 /* TitleView.xib */,
 			);
 			name = res;
 			sourceTree = "<group>";
@@ -943,8 +1026,8 @@
 				A662FCA31A4B4400008E6FA6 /* libz.dylib */,
 				A67871D81A4620C900AEE184 /* AVFoundation.framework */,
 				A678716F1A40E24D00AEE184 /* iAd.framework */,
-				A6A692121A3766E300414E73 /* GRE Verbal Practice */,
-				A6A692321A3766E300414E73 /* GRE Verbal PracticeTests */,
+				A6A692121A3766E300414E73 /* GRE Verbal Master */,
+				A6A692321A3766E300414E73 /* GRE Verbal MasterTests */,
 				A6A692111A3766E300414E73 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -958,7 +1041,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A6A692121A3766E300414E73 /* GRE Verbal Practice */ = {
+		A6A692121A3766E300414E73 /* GRE Verbal Master */ = {
 			isa = PBXGroup;
 			children = (
 				A6005A801A5C1F73009EF5AF /* data */,
@@ -971,6 +1054,7 @@
 				A6A692181A3766E300414E73 /* AppDelegate.m */,
 				A6A692131A3766E300414E73 /* Supporting Files */,
 			);
+			name = "GRE Verbal Master";
 			path = "GRE Verbal Practice";
 			sourceTree = "<group>";
 		};
@@ -984,12 +1068,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A6A692321A3766E300414E73 /* GRE Verbal PracticeTests */ = {
+		A6A692321A3766E300414E73 /* GRE Verbal MasterTests */ = {
 			isa = PBXGroup;
 			children = (
 				A67871C11A44736200AEE184 /* domain */,
 				A6A692331A3766E300414E73 /* Supporting Files */,
 			);
+			name = "GRE Verbal MasterTests";
 			path = "GRE Verbal PracticeTests";
 			sourceTree = "<group>";
 		};
@@ -1004,6 +1089,7 @@
 		A6A6923F1A376B2200414E73 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A69CC7111A7B4FF300D299B1 /* vquiz */,
 				A67871B01A4395C000AEE184 /* question */,
 				A67871AC1A43865700AEE184 /* voc */,
 			);
@@ -1013,10 +1099,7 @@
 		A6A6924C1A376CB400414E73 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A60059371A4F5496009EF5AF /* MenuView.h */,
-				A60059381A4F5496009EF5AF /* MenuView.m */,
-				A6C6A1BB1A70CCB2000E2F23 /* GradeView.h */,
-				A6C6A1BC1A70CCB2000E2F23 /* GradeView.m */,
+				A6C6A1E01A79CE98000E2F23 /* common */,
 				A6202C991A4F05D900E20903 /* exam */,
 				A678719B1A4258D000AEE184 /* question */,
 				A60059481A51E75D009EF5AF /* vocab */,
@@ -1064,6 +1147,35 @@
 			children = (
 			);
 			name = report;
+			sourceTree = "<group>";
+		};
+		A6C6A1D41A78A1AE000E2F23 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				A6BF433D1A7D333B00B52322 /* Zantroke.otf */,
+				A6BF433B1A7D31CF00B52322 /* junegull.ttf */,
+				A69CC71E1A7CA89600D299B1 /* Tobago Poster.ttf */,
+				A69CC71C1A7CA82C00D299B1 /* SansitaOne.ttf */,
+				A6C6A1D51A78A1C3000E2F23 /* Let's go Digital Regular.ttf */,
+			);
+			name = font;
+			sourceTree = "<group>";
+		};
+		A6C6A1E01A79CE98000E2F23 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				A60059371A4F5496009EF5AF /* MenuView.h */,
+				A60059381A4F5496009EF5AF /* MenuView.m */,
+				A6C6A1BB1A70CCB2000E2F23 /* GradeView.h */,
+				A6C6A1BC1A70CCB2000E2F23 /* GradeView.m */,
+				A6C6A1E11A79CEB6000E2F23 /* InfoPresentationController.h */,
+				A6C6A1E21A79CEB6000E2F23 /* InfoPresentationController.m */,
+				A6C6A1E61A7A04F7000E2F23 /* TitleView.h */,
+				A6C6A1E71A7A04F7000E2F23 /* TitleView.m */,
+				A69CC7201A7CA96600D299B1 /* InfoDialogDelegate.h */,
+				A69CC7211A7CA96600D299B1 /* InfoDialogDelegate.m */,
+			);
+			name = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1147,23 +1259,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C6A1D91A78A3B5000E2F23 /* iPhone.storyboard in Resources */,
+				A6C6A1D81A78A3A4000E2F23 /* LaunchScreen.xib in Resources */,
+				A6C6A1D71A78A38F000E2F23 /* iPad.storyboard in Resources */,
 				A60059B51A53B1FB009EF5AF /* chevron-left-6x.png in Resources */,
+				A69CC70E1A7B32D900D299B1 /* count.wav in Resources */,
 				A60059D81A53B501009EF5AF /* play-circle-6x.png in Resources */,
 				A6005A441A560E51009EF5AF /* Icon-72@2x.png in Resources */,
+				A69CC71A1A7B5B1400D299B1 /* incorrect.aiff in Resources */,
 				A6005A4D1A560E51009EF5AF /* Icon-Small@2x.png in Resources */,
 				A6005A4A1A560E51009EF5AF /* Icon-Small-50.png in Resources */,
 				A600599A1A539464009EF5AF /* no@2x.png in Resources */,
+				A69CC7101A7B33BF00D299B1 /* tick.wav in Resources */,
 				A6005A4C1A560E51009EF5AF /* Icon-Small.png in Resources */,
 				A6005A681A5742A1009EF5AF /* background.jpg in Resources */,
 				A67871BA1A43C22B00AEE184 /* Settings.bundle in Resources */,
 				A600595D1A53218C009EF5AF /* ok.png in Resources */,
 				A6005A481A560E51009EF5AF /* Icon-Small-40@2x.png in Resources */,
 				A6005A641A5645F4009EF5AF /* vocab.png in Resources */,
-				A6A692251A3766E300414E73 /* iPhone.storyboard in Resources */,
 				A600595C1A53218C009EF5AF /* cancel@3x.png in Resources */,
 				A6005A4B1A560E51009EF5AF /* Icon-Small-50@2x.png in Resources */,
 				A60059B41A53B1FB009EF5AF /* chevron-left-4x.png in Resources */,
 				A6005A931A5C296D009EF5AF /* Default-Portrait-736h@3x.png in Resources */,
+				A6C6A1D61A78A1C3000E2F23 /* Let's go Digital Regular.ttf in Resources */,
 				A600595A1A53218C009EF5AF /* cancel.png in Resources */,
 				A60059771A532701009EF5AF /* file-8x.png in Resources */,
 				A6C6A1B11A6EFCB9000E2F23 /* school_white.png in Resources */,
@@ -1175,12 +1293,14 @@
 				A6005A041A55EF94009EF5AF /* info@2x.png in Resources */,
 				A60059CF1A53B423009EF5AF /* target-8x.png in Resources */,
 				A60059CC1A53B423009EF5AF /* target-3x.png in Resources */,
+				A69CC71F1A7CA89600D299B1 /* Tobago Poster.ttf in Resources */,
 				A600599F1A539464009EF5AF /* yes.png in Resources */,
 				A60059C81A53B423009EF5AF /* puzzle-piece-4x.png in Resources */,
 				A60059A61A539562009EF5AF /* see@2x.png in Resources */,
 				A6005A601A564341009EF5AF /* update.png in Resources */,
 				A60059E51A55C00F009EF5AF /* Yellow.png in Resources */,
 				A600596C1A532701009EF5AF /* book-3x.png in Resources */,
+				A6BF433C1A7D31CF00B52322 /* junegull.ttf in Resources */,
 				A600597E1A5327C4009EF5AF /* menu-6x.png in Resources */,
 				A60059361A4F50F1009EF5AF /* menu-2x.png in Resources */,
 				A600597C1A5327C4009EF5AF /* menu-3x.png in Resources */,
@@ -1208,6 +1328,7 @@
 				A60059851A532842009EF5AF /* bookmark-4x.png in Resources */,
 				A6005A461A560E51009EF5AF /* Icon-76@2x.png in Resources */,
 				A600595E1A53218C009EF5AF /* ok@2x.png in Resources */,
+				A69CC71D1A7CA82C00D299B1 /* SansitaOne.ttf in Resources */,
 				A60059C91A53B423009EF5AF /* puzzle-piece-6x.png in Resources */,
 				A60059CE1A53B423009EF5AF /* target-6x.png in Resources */,
 				A60059A71A539562009EF5AF /* see@3x.png in Resources */,
@@ -1218,8 +1339,8 @@
 				A600596F1A532701009EF5AF /* bookmark-3x.png in Resources */,
 				A60059BB1A53B1FB009EF5AF /* chevron-right-8x.png in Resources */,
 				A6005A031A55EF94009EF5AF /* info.png in Resources */,
-				A6A6922A1A3766E300414E73 /* LaunchScreen.xib in Resources */,
 				A600597F1A5327C4009EF5AF /* menu-8x.png in Resources */,
+				A6BF433E1A7D333B00B52322 /* Zantroke.otf in Resources */,
 				A600596D1A532701009EF5AF /* book-6x.png in Resources */,
 				A60059BA1A53B1FB009EF5AF /* chevron-right-6x.png in Resources */,
 				A60059B21A53B1FB009EF5AF /* chevron-left-2x.png in Resources */,
@@ -1253,7 +1374,9 @@
 				A60059E21A55C00F009EF5AF /* Blue.png in Resources */,
 				A6005A6A1A574479009EF5AF /* extend.png in Resources */,
 				A6005A421A560E51009EF5AF /* Icon-60@3x.png in Resources */,
+				A6BF43431A7D4F5800B52322 /* givestar.wav in Resources */,
 				A6005A5D1A564341009EF5AF /* se.png in Resources */,
+				A6C6A1E51A7A01FC000E2F23 /* TitleView.xib in Resources */,
 				A600597D1A5327C4009EF5AF /* menu-4x.png in Resources */,
 				A6005A921A5C296D009EF5AF /* Default-Landscape@2x.png in Resources */,
 				A60059721A532701009EF5AF /* clock-3x.png in Resources */,
@@ -1261,10 +1384,10 @@
 				A6C6A1AF1A6EF956000E2F23 /* school.png in Resources */,
 				A6005A051A55EF94009EF5AF /* info@3x.png in Resources */,
 				A6005A5E1A564341009EF5AF /* setting.png in Resources */,
-				A6005A751A5762FC009EF5AF /* iPad.storyboard in Resources */,
 				A6005A511A560E51009EF5AF /* iTunesArtwork@2x.png in Resources */,
 				A60059C71A53B423009EF5AF /* puzzle-piece-3x.png in Resources */,
 				A60059B31A53B1FB009EF5AF /* chevron-left-3x.png in Resources */,
+				A69CC71B1A7B5B1400D299B1 /* correct.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,6 +1411,7 @@
 				A6005A7F1A5B1300009EF5AF /* TextViewTapSupporter.m in Sources */,
 				A60059DC1A54787C009EF5AF /* UIBlockView.m in Sources */,
 				A662FCA01A4A68C7008E6FA6 /* HttpDownloadSupport.m in Sources */,
+				A69CC7141A7B501300D299B1 /* VocabQuiz.m in Sources */,
 				A6A6924F1A376F2A00414E73 /* RCMSQuestion.m in Sources */,
 				A6A06F1C1A3F8DA000D5F8D2 /* RCAnswerView.m in Sources */,
 				A6A692451A376C3E00414E73 /* RCQuestion.m in Sources */,
@@ -1297,6 +1421,7 @@
 				A67871B71A43BAAE00AEE184 /* DateUtils.m in Sources */,
 				A6A06F221A3FA13D00D5F8D2 /* RCAViewController.m in Sources */,
 				A67871A01A427B2300AEE184 /* MessageViewController.m in Sources */,
+				A6BF43411A7D49FF00B52322 /* QuizReviewController.m in Sources */,
 				A66FDBDE1A3F33EE00DAAE13 /* GREButtonGroup.m in Sources */,
 				A600594B1A51E7A7009EF5AF /* QuestionListController.m in Sources */,
 				A6A692521A376FC500414E73 /* RCCSQuestion.m in Sources */,
@@ -1307,10 +1432,13 @@
 				A6A6926A1A3788B800414E73 /* GREChoiceBox.m in Sources */,
 				A662FCC11A4B52D1008E6FA6 /* mztools.c in Sources */,
 				A662FCC21A4B52D1008E6FA6 /* unzip.c in Sources */,
+				A69CC7221A7CA96600D299B1 /* InfoDialogDelegate.m in Sources */,
 				A6005A6D1A5747E9009EF5AF /* WebViewController.m in Sources */,
 				A66FDBDB1A3E715800DAAE13 /* UIUtils.m in Sources */,
 				A6C6A1C91A74456B000E2F23 /* PercentChartView.m in Sources */,
+				A69CC7251A7CA9D400D299B1 /* QuizResultController.m in Sources */,
 				A678719A1A424B4E00AEE184 /* QuestionViewController.m in Sources */,
+				A6C6A1E31A79CEB6000E2F23 /* InfoPresentationController.m in Sources */,
 				A67871BD1A43CF3800AEE184 /* SettingViewController.m in Sources */,
 				A662FCB51A4B4477008E6FA6 /* SSZipArchive.m in Sources */,
 				A6005A081A55F24B009EF5AF /* AboutViewController.m in Sources */,
@@ -1330,10 +1458,12 @@
 				A6A6925B1A37759F00414E73 /* MainViewController.m in Sources */,
 				A662FCC31A4B52D1008E6FA6 /* zip.c in Sources */,
 				A6A692551A37705B00414E73 /* RCText.m in Sources */,
+				A6C6A1DC1A78A9E7000E2F23 /* VocabQuizController.m in Sources */,
 				A6A692481A376C8700414E73 /* TCQuestion.m in Sources */,
 				A662FC9D1A49F988008E6FA6 /* UpdateViewController.m in Sources */,
 				A6C6A1B51A6F3C8C000E2F23 /* PieChartView.m in Sources */,
 				A67871D11A45172C00AEE184 /* DataImporter.m in Sources */,
+				A69CC7171A7B514600D299B1 /* VocabQuizSet.m in Sources */,
 				A662FCC61A4B54C3008E6FA6 /* ZipSupport.m in Sources */,
 				A678717A1A40EE2A00AEE184 /* ExamTimer.m in Sources */,
 				A67871B41A43B9B300AEE184 /* MemoryAlgorithm.m in Sources */,
@@ -1341,6 +1471,7 @@
 				A6C6A1C01A72139B000E2F23 /* ExamGrader.m in Sources */,
 				A67871C01A43E50D00AEE184 /* UserPreference.m in Sources */,
 				A678715E1A40BA6400AEE184 /* NavViewController.m in Sources */,
+				A6C6A1E81A7A04F7000E2F23 /* TitleView.m in Sources */,
 				A6A692671A3788A700414E73 /* GRERadioButton.m in Sources */,
 				A678718E1A4122D200AEE184 /* ExamSuite.m in Sources */,
 				A66FDBD21A3E20E200DAAE13 /* TCAnswerView.m in Sources */,
@@ -1349,6 +1480,7 @@
 				A678718B1A411FD000AEE184 /* VocabPlan.m in Sources */,
 				A66FDBE11A3F47B700DAAE13 /* SEViewController.m in Sources */,
 				A678717E1A41173000AEE184 /* DataManager.m in Sources */,
+				A6C6A1DF1A7969EB000E2F23 /* QuizInfoController.m in Sources */,
 				A678715B1A40961200AEE184 /* VocabViewController.m in Sources */,
 				A6A6921C1A3766E300414E73 /* GRE_Verbal_Practice.xcdatamodeld in Sources */,
 				A662FC711A466121008E6FA6 /* FileManager.m in Sources */,

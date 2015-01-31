@@ -17,6 +17,7 @@
 @property(nonatomic) NSString* explanation;
 @property(nonatomic) NSString* synonyms;
 @property(nonatomic) NSString* samples;
+@property(nonatomic) NSDate* memoryDate;
 @property(nonatomic) NSDate* scheduleDate;
 @property(nonatomic) NSNumber* passCount;
 

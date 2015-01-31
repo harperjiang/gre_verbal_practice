@@ -40,11 +40,14 @@
     <entity name="VocabGroup" representedClassName="VocabGroup" syncable="YES">
         <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="percent" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updateDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="vocabularies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vocabulary" inverseName="group" inverseEntity="Vocabulary" syncable="YES"/>
     </entity>
     <entity name="Vocabulary" representedClassName="Vocabulary" syncable="YES">
         <attribute name="explanation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memoryDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="passCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="samples" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scheduleDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -60,7 +63,7 @@
         <element name="RCText" positionX="207" positionY="351" width="128" height="58"/>
         <element name="SEQuestion" positionX="412" positionY="243" width="128" height="45"/>
         <element name="TCQuestion" positionX="574" positionY="225" width="128" height="45"/>
-        <element name="VocabGroup" positionX="207" positionY="99" width="128" height="103"/>
-        <element name="Vocabulary" positionX="-11" positionY="99" width="128" height="148"/>
+        <element name="VocabGroup" positionX="207" positionY="99" width="128" height="135"/>
+        <element name="Vocabulary" positionX="-11" positionY="99" width="128" height="165"/>
     </elements>
 </model>

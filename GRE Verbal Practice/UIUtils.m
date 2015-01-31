@@ -9,6 +9,8 @@
 #import "UIUtils.h"
 #import <CoreText/CoreText.h>
 
+#define COLOR(x) ((double)x)/255
+
 @implementation UIUtils
 
 +(NSInteger) defaultTextSize {
@@ -86,6 +88,43 @@
 + (UIColor*)backgroundColor {
 //    return [UIColor colorWithRed:0.86 green:0.88 blue:0.92 alpha:1];
     return [UIColor colorWithRed:1 green:0.98 blue:0.96 alpha:1];
+}
+
++ (UIColor *)chromeYellow {
+    return [UIColor colorWithRed:COLOR(252) green:COLOR(214) blue:COLOR(48) alpha:1];
+}
+
++ (UIColor *)chromeGreen {
+    return [UIColor colorWithRed:COLOR(62) green:COLOR(233) blue:COLOR(117) alpha:1];
+}
+
++ (UIColor *)chromeRed {
+    return [UIColor colorWithRed:COLOR(226) green:COLOR(119) blue:COLOR(50) alpha:1];
+}
+
++ (UIColor*)lightGreen {
+    return [UIColor colorWithRed:COLOR(220) green:COLOR(250) blue:COLOR(220) alpha:1];
+}
+
++ (UIColor*)darkGreen {
+    return [UIColor colorWithRed:COLOR(32) green:COLOR(126) blue:COLOR(119) alpha:1];
+
+}
+
++ (UIColor*)darkBlue {
+    return [UIColor colorWithRed:COLOR(23) green:COLOR(145) blue:COLOR(212) alpha:1];
+    
+}
+
++ (void)popAndPush:(UINavigationController *)nav push:(UIViewController *)push animate:(BOOL)animate{
+    NSMutableArray *controllers=[[NSMutableArray alloc] initWithArray:nav.viewControllers] ;
+    UIViewController* last = [controllers lastObject];
+    [last willMoveToParentViewController:nil];
+    [controllers removeLastObject];
+    [nav setViewControllers:controllers];
+    [last removeFromParentViewController];
+    [last didMoveToParentViewController:nil];
+    [nav pushViewController: push animated:animate];
 }
 
 @end

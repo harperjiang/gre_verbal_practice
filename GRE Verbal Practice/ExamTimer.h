@@ -21,5 +21,6 @@
 @property(nonatomic, readonly) long remain;
 
 - (id)initWithMinutes: (NSInteger) min target:(id) ref interval: (SEL) intfunc done: (SEL) donefunc;
+- (id)initWithSeconds: (NSInteger) sec target:(id) ref interval: (SEL) intfunc done: (SEL) donefunc;
 - (void)stop;
 @end

@@ -87,6 +87,17 @@
          contextName = "-[TCAnswerView showAnswer]:TCAnswerView.m">
       </ContextState>
       <ContextState
+         contextName = "-[VocabQuizController nextQuestion]:VocabQuizController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.buttonRightOffset.constant">
+            </PersistentString>
+            <PersistentString
+               value = "self.buttonLeftOffset.constant">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[TCAnswerView updateControls]:TCAnswerView.m">
       </ContextState>
       <ContextState
@@ -94,6 +105,20 @@
       </ContextState>
       <ContextState
          contextName = "-[ExamSuite answer:for:]:ExamSuite.m">
+      </ContextState>
+      <ContextState
+         contextName = "__22-[VocabPlan feedback:]_block_invoke:VocabPlan.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cv.memoryDate">
+            </PersistentString>
+            <PersistentString
+               value = "cv.scheduleDate">
+            </PersistentString>
+            <PersistentString
+               value = "self.group.percent">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[RCQViewController viewDidLoad]:RCQViewController.m">
@@ -110,10 +135,10 @@
          contextName = "-[ExamViewController markQuestion:]:ExamViewController.m">
       </ContextState>
       <ContextState
-         contextName = "-[RCQViewController setQuestionData:]:RCQViewController.m">
+         contextName = "-[TCAnswerView refresh]:TCAnswerView.m">
       </ContextState>
       <ContextState
-         contextName = "-[TCAnswerView refresh]:TCAnswerView.m">
+         contextName = "-[MenuView tableView:didSelectRowAtIndexPath:]:MenuView.m">
       </ContextState>
       <ContextState
          contextName = "-[ExamSuiteTest setUp]:ExamSuiteTest.m">
@@ -124,10 +149,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[MenuView tableView:didSelectRowAtIndexPath:]:MenuView.m">
+         contextName = "-[RCAnswerView refresh]:RCAnswerView.m">
       </ContextState>
       <ContextState
-         contextName = "-[RCAnswerView refresh]:RCAnswerView.m">
+         contextName = "-[TCAnswerView setShouldShowAnswer:]:TCAnswerView.m">
       </ContextState>
       <ContextState
          contextName = "-[SEAnswerView layoutSubviews]:SEAnswerView.m">
@@ -136,7 +161,7 @@
          contextName = "-[MainViewController test:]:MainViewController.m">
       </ContextState>
       <ContextState
-         contextName = "-[TCAnswerView setShouldShowAnswer:]:TCAnswerView.m">
+         contextName = "-[RCQViewController setQuestionData:]:RCQViewController.m">
       </ContextState>
       <ContextState
          contextName = "-[BlockButton layoutSubviews]:UIBlockView.m">
@@ -214,6 +239,14 @@
             </PersistentString>
             <PersistentString
                value = "_seps[1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[TitleView layoutSubviews]:TitleView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.subviews">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

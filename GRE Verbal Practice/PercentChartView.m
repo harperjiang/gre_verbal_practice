@@ -35,6 +35,7 @@
     self.label.backgroundColor = [UIColor clearColor];
     self.label.textColor = [UIColor darkGrayColor];
     self.label.textAlignment = NSTextAlignmentCenter;
+    self.backgroundColor = [UIColor clearColor];
     [self addSubview:self.label];
 }
 
@@ -47,6 +48,11 @@
     NSString* percentText = [NSString stringWithFormat:@"%zd%%", (int)(self.percent*100)];
     [self.label setText:percentText];
     [self setNeedsDisplay];
+}
+
+- (void)setShowPercent:(BOOL)showPercent {
+    self->_showPercent = showPercent;
+    self.label.hidden = !showPercent;
 }
 
 // Only override drawRect: if you perform custom drawing.
