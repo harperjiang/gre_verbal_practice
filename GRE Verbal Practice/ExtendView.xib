@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExtendView">
+            <connections>
+                <outlet property="explainLabel" destination="TKN-pn-BUX" id="GYF-fq-D9K"/>
+                <outlet property="extendView" destination="bQD-yV-T90" id="y3v-JC-sxJ"/>
+                <outlet property="heightConstraint" destination="hZE-E5-uP8" id="01D-JP-Hpa"/>
+                <outlet property="imageView" destination="Svo-U2-SXb" id="M6v-5p-Psg"/>
+                <outlet property="mainLabel" destination="uAl-ur-kYC" id="rWl-Tv-wDM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="272" height="111"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAl-ur-kYC">
+                    <rect key="frame" x="8" y="5" width="45.5" height="21"/>
+                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Svo-U2-SXb">
+                    <rect key="frame" x="242" y="6" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="gFF-R9-icL"/>
+                        <constraint firstAttribute="height" constant="20" id="zDz-k4-jRT"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKN-pn-BUX">
+                    <rect key="frame" x="131" y="5" width="45.5" height="21"/>
+                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQD-yV-T90">
+                    <rect key="frame" x="0.0" y="31" width="272" height="80"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="hZE-E5-uP8"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="TKN-pn-BUX" firstAttribute="leading" secondItem="uAl-ur-kYC" secondAttribute="trailing" constant="78" id="DV2-2l-Vj5"/>
+                <constraint firstItem="bQD-yV-T90" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Tc2-HA-S7X"/>
+                <constraint firstItem="uAl-ur-kYC" firstAttribute="centerY" secondItem="TKN-pn-BUX" secondAttribute="centerY" id="USQ-re-k6A"/>
+                <constraint firstAttribute="trailing" secondItem="Svo-U2-SXb" secondAttribute="trailing" constant="10" id="VLQ-RL-n7W"/>
+                <constraint firstItem="uAl-ur-kYC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="aDQ-co-5wL"/>
+                <constraint firstItem="Svo-U2-SXb" firstAttribute="centerY" secondItem="uAl-ur-kYC" secondAttribute="centerY" id="gjt-XC-mpv"/>
+                <constraint firstItem="uAl-ur-kYC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="ia1-nk-4wp"/>
+                <constraint firstAttribute="bottom" secondItem="bQD-yV-T90" secondAttribute="bottom" id="kCR-wC-7AB"/>
+                <constraint firstAttribute="trailing" secondItem="bQD-yV-T90" secondAttribute="trailing" id="s0I-9i-ALe"/>
+                <constraint firstItem="bQD-yV-T90" firstAttribute="top" secondItem="TKN-pn-BUX" secondAttribute="bottom" constant="5" id="sR1-TT-iqt"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Lec-iZ-gLu" appends="YES" id="bQC-qi-gX6"/>
+            </connections>
+            <point key="canvasLocation" x="380" y="186.5"/>
+        </view>
+        <tapGestureRecognizer id="Lec-iZ-gLu">
+            <connections>
+                <action selector="onTap:" destination="-1" id="eUD-gc-kYG"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

@@ -206,6 +206,8 @@
 		A6BF433E1A7D333B00B52322 /* Zantroke.otf in Resources */ = {isa = PBXBuildFile; fileRef = A6BF433D1A7D333B00B52322 /* Zantroke.otf */; };
 		A6BF43411A7D49FF00B52322 /* QuizReviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF43401A7D49FF00B52322 /* QuizReviewController.m */; };
 		A6BF43431A7D4F5800B52322 /* givestar.wav in Resources */ = {isa = PBXBuildFile; fileRef = A6BF43421A7D4F5800B52322 /* givestar.wav */; };
+		A6BF43451A7DDA9B00B52322 /* ExtendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6BF43441A7DDA9B00B52322 /* ExtendView.xib */; };
+		A6BF43481A7EA32300B52322 /* ExtendView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BF43471A7EA32300B52322 /* ExtendView.m */; };
 		A6C6A1AF1A6EF956000E2F23 /* school.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1AE1A6EF956000E2F23 /* school.png */; };
 		A6C6A1B11A6EFCB9000E2F23 /* school_white.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C6A1B01A6EFCB9000E2F23 /* school_white.png */; };
 		A6C6A1B51A6F3C8C000E2F23 /* PieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C6A1B41A6F3C8C000E2F23 /* PieChartView.m */; };
@@ -516,6 +518,9 @@
 		A6BF433F1A7D49FF00B52322 /* QuizReviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizReviewController.h; sourceTree = "<group>"; };
 		A6BF43401A7D49FF00B52322 /* QuizReviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizReviewController.m; sourceTree = "<group>"; };
 		A6BF43421A7D4F5800B52322 /* givestar.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = givestar.wav; sourceTree = "<group>"; };
+		A6BF43441A7DDA9B00B52322 /* ExtendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtendView.xib; sourceTree = "<group>"; };
+		A6BF43461A7EA32300B52322 /* ExtendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendView.h; sourceTree = "<group>"; };
+		A6BF43471A7EA32300B52322 /* ExtendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendView.m; sourceTree = "<group>"; };
 		A6C6A1AE1A6EF956000E2F23 /* school.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = school.png; sourceTree = "<group>"; };
 		A6C6A1B01A6EFCB9000E2F23 /* school_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = school_white.png; sourceTree = "<group>"; };
 		A6C6A1B31A6F3C8C000E2F23 /* PieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieChartView.h; sourceTree = "<group>"; };
@@ -1014,8 +1019,6 @@
 				A6005A711A5762FC009EF5AF /* iPad.storyboard */,
 				A6A692261A3766E300414E73 /* Images.xcassets */,
 				A6A692281A3766E300414E73 /* LaunchScreen.xib */,
-				A6C6A1B91A70C9A0000E2F23 /* GradeView.xib */,
-				A6C6A1E41A7A01FC000E2F23 /* TitleView.xib */,
 			);
 			name = res;
 			sourceTree = "<group>";
@@ -1166,12 +1169,17 @@
 			children = (
 				A60059371A4F5496009EF5AF /* MenuView.h */,
 				A60059381A4F5496009EF5AF /* MenuView.m */,
+				A6BF43461A7EA32300B52322 /* ExtendView.h */,
+				A6BF43471A7EA32300B52322 /* ExtendView.m */,
+				A6BF43441A7DDA9B00B52322 /* ExtendView.xib */,
 				A6C6A1BB1A70CCB2000E2F23 /* GradeView.h */,
 				A6C6A1BC1A70CCB2000E2F23 /* GradeView.m */,
+				A6C6A1B91A70C9A0000E2F23 /* GradeView.xib */,
 				A6C6A1E11A79CEB6000E2F23 /* InfoPresentationController.h */,
 				A6C6A1E21A79CEB6000E2F23 /* InfoPresentationController.m */,
 				A6C6A1E61A7A04F7000E2F23 /* TitleView.h */,
 				A6C6A1E71A7A04F7000E2F23 /* TitleView.m */,
+				A6C6A1E41A7A01FC000E2F23 /* TitleView.xib */,
 				A69CC7201A7CA96600D299B1 /* InfoDialogDelegate.h */,
 				A69CC7211A7CA96600D299B1 /* InfoDialogDelegate.m */,
 			);
@@ -1267,6 +1275,7 @@
 				A60059D81A53B501009EF5AF /* play-circle-6x.png in Resources */,
 				A6005A441A560E51009EF5AF /* Icon-72@2x.png in Resources */,
 				A69CC71A1A7B5B1400D299B1 /* incorrect.aiff in Resources */,
+				A6BF43451A7DDA9B00B52322 /* ExtendView.xib in Resources */,
 				A6005A4D1A560E51009EF5AF /* Icon-Small@2x.png in Resources */,
 				A6005A4A1A560E51009EF5AF /* Icon-Small-50.png in Resources */,
 				A600599A1A539464009EF5AF /* no@2x.png in Resources */,
@@ -1437,6 +1446,7 @@
 				A66FDBDB1A3E715800DAAE13 /* UIUtils.m in Sources */,
 				A6C6A1C91A74456B000E2F23 /* PercentChartView.m in Sources */,
 				A69CC7251A7CA9D400D299B1 /* QuizResultController.m in Sources */,
+				A6BF43481A7EA32300B52322 /* ExtendView.m in Sources */,
 				A678719A1A424B4E00AEE184 /* QuestionViewController.m in Sources */,
 				A6C6A1E31A79CEB6000E2F23 /* InfoPresentationController.m in Sources */,
 				A67871BD1A43CF3800AEE184 /* SettingViewController.m in Sources */,
