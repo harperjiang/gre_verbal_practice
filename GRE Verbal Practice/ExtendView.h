@@ -11,14 +11,16 @@
 
 
 
-@interface ExtendView : UIView
+@interface ExtendView : UIView {
+    UIView* _innerView;
+    NSArray* _extendConstraint;
+}
 
 @property(nonatomic) IBOutlet UILabel* mainLabel;
 @property(nonatomic) IBOutlet UILabel* explainLabel;
 @property(nonatomic) IBOutlet UIImageView* imageView;
 
-@property(nonatomic) IBOutlet UIView* extendView;
-@property(nonatomic) IBOutlet NSLayoutConstraint* heightConstraint;
+@property(nonatomic) UIView* extendView;
 
 - (IBAction)onTap:(id)sender;
 

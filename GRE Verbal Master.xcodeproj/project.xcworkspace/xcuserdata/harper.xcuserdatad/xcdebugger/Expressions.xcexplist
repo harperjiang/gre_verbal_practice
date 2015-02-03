@@ -87,17 +87,6 @@
          contextName = "-[TCAnswerView showAnswer]:TCAnswerView.m">
       </ContextState>
       <ContextState
-         contextName = "-[VocabQuizController nextQuestion]:VocabQuizController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.buttonRightOffset.constant">
-            </PersistentString>
-            <PersistentString
-               value = "self.buttonLeftOffset.constant">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[TCAnswerView updateControls]:TCAnswerView.m">
       </ContextState>
       <ContextState
@@ -247,6 +236,20 @@
          <PersistentStrings>
             <PersistentString
                value = "self.subviews">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[QuizReviewController viewDidLoad]:QuizReviewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[ExtendView layoutSubviews]:ExtendView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.frame">
+            </PersistentString>
+            <PersistentString
+               value = "self.bounds">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

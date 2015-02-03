@@ -13,4 +13,6 @@
 
 @property(nonatomic) VocabQuizSet* quizSet;
 
+@property(nonatomic) IBOutlet UIView* containerView;
+@property(nonatomic) IBOutlet NSLayoutConstraint* containerWidth;
 @end

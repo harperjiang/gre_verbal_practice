@@ -1649,17 +1649,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oin-VF-fuH">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oin-VF-fuH">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLM-y4-XmA">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fLM-y4-XmA" userLabel="Container View">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="500" id="AS1-4j-AET"/>
-                                            <constraint firstAttribute="height" id="d0x-Nb-SKA"/>
+                                            <constraint firstAttribute="width" constant="500" id="QIw-cP-LeE"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="fLM-y4-XmA" secondAttribute="trailing" id="MSt-5M-9Uk"/>
                                     <constraint firstItem="fLM-y4-XmA" firstAttribute="top" secondItem="oin-VF-fuH" secondAttribute="top" id="SEX-m4-Nfx"/>
@@ -1668,7 +1668,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="oin-VF-fuH" secondAttribute="trailing" id="SOR-15-B7t"/>
                             <constraint firstItem="YtC-gq-1Sh" firstAttribute="top" secondItem="oin-VF-fuH" secondAttribute="bottom" id="kDf-Ox-1i6"/>
@@ -1676,6 +1676,10 @@
                             <constraint firstItem="oin-VF-fuH" firstAttribute="leading" secondItem="KJ8-bT-pwx" secondAttribute="leading" id="ygW-88-dFh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="fLM-y4-XmA" id="QfE-ex-Y5N"/>
+                        <outlet property="containerWidth" destination="QIw-cP-LeE" id="E72-61-15f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PwG-6z-cOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
