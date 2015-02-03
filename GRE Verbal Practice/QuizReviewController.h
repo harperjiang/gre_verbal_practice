@@ -15,4 +15,6 @@
 
 @property(nonatomic) IBOutlet UIView* containerView;
 @property(nonatomic) IBOutlet NSLayoutConstraint* containerWidth;
+
+@property(nonatomic) IBOutlet UIScrollView* scrollView;
 @end

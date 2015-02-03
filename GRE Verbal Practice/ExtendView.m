@@ -51,10 +51,10 @@
             [_innerView addSubview:self.extendView];
             NSDictionary* dict = @{@"extendView":self.extendView, @"mainLabel":self.mainLabel};
             NSMutableArray* array = [[NSMutableArray alloc] init];
-            [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[mainLabel]-0-[extendView]-|" options:0 metrics:nil views:dict]];
-            [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[extendView]-0-|" options:0 metrics:nil views:dict]];
+            [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[mainLabel]-5-[extendView]-|" options:0 metrics:nil views:dict]];
+            [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"|-8-[extendView]-20-|" options:0 metrics:nil views:dict]];
             
-            CGSize expected = [self.extendView sizeThatFits:CGSizeMake(self.bounds.size.width,10000)];
+            CGSize expected = [self.extendView sizeThatFits:CGSizeMake(self.bounds.size.width - 28,10000)];
             NSString* format = [NSString stringWithFormat:@"V:[extendView(==%f)]", expected.height];
             [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:format
                                                                                options:0

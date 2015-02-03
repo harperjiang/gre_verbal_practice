@@ -21,6 +21,7 @@
         VocabQuiz* quiz = [[VocabQuiz alloc] init];
         Vocabulary* vocab = [[DataManager defaultManager] getVocab: arc4random()%600];
         quiz.question = vocab.word;
+        quiz.explanation = vocab.explanation;
         
         NSMutableArray* options = [[NSMutableArray alloc] init];
         for(int j = 0 ; j < 4 ; j++) {
@@ -85,6 +86,12 @@
     }
     self.score += score;
     return score;
+}
+
+- (NSInteger)answerFor:(NSInteger)index {
+    if (index >= self.answers.count)
+        return -1;
+    return [[self.answers objectAtIndex:index] integerValue];
 }
 
 @end

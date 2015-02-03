@@ -1679,6 +1679,7 @@
                     <connections>
                         <outlet property="containerView" destination="fLM-y4-XmA" id="QfE-ex-Y5N"/>
                         <outlet property="containerWidth" destination="QIw-cP-LeE" id="E72-61-15f"/>
+                        <outlet property="scrollView" destination="oin-VF-fuH" id="Aaz-nz-48k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PwG-6z-cOx" userLabel="First Responder" sceneMemberID="firstResponder"/>

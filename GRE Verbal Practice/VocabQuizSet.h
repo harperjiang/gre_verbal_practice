@@ -26,4 +26,5 @@
 - (NSInteger)index;
 - (BOOL)next;
 - (NSInteger)answer:(NSInteger)answer;
+- (NSInteger)answerFor:(NSInteger)index;
 @end
