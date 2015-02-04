@@ -40,14 +40,17 @@
     [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[ev]-0-|" options:0 metrics:nil views:dict]];
     [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[lv]-0-|" options:0 metrics:nil views:dict]];
     */
-    UIImage* yesImage = [UIImage imageNamed:@"Vocab_Yes"];
-    UIImage* noImage = [UIImage imageNamed:@"Vocab_No"];
+   
     for(VocabQuiz* quiz in self.quizSet.questions) {
         ExtendView* eview = [[ExtendView alloc] initWithFrame:CGRectMake(0,0,0,0)];
         eview.mainLabel.text = quiz.question;
-        eview.explainLabel.text = [quiz.options objectAtIndex: quiz.answer - 1];
-        NSInteger answer = [self.quizSet answerFor:count - 1];
-        eview.imageView.image = (answer == quiz.answer)? yesImage:noImage;
+        
+        NSDictionary* answers = quiz.answerInfo;
+        NSString* youranswer = [answers objectForKey:@"user"];
+        NSString* correctAnswer = [answers objectForKey:@"answer"];
+        eview.answerLabel.text = youranswer;
+        eview.correctLabel.text = [NSString stringWithFormat:@"Correct answer:%@", correctAnswer];
+        [eview setMode:(quiz.userAnswer == quiz.answer)];
         
         UIView* lineview = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)];
         lineview.translatesAutoresizingMaskIntoConstraints = NO;
@@ -56,12 +59,15 @@
         UILabel* hiddenView = [[UILabel alloc] initWithFrame:CGRectMake(0,0,0,0)];
         hiddenView.translatesAutoresizingMaskIntoConstraints = NO;
         hiddenView.numberOfLines = 0;
-//        hiddenView.backgroundColor = [UIColor lightGrayColor];
-        UIFont* fontA = eview.mainLabel.font;
-        UIFont* fontB = eview.explainLabel.font;
-        NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"This word means: %@", quiz.explanation]];
-        [text addAttribute:NSFontAttributeName value:fontA range:NSMakeRange(0, 15)];
-        [text addAttribute:NSFontAttributeName value:fontB range:NSMakeRange(15, text.length - 15)];
+        
+        UIFont* fontB = eview.mainLabel.font;
+        UIFont* fontA = [UIFont fontWithName:@"Verdana-Bold" size:13];
+
+        
+        NSString* plainString = [NSString stringWithFormat:@"This word means: %@", quiz.explanation];
+        NSMutableAttributedString* text = [[NSMutableAttributedString alloc] initWithString: plainString];
+        [text addAttribute:NSFontAttributeName value:fontA range:NSMakeRange(0, 17)];
+        [text addAttribute:NSFontAttributeName value:fontB range:NSMakeRange(17, text.length - 17)];
         hiddenView.attributedText = text;
         
         eview.extendView = hiddenView;
@@ -100,13 +106,26 @@
         [self.containerView addConstraints:vac];
         
         if(count == 1) {
-            // First one
-            NSString *vformat = [NSString stringWithFormat: @"V:|-0-[%@]", eviewid];
+            UIView* lineview0 = [[UIView alloc] initWithFrame:CGRectMake(0,0,0,0)];
+            lineview0.translatesAutoresizingMaskIntoConstraints = NO;
+            lineview0.backgroundColor = [UIColor lightGrayColor];
+            [dict setObject:lineview0 forKey:@"lineview0"];
+            
+            [self.containerView addSubview:lineview0];
+            NSString *vformat = @"V:|-0-[lineview0(==1)]-0-[eview1]";
             NSArray* vContainer = [NSLayoutConstraint constraintsWithVisualFormat:vformat
                                                                           options:0
                                                                           metrics:nil
                                                                             views:dict];
             [self.containerView addConstraints:vContainer];
+            
+            NSString* hlvformat = @"|-0-[lineview0]-0-|";
+            NSArray* hlvContainer = [NSLayoutConstraint constraintsWithVisualFormat:hlvformat
+                                                                           options:0
+                                                                           metrics:nil
+                                                                             views:dict];
+            [self.containerView addConstraints:hlvContainer];
+            
         } else if(count == self.quizSet.size) {
             // Last one
             NSString *vformat = [NSString stringWithFormat: @"V:[%@]-0-|", lineviewid];

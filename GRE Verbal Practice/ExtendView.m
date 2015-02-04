@@ -7,6 +7,7 @@
 //
 
 #import "ExtendView.h"
+#import "UIUtils.h"
 
 @implementation ExtendView
 
@@ -43,15 +44,26 @@
     [_innerView layoutSubviews];
 }
 
+- (void)setMode:(BOOL)correct {
+    if(correct) {
+        self.imageView.image = [UIImage imageNamed:@"Vocab_Yes"];
+        self.answerLabel.textColor = [UIUtils chromeGreen];
+        self.answerHeight.constant = 0;
+        [self setNeedsLayout];
+    } else {
+        self.imageView.image = [UIImage imageNamed:@"Vocab_No"];
+        self.answerLabel.textColor = [UIUtils chromeRed];
+    }
+}
 
 - (void)onTap:(id)sender {
     if (self.extendView != nil) {
         if (self.extendView.superview == nil) {
             // Install
             [_innerView addSubview:self.extendView];
-            NSDictionary* dict = @{@"extendView":self.extendView, @"mainLabel":self.mainLabel};
+            NSDictionary* dict = @{@"extendView":self.extendView, @"headerView":self.headerView};
             NSMutableArray* array = [[NSMutableArray alloc] init];
-            [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[mainLabel]-5-[extendView]-|" options:0 metrics:nil views:dict]];
+            [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[headerView]-5-[extendView]-|" options:0 metrics:nil views:dict]];
             [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"|-8-[extendView]-20-|" options:0 metrics:nil views:dict]];
             
             CGSize expected = [self.extendView sizeThatFits:CGSizeMake(self.bounds.size.width - 28,10000)];

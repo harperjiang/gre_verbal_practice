@@ -643,6 +643,9 @@
 		A60059481A51E75D009EF5AF /* vocab */ = {
 			isa = PBXGroup;
 			children = (
+				A6BF43461A7EA32300B52322 /* ExtendView.h */,
+				A6BF43471A7EA32300B52322 /* ExtendView.m */,
+				A6BF43441A7DDA9B00B52322 /* ExtendView.xib */,
 				A67871591A40961200AEE184 /* VocabViewController.h */,
 				A678715A1A40961200AEE184 /* VocabViewController.m */,
 				A600598D1A534B80009EF5AF /* VocabGroupController.h */,
@@ -1169,9 +1172,6 @@
 			children = (
 				A60059371A4F5496009EF5AF /* MenuView.h */,
 				A60059381A4F5496009EF5AF /* MenuView.m */,
-				A6BF43461A7EA32300B52322 /* ExtendView.h */,
-				A6BF43471A7EA32300B52322 /* ExtendView.m */,
-				A6BF43441A7DDA9B00B52322 /* ExtendView.xib */,
 				A6C6A1BB1A70CCB2000E2F23 /* GradeView.h */,
 				A6C6A1BC1A70CCB2000E2F23 /* GradeView.m */,
 				A6C6A1B91A70C9A0000E2F23 /* GradeView.xib */,

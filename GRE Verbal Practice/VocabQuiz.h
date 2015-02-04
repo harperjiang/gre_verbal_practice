@@ -17,8 +17,10 @@
 @property(nonatomic) NSArray* options;
 @property(nonatomic) NSInteger answer;
 @property(nonatomic) NSString* explanation;
+@property(nonatomic) NSInteger userAnswer;
 
 @property(nonatomic) VocabQuizSet* header;
 
+- (NSDictionary*) answerInfo;
 
 @end

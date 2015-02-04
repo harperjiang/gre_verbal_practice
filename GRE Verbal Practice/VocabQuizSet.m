@@ -44,7 +44,6 @@
         self.score = 0;
         self->_index = 0;
         self->_correct = 0;
-        self->_answers = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -74,10 +73,7 @@
 }
 
 - (NSInteger)answer:(NSInteger)answer {
-    while (self.answers.count < _index) {
-        [self.answers addObject:[NSNumber numberWithInt:-1]];
-    }
-    [self.answers setObject:[NSNumber numberWithInteger:answer] atIndexedSubscript:_index];
+    self.current.userAnswer = answer;
     NSInteger score = 0;
     if(answer == self.current.answer) {
         // TODO Scoring logic
@@ -89,9 +85,7 @@
 }
 
 - (NSInteger)answerFor:(NSInteger)index {
-    if (index >= self.answers.count)
-        return -1;
-    return [[self.answers objectAtIndex:index] integerValue];
+    return [(VocabQuiz*)[self.questions objectAtIndex:index] userAnswer];
 }
 
 @end

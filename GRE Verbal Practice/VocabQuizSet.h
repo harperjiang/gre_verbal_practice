@@ -15,7 +15,6 @@
 }
 
 @property(nonatomic) NSArray* questions;
-@property(nonatomic) NSMutableArray* answers;
 @property(nonatomic) NSInteger score;
 
 + (VocabQuizSet*)create;
