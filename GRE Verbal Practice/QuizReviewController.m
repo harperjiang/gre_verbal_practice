@@ -158,12 +158,4 @@
     self.containerWidth.constant = self.view.bounds.size.width;
 }
 
-- (void)viewDidLayoutSubviews {
-    
-    CGRect frame = self.scrollView.frame;
-    NSLog(@"%f,%f,%f,%f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
-    CGSize size = [self.containerView sizeThatFits:CGSizeMake(self.view.frame.size.width, 10000)];
-    NSLog(@"%f,%f", size.width, size.height);
-}
-
 @end

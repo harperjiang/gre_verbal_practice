@@ -47,12 +47,12 @@
 - (void)setMode:(BOOL)correct {
     if(correct) {
         self.imageView.image = [UIImage imageNamed:@"Vocab_Yes"];
-        self.answerLabel.textColor = [UIUtils chromeGreen];
+        self.answerLabel.textColor = [UIColor greenColor];
         self.answerHeight.constant = 0;
         [self setNeedsLayout];
     } else {
         self.imageView.image = [UIImage imageNamed:@"Vocab_No"];
-        self.answerLabel.textColor = [UIUtils chromeRed];
+        self.answerLabel.textColor = [UIColor redColor];
     }
 }
 
