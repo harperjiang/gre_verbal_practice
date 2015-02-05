@@ -200,10 +200,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="v2G-UC-TYh" secondAttribute="trailing" constant="-16" id="1GM-9Z-0jt"/>
-                            <constraint firstItem="v2G-UC-TYh" firstAttribute="leading" secondItem="5DE-aD-GSp" secondAttribute="leadingMargin" constant="-16" id="NJi-Hl-byu"/>
-                            <constraint firstItem="7kk-u0-2vu" firstAttribute="top" secondItem="v2G-UC-TYh" secondAttribute="bottom" id="e4E-gy-Ujq"/>
-                            <constraint firstItem="v2G-UC-TYh" firstAttribute="top" secondItem="DW6-nl-Jte" secondAttribute="bottom" id="fei-l8-FFV"/>
+                            <constraint firstItem="v2G-UC-TYh" firstAttribute="leading" secondItem="5DE-aD-GSp" secondAttribute="leading" id="LWL-wU-cAM"/>
+                            <constraint firstItem="7kk-u0-2vu" firstAttribute="top" secondItem="v2G-UC-TYh" secondAttribute="bottom" id="SVs-1k-1gJ"/>
+                            <constraint firstAttribute="trailing" secondItem="v2G-UC-TYh" secondAttribute="trailing" id="ida-pp-1DY"/>
+                            <constraint firstItem="v2G-UC-TYh" firstAttribute="top" secondItem="DW6-nl-Jte" secondAttribute="bottom" id="oam-Nq-sB5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Article" image="TabBar_Article" id="KDy-JN-9dn"/>
@@ -727,7 +727,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auc-vf-X2M">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="465"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="447"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TCQuestion" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9R-eE-BsT">
                                                 <rect key="frame" x="25" y="25" width="555" height="21"/>
@@ -799,7 +799,7 @@
                                             <constraint firstItem="U9h-hr-ZVl" firstAttribute="leading" secondItem="0gd-ba-SkJ" secondAttribute="trailing" constant="10" id="ht8-e2-gBT"/>
                                             <constraint firstItem="EM6-Sq-15G" firstAttribute="centerY" secondItem="U9h-hr-ZVl" secondAttribute="centerY" id="s6d-UA-Dxk"/>
                                             <constraint firstItem="E9R-eE-BsT" firstAttribute="leading" secondItem="yH7-1Z-shZ" secondAttribute="leading" id="sdt-DF-bW8"/>
-                                            <constraint firstAttribute="bottom" secondItem="yH7-1Z-shZ" secondAttribute="bottom" constant="38" id="zVZ-Ra-hC8"/>
+                                            <constraint firstAttribute="bottom" secondItem="yH7-1Z-shZ" secondAttribute="bottom" constant="20" id="zVZ-Ra-hC8"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -985,7 +985,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNJ-mA-5eN">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNJ-mA-5eN" userLabel="Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -1020,7 +1020,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RNJ-mA-5eN" firstAttribute="top" secondItem="ZUl-oq-sVu" secondAttribute="top" id="97k-rY-4Dl"/>
-                            <constraint firstItem="RNJ-mA-5eN" firstAttribute="bottom" secondItem="ETW-ui-vNl" secondAttribute="top" id="Bp3-Af-xDH"/>
+                            <constraint firstItem="ETW-ui-vNl" firstAttribute="top" secondItem="RNJ-mA-5eN" secondAttribute="bottom" id="99Y-dG-arj"/>
                             <constraint firstItem="ETW-ui-vNl" firstAttribute="top" secondItem="nrC-dt-Qgl" secondAttribute="bottom" constant="60" id="Fxd-W3-FJZ"/>
                             <constraint firstItem="VtM-OR-ljQ" firstAttribute="leading" secondItem="ZUl-oq-sVu" secondAttribute="leadingMargin" constant="14" id="KtJ-Nq-BZZ"/>
                             <constraint firstAttribute="trailing" secondItem="RNJ-mA-5eN" secondAttribute="trailing" id="WFc-90-UxM"/>
@@ -1033,6 +1033,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="adBottomConstraint" destination="99Y-dG-arj" id="4xu-fB-X2H"/>
                         <outlet property="containerView" destination="RNJ-mA-5eN" id="azj-36-1bs"/>
                         <outlet property="nextButton" destination="nrC-dt-Qgl" id="NUu-Qd-1Pn"/>
                         <outlet property="prevButton" destination="VtM-OR-ljQ" id="If3-4E-bae"/>

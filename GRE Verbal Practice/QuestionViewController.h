@@ -14,7 +14,7 @@
 #import "AdBannerSupport.h"
 
 
-@interface QuestionViewController : UIViewController<AnswerListener> {
+@interface QuestionViewController : UIViewController<AnswerListener, AdBannerTarget> {
     id<QViewController> currentController;
 }
 

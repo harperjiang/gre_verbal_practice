@@ -134,7 +134,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lzL-cc-CFT" secondAttribute="trailing" id="Fzb-vZ-Pwr"/>
                             <constraint firstItem="lzL-cc-CFT" firstAttribute="top" secondItem="zdG-xW-LJv" secondAttribute="top" id="Jpb-eL-drf"/>
-                            <constraint firstItem="lzL-cc-CFT" firstAttribute="bottom" secondItem="hvE-qK-YSX" secondAttribute="top" id="SAc-OF-PBv"/>
+                            <constraint firstItem="hvE-qK-YSX" firstAttribute="top" secondItem="lzL-cc-CFT" secondAttribute="bottom" id="SAc-OF-PBv"/>
                             <constraint firstItem="cJp-CE-QnC" firstAttribute="leading" secondItem="zdG-xW-LJv" secondAttribute="leadingMargin" constant="14" id="c8g-e1-0la"/>
                             <constraint firstItem="hvE-qK-YSX" firstAttribute="top" secondItem="cJp-CE-QnC" secondAttribute="bottom" constant="60" id="ov8-9l-3Vz"/>
                             <constraint firstItem="hvE-qK-YSX" firstAttribute="top" secondItem="xGI-Ez-7Vf" secondAttribute="bottom" constant="60" id="qyR-e5-kyr"/>
@@ -146,6 +146,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="adBottomConstraint" destination="SAc-OF-PBv" id="wzR-8m-LRv"/>
                         <outlet property="containerView" destination="lzL-cc-CFT" id="uJn-kn-x1V"/>
                         <outlet property="nextButton" destination="xGI-Ez-7Vf" id="6y3-na-JSm"/>
                         <outlet property="prevButton" destination="cJp-CE-QnC" id="UdG-cp-BsS"/>
@@ -760,7 +761,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qew-Lu-93d">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="465"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="447"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TCQuestion" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF7-xS-Wrg">
                                                 <rect key="frame" x="25" y="25" width="555" height="21"/>
@@ -830,7 +831,7 @@
                                             <constraint firstItem="CxS-Pq-nOv" firstAttribute="top" secondItem="0b5-Uz-1XC" secondAttribute="bottom" constant="25" id="iZ0-16-Gr7"/>
                                             <constraint firstItem="eaK-7O-x0h" firstAttribute="top" secondItem="JF7-xS-Wrg" secondAttribute="bottom" constant="5" id="oak-CN-Sin"/>
                                             <constraint firstItem="JF7-xS-Wrg" firstAttribute="leading" secondItem="CxS-Pq-nOv" secondAttribute="leading" id="qF9-Fp-Ymf"/>
-                                            <constraint firstAttribute="bottom" secondItem="CxS-Pq-nOv" secondAttribute="bottom" constant="38" id="r8z-WD-x6n"/>
+                                            <constraint firstAttribute="bottom" secondItem="CxS-Pq-nOv" secondAttribute="bottom" constant="20" id="r8z-WD-x6n"/>
                                             <constraint firstItem="JF7-xS-Wrg" firstAttribute="leading" secondItem="0b5-Uz-1XC" secondAttribute="leading" id="rE4-78-5pL"/>
                                             <constraint firstItem="XTs-4t-b6C" firstAttribute="leading" secondItem="eaK-7O-x0h" secondAttribute="trailing" constant="10" id="tSg-Qh-4tP"/>
                                         </constraints>

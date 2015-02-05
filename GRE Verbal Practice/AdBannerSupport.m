@@ -80,6 +80,9 @@
         if(nil != self.bottomConstraint) {
             self.bottomConstraint.constant = newbottomDist;
         }
+        if(self.target != nil) {
+            [self.target shouldShrink: newbottomDist];
+        }
         _bannerView.hidden = !_bannerView.bannerLoaded;
     }];
 }

@@ -184,6 +184,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)shouldShrink:(NSInteger)bottomdist {
+    self.adBottomConstraint.constant = bottomdist;
+}
+
 - (BOOL)automaticallyAdjustsScrollViewInsets {
     return NO;
 }

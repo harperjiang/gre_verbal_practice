@@ -26,7 +26,8 @@
     
     // Ad Support
     _adSupport = [[AdBannerSupport alloc] init];
-    [_adSupport setParentView: self.view];
+    _adSupport.target = self;
+    _adSupport.parentView = self.view;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +66,11 @@
     }
 }
 
+- (void)shouldShrink:(NSInteger)bottomdist {
+    if([self.topViewController conformsToProtocol:@protocol(AdBannerTarget)]) {
+        [(id<AdBannerTarget>)self.topViewController shouldShrink:bottomdist];
+    }
+}
 /*
  #pragma mark - Navigation
  

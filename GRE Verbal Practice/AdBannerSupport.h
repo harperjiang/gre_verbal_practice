@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <iAd/iAd.h>
 
+@protocol AdBannerTarget
+
+- (void)shouldShrink:(NSInteger)bottomdist;
+
+@end
 
 @interface AdBannerSupport : NSObject<ADBannerViewDelegate> {
     BOOL _loaded;
@@ -17,6 +22,7 @@
 
 @property(nonatomic, readwrite, weak) UIView* parentView;
 @property(nonatomic, readwrite, weak) UIView* shrinkView;
+@property(nonatomic, readwrite, weak) id<AdBannerTarget> target;
 @property(nonatomic, readwrite, weak) NSLayoutConstraint* bottomConstraint;
 
 - (void)layoutAnimated:(BOOL)animate;

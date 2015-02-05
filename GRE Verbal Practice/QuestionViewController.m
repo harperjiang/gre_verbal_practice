@@ -201,5 +201,8 @@
     return NO;
 }
 
+- (void)shouldShrink:(NSInteger)bottomdist {
+    self.adBottomConstraint.constant = bottomdist;
+}
 
 @end

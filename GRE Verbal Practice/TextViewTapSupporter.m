@@ -115,7 +115,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"%f,%f",scrollView.contentOffset.x, scrollView.contentOffset.y);
+//    NSLog(@"%f,%f",scrollView.contentOffset.x, scrollView.contentOffset.y);
 }
 
 + (NSMutableAttributedString *)parse:(NSString *)input {

@@ -16,8 +16,9 @@
 #import "ExamSuite.h"
 #import "AnswerListener.h"
 #import "MenuView.h"
+#import "AdBannerSupport.h"
 
-@interface ExamViewController : UIViewController<AnswerListener, UITableViewDelegate, UITableViewDataSource> {
+@interface ExamViewController : UIViewController<AnswerListener, UITableViewDelegate, UITableViewDataSource, AdBannerTarget> {
     
     SEViewController* sevc;
     id<QViewController> rcvc;
@@ -37,12 +38,15 @@
 @property(nonatomic, readwrite, strong) UILabel* timeLabel;
 @property(nonatomic, readwrite) BOOL reviewMode;
 
+@property(nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint* adBottomConstraint;
+
 @property(nonatomic, readwrite, strong) IBOutlet UIView* containerView;
 @property(nonatomic, readwrite, strong) IBOutlet UIButton* prevButton;
 @property(nonatomic, readwrite, strong) IBOutlet UIButton* nextButton;
 
-- (IBAction)markQuestion: (id) button;
-- (IBAction)showResult:(id) button;
+- (void)markQuestion: (id) button;
+- (void)showResult:(id) button;
+
 - (IBAction)prevQuestion:(id)button;
 - (IBAction)nextQuestion:(id)button;
 - (IBAction)swipe:(UISwipeGestureRecognizer *)recognizer;
