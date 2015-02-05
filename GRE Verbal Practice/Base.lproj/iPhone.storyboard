@@ -12,9 +12,9 @@
     <customFonts key="customFonts">
         <mutableArray key="Tobago Poster.ttf">
             <string>TobagoPoster</string>
+            <string>TobagoPoster</string>
         </mutableArray>
         <mutableArray key="Zantroke.otf">
-            <string>Zantroke</string>
             <string>Zantroke</string>
             <string>Zantroke</string>
             <string>Zantroke</string>
@@ -1431,7 +1431,7 @@
                                     <action selector="onAnswer:" destination="C3t-fi-bpX" eventType="touchUpInside" id="iNg-aA-AZA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hr4-iV-bpy">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hr4-iV-bpy">
                                 <rect key="frame" x="354" y="137" width="50" height="30"/>
                                 <state key="normal" title="Review">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1658,7 +1658,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="c78-tH-GVb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Zantroke" family="Zantroke" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="TobagoPoster" family="Tobago Poster" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oin-VF-fuH">
@@ -1692,6 +1692,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="adBottomConstraint" destination="kDf-Ox-1i6" id="SBx-qh-3ig"/>
                         <outlet property="containerView" destination="fLM-y4-XmA" id="QfE-ex-Y5N"/>
                         <outlet property="containerWidth" destination="QIw-cP-LeE" id="E72-61-15f"/>
                         <outlet property="scrollView" destination="oin-VF-fuH" id="Aaz-nz-48k"/>

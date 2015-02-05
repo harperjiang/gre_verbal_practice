@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "VocabQuizSet.h"
+#import "AdBannerSupport.h"
 
-@interface QuizReviewController : UIViewController
+@interface QuizReviewController : UIViewController<AdBannerTarget>
 
 @property(nonatomic) VocabQuizSet* quizSet;
 
 @property(nonatomic) IBOutlet UIView* containerView;
 @property(nonatomic) IBOutlet NSLayoutConstraint* containerWidth;
-
+@property(nonatomic) IBOutlet NSLayoutConstraint* adBottomConstraint;
 @property(nonatomic) IBOutlet UIScrollView* scrollView;
 @end

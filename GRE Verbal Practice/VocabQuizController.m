@@ -99,8 +99,6 @@
 }
 
 - (void)showQuestion {
-    // Reset Button Color
-    [self hideAnswer];
     // Display Question Number
     self.questionTitle.scoreLabel.text = [NSString stringWithFormat:@"%zd/%zd", self.quizSet.index + 1, self.quizSet.size];
     // Display Question
@@ -138,6 +136,8 @@
     if (self.stopped) {
         return;
     }
+    // Reset Button Color
+    [self hideAnswer];
     if ([self.quizSet next]) {
         self.buttonLeftOffset.constant -= self.view.bounds.size.width;
         self.buttonRightOffset.constant += self.view.bounds.size.width;
@@ -191,12 +191,11 @@
     [self showMask:YES];
     [self showAnswer];
     NSInteger _score = self.quizSet.score;
-    NSInteger score = [self.quizSet answer:[(UIButton*)sender tag]];
+    NSInteger time = [self.timeTitle.scoreLabel.text substringFromIndex:1].integerValue;
+    NSInteger score = [self.quizSet answer:[(UIButton*)sender tag] time: time];
     if (score == 0) {
         // Wrong Answer
-        
         [_incorrectPlayer play];
-        
         // Go to next question after 1 secs
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 1), dispatch_get_main_queue(), ^{
             [self nextQuestion];
@@ -218,11 +217,12 @@
             
             // Change score in 100 steps
             NSInteger step = score / 100;
-            
+            if (step == 0)
+                step = 1;
             for(int i = 0 ; i < 100 ; i++) {
                 [NSThread sleepForTimeInterval:0.01];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.scoreTitle.scoreLabel setText:[NSString stringWithFormat:@"%03zd",_score + i * step]];
+                    [self.scoreTitle.scoreLabel setText:[NSString stringWithFormat:@"%03zd", MIN(_score + i * step, self.quizSet.score)]];
                 });
             }
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -259,7 +259,7 @@
 - (void)counterDone {
     [_incorrectPlayer play];
     [self showAnswer];
-    [self.quizSet answer: -1];
+    [self.quizSet answer: -1 time:0];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{[self nextQuestion];});
 }
 

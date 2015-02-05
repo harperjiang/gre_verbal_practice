@@ -138,7 +138,7 @@
         case 0:
             return self.vocabGroups.count;
         case 1:
-            return 2;
+            return 1;
         case 2:
             return 1;
         default:

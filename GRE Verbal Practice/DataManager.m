@@ -122,6 +122,11 @@ static DataManager* inst;
     }
 }
 
+- (NSInteger)getVocabCount {
+    NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"Vocabulary"];
+    return [self count:fr];
+}
+
 - (NSArray*)getVocabGroups {
     NSFetchRequest* fr = [[NSFetchRequest alloc] initWithEntityName:@"VocabGroup"];
     

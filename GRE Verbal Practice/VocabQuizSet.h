@@ -24,6 +24,6 @@
 - (VocabQuiz*)current;
 - (NSInteger)index;
 - (BOOL)next;
-- (NSInteger)answer:(NSInteger)answer;
+- (NSInteger)answer:(NSInteger)answer time:(NSInteger)time;
 - (NSInteger)answerFor:(NSInteger)index;
 @end

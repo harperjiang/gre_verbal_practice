@@ -10,9 +10,9 @@
     <customFonts key="customFonts">
         <mutableArray key="Tobago Poster.ttf">
             <string>TobagoPoster</string>
+            <string>TobagoPoster</string>
         </mutableArray>
         <mutableArray key="Zantroke.otf">
-            <string>Zantroke</string>
             <string>Zantroke</string>
             <string>Zantroke</string>
             <string>Zantroke</string>
@@ -1217,7 +1217,7 @@
                                     <subviews>
                                         <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J31-lh-gba" customClass="PercentChartView">
                                             <rect key="frame" x="469" y="11" width="90" height="22"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="90" id="nHk-mi-gej"/>
                                                 <constraint firstAttribute="height" constant="22" id="tgU-Xe-lPw"/>
@@ -1225,12 +1225,14 @@
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvO-kY-3gZ">
                                             <rect key="frame" x="18" y="8" width="37.5" height="18"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giE-Bf-r6c">
                                             <rect key="frame" x="18" y="26.5" width="26" height="12"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -1840,7 +1842,7 @@
                                     <action selector="onAnswer:" destination="ogT-FL-pu0" eventType="touchUpInside" id="03U-00-oqD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlM-Y4-AyE">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlM-Y4-AyE">
                                 <rect key="frame" x="354" y="137" width="50" height="30"/>
                                 <state key="normal" title="Review">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2100,7 +2102,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NGN-Y3-lC7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Zantroke" family="Zantroke" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="TobagoPoster" family="Tobago Poster" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k4l-hh-k47">
@@ -2134,6 +2136,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="adBottomConstraint" destination="ddW-Gv-GZY" id="oxU-Yt-eHo"/>
                         <outlet property="containerView" destination="Txq-wT-0JH" id="S3W-Pz-u5r"/>
                         <outlet property="containerWidth" destination="xQB-hi-bYY" id="4u1-ud-9FP"/>
                         <outlet property="scrollView" destination="k4l-hh-k47" id="fBg-n4-vpe"/>

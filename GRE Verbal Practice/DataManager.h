@@ -21,6 +21,7 @@
 - (NSManagedObjectContext*) getTempContext;
 
 // Vocabularies
+- (NSInteger)getVocabCount;
 - (NSArray*)getVocabGroups;
 - (NSInteger)getVocabCount:(VocabGroup*)group;
 - (NSArray*)getVocabs:(NSInteger)count ingroup:(VocabGroup*)group;

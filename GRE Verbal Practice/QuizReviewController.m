@@ -158,4 +158,8 @@
     self.containerWidth.constant = self.view.bounds.size.width;
 }
 
+- (void)shouldShrink:(NSInteger)bottomdist {
+    self.adBottomConstraint.constant = bottomdist;
+}
+
 @end
