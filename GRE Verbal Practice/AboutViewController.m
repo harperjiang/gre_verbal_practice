@@ -7,6 +7,7 @@
 //
 
 #import "AboutViewController.h"
+#import "UIViewController+ViewAddition.h"
 #import "UIUtils.h"
 #import "WebViewController.h"
 
@@ -20,42 +21,11 @@
 
 @implementation AboutViewController
 
-- (BOOL)isPad {
-#ifdef UI_USER_INTERFACE_IDIOM
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
-#else
-    return NO;
-#endif
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-    if(![self isPad]) {
-        return UIInterfaceOrientationMaskPortrait;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIUtils backgroundColor];
     // Do any additional setup after loading the view.
-    
-    self.adSupport = [[AdBannerSupport alloc] init];
-    // On iOS 6 ADBannerView introduces a new initializer, use it when available.
-    if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
-        _bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
-    } else {
-        _bannerView = [[ADBannerView alloc] init];
-    }
-    
-    [self.adSupport setBannerView: _bannerView];
-    [self.view addSubview:_bannerView];
-    
-    [self.adSupport setParentView: self.view];
-    [self.adSupport setShrinkView: self.scrollView];
-    [self.adSupport setBottomConstraint: self.bottomConstraint];
     
     // Back button
 }
@@ -69,8 +39,12 @@
     self.widthConstraint.constant = self.view.bounds.size.width;
 }
 
-- (void)viewDidLayoutSubviews {
-    [self.adSupport layoutAnimated:NO];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if(![self isPad]) {
+        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+    }
 }
 
 - (void)backToMain:(id)selector {

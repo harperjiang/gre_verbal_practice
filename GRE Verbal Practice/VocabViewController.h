@@ -15,10 +15,7 @@
 
 @interface VocabViewController : UIViewController<AVAudioPlayerDelegate, HttpDownloadListener> {
     AVAudioPlayer* _player;
-    ADBannerView* _bannerView;
 }
-
-@property(nonatomic, readwrite, strong) AdBannerSupport* adSupport;
 
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* progressLabel;
 @property(nonatomic, readwrite, strong) IBOutlet UILabel* messageLabel;

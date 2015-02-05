@@ -10,13 +10,23 @@
 
 @implementation AdBannerSupport
 
-- (void)setBannerView:(ADBannerView *)bannerView {
-    self->_bannerView = bannerView;
-    [self->_bannerView setDelegate:self];
+- (id)init {
+    self = [super init];
+    if (self) {
+        self->_bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+        [self->_bannerView setDelegate:self];
+    }
+    return self;
 }
 
 - (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
     return YES;
+}
+
+- (void)setParentView:(UIView *)parentView {
+    self->_parentView = parentView;
+    [self->_bannerView removeFromSuperview];
+    [self->_parentView addSubview:_bannerView];
 }
 
 - (void)bannerViewActionDidFinish:(ADBannerView *)banner {
@@ -28,7 +38,7 @@
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    NSLog(@"%@:%@",error,[error userInfo]);
+//    NSLog(@"%@:%@",error,[error userInfo]);
     [self layoutAnimated:YES];
 }
 
@@ -66,11 +76,11 @@
 //            self.shrinkView.frame = contentFrame;
 //            [self.shrinkView layoutIfNeeded];
 //        }
-        self.bannerView.frame = bannerFrame;
+        _bannerView.frame = bannerFrame;
         if(nil != self.bottomConstraint) {
             self.bottomConstraint.constant = newbottomDist;
         }
-        self.bannerView.hidden = !_bannerView.bannerLoaded;
+        _bannerView.hidden = !_bannerView.bannerLoaded;
     }];
 }
 

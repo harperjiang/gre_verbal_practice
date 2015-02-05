@@ -11,6 +11,8 @@
 #import "SettingViewController.h"
 #import "UpdateViewController.h"
 #import "ExamResultController.h"
+#import "AboutViewController.h"
+#import "UIViewController+ViewAddition.h"
 
 @interface NavViewController ()
 
@@ -18,22 +20,23 @@
 
 @implementation NavViewController
 
-- (BOOL)isPad {
-#ifdef UI_USER_INTERFACE_IDIOM
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
-#else
-    return NO;
-#endif
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Ad Support
+    _adSupport = [[AdBannerSupport alloc] init];
+    [_adSupport setParentView: self.view];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+}
+
+- (void)viewDidLayoutSubviews {
+    [_adSupport layoutAnimated:NO];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -53,9 +56,11 @@
             return UIInterfaceOrientationMaskPortrait;
         if ([currentViewController isKindOfClass:[SettingViewController class]])
             return UIInterfaceOrientationMaskPortrait;
-        if ([currentViewController isKindOfClass:[UpdateViewController class]]) {
+        if ([currentViewController isKindOfClass:[UpdateViewController class]])
             return UIInterfaceOrientationMaskPortrait;
-        }
+        if ([currentViewController isKindOfClass:[AboutViewController class]])
+            return UIInterfaceOrientationMaskPortrait;
+        
         return UIInterfaceOrientationMaskAll;
     }
 }

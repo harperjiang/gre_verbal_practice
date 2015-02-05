@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "UIViewController+ViewAddition.h"
 #import "UserPreference.h"
 #import "UIUtils.h"
 
@@ -33,6 +34,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if(![self isPad]) {
+        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+    }
 }
 
 - (IBAction)sliderValueChanged:(id)sender {

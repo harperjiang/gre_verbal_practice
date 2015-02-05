@@ -24,22 +24,6 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIUtils backgroundColor];
     
-    // Ad Banner Setup
-    self.adSupport = [[AdBannerSupport alloc] init];
-    // On iOS 6 ADBannerView introduces a new initializer, use it when available.
-    if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
-        _bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
-    } else {
-        _bannerView = [[ADBannerView alloc] init];
-    }
-    
-    [self.adSupport setBannerView: _bannerView];
-    [self.view addSubview:_bannerView];
-    
-    [self.adSupport setParentView: self.view];
-    [self.adSupport setShrinkView: nil];
-    [self.adSupport setBottomConstraint: self.bottomHeight];
-    
     // VocabPlan setup
     if(self.plan == nil) {
         [self modeMessage:@"No study plan installed."];
@@ -73,9 +57,6 @@
     bounds = self.synonymText.bounds;
     expect = [self.synonymText sizeThatFits:CGSizeMake(bounds.size.width, 10000)];
     self.synonymHeight.constant = expect.height;
-    
-    
-    [self.adSupport layoutAnimated:NO];
 }
 
 - (void)showVocab:(Vocabulary*)data status:(NSString*) status{

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AdBannerSupport.h"
 
-@interface NavViewController : UINavigationController
+@interface NavViewController : UINavigationController {
+    AdBannerSupport* _adSupport;
+}
 
 @end

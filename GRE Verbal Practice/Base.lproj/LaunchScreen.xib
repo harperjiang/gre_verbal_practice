@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -20,13 +20,16 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRE Verbal Master" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="50" width="561" height="43"/>
+                    <rect key="frame" x="125" y="50" width="350" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="350" id="aBY-Lw-a3m"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="school_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="hpp-9F-U7W">
-                    <rect key="frame" x="40" y="161" width="520" height="277"/>
+                    <rect key="frame" x="125" y="206" width="350" height="187"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="hpp-9F-U7W" secondAttribute="height" multiplier="15:8" id="plC-s5-CAJ"/>
                     </constraints>
@@ -40,16 +43,20 @@
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
+                <constraint firstItem="hpp-9F-U7W" firstAttribute="leading" secondItem="kId-c2-rCX" secondAttribute="leading" id="UX9-S0-pJ5"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
                 <constraint firstAttribute="centerY" secondItem="hpp-9F-U7W" secondAttribute="centerY" id="bn6-3f-DxI"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
                 <constraint firstAttribute="centerX" secondItem="hpp-9F-U7W" secondAttribute="centerX" id="lPt-rs-isw"/>
+                <constraint firstItem="hpp-9F-U7W" firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" id="qNM-MH-kpD"/>
                 <constraint firstItem="hpp-9F-U7W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="y2e-Ul-wVI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="5cJ-9S-tgC"/>
+                    <exclude reference="fvb-Df-36g"/>
+                    <exclude reference="y2e-Ul-wVI"/>
                     <exclude reference="7Fc-nF-qih"/>
                 </mask>
             </variation>

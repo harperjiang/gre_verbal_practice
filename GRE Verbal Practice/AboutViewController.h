@@ -17,10 +17,9 @@
 @end
 
 @interface AboutViewController : UIViewController{
-    ADBannerView* _bannerView;
+    
 }
 
-@property(nonatomic, readwrite, strong) AdBannerSupport* adSupport;
 @property(nonatomic, readwrite, strong) IBOutlet NSLayoutConstraint* bottomConstraint;
 @property(nonatomic, readwrite, strong) IBOutlet UIScrollView* scrollView;
 

@@ -16,12 +16,10 @@
 
 @interface QuestionViewController : UIViewController<AnswerListener> {
     id<QViewController> currentController;
-    ADBannerView* _bannerView;
 }
 
 @property(nonatomic, readwrite, strong) QuestionSet* questionSet;
 
-@property(nonatomic, readwrite) AdBannerSupport* adSupport;
 @property(nonatomic) IBOutlet NSLayoutConstraint* adBottomConstraint;
 
 @property(nonatomic) IBOutlet UIView* toolbarView;

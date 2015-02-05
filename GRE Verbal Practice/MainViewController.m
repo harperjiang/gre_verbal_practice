@@ -16,6 +16,7 @@
 #import "SEViewController.h"
 #import "UIBlockView.h"
 #import "UIUtils.h"
+#import "UIViewController+ViewAddition.h"
 
 @interface MainViewController ()
 
@@ -23,33 +24,10 @@
 
 @implementation MainViewController
 
-- (BOOL)isPad {
-#ifdef UI_USER_INTERFACE_IDIOM
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
-#else
-    return NO;
-#endif
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIUtils backgroundColor];
-    
-    self.adSupport = [[AdBannerSupport alloc] init];
-    // On iOS 6 ADBannerView introduces a new initializer, use it when available.
-    if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
-        _bannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
-    } else {
-        _bannerView = [[ADBannerView alloc] init];
-    }
-    
-    [self.adSupport setBannerView: _bannerView];
-    [self.view addSubview:_bannerView];
-    
-    [self.adSupport setParentView: self.view];
-    [self.adSupport setShrinkView: self.scrollView];
-    [self.adSupport setBottomConstraint: self.bottomConstraint];
     
     // Add Button to NavigationBar
     UIBarButtonItem* infoButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Info"] style:UIBarButtonItemStylePlain target:self action:@selector(showAboutInfo:)];
@@ -133,8 +111,9 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     if(![self isPad]) {
-        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
         [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
     }
 }
@@ -142,20 +121,11 @@
 - (void)viewDidLayoutSubviews {
     self.widthConstraint.constant = self.blockView.expected.width;
     self.heightConstraint.constant = self.blockView.expected.height;
-    [self.adSupport layoutAnimated:NO];
 }
 
 
-- (NSUInteger)supportedInterfaceOrientations {
-    if(![self isPad]) {
-        return UIInterfaceOrientationMaskPortrait;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-}
-
- 
 - (void)setup {
+
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {

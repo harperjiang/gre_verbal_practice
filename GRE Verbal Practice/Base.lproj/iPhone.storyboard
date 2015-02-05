@@ -5,7 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Tobago Poster.ttf">
@@ -2315,6 +2317,50 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEM-YM-3ZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="PhW-Gw-yaY">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2014. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="RVa-Ct-Zcw">
+                            <rect key="frame" x="20" y="559" width="561" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRE Verbal Master" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="VtW-wo-RXw">
+                            <rect key="frame" x="20" y="50" width="561" height="43"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="school_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="1NB-w3-Ped">
+                            <rect key="frame" x="40" y="161" width="520" height="277"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="1NB-w3-Ped" secondAttribute="height" multiplier="15:8" id="rFi-ul-tJX"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="RVa-Ct-Zcw" firstAttribute="leading" secondItem="PhW-Gw-yaY" secondAttribute="leading" constant="20" symbolic="YES" id="0Ij-r9-z6H"/>
+                        <constraint firstItem="VtW-wo-RXw" firstAttribute="top" secondItem="PhW-Gw-yaY" secondAttribute="top" constant="50" id="0OY-UN-cVC"/>
+                        <constraint firstItem="1NB-w3-Ped" firstAttribute="leading" secondItem="PhW-Gw-yaY" secondAttribute="leading" constant="40" id="0dm-t4-cEx"/>
+                        <constraint firstAttribute="centerY" secondItem="1NB-w3-Ped" secondAttribute="centerY" id="HEq-Ah-lXF"/>
+                        <constraint firstItem="VtW-wo-RXw" firstAttribute="centerY" secondItem="PhW-Gw-yaY" secondAttribute="bottom" multiplier="1/3" constant="-97.5" id="IVx-M9-kch"/>
+                        <constraint firstItem="RVa-Ct-Zcw" firstAttribute="width" secondItem="1NB-w3-Ped" secondAttribute="width" id="MST-gs-Ocl"/>
+                        <constraint firstAttribute="centerX" secondItem="RVa-Ct-Zcw" secondAttribute="centerX" id="ShR-YV-IrM"/>
+                        <constraint firstAttribute="centerX" secondItem="VtW-wo-RXw" secondAttribute="centerX" id="SzF-Vf-Ygc"/>
+                        <constraint firstAttribute="bottom" secondItem="RVa-Ct-Zcw" secondAttribute="bottom" constant="20" id="W0B-he-pIT"/>
+                        <constraint firstAttribute="centerX" secondItem="1NB-w3-Ped" secondAttribute="centerX" id="bjz-B1-UzP"/>
+                        <constraint firstItem="VtW-wo-RXw" firstAttribute="leading" secondItem="PhW-Gw-yaY" secondAttribute="leading" constant="20" symbolic="YES" id="u80-r5-rtN"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="IVx-M9-kch"/>
+                            <exclude reference="MST-gs-Ocl"/>
+                        </mask>
+                    </variation>
+                </view>
             </objects>
             <point key="canvasLocation" x="-3381" y="1275"/>
         </scene>
@@ -2334,6 +2380,7 @@
         <image name="Vocab_No" width="25" height="25"/>
         <image name="Vocab_See" width="25" height="25"/>
         <image name="Vocab_Yes" width="25" height="25"/>
+        <image name="school_white.png" width="626" height="458"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Pw2-nc-t15"/>

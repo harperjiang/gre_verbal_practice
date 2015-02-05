@@ -5,7 +5,7 @@
 //  Created by Harper on 12/23/14.
 //  Copyright (c) 2014 Hao Jiang. All rights reserved.
 //
-
+#import "UIViewController+ViewAddition.h"
 #import "UpdateViewController.h"
 #import "UserPreference.h"
 #import "DataImporter.h"
@@ -70,6 +70,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    if(![self isPad]) {
+        NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+        [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+    }
 }
 
 - (void)updateUI:(void (^)(void))block {

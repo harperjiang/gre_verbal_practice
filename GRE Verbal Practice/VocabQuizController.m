@@ -25,6 +25,7 @@
     self.view.backgroundColor = [UIUtils backgroundColor];
     // Init Data
     self.quizSet = [VocabQuizSet create];
+    
     // Init UI
     UIFont* digitalFont = [UIFont fontWithName:@"Let's go Digital" size:40];
     [self.questionTitle.titleLabel setText:@"QUESTION"];

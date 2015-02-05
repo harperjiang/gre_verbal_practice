@@ -12,12 +12,13 @@
 
 @interface AdBannerSupport : NSObject<ADBannerViewDelegate> {
     BOOL _loaded;
+    ADBannerView* _bannerView;
 }
 
 @property(nonatomic, readwrite, weak) UIView* parentView;
 @property(nonatomic, readwrite, weak) UIView* shrinkView;
-@property(nonatomic, readwrite, weak) ADBannerView* bannerView;
 @property(nonatomic, readwrite, weak) NSLayoutConstraint* bottomConstraint;
 
 - (void)layoutAnimated:(BOOL)animate;
+
 @end

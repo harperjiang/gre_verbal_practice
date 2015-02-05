@@ -11,6 +11,7 @@
 #import "TitleView.h"
 #import "ExamTimer.h"
 #import "VocabQuizSet.h"
+#import "AdBannerSupport.h"
 
 @interface VocabQuizController : UIViewController {
     ExamTimer* _timer;
